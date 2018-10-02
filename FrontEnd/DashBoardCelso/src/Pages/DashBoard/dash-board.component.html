@@ -1,75 +1,48 @@
-<!-- <div>
-  <div class="dashboardWrap">
-    <p-card>
-      <p-header>
-        Header content here
-      </p-header>
-      Body Content
-      <p-footer>
-        Footer content here
-      </p-footer>
-    </p-card>
-    <p-card>
-      <p-header>
-        Header content here
-      </p-header>
-      Body Content
-      <p-footer>
-        Footer content here
-      </p-footer>
-    </p-card>
-
-
-  </div>
-</div>
- -->
-
 <div class="dashboardWrap">
   <div>
     <div class="p-grid">
-      <div class="p-col-12 p-md-6 p-lg-6">
-        <mdb-card>
+      <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
+        <mdb-card (click)="basicModal.show()">
           <mdb-card-title class="titleCard">
-            <h4>Card Title</h4>
+            <h4>{{item.materia}}</h4>
             <mdb-icon icon="trash" size="2x" (click)="visibleSidebar1 = true">
             </mdb-icon>
           </mdb-card-title>
           <mdb-card-body>
+            <h6>Professor(a) {{item.professor}}</h6>
+            <div style="display: flex;justify-content: space-between;">
+              <p>Sala {{item.sala}}</p>
+              <p>de {{item.horaInicial}} as {{item.horaFinal}}</p>
+            </div>
           </mdb-card-body>
         </mdb-card>
       </div>
-      <div class="p-col-12 p-md-6 p-lg-6">
-        <mdb-card>
-          <mdb-card-title>
-            <h4>Card Title</h4>
-          </mdb-card-title>
-          <mdb-card-body>
-          </mdb-card-body>
-        </mdb-card>
-      </div>
-
     </div>
-    <br>
-    <div class="p-grid">
-      <div class="p-col-12 p-md-6 p-lg-6">
-        <mdb-card>
-          <mdb-card-title>
-            <h4>Card Title</h4>
-          </mdb-card-title>
-          <mdb-card-body>
-          </mdb-card-body>
-        </mdb-card>
-      </div>
-      <div class="p-col-12 p-md-6 p-lg-6">
-        <mdb-card>
-          <mdb-card-title>
-            <h4>Card Title</h4>
-          </mdb-card-title>
-          <mdb-card-body>
-          </mdb-card-body>
-        </mdb-card>
-      </div>
+  </div>
+</div>
 
+<div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×xX</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Modal X_X</h4>
+      </div>
+      <div class="modal-body">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-6 p-lg-6">
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Close</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>OK!</button>
+      </div>
     </div>
   </div>
 </div>

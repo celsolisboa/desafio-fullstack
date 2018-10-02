@@ -1,52 +1,72 @@
 [
     {
         "sala": 371,
-        "nome": "Morlee Elt",
-        "materia": "Portugues"
-    },
+        "professor": "Morlee Elt",
+        "materia": "Portugues",
+        "horaInicial": "09:00h",
+        "horaFinal": "12:00h"
+          },
     {
         "sala": 107,
-        "nome": "Benedetto Backler",
-        "materia": "Portugues"
-    },
+        "professor": "Benedetto Backler",
+        "materia": "Portugues",
+        "horaInicial": "09:00h",
+        "horaFinal": "14:00h"
+          },
     {
         "sala": 386,
-        "nome": "Miltie Jiru",
-        "materia": "Matematica"
-    },
+        "professor": "Miltie Jiru",
+        "materia": "Matematica",
+        "horaInicial": "10:00h",
+        "horaFinal": "12:00h"
+          },
     {
         "sala": 200,
-        "nome": "Lara Dod",
-        "materia": "Geografia"
-    },
+        "professor": "Lara Dod",
+        "materia": "Geografia",
+        "horaInicial": "13:00h",
+        "horaFinal": "16:00h"
+          },
     {
         "sala": 279,
-        "nome": "Jordain Sivier",
-        "materia": "Historia"
-    },
+        "professor": "Jordain Sivier",
+        "materia": "Historia",
+        "horaInicial": "09:00h",
+        "horaFinal": "17:00h"
+          },
     {
         "sala": 228,
-        "nome": "Borden Yorke",
-        "materia": "Artes"
-    },
+        "professor": "Borden Yorke",
+        "materia": "Artes",
+        "horaInicial": "09:00h",
+        "horaFinal": "16:00h"
+          },
     {
         "sala": 126,
-        "nome": "Lincoln Spyer",
-        "materia": "Sociologia"
-    },
+        "professor": "Lincoln Spyer",
+        "materia": "Sociologia",
+        "horaInicial": "13:00h",
+        "horaFinal": "16:00h"
+          },
     {
         "sala": 198,
-        "nome": "Madeleine Beckinsale",
-        "materia": "Filosofia"
-    },
+        "professor": "Madeleine Beckinsale",
+        "materia": "Filosofia",
+        "horaInicial": "16:00h",
+        "horaFinal": "20:10h"
+          },
     {
         "sala": 343,
-        "nome": "Sauveur Shortland",
-        "materia": "Matematica"
-    },
+        "professor": "Sauveur Shortland",
+        "materia": "Matematica",
+        "horaInicial": "06:00h",
+        "horaFinal": "10:00h"
+          },
     {
         "sala": 271,
-        "nome": "Winnie Bould",
-        "materia": "Portugues"
-    }
+        "professor": "Winnie Bould",
+        "materia": "Portugues",
+        "horaInicial": "19:00h",
+        "horaFinal": "22:00h"
+          }
 ]
