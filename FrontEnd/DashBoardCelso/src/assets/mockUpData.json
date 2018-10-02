@@ -1,0 +1,52 @@
+[
+    {
+        "sala": 371,
+        "nome": "Morlee Elt",
+        "materia": "Portugues"
+    },
+    {
+        "sala": 107,
+        "nome": "Benedetto Backler",
+        "materia": "Portugues"
+    },
+    {
+        "sala": 386,
+        "nome": "Miltie Jiru",
+        "materia": "Matematica"
+    },
+    {
+        "sala": 200,
+        "nome": "Lara Dod",
+        "materia": "Geografia"
+    },
+    {
+        "sala": 279,
+        "nome": "Jordain Sivier",
+        "materia": "Historia"
+    },
+    {
+        "sala": 228,
+        "nome": "Borden Yorke",
+        "materia": "Artes"
+    },
+    {
+        "sala": 126,
+        "nome": "Lincoln Spyer",
+        "materia": "Sociologia"
+    },
+    {
+        "sala": 198,
+        "nome": "Madeleine Beckinsale",
+        "materia": "Filosofia"
+    },
+    {
+        "sala": 343,
+        "nome": "Sauveur Shortland",
+        "materia": "Matematica"
+    },
+    {
+        "sala": 271,
+        "nome": "Winnie Bould",
+        "materia": "Portugues"
+    }
+]

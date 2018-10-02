@@ -1,0 +1,18 @@
+.dashboardWrap {
+    margin-top: 2%;
+    height: calc(100vh - 50px);
+    /* margin: auto; */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    .p-grid {
+        width: 100%;
+    }
+}
+
+.titleCard {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}

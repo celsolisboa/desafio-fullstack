@@ -1,0 +1,16 @@
+::ng-deep .container {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.headerFlex {
+    display: flex;
+    align-items: center;
+    h3 {
+        padding-left: 2vw;
+    }
+    mdb-icon {
+        padding-left: 1vw;
+        color: white;
+    }
+}
