@@ -2,7 +2,7 @@
   <div>
     <div class="p-grid">
       <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
-        <mdb-card (click)="basicModal.show()">
+        <mdb-card (click)="ShowDetails(item)">
           <mdb-card-title class="titleCard">
             <h4>{{item.materia}}</h4>
             <mdb-icon icon="trash" size="2x" (click)="visibleSidebar1 = true">
@@ -20,26 +20,52 @@
     </div>
   </div>
 </div>
+<!-- ×x -->
 
-<div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+<div mdbModal #detalhe="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
-          <span aria-hidden="true">×xX</span>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="detalhe.hide()">
+          <span aria-hidden="true">X</span>
         </button>
         <h4 class="modal-title w-100" id="myModalLabel">Modal X_X</h4>
       </div>
       <div class="modal-body">
         <div class="p-grid">
           <div class="p-col-12 p-md-6 p-lg-6">
-            
+            <div class="md-form">
+              <i class="fa fa-envelope prefix"></i>
+              <input mdbInputDirective type="email" class="form-control" id="form9" name="email">
+              <label for="form9">Type your e-mail</label>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <div class="md-form">
+              <i class="fa fa-envelope prefix"></i>
+              <input mdbInputDirective type="text" class="form-control" id="form9" name="email">
+              <label for="form9">Materia</label>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <div class="md-form">
+              <i class="fa fa-envelope prefix"></i>
+              <input mdbInputDirective type="text" class="form-control" id="form9" name="email">
+              <label for="form9">Type your e-mail</label>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <div class="md-form">
+              <i class="fa fa-envelope prefix"></i>
+              <input mdbInputDirective type="text" class="form-control" id="form9" name="email">
+              <label for="form9">Type your e-mail</label>
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()"
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="detalhe.hide()"
           mdbWavesEffect>Close</button>
         <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>OK!</button>
       </div>

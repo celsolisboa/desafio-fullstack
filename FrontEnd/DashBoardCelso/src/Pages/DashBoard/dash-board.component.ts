@@ -1,7 +1,7 @@
-import { CursoModel } from './../../Models/cursoModel';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { ModalDirective } from 'angular-bootstrap-md';
+import { CursoModel } from './../../Models/cursoModel';
 @Component({
   selector: 'app-dash-board',
   templateUrl: './dash-board.component.html',
@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashBoardComponent implements OnInit {
   Dados: CursoModel;
+  selectedData: CursoModel;
+  @ViewChild('detalhe') public modal: ModalDirective;
   constructor(public http: HttpClient) {
     this.getData();
   }
@@ -23,5 +25,11 @@ export class DashBoardComponent implements OnInit {
       console.log('hey!', res);
       this.Dados = res;
     });
+  }
+
+  ShowDetails(details) {
+    console.log(details);
+    this.selectedData = details;
+    this.modal.show();
   }
 }
