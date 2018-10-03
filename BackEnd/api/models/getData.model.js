@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  const getData  = require('../controllers/getData.controller');
+  const getData  = require('../controllers/cursos.controller');
     // getData Routes
     app.route('/tasks')
       .get(getData.list_all_tasks)
