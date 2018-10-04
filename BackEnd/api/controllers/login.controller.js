@@ -11,24 +11,42 @@ function Login() {
             name: req.params.usuario,
             password: req.params.senha
         }
-        jwt.sign({ user: user }, secret, (err, token) => {
+        console.log('indo para sign do jwt');
+
+        jwt.sign({
+            user: user
+        }, secret, {
+            expiresIn: '1000s'
+        }, (err, token) => {
             const result = {
                 id: secret,
                 Token: token
             }
-            res.send(result)
+            console.log('dentro do sign');
+            console.log('header',isValid);
+            const isValid = verifyLogin(req, res, next).isValid            
+            if (isValid) {
+                res.send(result)
+            } else {
+                res.send('Nope')
+            }
         })
-
     }
 
     this.verifyLogin = ((req, res, next) => {
+        console.log('Dentro de verify');
+
         const header = req.header['authorization ']
 
         if (typeof header !== 'undefined') {
-            const splitHeader = header.split(' ')
-            return true
+            const splitHeader = {
+                result: header.split(' '),
+                isValid: true
+            }
+            return splitHeader
+            next()
         } else {
-          return false  
+            return false
         }
     })
 }

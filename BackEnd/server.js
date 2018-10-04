@@ -7,8 +7,9 @@ server.name = 'Teste123'
 
 /* server.get('/mensagem/:nome', temNome, resposta); */
 
-server.get('/login/usuario/:usuario/senha/:senha', login.doLogin)
-server.get('/cursos/listar', cursos.list)
+server.post('/login/usuario/:usuario/senha/:senha', login.doLogin)
+server.post('/login/verificarToken', login.verifyLogin)
+server.get('/cursos/listar', cursos.listarCurso)
 
 server.listen(3000, () => {
   console.log("Servidor em pé", server.name + '----' + server.url);
