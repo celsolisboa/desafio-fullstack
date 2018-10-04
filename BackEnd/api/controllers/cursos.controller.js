@@ -1,18 +1,14 @@
-function Cursos(){
 
+var fs = require('fs')
+path = require('path')
 
-this.loging = function (req, res, next) {
-        console.log('funciona?');
-        res.send({msg: req.params.destino})
+function Cursos() {
+
+    this.list = function (req, res, next) {
+        let rawdata = fs.readFileSync(path.join(__dirname, 'mockUpData.json'));
+        let student = JSON.parse(rawdata);
+        console.log(student);
+        res.send(student)
     }
-    
 }
-
-this.list = function (req,  res , next ) {
-
-}
-
-
-
-
-module.exports = new Cursos
+module.exports = new Cursos()
