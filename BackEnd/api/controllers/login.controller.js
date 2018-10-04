@@ -22,32 +22,33 @@ function Login() {
                 id: secret,
                 Token: token
             }
+
+            res.send(result)
             console.log('dentro do sign');
-            console.log('header',isValid);
-            const isValid = verifyLogin(req, res, next).isValid            
-            if (isValid) {
-                res.send(result)
-            } else {
-                res.send('Nope')
-            }
+            console.log('header', isValid);
+            /*          const isValid = verifyLogin(req, res, next).isValid            
+                     if (isValid) {
+                         
+                     } else {
+                         res.send('Nope')
+                     } */
         })
     }
 
     this.verifyLogin = ((req, res, next) => {
         console.log('Dentro de verify');
-
-        const header = req.header['authorization ']
-
-        if (typeof header !== 'undefined') {
-            const splitHeader = {
-                result: header.split(' '),
-                isValid: true
-            }
-            return splitHeader
-            next()
+        
+        const bearerheader = res.setHeader('Authorization', 'kjksajkjsa')
+        console.log(bearerheader);
+        res.send('oi')
+   /*      if (typeof bearerheader !== 'undefined') {
+            const splitHeader = bearerheader.split(' ')
+            const headerToken = splitHeader[1]
+            req.token = headerToken
         } else {
-            return false
-        }
+
+            res.send(false)
+        } */
     })
 }
 module.exports = new Login();
