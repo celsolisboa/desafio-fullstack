@@ -32,15 +32,10 @@
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/quill/dist/quill.core.css",
-              "node_modules/quill/dist/quill.snow.css"
+              "node_modules/@nebular/theme/styles/prebuilt/cosmic.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js",
-              "node_modules/quill/dist/quill.js",
               "node_modules/hammerjs/hammer.min.js"
             ]
           },
