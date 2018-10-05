@@ -12,15 +12,16 @@ import { RoutingModule } from './app.routing';
 
 import { HeaderComponent } from '../Components/header/header.component';
 import { CursosComponent } from './../Components/cursos/cursos.component';
-
+import { GraficosComponent } from '../Components/graficos/graficos.component';
 
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-
+]
 import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbLayoutModule } from '@nebular/theme';
 import { NebularModule } from '../Modules/Nebular.module';
-import { GraficosComponent } from './graficos/graficos.component';
+
+
 
 
 

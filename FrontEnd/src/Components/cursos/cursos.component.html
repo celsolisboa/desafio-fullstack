@@ -1,4 +1,4 @@
-<div class="p-grid">
+<div class="p-grid" style="height: 50vh;overflow-y: scroll;">
   <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
     <nb-card (click)="ShowDetails(item)">
       <nb-card-header class="titleCard">
@@ -15,6 +15,24 @@
       </mdb-card-body>
     </nb-card>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div mdbModal #detalhe="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
     aria-hidden="true">

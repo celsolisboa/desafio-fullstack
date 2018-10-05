@@ -9,6 +9,7 @@ function Cursos() {
     })
 
     this.listarCurso = ((req, res, next) => {
+        console.log('Oi');
         let rawdata = fs.readFileSync(path.join(__dirname, 'mockUpData.json'));
         let student = JSON.parse(rawdata);
         console.log(student);
@@ -23,6 +24,11 @@ function Cursos() {
 
     })
 
+    this.grafico = ((req, res, next) => {
+        let rawdata = fs.readFileSync(path.join(__dirname, 'grafico.json'));
+        const grafico = JSON.parse(rawdata);;
+        res.send(grafico)
+    })
 
 }
 module.exports = new Cursos()

@@ -1,0 +1,24 @@
+
+
+
+<nb-flip-card>
+  <nb-card-front>
+    <nb-card>
+      <nb-card-body>
+        <div style="display: block">
+          <canvas mdbChart [chartType]="chartObj.type" [datasets]="chartObj.data" [labels]="chartObj.label" [colors]="chartObj.color" [options]="chartObj.option"
+            [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+        <button nbButton (click)="carga()"></button>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card>
+      <nb-card-body>
+        Back
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>
