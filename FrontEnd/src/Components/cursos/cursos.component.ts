@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md';
 import { CursoModel } from './../../Models/cursoModel';
 import { HttpClient } from '@angular/common/http';
 @Component({
@@ -10,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class CursosComponent implements OnInit {
   Dados: CursoModel;
   selectedData: CursoModel;
-  @ViewChild('detalhe') public modal: ModalDirective;
   constructor(public http: HttpClient) {
     this.getData();
   }
@@ -22,7 +20,7 @@ export class CursosComponent implements OnInit {
 
 
   getData() {
-    this.http.get('./assets/mockUpData.json').subscribe((res: CursoModel) => {
+    this.http.get('http://localhost:3000/cursos/listar').subscribe((res: CursoModel) => {
       console.log('hey!', res);
       this.Dados = res;
     });
@@ -31,6 +29,6 @@ export class CursosComponent implements OnInit {
   ShowDetails(details) {
     console.log(details);
     this.selectedData = details;
-    this.modal.show();
+
   }
 }

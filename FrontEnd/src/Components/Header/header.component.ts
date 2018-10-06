@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md';
 import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 @Component({
   selector: 'app-header',
