@@ -9,6 +9,6 @@ export class LoginSrvService {
   constructor(public http: HttpClient, public route: Router ) { }
 
   login(token) {
-/* this.http.post('') */
+ this.http.post('')
   }
 }

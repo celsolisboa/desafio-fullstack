@@ -9,6 +9,8 @@ server.name = 'Celso Lisboa'
 
 server.post('/login/usuario/:usuario/senha/:senha', login.doLogin)
 server.post('/login/verificarToken', login.verifyLogin)
+server.post('/login/getToken/:token', login.teste)
+/* server.post('/login/getTokenDecoded/:token/', login.teste) */
 server.get('/cursos/listar', cursos.listarCurso)
 server.get('/cursos/getgrafico', cursos.grafico)
 
