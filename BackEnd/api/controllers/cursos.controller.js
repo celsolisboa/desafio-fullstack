@@ -28,6 +28,10 @@ function Cursos() {
         let rawdata = fs.readFileSync(path.join(__dirname, 'grafico.json'));
         const grafico = JSON.parse(rawdata);;
         res.send(grafico)
+
+
+
+        
     })
 
 }

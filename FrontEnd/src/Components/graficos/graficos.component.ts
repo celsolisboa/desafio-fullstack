@@ -9,7 +9,9 @@ import Chart from 'chart.js';
 export class GraficosComponent implements OnInit {
 
   graficoObj: any;
+  graficoData:any
   showChart = false;
+  display: boolean;
   public chartOptions: any = {
     responsive: false
   };
@@ -53,10 +55,13 @@ export class GraficosComponent implements OnInit {
             '#FFCE56'
           ]
         }
-
-
-
+      ]
     }
   }
 
+
+
+  showDetails() {
+    this.display = true;
+  }
 }

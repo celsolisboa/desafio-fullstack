@@ -1,29 +1,19 @@
-<!-- <nb-flip-card>
-  <nb-card-front>
-    <nb-card>
-      <nb-card-body style="height: 32vh;">
-
-        <p-chart type="doughnut" [data]="graficoObj" [responsive]="false"></p-chart>
-        <button nbButton (click)="carga()"></button>
-
-
-      </nb-card-body>
-    </nb-card>
-  </nb-card-front>
-  <nb-card-back>
-    <nb-card>
-      <nb-card-body>
-        Back
-      </nb-card-body>
-    </nb-card>
-  </nb-card-back>
-</nb-flip-card> -->
-<!-- <div class="p-grid">
-  <div class="p-col-12 p-md-12 p-lg-12"> -->
-<nb-card>
+<nb-card (click)='showDetails()'>
   <nb-card-body>
     <p-chart type="doughnut" [data]="graficoObj"></p-chart>
   </nb-card-body>
 </nb-card>
-<!--   </div>
-</div> -->
+
+
+
+
+<p-dialog [(visible)]="display">
+  <p-header>
+      Detalhe do Grafico
+  </p-header>
+  <p-chart type="doughnut" [data]="graficoObj"></p-chart>
+
+  <p-footer>
+
+  </p-footer>
+</p-dialog>
