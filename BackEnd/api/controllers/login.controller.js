@@ -29,42 +29,28 @@ function Login() {
             user: user,
             permissions: permissions
         }, secret, {
-                expiresIn: timeToExpire
-            }, (err, token) => {
-                const result = {
-                    id: secret,
-                    Token: token,
-                    expiresIn: timeToExpire,
-                }
+            expiresIn: timeToExpire
+        }, (err, token) => {
+            const result = {
+                id: secret,
+                Token: token,
+                expiresIn: timeToExpire,
+            }
 
-                res.send(result)
-                console.log('dentro do sign');
-                console.log('header', isValid);
-                /*          const isValid = verifyLogin(req, res, next).isValid            
-                         if (isValid) {
-                             
-                         } else {
-                             res.send('Nope')
-                         } */
-            })
+            res.send(result)
+            console.log('dentro do sign');
+            console.log('header', isValid);
+        })
     }
 
 
-
     this.verifyLogin = ((req, res, next) => {
-        console.log('Dentro de verify');
+        console.log('Dentro de verify', req.header('Authorization'));
 
-        const bearerheader = res.setHeader('Authorization', 'kjksajkjsa')
-        console.log(bearerheader);
-        res.send('oi')
-        /*      if (typeof bearerheader !== 'undefined') {
-                 const splitHeader = bearerheader.split(' ')
-                 const headerToken = splitHeader[1]
-                 req.token = headerToken
-             } else {
-     
-                 res.send(false)
-             } */
+        const token = req.header('Authorization')
+        const TokenDecoded = jwt.decode(token)
+        res.send(TokenDecoded)
+
     })
 
 

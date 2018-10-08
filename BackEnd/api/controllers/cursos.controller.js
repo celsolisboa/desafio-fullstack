@@ -12,7 +12,6 @@ function Cursos() {
         console.log('Oi');
         let rawdata = fs.readFileSync(path.join(__dirname, 'mockUpData.json'));
         let student = JSON.parse(rawdata);
-        console.log(student);
         res.send(student)
     })
 
@@ -28,9 +27,6 @@ function Cursos() {
         let rawdata = fs.readFileSync(path.join(__dirname, 'grafico.json'));
         const grafico = JSON.parse(rawdata);;
         res.send(grafico)
-
-
-
         
     })
 

@@ -60,7 +60,7 @@ export class GraficosComponent implements OnInit {
           ]
         }
       ]
-    }
+    };
   }
   showDetails(dialog: TemplateRef<any>) {
     this.display = true;
