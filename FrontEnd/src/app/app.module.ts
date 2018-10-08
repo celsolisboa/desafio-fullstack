@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbToastrModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbToastrModule, NbDialogModule } from '@nebular/theme';
 import { NebularModule } from '../Modules/Nebular.module';
 import { PrimeNgModule } from '../Modules/primeNg.module';
 
@@ -17,6 +17,13 @@ import { RoutingModule } from './app.routing';
 import { CursosComponent } from './../Components/cursos/cursos.component';
 import { GraficosComponent } from '../Components/graficos/graficos.component';
 import { HeaderComponent } from '../Components/header/header.component';
+import { GetDataService } from '../Services/getDataSrv.service';
+import { LoginSrvService } from '../Services/loginSrv.service';
+
+
+
+
+const config = {};
 
 @NgModule({
   declarations: [
@@ -39,10 +46,13 @@ import { HeaderComponent } from '../Components/header/header.component';
     PrimeNgModule,
     NbToastrModule.forRoot(),
     NbSidebarModule.forRoot(),
+    NbDialogModule.forRoot(config),
     NbThemeModule.forRoot({ name: 'cosmic' }),
   ],
   providers: [
     NbSidebarService,
+    GetDataService,
+    LoginSrvService,
     NbSidebarModule.forRoot().providers,
     NbMenuModule.forRoot().providers
   ],

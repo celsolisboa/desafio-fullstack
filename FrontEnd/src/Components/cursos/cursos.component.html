@@ -1,9 +1,10 @@
-<div class="p-grid" style="height: 50vh;overflow-y: scroll;">
+<div class="p-grid GridCursos" style="height: 50vh;overflow-y: scroll;">
   <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
-    <nb-card (click)="ShowDetails(item)">
+    <!-- (click)="ShowDetails(item)" -->
+    <nb-card>
       <nb-card-header class="titleCard">
         <h2>{{item.materia}}</h2>
-        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-trash fa-2x" (click)="open(dialog, item)" aria-hidden="true"></i>
       </nb-card-header>
       <nb-card-body>
         <h3>Professor(a) {{item.professor}}</h3>
@@ -14,3 +15,55 @@
       </nb-card-body>
     </nb-card>
   </div>
+
+  <ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+      <nb-card-header>Detalhes do Curso</nb-card-header>
+      <nb-card-body>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <span class="ui-float-label">
+              <input id="float-input1" type="text" [(ngModel)]="Dados.materia" nbInput fullWidth pInputText>
+              <label for="float-input1">Nome do Curso</label>
+            </span>
+
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <nb-select placeholder="Professor" hero status="primary" [(selected)]="selectedItem">
+              <nb-option value="1">Option 1</nb-option>
+              <nb-option value="2">Option 2</nb-option>
+              <nb-option value="3">Option 3</nb-option>
+              <nb-option value="4">Option 4</nb-option>
+            </nb-select>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <nb-select placeholder="Salas" hero status="primary" [(selected)]="selectedItem">
+              <nb-option value="1">Option 1</nb-option>
+              <nb-option value="2">Option 2</nb-option>
+              <nb-option value="3">Option 3</nb-option>
+              <nb-option value="4">Option 4</nb-option>
+            </nb-select>
+
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <div style="
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            ">
+              <p-calendar [timeOnly]="true" nbInput [touchUI]="true" placeholder="Inicio" class="primeCosmicCalendar"></p-calendar>
+              <p-calendar [timeOnly]="true" nbInput [touchUI]="true" placeholder="Fim" class="primeCosmicCalendar"></p-calendar>
+            </div>
+            <!-- <p-dropdown [options]="Arr_professor" [(ngModel)]="professor" optionLabel="label"></p-dropdown> -->
+
+          </div>
+          <!--  -->
+        </div>
+
+
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton (click)="ref.close()">Close Dialog</button>
+      </nb-card-footer>
+    </nb-card>
+  </ng-template>

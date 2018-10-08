@@ -1,6 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { GetDataService } from './../../Services/getDataSrv.service';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { CursoModel } from './../../Models/cursoModel';
 import { HttpClient } from '@angular/common/http';
+import { SelectItem } from 'primeng/api';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
+import { GraficosComponent } from '../graficos/graficos.component';
+
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
@@ -9,26 +14,44 @@ import { HttpClient } from '@angular/common/http';
 export class CursosComponent implements OnInit {
   Dados: CursoModel;
   selectedData: CursoModel;
-  constructor(public http: HttpClient) {
-    this.getData();
+  display = false;
+  professor: any;
+  Arr_professor: SelectItem[];
+  constructor(public http: HttpClient, public getDataSrv: GetDataService private dialogService: NbDialogService) {
+    this.loadData();
+    this.cargaDrop();
   }
 
   ngOnInit() {
   }
 
 
+  cargaDrop() {
+    this.Arr_professor = [
+      { label: 'Select City', value: null },
+      { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
+      { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
+      { label: 'London', value: { id: 3, name: 'London', code: 'LDN' } },
+      { label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } },
+      { label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } }
+    ];
+  }
 
-
-  getData() {
-    this.http.get('http://localhost:3000/cursos/listar').subscribe((res: CursoModel) => {
-      console.log('hey!', res);
+  loadData() {
+    this.getDataSrv.getData().then((res: any) => {
       this.Dados = res;
+      this.getDataSrv.getProfessor();
     });
   }
 
   ShowDetails(details) {
-    console.log(details);
     this.selectedData = details;
+    console.log('Heyyyy', this.selectedData);
+    this.display = true;
+  }
 
+  open(dialog: TemplateRef<any>, item: CursoModel) {
+    this.Dados.materia = item.materia;
+    this.dialogService.open(dialog);
   }
 }

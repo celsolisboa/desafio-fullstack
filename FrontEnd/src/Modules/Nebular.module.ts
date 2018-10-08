@@ -18,7 +18,8 @@ import {
     NbAlertModule,
     NbCheckboxModule,
     NbStepperModule,
-    NbInputModule
+    NbInputModule,
+    NbSelectModule
 } from '@nebular/theme';
 
 
@@ -41,7 +42,8 @@ import {
         NbCheckboxModule,
         NbAccordionModule,
         NbStepperModule,
-        NbInputModule
+        NbInputModule,
+        NbSelectModule
     ],
     declarations: [],
     exports: [
@@ -61,7 +63,8 @@ import {
         NbCheckboxModule,
         NbAccordionModule,
         NbStepperModule,
-        NbInputModule
+        NbInputModule,
+        NbSelectModule
     ]
 })
 export class NebularModule { }

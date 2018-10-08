@@ -17,9 +17,37 @@
     padding-right: 1vw;
 }
 
-.p-grid {
+.GridCursos {
     margin-right: 0;
     height: 50vh;
     overflow-y: scroll;
     margin-left: 0;
+}
+
+.centerDialog {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+
+::ng-deep .primeCosmicCalendar {
+    background-color: #37317a;
+    border: 2px solid #342e73;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.75rem 1.125rem;
+    margin: auto;
+    border-radius: .5rem;
+    span {
+        input {
+            background-color: #37317a;
+            border: 2px solid #342e7300;
+            color: #fff;
+            text-align: center;
+            font-size: 1rem;
+            /* padding: 0.75rem 1.125rem; */
+            /* border-radius: .5rem; */
+        }
+    }
 }
