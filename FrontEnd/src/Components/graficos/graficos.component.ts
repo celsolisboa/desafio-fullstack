@@ -18,7 +18,6 @@ export class GraficosComponent implements OnInit {
   public chartOptions: any = {
     responsive: false
   };
-
   constructor(public http: HttpClient, public winSrv: NbWindowService, public dialogService: NbDialogService) { }
 
   ngOnInit() {
@@ -29,7 +28,6 @@ export class GraficosComponent implements OnInit {
       }
   };
   }
-
   carga() {
     this.http.get('http://localhost:3000/cursos/getgrafico').subscribe((res) => {
       console.log('RIhhjhjhSE', Object.keys(res[0]));

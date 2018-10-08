@@ -1,10 +1,10 @@
 <div class="p-grid GridCursos" style="height: 50vh;overflow-y: scroll;">
   <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
     <!-- (click)="ShowDetails(item)" -->
-    <nb-card>
+    <nb-card (click)="open(dialog, item)">
       <nb-card-header class="titleCard">
         <h2>{{item.materia}}</h2>
-        <i class="fa fa-trash fa-2x" (click)="open(dialog, item)" aria-hidden="true"></i>
+        <i class="fa fa-trash fa-2x"  aria-hidden="true"></i>
       </nb-card-header>
       <nb-card-body>
         <h3>Professor(a) {{item.professor}}</h3>

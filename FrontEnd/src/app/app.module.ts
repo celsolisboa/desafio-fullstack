@@ -16,14 +16,11 @@ import { RoutingModule } from './app.routing';
 
 import { CursosComponent } from './../Components/cursos/cursos.component';
 import { GraficosComponent } from '../Components/graficos/graficos.component';
-import { HeaderComponent } from '../Components/header/header.component';
+import { HeaderComponent } from '../Components/Header/header.component';
 import { GetDataService } from '../Services/getDataSrv.service';
 import { LoginSrvService } from '../Services/loginSrv.service';
 
-
-
-
-const config = {};
+const config = {}
 
 @NgModule({
   declarations: [

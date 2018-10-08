@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CursoModel } from './../Models/cursoModel';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class GetDataService {
@@ -20,14 +21,13 @@ export class GetDataService {
 
 
   getProfessor() {
-    for (let i = 0; i < this.Dados.length; i++) {
+for (let i = 0; i < this.Dados.length; i++) {
       const element = this.Dados[i];
       console.log('Dentro de professor', element);
       if (this.Arr_professor.indexOf(element.professor) <= -1) {
         this.Arr_professor.push(element.professor);
       } else {
         console.log('N adiciona');
-
       }
       console.log('resultado do array de professores', this.Arr_professor);
 
