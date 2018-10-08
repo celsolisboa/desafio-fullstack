@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NbWindowService } from '@nebular/theme';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import Chart from 'chart.js';
 @Component({
   selector: 'app-graficos',
@@ -9,17 +11,23 @@ import Chart from 'chart.js';
 export class GraficosComponent implements OnInit {
 
   graficoObj: any;
-  graficoData:any
+  graficoData: any;
+  options: any;
   showChart = false;
   display: boolean;
   public chartOptions: any = {
     responsive: false
   };
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public winSrv: NbWindowService, public dialogService: NbDialogService) { }
 
   ngOnInit() {
     this.carga();
+    this.options = {
+        legend: {
+          position: 'bottom'
+      }
+  };
   }
 
   carga() {
@@ -31,8 +39,6 @@ export class GraficosComponent implements OnInit {
 
     });
   }
-
-
 
   montarGrafico(event) {
     this.graficoObj = {
@@ -58,10 +64,10 @@ export class GraficosComponent implements OnInit {
       ]
     }
   }
-
-
-
-  showDetails() {
+  showDetails(dialog: TemplateRef<any>) {
     this.display = true;
+    this.dialogService.open(dialog);
+
+
   }
 }

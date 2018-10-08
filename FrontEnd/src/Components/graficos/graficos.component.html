@@ -1,13 +1,24 @@
-<nb-card (click)='showDetails()'>
+<nb-card (click)='showDetails(contentTemplate)'>
   <nb-card-body>
     <p-chart type="doughnut" [data]="graficoObj"></p-chart>
   </nb-card-body>
 </nb-card>
 
 
+<!-- <ng-template #contentTemplate let-data>
+  <p-chart type="doughnut" [data]="graficoObj"></p-chart>
+</ng-template> -->
 
+<ng-template #contentTemplate let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Detalhes do Grafico</nb-card-header>
+    <nb-card-body>
+      <p-chart type="doughnut" [data]="graficoObj" [options]="options"></p-chart>
+    </nb-card-body>
+  </nb-card>
+</ng-template>
 
-<p-dialog [(visible)]="display">
+<!-- <p-dialog [(visible)]="display">
   <p-header>
     Detalhe do Grafico
   </p-header>
@@ -17,18 +28,4 @@
 
   </p-footer>
 </p-dialog>
-
-
-
-<p-dialog header="Godfather I" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200"
-  [minY]="70" [maximizable]="true" [baseZIndex]="10000">
-  <p-header>
-    Detalhe do Grafico
-  </p-header>
-  <p-chart type="doughnut" [data]="graficoObj"></p-chart>
-
-  <p-footer>
-    <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes"></button>
-    <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No" class="ui-button-secondary"></button>
-  </p-footer>
-</p-dialog>
+ -->

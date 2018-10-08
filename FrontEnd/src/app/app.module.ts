@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbToastrModule, NbDialogModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbToastrModule, NbWindowModule, NbDialogModule } from '@nebular/theme';
 import { NebularModule } from '../Modules/Nebular.module';
 import { PrimeNgModule } from '../Modules/primeNg.module';
 
@@ -44,6 +44,7 @@ const config = {};
     FormsModule,
     NebularModule,
     PrimeNgModule,
+    NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbDialogModule.forRoot(config),
@@ -53,6 +54,7 @@ const config = {};
     NbSidebarService,
     GetDataService,
     LoginSrvService,
+    NbWindowModule.forRoot().providers,
     NbSidebarModule.forRoot().providers,
     NbMenuModule.forRoot().providers
   ],

@@ -17,7 +17,7 @@ export class CursosComponent implements OnInit {
   display = false;
   professor: any;
   Arr_professor: SelectItem[];
-  constructor(public http: HttpClient, public getDataSrv: GetDataService private dialogService: NbDialogService) {
+  constructor(public http: HttpClient, public getDataSrv: GetDataService, public dialogService: NbDialogService) {
     this.loadData();
     this.cargaDrop();
   }
