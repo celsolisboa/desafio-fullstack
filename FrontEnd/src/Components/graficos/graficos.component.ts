@@ -23,10 +23,10 @@ export class GraficosComponent implements OnInit {
   ngOnInit() {
     this.carga();
     this.options = {
-        legend: {
-          position: 'bottom'
+      legend: {
+        position: 'bottom'
       }
-  };
+    };
   }
   carga() {
     this.http.get('http://localhost:3000/cursos/getgrafico').subscribe((res) => {
