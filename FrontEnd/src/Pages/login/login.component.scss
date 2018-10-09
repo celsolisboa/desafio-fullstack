@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    nb-card {
-        width: 100%;
-    }
+    /*  nb-card {
+     width: 100%;
+ } */
 }
 
 .boldPlaceholder {
@@ -18,13 +18,13 @@
     justify-content: center;
     button {
         position: relative;
-        bottom: 7vh;
+        bottom: 5vh;
     }
 }
 
-.footerLogin{
-  display: flex;
-  justify-content: center;
+.footerLogin {
+    display: flex;
+    justify-content: center;
 }
 
 .ColorLoginSign {

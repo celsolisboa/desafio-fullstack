@@ -29,18 +29,17 @@ function Login() {
             user: user,
             permissions: permissions
         }, secret, {
-            expiresIn: timeToExpire
-        }, (err, token) => {
-            const result = {
-                id: secret,
-                Token: token,
-                expiresIn: timeToExpire,
-            }
-
-            res.send(result)
-            console.log('dentro do sign');
-            console.log('header', isValid);
-        })
+                expiresIn: timeToExpire
+            }, (err, token) => {
+                const result = {
+                    id: secret,
+                    Token: token,
+                    expiresIn: timeToExpire,
+                }
+                res.send(result)
+                console.log('dentro do sign');
+                console.log('header', isValid);
+            })
     }
 
 

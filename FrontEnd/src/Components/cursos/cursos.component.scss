@@ -31,7 +31,25 @@
     flex-wrap: wrap;
 }
 
-::ng-deep .primeCosmicCalendar {
+.cardCenter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.separador {
+    margin-top: 10px;
+}
+
+::ng-deep .ui-float-label>input:focus~label,
+.ui-float-label>input.ui-state-filled~label,
+.ui-float-label>.ui-inputwrapper-focus~label,
+.ui-float-label>.ui-inputwrapper-filled~label {
+    color: white !important;
+    font-size: 2vh !important;
+}
+
+/* ::ng-deep .primeCosmicCalendar {
     background-color: #37317a;
     border: 2px solid #342e73;
     color: #fff;
@@ -48,8 +66,6 @@
             text-align: center;
             width: 100%;
             font-size: 1rem;
-            /* padding: 0.75rem 1.125rem; */
-            /* border-radius: .5rem; */
         }
     }
-}
+} */

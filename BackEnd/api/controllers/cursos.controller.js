@@ -2,10 +2,11 @@
 var fs = require('fs');
 path = require('path');
 cursoJsonPath = path.join(__dirname, 'cursos.json');
+graficoJsonPath = path.join(__dirname, 'grafico.json');
 /* cursoJsonPath = './cursoJsonPath.json' */
-file = require(cursoJsonPath);
-let Arr_curso = []
+
 const Arr_professor = [];
+const Arr_sala = []
 
 function Cursos() {
     this.criarCurso = ((req, res, next) => {
@@ -13,37 +14,38 @@ function Cursos() {
             "id": Number(req.params.id),
             "sala": req.params.sala,
             "professor": req.params.professor,
-            "materia": req.materia,
+            "materia": req.params.materia,
             "horaInicial": req.params.horaInicial,
             "horaFinal": req.params.horaFinal
         }
-        /*      let rawdata = fs.readFileSync(cursoJsonPath);
-             const arr_cursoteste = JSON.parse(rawdata); */
+        let rawdata = fs.readFileSync(cursoJsonPath);
+        const Arr_curso = JSON.parse(rawdata);
         Arr_curso.push(add)
         fs.writeFile(cursoJsonPath, JSON.stringify(Arr_curso, null, 2), ((err) => {
             if (err) {
                 res.send(err);
             } else {
-                console.log('writing aasasto ' + cursoJsonPath);
-                res.send('item adicionado?')
+                const resultado = {
+                    result: 'Item adicionado com Sucesso',
+                    item: element
+                }
+                res.send(resultado)
             }
         }))
     })
 
-
     this.listarCurso = ((req, res, next) => {
-        console.log('Oi');
-        let rawdata = fs.readFileSync(path.join(__dirname, 'cursos.json'));
-        Arr_curso = JSON.parse(rawdata);
+        let rawdata = fs.readFileSync(cursoJsonPath);
+        const Arr_curso = JSON.parse(rawdata);
         res.send(Arr_curso)
     })
 
     this.atualizarCurso = ((req, res, next) => {
         let rawdata = fs.readFileSync(cursoJsonPath);
-        const arr_cursoteste = JSON.parse(rawdata);
+        const Arr_curso = JSON.parse(rawdata);
         console.log('Entrei em atualizar curso');
-        for (let i = 0; i < arr_cursoteste.length; i++) {
-            const element = arr_cursoteste[i];
+        for (let i = 0; i < Arr_curso.length; i++) {
+            const element = Arr_curso[i];
             if (element.id === Number(req.params.id)) {
                 element.id = Number(req.params.id);
                 element.sala = Number(req.params.sala);
@@ -51,7 +53,7 @@ function Cursos() {
                 element.materia = req.params.materia;
                 element.horaInicial = req.params.horaInicial;
                 element.horaFinal = req.params.horaFinal;
-                fs.writeFile(cursoJsonPath, JSON.stringify(arr_cursoteste, null, 2), ((err) => {
+                fs.writeFile(cursoJsonPath, JSON.stringify(Arr_curso, null, 2), ((err) => {
                     if (err) {
                         res.send(err);
                     } else {
@@ -76,8 +78,8 @@ function Cursos() {
         let rawdata = fs.readFileSync(path.join(__dirname, 'grafico.json'));
         const grafico = JSON.parse(rawdata);;
         res.send(grafico)
-
     })
+
     this.getProfessor = ((req, res, next) => {
         for (let i = 0; i < Arr_curso.length; i++) {
             const element = Arr_curso[i];
@@ -88,6 +90,17 @@ function Cursos() {
             }
         }
         res.send(Arr_professor)
+    })
+    this.getSala = ((req, res, next) => {
+        for (let i = 0; i < Arr_curso.length; i++) {
+            const element = Arr_curso[i];
+            if (Arr_sala.indexOf(element.sala) <= -1) {
+                Arr_sala.push(element.sala);
+            } else {
+                console.log('N adiciona');
+            }
+        }
+        res.send(Arr_sala)
     })
 }
 module.exports = new Cursos()

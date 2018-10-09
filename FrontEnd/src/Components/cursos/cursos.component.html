@@ -1,7 +1,7 @@
 <div class="p-grid GridCursos" style="height: 50vh;overflow-y: scroll;">
   <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
     <!-- (click)="ShowDetails(item)" -->
-    <nb-card (click)="open(dialog, item)">
+    <nb-card (click)="openEdit(dialog, item)">
       <nb-card-header class="titleCard">
         <h2>{{item.materia}}</h2>
         <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
@@ -10,53 +10,60 @@
         <h3>Professor(a) {{item.professor}}</h3>
         <div style="display: flex;justify-content: space-between;">
           <p>Sala {{item.sala}}</p>
-          <p>de {{item.horaInicial}} as {{item.horaFinal}}</p>
+          <p>de {{item.horaInicial | date: 'HH:mm'}} as {{item.horaFinal | date: 'HH:mm'}}</p>
         </div>
       </nb-card-body>
     </nb-card>
   </div>
-
   <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card>
       <nb-card-header>Detalhes do Curso</nb-card-header>
       <nb-card-body>
         <div class="p-grid">
-          <div class="p-col-12 p-md-6 p-lg-6">
+          <div class="p-col-12 p-md-6 p-lg-6 separador">
             <span class="ui-float-label">
               <input id="float-input1" type="text" [(ngModel)]="selectedData.materia" nbInput fullWidth pInputText>
-              <label for="float-input1">Nome do Curso</label>
+              <label for="float-input1" class="placehold">Nome do Curso</label>
             </span>
 
           </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
+          <div class="p-col-12 p-md-6 p-lg-6 separador">
             <nb-select placeholder="Professor" hero status="primary" [(ngModel)]="selectedData.professor">
               <nb-option *ngFor="let item of dropdowns.Arr_professor" value="{{item}}">{{item}}</nb-option>
             </nb-select>
           </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
+          <div class="p-col-12 p-md-6 p-lg-6 separador">
             <nb-select placeholder="Sala" hero status="primary" [(ngModel)]="selectedData.sala">
               <nb-option *ngFor="let item of dropdowns.Arr_sala" value="{{item}}">{{item}}</nb-option>
             </nb-select>
           </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
-            <div style="
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            ">
-              <p-calendar [timeOnly]="true" nbInput [touchUI]="true" [(ngModel)]="selectedData.horaInicial" placeholder="Inicio"
-                class="primeCosmicCalendar"></p-calendar>
-              <p-calendar [timeOnly]="true" nbInput [touchUI]="true" [(ngModel)]="selectedData.horaFinal" placeholder="Fim"
-                class="primeCosmicCalendar"></p-calendar>
+          <div class="p-col-12 p-md-6 p-lg-6 separador">
+            <div class="cardCenter">
+              <div>
+                <span class="ui-float-label">
+                  <input id="horaInicial" [owlDateTimeTrigger]="horaInicial" [(ngModel)]="selectedData.horaInicial"
+                    [owlDateTime]="horaInicial" pInputText nbInput>
+                  <label for="horaInicial" class="placehold">Hora Inicial</label>
+                  <owl-date-time [pickerType]="'timer'" #horaInicial></owl-date-time>
+                </span>
+              </div>
+              <div>
+                <span class="ui-float-label">
+                  <input id="horaFinal" [owlDateTimeTrigger]="horaFinal" [(ngModel)]="selectedData.horaFinal"
+                    [owlDateTime]="horaFinal" pInputText nbInput>
+                  <label for="horaFinal" class="placehold">Hora Final</label>
+                  <owl-date-time [pickerType]="'timer'" #horaFinal></owl-date-time>
+                </span>
+              </div>
             </div>
-            <!-- <p-dropdown [options]="Arr_professor" [(ngModel)]="professor" optionLabel="label"></p-dropdown> -->
           </div>
         </div>
 
       </nb-card-body>
-      <nb-card-footer>
-        <button nbButton (click)="ref.close()">Close Dialog</button>
-        <button nbButton (click)="logs()">Gimme the Logs</button>
+      <nb-card-footer style="display: flex;justify-content: space-between;">
+        <button nbButton hero status="danger" (click)="ref.close()">Cancelar</button>
+
+        <button nbButton hero status="success" (click)="save(ref)">Salvar</button>
       </nb-card-footer>
     </nb-card>
   </ng-template>

@@ -1,10 +1,11 @@
-import { GetDataService } from './../../Services/getDataSrv.service';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { CursoModel } from './../../Models/cursoModel';
 import { HttpClient } from '@angular/common/http';
-import { SelectItem } from 'primeng/api';
-import { NbDialogRef, NbDialogService } from '@nebular/theme';
-import { GraficosComponent } from '../graficos/graficos.component';
+import { NbDialogService } from '@nebular/theme';
+import { DateTimeAdapter } from 'ng-pick-datetime';
+import { CallFunctionSrvService } from './../../Services/callFunctionSrv.service';
+import { GetDataService } from './../../Services/getDataSrv.service';
+import { config } from '../../environments/config';
 
 @Component({
   selector: 'app-cursos',
@@ -12,24 +13,36 @@ import { GraficosComponent } from '../graficos/graficos.component';
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent implements OnInit {
-  Dados: CursoModel;
+  Dados: CursoModel[]
   display = false;
-  professor: any;
+  Destino: string;
   selectedData: CursoModel = {
     id: null as number,
-    sala: null as string,
+    sala: null as number,
     professor: null as string,
     materia: null as string,
-    horaInicial: null as string,
-    horaFinal: null as string
+    horaInicial: null as any,
+    horaFinal: null as any
   };
+  @ViewChild('dialog') dialog: TemplateRef<any>;
   dropdowns = {
     Arr_professor: null as Array<any>,
     Arr_sala: null as Array<any>
   };
-  constructor(public http: HttpClient, public getDataSrv: GetDataService, public dialogService: NbDialogService) {
+  constructor(public http: HttpClient,
+    public getDataSrv: GetDataService,
+    public dialogService: NbDialogService,
+    public callSrv: CallFunctionSrvService,
+    dateTime: DateTimeAdapter<any>) {
     this.loadData();
+    dateTime.setLocale('pt-BR');
 
+    this.callSrv.FuncaoChamada.subscribe((comando) => {
+      if (comando.id === config.abrirInclusão) {
+        this.Destino = config.abrirInclusão;
+        this.openSalvar();
+      }
+    });
   }
 
   ngOnInit() {
@@ -38,23 +51,56 @@ export class CursosComponent implements OnInit {
   loadData() {
     this.getDataSrv.getData().then((res: any) => {
       this.Dados = res;
+      /* this.Dados.horaInicial =  */
       this.dropdowns.Arr_professor = this.getDataSrv.getProfessor();
       this.dropdowns.Arr_sala = this.getDataSrv.getSalas();
       console.log(this.dropdowns);
     });
   }
+  openSalvar() {
 
-  open(dialog: TemplateRef<any>, item: CursoModel) {
+    this.selectedData.id = null as number;
+    this.selectedData.materia = null;
+    this.selectedData.professor = null;
+    this.selectedData.sala = null;
+    this.selectedData.horaInicial = null;
+    this.selectedData.horaFinal = null;
+    this.dialogService.open(this.dialog);
+  }
+
+  openEdit(dialog: TemplateRef<any>, item: CursoModel) {
     console.log(item);
     this.selectedData.id = item.id;
     this.selectedData.materia = item.materia;
     this.selectedData.professor = item.professor;
-    this.selectedData.sala = item.sala;
-    this.selectedData.horaInicial = item.horaInicial;
-    this.selectedData.horaFinal = item.horaFinal;
-    this.dialogService.open(dialog);
+    this.selectedData.sala = Number(item.sala);
+    this.selectedData.horaInicial = new Date(item.horaInicial);
+    this.selectedData.horaFinal = new Date(item.horaFinal);
+    this.Destino = config.abrirInclusão;
+    this.dialogService.open(this.dialog);
   }
 
+  save(btn) {
+    console.log('Indo para o serviço', this.selectedData);
+    if (this.Destino === config.abrirInclusão) {
+      this.selectedData.id = Number(this.selectedData.id) + this.Dados.length + 1;
+      this.selectedData.sala = Number(this.selectedData.sala);
+      this.selectedData.horaInicial = new Date(this.selectedData.horaInicial).getTime();
+      this.selectedData.horaFinal = new Date(this.selectedData.horaFinal).getTime();
+      this.getDataSrv.saveData(this.selectedData).then((s) => {
+        console.log(s);
+        this.loadData();
+        btn.close();
+      });
+    }
+    if (this.Destino === config.abrirEdição) {
+      this.getDataSrv.editData(this.selectedData).then((s) => {
+        console.log(s);
+        this.loadData();
+        btn.close();
+      });
+    }
+  }
   logs() {
     console.log(this.selectedData);
 

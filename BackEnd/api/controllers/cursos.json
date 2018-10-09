@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "sala": 126,
+    "professor": "Morlee Elt",
+    "materia": "Portugues",
+    "horaInicial": "Tue Oct 09 2018 11:06:18 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 12:06:18 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 2,
+    "sala": 107,
+    "professor": "Benedetto Backler",
+    "materia": "Portugues",
+    "horaInicial": "Tue Oct 09 2018 10:21:16 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 17:21:20 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 3,
+    "sala": 279,
+    "professor": "Miltie Jiru",
+    "materia": "Matematica",
+    "horaInicial": "Tue Oct 09 2018 14:01:34 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 20:01:35 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 4,
+    "sala": 228,
+    "professor": "Lara Dod",
+    "materia": "Geografia",
+    "horaInicial": "Tue Oct 09 2018 11:01:47 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 15:04:50 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 5,
+    "sala": 279,
+    "professor": "Jordain Sivier",
+    "materia": "Historia",
+    "horaInicial": "Tue Oct 09 2018 13:03:04 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 17:03:04 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 6,
+    "sala": 228,
+    "professor": "Borden Yorke",
+    "materia": "Artes",
+    "horaInicial": "Tue Oct 09 2018 09:03:04 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 16:03:04 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 7,
+    "sala": 126,
+    "professor": "Lincoln Spyer",
+    "materia": "Sociologia",
+    "horaInicial": "Tue Oct 09 2018 13:02:01 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 21:03:04 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 8,
+    "sala": 198,
+    "professor": "Madeleine Beckinsale",
+    "materia": "Filosofia",
+    "horaInicial": "Tue Oct 09 2018 16:03:04 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 20:13:04 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 9,
+    "sala": 271,
+    "professor": "Sauveur Shortland",
+    "materia": "Matematica",
+    "horaInicial": "Tue Oct 09 2018 15:02:16 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 20:02:19 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 10,
+    "sala": 271,
+    "professor": "Winnie Bould",
+    "materia": "Artes",
+    "horaInicial": "Tue Oct 09 2018 19:00:04 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 22:03:04 GMT-0300 (Horário Padrão de Brasília)"
+  },
+  {
+    "id": 11,
+    "sala": "228",
+    "professor": "Lincoln Spyer",
+    "materia": "Matematica",
+    "horaInicial": "Tue Oct 09 2018 13:26:20 GMT-0300 (Horário Padrão de Brasília)",
+    "horaFinal": "Tue Oct 09 2018 16:26:22 GMT-0300 (Horário Padrão de Brasília)"
+  }
+]

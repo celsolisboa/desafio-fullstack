@@ -5,7 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NbThemeModule, NbSidebarModule, NbSidebarService, NbMenuModule, NbToastrModule, NbWindowModule, NbDialogModule } from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbSidebarModule,
+  NbSidebarService,
+  NbMenuModule,
+  NbToastrModule,
+  NbWindowModule,
+  NbDialogModule
+} from '@nebular/theme';
 import { NebularModule } from '../Modules/Nebular.module';
 import { PrimeNgModule } from '../Modules/primeNg.module';
 
@@ -19,8 +27,12 @@ import { GraficosComponent } from '../Components/graficos/graficos.component';
 import { HeaderComponent } from '../Components/Header/header.component';
 import { GetDataService } from '../Services/getDataSrv.service';
 import { LoginSrvService } from '../Services/loginSrv.service';
+import { CallFunctionSrvService } from '../Services/callFunctionSrv.service';
 
-const config = {}
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
+
+const config = {};
 
 @NgModule({
   declarations: [
@@ -39,6 +51,10 @@ const config = {}
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+
     NebularModule,
     PrimeNgModule,
     NbWindowModule.forRoot(),
@@ -51,6 +67,7 @@ const config = {}
     NbSidebarService,
     GetDataService,
     LoginSrvService,
+    CallFunctionSrvService,
     NbWindowModule.forRoot().providers,
     NbSidebarModule.forRoot().providers,
     NbMenuModule.forRoot().providers

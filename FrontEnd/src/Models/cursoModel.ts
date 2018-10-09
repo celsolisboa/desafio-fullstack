@@ -1,8 +1,8 @@
 export interface CursoModel {
   id: number;
-  sala: string;
+  sala: number;
   professor: string;
   materia: string;
-  horaInicial: string;
-  horaFinal: string;
+  horaInicial: any;
+  horaFinal: any;
 }

@@ -6,27 +6,28 @@
   </nb-layout-header>
   <nb-layout-column>
 
-<div class="centerDiv">
-<nb-card>
-  <nb-card-header class="headerLogin">
-      <button nbButton hero status="info">Login</button>
-  </nb-card-header>
+    <div class="centerDiv">
+      <nb-card>
+        <nb-card-header class="headerLogin">
+          <button nbButton hero status="info">Login</button>
+        </nb-card-header>
 
-    <nb-card-body>
-        <span class="ui-float-label" style="margin-top: 10px;">
+        <nb-card-body>
+          <span class="ui-float-label" style="margin-top: 10px;">
             <input id="username" [(ngModel)]="LoginForm.username" type="text" size="30" nbInput pInputText>
             <label for="username" class="boldPlaceholder">Usuario</label>
-        </span>
-        <span class="ui-float-label" style="margin-top: 10px;">
-            <input id="password" type="text" size="30" nbInput pInputText>
+          </span>
+          <br>
+          <span class="ui-float-label" style="margin-top: 20px;">
+            <input id="password" [(ngModel)]="LoginForm.password" type="password" size="30" nbInput pInputText>
             <label for="password" class="boldPlaceholder">Senha</label>
-        </span>
-    </nb-card-body>
-    <nb-card-footer class="footerLogin">
-        <button nbButton hero status="success" (click)="doLogin()">Entrar</button>
-    </nb-card-footer>
-  </nb-card>
-</div>
+          </span>
+        </nb-card-body>
+        <nb-card-footer class="footerLogin">
+          <button nbButton hero status="success" (click)="doLogin()">Entrar</button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
 
   </nb-layout-column>
 </nb-layout>

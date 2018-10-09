@@ -6,7 +6,7 @@ import { DashBoardComponent } from '../Pages/DashBoard/dash-board.component';
 const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   { path: 'Home', component: DashBoardComponent },
-  { path: '', redirectTo: 'Home', pathMatch: 'full' },
+  { path: '', redirectTo: 'Login', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(

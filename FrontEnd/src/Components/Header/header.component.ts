@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { config } from '../../environments/config';
+import { CallFunctionSrvService } from '../../Services/callFunctionSrv.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public callSrv: CallFunctionSrvService) { }
 
   ngOnInit() {
   }
 
+  novo() {
+    const valor = '';
+    const id = config.abrirInclusão;
+    this.callSrv.ChamarFuncao(valor, id);
+  }
 }
