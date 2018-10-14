@@ -1,0 +1,9 @@
+<section class="cursos">
+  <div class="cursos-container">
+    <p class="cursos-title">Cursos <span class="icon">+</span></p>
+
+    <div *ngFor="let curso of cursos" class="curso">
+      <app-curso [curso]="curso"></app-curso>
+    </div>
+  </div>
+</section>
