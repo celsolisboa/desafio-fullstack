@@ -21,7 +21,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     database.connect(config)
-        .then(() => res.json({ message: "Funcionou Home" }))
+        .then(() => res.status(200).send("Sucesso"))
         .catch((error) => console.log(error) )
 });
 
