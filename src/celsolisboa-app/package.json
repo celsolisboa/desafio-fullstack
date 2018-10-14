@@ -20,7 +20,11 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
+    "msnodesqlv8": "^0.6.9",
+    "mssql": "^4.2.1",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
