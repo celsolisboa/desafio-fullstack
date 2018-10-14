@@ -10,8 +10,10 @@ const port = 3000;
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors")
 
 const app = express();
+app.use(cors())
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -29,7 +31,7 @@ router.get("/teste", (req, res) => {
     database.connect(config)
         .then(conn => {
             const request = new database.Request()
-            request.query('select * from teste2', (error, recordSet) => {
+            request.query('select * from teste', (error, recordSet) => {
                 res.json(recordSet.recordsets[0])
                 database.close();
             });
