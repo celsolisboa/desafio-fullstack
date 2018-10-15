@@ -11,20 +11,22 @@ const port = 3000;
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors")
+const path = require("path")
 
 const app = express();
 app.use(cors())
-
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    database.connect(config)
-        .then(() => res.status(200).send("Sucesso"))
-        .catch((error) => console.log(error))
+    // database.connect(config)
+    //     .then(() => res.send("Sucesso"))
+    //     .catch((error) => console.log(error))
+
+    res.send("Sucesso")
 });
 
 router.get("/teste", (req, res) => {
@@ -40,7 +42,7 @@ router.get("/teste", (req, res) => {
 
 });
 
-router.delete("/user/delete/:id", (req, res) => {
+router.delete("/api/user/delete/:id", (req, res) => {
     database.connect(config)
         .then(conn => {
             const request = new database.Request();
@@ -53,7 +55,7 @@ router.delete("/user/delete/:id", (req, res) => {
 
 });
 
-router.post("/cursos/cadastrar", (req, res) => {
+router.post("/api/cursos/cadastrar", (req, res) => {
     console.log(req.body.startDate);
     database.connect(config)
         .then(conn => {
