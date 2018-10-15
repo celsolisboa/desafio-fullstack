@@ -11,7 +11,7 @@ export class CursoService {
   constructor(private http: HttpClient) { }
 
   getCursos(): Observable<any> {
-    return this.http.get('http://localhost:3000/teste');
+    return this.http.get(`${LocalAPI}/cursos/listar`);
   }
 
   deleteCourse(id): Observable<any> {
