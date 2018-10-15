@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICurso } from '../_interfaces/icurso.interface';
 import { CursoService } from './curso.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cursos',
@@ -10,12 +11,19 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 })
 export class CursosComponent implements OnInit {
 
+
+  constructor(private cursoService: CursoService, private router: Router) { }
+  
   cursos: any[];
   faPlus = faPlus;
-  constructor(private cursoService: CursoService) { }
+  getCourses() : any {
+     this.cursoService.getCursos().subscribe(response => {
+      this.cursos = response
+    });
+  }
 
   ngOnInit() {
-    this.cursoService.getCursos().subscribe(response => this.cursos = response);
+    this.getCourses()
   }
 
 }

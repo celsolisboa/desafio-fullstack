@@ -1,10 +1,15 @@
-<section class="cursos">
-  <div class="cursos-container">
-    <p class="cursos-title">Cursos <a [routerLink]="['/cursos', 'cadastrar']"><fa-icon [icon]="faPlus" size="md" pull="right"></fa-icon></a>
-    </p>
+<section class="cursos container">
+    <div class="cursos-container">
+        <p class="cursos-title">Cursos
+            <a [routerLink]="['/cursos', 'cadastrar']">
+                <fa-icon [icon]="faPlus" size="md" pull="right"></fa-icon>
+            </a>
+        </p>
 
-    <div *ngFor="let curso of cursos" class="curso">
-      <app-curso [curso]="curso"></app-curso>
+        <div class="row">
+            <div *ngFor="let curso of cursos" class="curso col-12 col-sm-12 col-lg-6 col-xl-6">
+                <app-curso [curso]="curso"></app-curso>
+            </div>
+        </div>
     </div>
-  </div>
 </section>

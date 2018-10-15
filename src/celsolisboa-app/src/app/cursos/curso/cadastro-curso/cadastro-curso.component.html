@@ -4,7 +4,7 @@
 
         <div class="form-container">
             Form Status: {{ coursesForm.status }}
-            <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)">
+            <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)" ngNativeValidate>
                 <div class="group">
                     <input formControlName="courseName" type="text" required placeholder="Nome do Curso">
                     <select formControlName="teachers" class="lg" name="" id="">
@@ -15,8 +15,8 @@
                     <select formControlName="rooms" class="md" name="" id="">
                         <option value="">Salas</option>
                       </select>
-                    <input formControlName="startDate" type="date" required>
-                    <input formControlName="endDate" type="date" required>
+                    <input formControlName="startDate" type="time" required>
+                    <input formControlName="endDate" type="time" required>
                 </div>
                 <div class="group center">
                     <input type="submit" value="Salvar">

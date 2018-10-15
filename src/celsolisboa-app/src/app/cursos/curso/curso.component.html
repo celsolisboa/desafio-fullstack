@@ -1,4 +1,9 @@
-<p>
-  curso works!
-  {{ curso?.id }}
-</p>
+<section class="curso">
+    <div class="curso curso-container">
+        <span class="course-name">{{ curso?.nome }} </span>
+        <fa-icon (click)="deleteCourse(curso.id)" [icon]="faTrashAlt" size="md" pull="right"></fa-icon>
+        <span class="prof-name">Professor</span>
+        <span class="room-name">Sala </span>
+        <span class="schedule">{{ curso?.inicio }} às {{ curso?.fim }}</span>
+    </div>
+</section>

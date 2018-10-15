@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { LocalAPI } from 'src/app/app.api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-curso',
@@ -10,7 +11,7 @@ import { LocalAPI } from 'src/app/app.api';
 })
 export class CadastroCursoComponent implements OnInit {
   coursesForm = new FormGroup({
-    id: new FormControl(Math.random() * 10000),
+    id: new FormControl(Math.round(Math.random() * 100)),
     courseName: new FormControl("", Validators.required),
     teachers: new FormControl(""),
     rooms: new FormControl(""),
@@ -23,12 +24,13 @@ export class CadastroCursoComponent implements OnInit {
       console.log("FORMULARIO INVALIDO");
       return false;
     } else {
-      console.log(`${LocalAPI}/cursos/cadastrar`);
-      return this.http.post(`${LocalAPI}/cursos/cadastrar`, this.coursesForm.value).subscribe(() => console.log("sucesso"));
+      this.http.post(`${LocalAPI}/cursos/cadastrar`, this.coursesForm.value).subscribe();
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.navigate(['/cursos']);
     }
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }

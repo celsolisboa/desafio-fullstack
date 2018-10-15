@@ -3,16 +3,16 @@
         <div class="login-title">
             <span>Login</span>
         </div>
-        <!-- <form action="/cursos" method="GET"> -->
-        <div class="group">
-            <input type="email" placeholder="Email" required>
-        </div>
-        <div class="group">
-            <input type="password" placeholder="Senha" required>
-        </div>
-        <div class="group">
-            <input type="submit" value="Acessar">
-        </div>
-        <!-- </form> -->
+        <form [formGroup]="loginForm" (ngSubmit)="doLogin()" action="/cursos" method="GET" ngNativeValidate>
+            <div class="group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="group">
+                <input type="password" placeholder="Senha" required>
+            </div>
+            <div class="group">
+                <input type="submit" value="Acessar">
+            </div>
+        </form>
     </div>
 </section>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl("", Validators.required),
+  })
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  doLogin() {
+    localStorage.setItem('y', "y");
+    this.router.navigate(['/cursos']);
   }
 
 }
