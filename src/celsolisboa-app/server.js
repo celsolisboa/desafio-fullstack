@@ -24,7 +24,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
     database.connect(config)
         .then(() => res.status(200).send("Sucesso"))
-        .catch((error) => console.log(error) )
+        .catch((error) => console.log(error))
 });
 
 router.get("/teste", (req, res) => {
@@ -35,8 +35,7 @@ router.get("/teste", (req, res) => {
                 res.json(recordSet.recordsets[0])
                 database.close();
             });
-        }
-        )
+        })
         .catch(() => console.log("erro"));
 
 });
@@ -49,27 +48,29 @@ router.delete("/user/delete/:id", (req, res) => {
                 res.send("usuário deletado com sucesso")
                 database.close()
             });
-        }
-        )
+        })
         .catch(() => console.log("erro"));
 
 });
 
-router.post("/user/create", (req, res) => {
+router.post("/cursos/cadastrar", (req, res) => {
+    console.log(req.body.startDate);
     database.connect(config)
         .then(conn => {
             const request = new database.Request();
-            request.query(`insert into teste2(ID, Nome) VALUES (${req.body.id}, '${req.body.nome}')`
-                , (error, recordSet) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        res.send(`usuário criado com sucesso: ${req.body.nome}`)
-                    }
-                    database.close()
-                });
-        }
-        )
+            let q = `insert into teste(id, nome, professor, sala, data_inicio, data_fim) 
+            VALUES (${req.body.id}, '${req.body.courseName}', '${req.body.teachers}', '${req.body.rooms}', '${req.body.startDate}', '${req.body.endDate}')`;
+            console.log(q)
+            request.query(q, (error, recordSet) => {
+                if (error) {
+                    console.log(error);
+                } else {
+
+                    res.send(`usuário criado com sucesso: ${req.body.nome}`)
+                }
+                database.close()
+            });
+        })
         .catch((error) => console.log(error));
 
 });
