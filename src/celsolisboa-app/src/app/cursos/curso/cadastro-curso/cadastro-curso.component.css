@@ -1,0 +1,25 @@
+.center {
+    text-align: center;
+}
+
+.form-container {
+    width: 550px;
+    margin: 5% auto;
+}
+
+input[type='date'] {
+    width: 125px;
+}
+
+.group {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.md {
+    width: 202px;
+}
+
+.lg {
+    width: 322px;
+}

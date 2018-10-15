@@ -1,0 +1,28 @@
+<section class="cadastro-cursos">
+    <div class="cadastro-cursos-container">
+        <p class="cursos-title">Detalhe do curso</p>
+
+        <div class="form-container">
+            Form Status: {{ coursesForm.status }}
+            <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)">
+                <div class="group">
+                    <input formControlName="courseName" type="text" required placeholder="Nome do Curso">
+                    <select formControlName="teachers" class="lg" name="" id="">
+                      <option value="">Professores</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <select formControlName="rooms" class="md" name="" id="">
+                        <option value="">Salas</option>
+                      </select>
+                    <input formControlName="startDate" type="date" required>
+                    <input formControlName="endDate" type="date" required>
+                </div>
+                <div class="group center">
+                    <input type="submit" value="Salvar">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
