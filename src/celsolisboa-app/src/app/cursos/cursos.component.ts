@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICurso } from '../_interfaces/icurso.interface';
 import { CursoService } from './curso.service';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cursos',
@@ -8,34 +9,9 @@ import { CursoService } from './curso.service';
   styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent implements OnInit {
-  // cursos: ICurso[] = [
-  //   {
-  //     nome: "ADS",
-  //     salas: [{ numero: 206 }, { numero: 2011 }],
-  //     fim: new Date(),
-  //     inicio: new Date(),
-  //     professores: [{
-  //       nome: "Gabriel"
-  //     },
-  //     {
-  //       nome: "Thamires"
-  //     }]
-  //   },
-  //   {
-  //     nome: "Psicologia",
-  //     salas: [{ numero: 111 }, { numero: 222 }],
-  //     fim: new Date(),
-  //     inicio: new Date(),
-  //     professores: [{
-  //       nome: "PsicoProf2"
-  //     },
-  //     {
-  //       nome: "PsicoProf1"
-  //     }]
-  //   }
-  // ];
 
   cursos: any[];
+  faPlus = faPlus;
   constructor(private cursoService: CursoService) { }
 
   ngOnInit() {

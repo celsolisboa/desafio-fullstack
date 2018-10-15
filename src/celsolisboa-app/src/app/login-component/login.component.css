@@ -4,6 +4,7 @@
     color: #fff;
     height: 100%;
 }
+
 .login-title span {
     color: #000;
 }
@@ -11,6 +12,7 @@
 .login-title {
     margin: 5% 0;
 }
+
 .login-container {
     margin: auto;
     width: 100%;
@@ -18,25 +20,6 @@
     text-align: center;
 }
 
-.login-container input[type='submit'] {
-    background: #000;
-    padding: 10px 30px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.login-container input:not([type='submit']) {
-    padding: 10px 15px;
-    width: 170px;
-    border-radius: 3px;
-    border: 1px solid #000;
-}
-
-.login-container input:not([type='submit'])::placeholder {
-    color: #000;
-}
 .group {
     text-align: center;
     margin: 10px;
