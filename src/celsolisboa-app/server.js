@@ -27,13 +27,12 @@ router.get("/", (req, res) => {
     res.send("Sucesso")
 });
 
-router.get("/teste", (req, res) => {
+router.get("/api/cursos/listar", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
             return pool.query('select * from teste')
         })
         .then(result => {
-            console.log('Resultado: ' + result)
             res.json(result.recordsets[0])
             res.end()
         })
@@ -47,11 +46,9 @@ router.post("/api/cursos/cadastrar", (req, res) => {
             const queryString = `insert into 
             teste(id, nome, professor, sala, inicio, fim) 
             VALUES (${req.body.id}, '${req.body.courseName}', '${req.body.teachers}', '${req.body.rooms}', '${req.body.startDate}', '${req.body.endDate}')`
-            console.log(queryString)
             return pool.query(queryString)
         })
         .then(result => {
-            console.log(result.recordsets[0])
             res.json(result.recordsets[0])
             res.end()
         })
@@ -61,7 +58,6 @@ router.post("/api/cursos/cadastrar", (req, res) => {
 router.delete("/api/cursos/deletar/:id", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
-            console.log("fazendo a query de delete")
             return pool.query `delete teste where ID=${parseInt(req.params.id)}`
         })
         .then(() => console.log("Deletado com sucesso!") && res.end())
@@ -70,8 +66,8 @@ router.delete("/api/cursos/deletar/:id", (req, res) => {
 });
 
 app.use('/', router)
-app.use('/teste', router)
+app.use('/api/cursos/listar', router)
 app.use('/api/cursos/cadastrar', router)
 app.use('/api/cursos/deletar/:id', router)
 
-app.listen(port, () => console.log("Servidor ouvindo"))
+app.listen(port, () => console.log("Servidor rodando"))
