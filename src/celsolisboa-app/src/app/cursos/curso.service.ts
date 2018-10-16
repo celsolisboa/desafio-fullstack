@@ -17,4 +17,16 @@ export class CursoService {
   deleteCourse(id): Observable<any> {
     return this.http.delete(`${LocalAPI}/cursos/deletar/${id}`)
   }
+
+  createCourse(body): Observable<any> {
+    return this.http.post(`${LocalAPI}/cursos/cadastrar`, body)
+  }
+
+  getTeacher(): Observable<any> {
+    return this.http.get(`${LocalAPI}/professores/listar`);
+  }
+
+  getRooms(): Observable<any> {
+    return this.http.get(`${LocalAPI}/salas/listar`);
+  }
 }

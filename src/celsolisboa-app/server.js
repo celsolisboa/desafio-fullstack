@@ -39,13 +39,37 @@ router.get("/api/cursos/listar", (req, res) => {
         .catch(error => console.log(error))
 })
 
+router.get("/api/professores/listar", (req, res) => {
+    new database.ConnectionPool(dbConfig).connect()
+        .then(pool => {
+            return pool.query('select * from professor')
+        })
+        .then(result => {
+            res.json(result.recordsets[0])
+            res.end()
+        })
+        .catch(error => console.log(error))
+})
+
+router.get("/api/salas/listar", (req, res) => {
+    new database.ConnectionPool(dbConfig).connect()
+        .then(pool => {
+            return pool.query('select * from sala')
+        })
+        .then(result => {
+            res.json(result.recordsets[0])
+            res.end()
+        })
+        .catch(error => console.log(error))
+})
+
 router.post("/api/cursos/cadastrar", (req, res) => {
 
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
             const queryString = `insert into 
-            teste(id, nome, professor, sala, inicio, fim) 
-            VALUES (${req.body.id}, '${req.body.courseName}', '${req.body.teachers}', '${req.body.rooms}', '${req.body.startDate}', '${req.body.endDate}')`
+            teste(nome, professor, sala, inicio, fim) 
+            VALUES ( '${req.body.courseName}', '${req.body.teachers}', '${req.body.rooms}', '${req.body.startDate}', '${req.body.endDate}')`
             return pool.query(queryString)
         })
         .then(result => {
@@ -67,6 +91,8 @@ router.delete("/api/cursos/deletar/:id", (req, res) => {
 
 app.use('/', router)
 app.use('/api/cursos/listar', router)
+app.use('/api/professores/listar', router)
+app.use('/api/salas/listar', router)
 app.use('/api/cursos/cadastrar', router)
 app.use('/api/cursos/deletar/:id', router)
 

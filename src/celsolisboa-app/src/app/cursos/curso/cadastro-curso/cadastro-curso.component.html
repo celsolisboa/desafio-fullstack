@@ -7,13 +7,15 @@
             <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)" ngNativeValidate>
                 <div class="group">
                     <input formControlName="courseName" type="text" required placeholder="Nome do Curso">
-                    <select formControlName="teachers" class="lg" name="" id="">
-                      <option value="">Professores</option>
+                    <select formControlName="teachers" class="lg" name="" id="" multiple required>
+                        <option value="">Professores</option>
+                        <option *ngFor="let prof of teachers" value="{{ prof.nome }}">{{ prof.nome }}</option>
                     </select>
                 </div>
                 <div class="group">
-                    <select formControlName="rooms" class="md" name="" id="">
+                    <select formControlName="rooms" class="md" name="" id="" multiple required>
                         <option value="">Salas</option>
+                        <option *ngFor="let room of rooms" value="{{ room.nome }}">{{ room.nome }}
                       </select>
                     <input formControlName="startDate" type="time" required>
                     <input formControlName="endDate" type="time" required>
