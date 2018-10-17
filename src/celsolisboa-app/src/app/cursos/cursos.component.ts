@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICurso } from '../_interfaces/icurso.interface';
+import { Curso } from '../_model/curso.model';
 import { CursoService } from './curso.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';

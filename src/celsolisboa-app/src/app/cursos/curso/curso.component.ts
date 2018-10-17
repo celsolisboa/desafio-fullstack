@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ICurso } from 'src/app/_interfaces/icurso.interface';
+import { Curso } from 'src/app/_model/curso.model';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { LocalAPI } from 'src/app/app.api';
 import { Router } from '@angular/router';
 import { CursoService } from '../curso.service';
 
@@ -11,7 +10,7 @@ import { CursoService } from '../curso.service';
   styleUrls: ['./curso.component.css']
 })
 export class CursoComponent implements OnInit {
-  @Input() curso: ICurso
+  @Input() curso: Curso
 
   constructor(private service: CursoService, private router: Router) { }
   faTrashAlt = faTrashAlt
