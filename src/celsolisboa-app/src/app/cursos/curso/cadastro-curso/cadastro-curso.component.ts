@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CursoService } from '../../curso.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro-curso',

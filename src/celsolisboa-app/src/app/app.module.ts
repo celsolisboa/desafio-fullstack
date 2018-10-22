@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import * as Reflect from "reflect-metadata";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login-component/login.component';
