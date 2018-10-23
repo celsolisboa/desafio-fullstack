@@ -67,9 +67,35 @@ router.post("/api/cursos/cadastrar", (req, res) => {
 
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
-            const queryString = `insert into 
-            teste(nome, professor, sala, inicio, fim) 
-            VALUES ( '${req.body.courseName}', '${req.body.teachers}', '${req.body.rooms}', '${req.body.startDate}', '${req.body.endDate}')`
+            let queryString = `
+            BEGIN TRANSACTION
+
+            INSERT INTO 
+            curso (id, nome, inicio, fim) 
+            VALUES ('${req.body.id.value}', '${req.body.nome}', '${req.body.inicio}', '${req.body.fim}')
+            `
+            queryString += `INSERT INTO
+            curso_professor (curso_id, prof_id)
+            VALUES `
+            req.body.professores.map((item) => {
+                queryString += `
+                 ('${req.body.id.value}', ${item}),`
+            })
+            queryString.slice(0, -1)
+            queryString.slice(0, -1)
+
+            queryString += `INSERT INTO 
+            curso_sala (curso_id, sala_id) VALUES `
+
+            req.body.salas.map((item) => {
+                queryString += `
+                ('${req.body.id.value}', ${item}),`
+            })
+            queryString.slice(0, -1)
+
+            queryString += 'COMMIT TRANSACTION'
+
+            console.log(queryString)
             return pool.query(queryString)
         })
         .then(result => {
