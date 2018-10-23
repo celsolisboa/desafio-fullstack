@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CursoService } from '../../curso.service';
+import { Curso } from 'src/app/_model/curso.model';
 
 @Component({
   selector: 'app-cadastro-curso',
@@ -26,7 +27,10 @@ export class CadastroCursoComponent implements OnInit {
       console.log("FORMULARIO INVALIDO");
       return false;
     } else {
-      this.service.createCourse(this.coursesForm.value).subscribe();
+      console.log(this.coursesForm.value)
+      let curso: Curso = new Curso(this.coursesForm.value);
+
+      this.service.createCourse(curso).subscribe();
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.navigate(['/cursos']);
     }

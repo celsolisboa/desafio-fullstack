@@ -1,8 +1,8 @@
 import { Professor } from './professor.model';
 import { Sala } from './sala.model';
-
+import { Guid } from 'guid-typescript'
 export class Curso {
-    id: number;
+    id: Guid;
     
     nome: string;
 
@@ -13,4 +13,13 @@ export class Curso {
     inicio: string;
 
     fim: string
+
+    constructor(curso: any) {
+        this.id = Guid.create();
+        this.nome = curso.courseName;
+        this.professores = curso.teachers;
+        this.salas = curso.rooms;
+        this.inicio = curso.startDate;
+        this.fim = curso.endDate;
+    }
 }
