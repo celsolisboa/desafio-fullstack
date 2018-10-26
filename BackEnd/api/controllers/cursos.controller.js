@@ -1,14 +1,18 @@
+'use strict'
+module.exports = function (ctx) {
+    const fs = require('fs'),
+        path = require('path'),
+        cursoJsonPath = path.join(__dirname, 'cursos.json'),
+        graficoJsonPath = path.join(__dirname, 'grafico.json');
 
-var fs = require('fs');
-path = require('path');
-cursoJsonPath = path.join(__dirname, 'cursos.json');
-graficoJsonPath = path.join(__dirname, 'grafico.json');
-/* cursoJsonPath = './cursoJsonPath.json' */
+    const Arr_professor = [];
+    const Arr_sala = [];
+    const db = ctx.db,
+        server = ctx.server
 
-const Arr_professor = [];
-const Arr_sala = []
+    const collection = db.collection('todos')
 
-function Cursos() {
+
     this.criarCurso = ((req, res, next) => {
         const add = {
             "id": Number(req.params.id),
@@ -103,4 +107,4 @@ function Cursos() {
         res.send(Arr_sala)
     })
 }
-module.exports = new Cursos()
+/* module.exports = new Cursos(ctx) */

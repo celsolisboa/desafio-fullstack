@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CursoModel } from './../Models/cursoModel';
@@ -8,13 +9,12 @@ export class GetDataService {
     Dados: CursoModel[];
     Arr_professor = [];
     Api = {
-        getData: 'http://localhost:3000/cursos/listar',
-        saveData: 'http://localhost:3000/cursos/criar',
-        editData: 'http://localhost:3000/cursos/editar'
-    }
+        getData: 'https://ew12lbci58.execute-api.us-east-1.amazonaws.com/DEV/getcurso',
+        saveData: 'https://ew12lbci58.execute-api.us-east-1.amazonaws.com/DEV/writecurso',
+        editData: 'https://ew12lbci58.execute-api.us-east-1.amazonaws.com/DEV/updatecurso',
+        deleteData: 'https://ew12lbci58.execute-api.us-east-1.amazonaws.com/DEV/deletecurso'
+    };
     constructor(public http: HttpClient) { }
-
-
     getData() {
         return this.http.get(this.Api.getData).toPromise().then((res: CursoModel[]) => {
             this.Dados = res;
@@ -23,36 +23,43 @@ export class GetDataService {
             return resultado;
         });
     }
-
     saveData(item: CursoModel) {
         console.log(item);
-        return this.http.get(this.Api.saveData +
-            '/id/ ' + item.id +
-            '/sala/' + item.sala +
-            '/professor/' + item.professor +
-            '/materia/' + item.materia +
-            '/horaInicial/' + item.horaInicial +
-            '/horaFinal/' + item.horaFinal)
+        const body = {
+            id: item.id,
+            sala: item.sala,
+            professor: item.professor,
+            materia: item.materia,
+            horaInicial: item.horaInicial,
+            horaFinal: item.horaFinal,
+            editar: false
+        };
+        return this.http.post(this.Api.saveData, body)
             .toPromise().then((res) => {
                 console.log(res);
                 return res;
             });
     }
     editData(item) {
-        return this.http.get(this.Api.editData +
-            '/id/ ' + item.id +
-            '/sala/' + item.sala +
-            '/professor/' + item.professor +
-            '/materia/' + item.materia +
-            '/horaInicial/' + item.horaInicial +
-            '/horaFinal/' + item.horaFinal)
+        const body = {
+            id: item.id,
+            sala: item.sala,
+            professor: item.professor,
+            materia: item.materia,
+            horaInicial: item.horaInicial,
+            horaFinal: item.horaFinal,
+            editar: true
+        };
+
+        return this.http.post(this.Api.editData, body)
             .toPromise().then((res) => {
                 console.log(res);
                 return res;
             });
     }
-    DeleteData() {
-
+    DeleteData(id) {
+        const body = id;
+this.http.delete(this.Api.deleteData, body).pipe((map))
     }
     getProfessor() {
         for (let i = 0; i < this.Dados.length; i++) {
