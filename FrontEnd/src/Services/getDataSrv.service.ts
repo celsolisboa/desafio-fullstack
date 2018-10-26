@@ -65,6 +65,8 @@ export class GetDataService {
             id: key
         };
         const jsonBody = JSON.stringify(body);
+        console.log(jsonBody);
+
         return this.http.post(this.Api.deleteData, jsonBody).toPromise().then((res) => {
             console.log(res);
             return res;

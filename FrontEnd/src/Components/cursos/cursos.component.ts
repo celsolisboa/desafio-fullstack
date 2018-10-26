@@ -25,6 +25,7 @@ export class CursosComponent implements OnInit {
     horaFinal: null as any
   };
   @ViewChild('dialog') dialog: TemplateRef<any>;
+  @ViewChild('confirmDelete') confirmDelete: TemplateRef<any>;
   dropdowns = {
     Arr_professor: null as Array<any>,
     Arr_sala: null as Array<any>
@@ -51,7 +52,6 @@ export class CursosComponent implements OnInit {
   loadData() {
     this.getDataSrv.getData().then((res: any) => {
       this.Dados = res;
-      /* this.Dados.horaInicial =  */
       this.getDataSrv.getProfessor().then((professor: string[]) => {
         this.dropdowns.Arr_professor = professor;
       });
@@ -60,7 +60,6 @@ export class CursosComponent implements OnInit {
     });
   }
   openSalvar() {
-
     this.selectedData.id = null as number;
     this.selectedData.materia = null;
     this.selectedData.professor = null;
@@ -98,6 +97,7 @@ export class CursosComponent implements OnInit {
     if (this.Destino === config.abrirEdição) {
       this.getDataSrv.editData(this.selectedData).then((s) => {
         console.log(s);
+        this.Dados = [];
         this.loadData();
         btn.close();
       });
@@ -106,5 +106,18 @@ export class CursosComponent implements OnInit {
   logs() {
     console.log(this.selectedData);
 
+  }
+  openDelete(dialog: TemplateRef<any>, PrimaryKey) {
+    console.log('linha 111 de cursos', PrimaryKey);
+
+    this.selectedData.id = PrimaryKey;
+    this.dialogService.open(this.confirmDelete);
+  }
+  delete(btn) {
+    this.getDataSrv.DeleteData(this.selectedData.id).then((s) => {
+      this.Dados = [];
+      this.loadData();
+      btn.close();
+    });
   }
 }

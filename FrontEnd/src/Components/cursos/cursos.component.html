@@ -1,12 +1,12 @@
 <div class="p-grid GridCursos" style="height: 50vh;overflow-y: scroll;">
   <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let item of Dados">
     <!-- (click)="ShowDetails(item)" -->
-    <nb-card (click)="openEdit(dialog, item)">
+    <nb-card>
       <nb-card-header class="titleCard">
         <h2>{{item.materia}}</h2>
-        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-trash fa-2x" (click)="openDelete(dialog,item.id)" aria-hidden="true"></i>
       </nb-card-header>
-      <nb-card-body>
+      <nb-card-body (click)="openEdit(dialog, item)">
         <h3>Professor(a) {{item.professor}}</h3>
         <div style="display: flex;justify-content: space-between;">
           <p>Sala {{item.sala}}</p>
@@ -64,6 +64,19 @@
         <button nbButton hero status="danger" (click)="ref.close()">Cancelar</button>
 
         <button nbButton hero status="success" (click)="save(ref)">Salvar</button>
+      </nb-card-footer>
+    </nb-card>
+  </ng-template>
+
+  <ng-template #confirmDelete let-data let-ref="dialogRef">
+    <nb-card>
+      <nb-card-body>
+        <h3>Deseja deletar esse item?</h3>
+      </nb-card-body>
+      <nb-card-footer style="display: flex;justify-content: space-between;">
+        <button nbButton hero status="danger" (click)="ref.close()">Não</button>
+
+        <button nbButton hero status="success" (click)="delete(ref)">Sim</button>
       </nb-card-footer>
     </nb-card>
   </ng-template>
