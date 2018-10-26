@@ -5,15 +5,17 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 @Injectable()
 export class LoginSrvService {
-
+  Api = 'https://ahhhoqhy2d.execute-api.us-east-1.amazonaws.com/DEV/login';
   constructor(public http: HttpClient, public route: Router) { }
 
   login(LoginData: LoginModel) {
-
     console.log(LoginData);
-
-    'http://localhost:3000/login/usuario/:usuario/senha/:senha';
-    return this.http.get('http://localhost:3000/login/usuario/' + LoginData.username + '/senha/' + LoginData.password)
+    const body = {
+      usuario: LoginData.username,
+      senha: LoginData.password
+    };
+    const jsonBody = JSON.stringify(body);
+    return this.http.post(this.Api, jsonBody)
       .toPromise().then((data) => {
         console.log(data);
         return data;

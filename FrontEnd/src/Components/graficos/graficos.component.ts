@@ -29,11 +29,11 @@ export class GraficosComponent implements OnInit {
     };
   }
   carga() {
-    this.http.get('http://localhost:3000/cursos/getgrafico').subscribe((res) => {
-      console.log('RIhhjhjhSE', Object.keys(res[0]));
+    this.http.get('https://ew12lbci58.execute-api.us-east-1.amazonaws.com/DEV/getgrafico').subscribe((res) => {
+      console.log('RIhhjhjhSE', res);
       /* this.chartObj.dataR = Object.values(res[0]); */
       /*  this.chartObj.labels = Object.keys(res[0]); */
-      this.montarGrafico(res[0]);
+      this.montarGrafico(res);
 
     });
   }

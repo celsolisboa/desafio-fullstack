@@ -12,7 +12,7 @@ exports.handler = function index(event, context, callback) {
         LoggedIn: new Date()
     }
     console.log('indo para sign do jwt');
-    if (event.usuario === 'CelsoLisboa') {
+    if (req.params.usuario === 'CelsoLisboa') {
         permissions = 'Adm';
     } else {
         permissions = 'Funcionario';

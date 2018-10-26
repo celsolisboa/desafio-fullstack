@@ -52,7 +52,9 @@ export class CursosComponent implements OnInit {
     this.getDataSrv.getData().then((res: any) => {
       this.Dados = res;
       /* this.Dados.horaInicial =  */
-      this.dropdowns.Arr_professor = this.getDataSrv.getProfessor();
+      this.getDataSrv.getProfessor().then((professor: string[]) => {
+        this.dropdowns.Arr_professor = professor;
+      });
       this.dropdowns.Arr_sala = this.getDataSrv.getSalas();
       console.log(this.dropdowns);
     });
