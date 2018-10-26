@@ -1,0 +1,9 @@
+module.exports = {
+    name: 'Celso Lisboa',
+    version: '0.0.1',
+    env: process.env.NODE_ENV || 'development',
+    port: process.env.PORT || 3000,
+    db: {
+        uri: 'mongodb+srv://Iago:258741@celsolisboa-mkzqr.mongodb.net/test?retryWrites=true',
+    }
+}

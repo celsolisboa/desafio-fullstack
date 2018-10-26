@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-body>
+    <p-chart type="doughnut" [data]="graficoObj"></p-chart>
+  </nb-card-body>
+  <nb-card-body>
+    <nb-actions size="medium">
+      <nb-action (click)='showDetails(contentTemplate)' icon="fa fa-2x fa-plus"></nb-action>
+    </nb-actions>
+  </nb-card-body>
+</nb-card>
+
+
+<ng-template #contentTemplate let-data let-ref="dialogRef">
+  <!-- <p-chart type="doughnut" [data]="graficoObj" [responsive]="false" [width]="600" [options]="options"></p-chart> -->
+  <nb-card>
+    <nb-card-header>Detalhes do Grafico</nb-card-header>
+    <nb-card-body>
+      <p-chart type="doughnut" [width]="400" [data]="graficoObj" [options]="options"></p-chart>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

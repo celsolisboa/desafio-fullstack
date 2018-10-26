@@ -1,0 +1,46 @@
+.centerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /*  nb-card {
+     width: 100%;
+ } */
+}
+
+.boldPlaceholder {
+    color: white;
+    font-weight: bold;
+}
+
+.headerLogin {
+    display: flex;
+    justify-content: center;
+    button {
+        position: relative;
+        bottom: 5vh;
+    }
+}
+
+.footerLogin {
+    display: flex;
+    justify-content: center;
+}
+
+.ColorLoginSign {
+    position: relative;
+    bottom: 7vh;
+    background-image: linear-gradient(to right, #00b3ff, #08f);
+    box-shadow: 0 3px 0 0 #0087db, 0 2px 8px 0 #009dff, 0 4px 10px 0 rgba(33, 7, 77, 0.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border: none;
+    line-height: calc((1rem * 1.25) + 4px);
+    color: #fff;
+    font-weight: 500;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    cursor: default;
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .5rem;
+}

@@ -1,0 +1,33 @@
+<nb-layout>
+  <nb-layout-header>
+    <div style="text-align: center">
+      <h2>Bem vindo à faculdade Celso Lisboa</h2>
+    </div>
+  </nb-layout-header>
+  <nb-layout-column>
+
+    <div class="centerDiv">
+      <nb-card>
+        <nb-card-header class="headerLogin">
+          <button nbButton hero status="info">Login</button>
+        </nb-card-header>
+
+        <nb-card-body>
+          <span class="ui-float-label" style="margin-top: 10px;">
+            <input id="username" [(ngModel)]="LoginForm.username" type="text" size="30" nbInput pInputText>
+            <label for="username" class="boldPlaceholder">Usuario</label>
+          </span>
+          <br>
+          <span class="ui-float-label" style="margin-top: 20px;">
+            <input id="password" [(ngModel)]="LoginForm.password" type="password" size="30" nbInput pInputText>
+            <label for="password" class="boldPlaceholder">Senha</label>
+          </span>
+        </nb-card-body>
+        <nb-card-footer class="footerLogin">
+          <button nbButton hero status="success" (click)="doLogin()">Entrar</button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,71 @@
+.dashboardWrap {
+    margin-top: 2%;
+    height: calc(100vh - 50px);
+    /* margin: auto; */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    .p-grid {
+        width: 100%;
+    }
+}
+
+.titleCard {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.GridCursos {
+    margin-right: 0;
+    height: 50vh;
+    overflow-y: scroll;
+    margin-left: 0;
+}
+
+.centerDialog {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+
+.cardCenter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.separador {
+    margin-top: 10px;
+}
+
+::ng-deep .ui-float-label>input:focus~label,
+.ui-float-label>input.ui-state-filled~label,
+.ui-float-label>.ui-inputwrapper-focus~label,
+.ui-float-label>.ui-inputwrapper-filled~label {
+    color: white !important;
+    font-size: 2vh !important;
+}
+
+/* ::ng-deep .primeCosmicCalendar {
+    background-color: #37317a;
+    border: 2px solid #342e73;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.75rem 1.125rem;
+    margin: auto;
+    border-radius: .5rem;
+    width: 40%;
+    span {
+        input {
+            background-color: #37317a;
+            border: 2px solid #342e7300;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            font-size: 1rem;
+        }
+    }
+} */
