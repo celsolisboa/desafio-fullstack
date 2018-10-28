@@ -30,7 +30,13 @@ router.get("/", (req, res) => {
 router.get("/api/cursos/listar", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
-            return pool.query('select * from teste')
+            return pool.query(`           
+                select *
+                from curso
+                    LEFT JOIN curso_professor as cp on cp.curso_id = curso.id
+                    LEFT JOIN curso_sala as cs on cs.curso_id = curso.id
+                    LEFT JOIN professor as p on p.id = cp.prof_id
+                    LEFT JOIN sala as s on s.id = cs.sala_id`)
         })
         .then(result => {
             res.json(result.recordsets[0])
@@ -81,8 +87,8 @@ router.post("/api/cursos/cadastrar", (req, res) => {
                 queryString += `
                  ('${req.body.id.value}', ${item}),`
             })
-            queryString.slice(0, -1)
-            queryString.slice(0, -1)
+            queryString = queryString.slice(0, -1)
+
 
             queryString += `INSERT INTO 
             curso_sala (curso_id, sala_id) VALUES `
@@ -91,7 +97,7 @@ router.post("/api/cursos/cadastrar", (req, res) => {
                 queryString += `
                 ('${req.body.id.value}', ${item}),`
             })
-            queryString.slice(0, -1)
+            queryString = queryString.slice(0, -1)
 
             queryString += 'COMMIT TRANSACTION'
 
@@ -108,7 +114,22 @@ router.post("/api/cursos/cadastrar", (req, res) => {
 router.delete("/api/cursos/deletar/:id", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
-            return pool.query `delete teste where ID=${parseInt(req.params.id)}`
+            // console.log(req.params.id.split(',')[0])
+            const id = req.params.id.split(',')[0]
+            return pool.query(`            
+            BEGIN TRANSACTION
+                -- Delete rows from table 'curso_professor'
+                DELETE FROM curso_professor
+                WHERE 	curso_id = '${id}'
+
+                -- Delete rows from table 'curso_sala'
+                DELETE FROM curso_sala
+                WHERE 	curso_id = '${id}'
+
+                -- Delete rows from table 'curso'
+                DELETE FROM curso
+                WHERE curso.id = '${id}'
+            COMMIT TRANSACTION`)
         })
         .then(() => console.log("Deletado com sucesso!") && res.end())
         .catch(error => console.log(error))

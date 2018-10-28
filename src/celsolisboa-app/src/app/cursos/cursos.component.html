@@ -11,5 +11,14 @@
                 <app-curso [curso]="curso"></app-curso>
             </div>
         </div>
+
+        <div *ngIf='this.isLoading' class="loading">
+            <fa-icon [icon]="faSpinner" size="lg" spin="true"></fa-icon>
+        </div>
+
+        <div *ngIf='this.cursos && this.cursos.length <= 0' class="no-content">
+            Desculpe, nada encontrado aqui
+            <fa-icon [icon]="faFrown" size="md"></fa-icon>
+        </div>
     </div>
 </section>
