@@ -18,7 +18,7 @@ Rode o comando SQL contido no arquivo [ddl.sql](#ddl.sql) para criação do banc
 
 ## Rodar modo de desenvolvimento
 
-Rodar `npm run dev` para rodar a aplicação em modo de desenvolvimento com nodemon rodando escutando alterações no server.js.
+Rodar `npm run dev` para rodar a aplicação em modo de desenvolvimento com nodemon rodando escutando alterações no arquivo `server.js`.
 
 
 
