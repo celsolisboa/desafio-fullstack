@@ -7,13 +7,7 @@ const bodyParser = require("body-parser")
 const cors = require("cors")
 const path = require("path")
 
-const dbConfig = {
-    driver: 'msnodesqlv8',
-    user: 'gabriel',
-    password: '$smvg0000',
-    server: 'db-server-mssql.database.windows.net',
-    database: 'db-celsolisboa-app',
-}
+const dbConfig = require('./database/db-config')
 
 const app = express()
 app.use(cors())
