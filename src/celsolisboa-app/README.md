@@ -1,27 +1,23 @@
-# CelsolisboaApp
+# Instalação
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+## Configurando ambiente
 
-## Development server
+- Instale o [node](https://nodejs.org/en/)
+- Clonar o repositório
+- Acessar o diretório `src/celsolisboa-app`
+- Rodar `npm install` no terminal de comando
+- Rodar o projeto usando `npm run build`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Banco de dados
 
-## Code scaffolding
+Por default, a aplicação está configurada para apontar para um banco de dados criado no Azure. Para alterar, vá em `database/db-config` e altere as configurações. O script de criação do banco está na seção [ddl](ddl) deste documento.
+### DDL <a name="ddl'>
+Rode o comando SQL contido no arquivo [ddl.sql](ddl.sql) para criação do banco de dados local já com os dados iniciais.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Rodar modo de desenvolvimento
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Rodar `npm run dev` para rodar a aplicação em modo de desenvolvimento com nodemon rodando escutando alterações no server.js.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
