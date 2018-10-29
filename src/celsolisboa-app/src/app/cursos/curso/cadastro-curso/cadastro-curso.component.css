@@ -3,7 +3,7 @@
 }
 
 .form-container {
-    width: 550px;
+    width: 710px;
     margin: 5% auto;
 }
 
@@ -22,4 +22,11 @@ input[type='time'] {
 
 .lg {
     width: 322px;
+}
+
+@media screen and (max-width: 992px) {
+    .form-container {
+        width: 300px;
+        margin: 5% auto;
+    }
 }

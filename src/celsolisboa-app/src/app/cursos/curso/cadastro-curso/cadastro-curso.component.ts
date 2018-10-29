@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CursoService } from '../../curso.service';
 import { Curso } from 'src/app/_model/curso.model';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Location } from '@angular/common';
+// import { ToastsManager } from 'ng2-toastr/ng2-toastr'
 
 @Component({
   selector: 'app-cadastro-curso',
@@ -21,26 +24,34 @@ export class CadastroCursoComponent implements OnInit {
 
   teachers: any[]
   rooms: any[]
+  isLoading: boolean = false;
+  faArrowLeft = faArrowLeft;
 
   saveCourse(form: FormGroup) {
     if (this.coursesForm.status === "INVALID") {
-      console.log("FORMULARIO INVALIDO");
+      // this.toastr.error("Formulário inválido")
       return false;
     } else {
-      console.log(this.coursesForm.value)
       let curso: Curso = new Curso(this.coursesForm.value);
 
       this.service.createCourse(curso).subscribe();
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.navigate(['/cursos']);
+      setTimeout(() => {
+        this.router.navigate(['/cursos']);
+      }, 1500)
     }
   }
 
-  constructor(private service: CursoService, private router: Router) { }
+  constructor(
+    private service: CursoService,
+    private router: Router,
+    private location: Location) { }
 
   ngOnInit() {
+    this.isLoading = true
     this.service.getTeacher().subscribe(response => this.teachers = response)
     this.service.getRooms().subscribe(response => this.rooms = response)
+    this.isLoading = false
   }
 
 }

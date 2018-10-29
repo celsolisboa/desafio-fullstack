@@ -6,5 +6,6 @@ import { CadastroCursoComponent } from './cursos/curso/cadastro-curso/cadastro-c
 export const ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'cursos', component: CursosComponent },
-    { path: 'cursos/cadastrar', component: CadastroCursoComponent }
+    { path: 'cursos/cadastrar', component: CadastroCursoComponent },
+    { path: '**', redirectTo: '/login' }
 ]

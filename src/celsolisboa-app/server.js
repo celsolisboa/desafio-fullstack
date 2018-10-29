@@ -17,13 +17,10 @@ app.use(bodyParser.json())
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.send("Sucesso")
-});
-
 router.get("/api/cursos/listar", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
+            console.log("Buscando cursos...")
             return pool.query(`           
                 select *
                 from curso
@@ -33,6 +30,7 @@ router.get("/api/cursos/listar", (req, res) => {
                     LEFT JOIN sala as s on s.id = cs.sala_id`)
         })
         .then(result => {
+            console.log("Cursos obtidos com sucesso.")
             res.json(result.recordsets[0])
             res.end()
         })
@@ -67,38 +65,38 @@ router.post("/api/cursos/cadastrar", (req, res) => {
 
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
+            console.log("Cadastrando curso...")
             let queryString = `
-            BEGIN TRANSACTION
+                BEGIN TRANSACTION
 
-            INSERT INTO 
-            curso (id, nome, inicio, fim) 
-            VALUES ('${req.body.id.value}', '${req.body.nome}', '${req.body.inicio}', '${req.body.fim}')
-            `
+                INSERT INTO 
+                curso (id, nome, inicio, fim) 
+                VALUES ('${req.body.id.value}', '${req.body.nome}', '${req.body.inicio}', '${req.body.fim}')
+                `
             queryString += `INSERT INTO
-            curso_professor (curso_id, prof_id)
-            VALUES `
+                curso_professor (curso_id, prof_id)
+                VALUES `
             req.body.professores.map((item) => {
                 queryString += `
-                 ('${req.body.id.value}', ${item}),`
+                    ('${req.body.id.value}', ${item}),`
             })
             queryString = queryString.slice(0, -1)
 
 
             queryString += `INSERT INTO 
-            curso_sala (curso_id, sala_id) VALUES `
+                curso_sala (curso_id, sala_id) VALUES `
 
             req.body.salas.map((item) => {
                 queryString += `
-                ('${req.body.id.value}', ${item}),`
+                    ('${req.body.id.value}', ${item}),`
             })
             queryString = queryString.slice(0, -1)
 
             queryString += 'COMMIT TRANSACTION'
-
-            console.log(queryString)
             return pool.query(queryString)
         })
         .then(result => {
+            console.log("Curso cadastrado com sucesso")
             res.json(result.recordsets[0])
             res.end()
         })
@@ -108,7 +106,7 @@ router.post("/api/cursos/cadastrar", (req, res) => {
 router.delete("/api/cursos/deletar/:id", (req, res) => {
     new database.ConnectionPool(dbConfig).connect()
         .then(pool => {
-            // console.log(req.params.id.split(',')[0])
+            console.log("Deletando registro...")
             const id = req.params.id.split(',')[0]
             return pool.query(`            
             BEGIN TRANSACTION

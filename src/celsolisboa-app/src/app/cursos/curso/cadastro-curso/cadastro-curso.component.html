@@ -1,29 +1,41 @@
 <section class="cadastro-cursos">
     <div class="cadastro-cursos-container">
-        <p class="cursos-title">Detalhe do curso</p>
+        <p class="cursos-title">
+            <fa-icon [icon]="faArrowLeft" size="md" (click)="this.location.back()" pull="left"></fa-icon> Detalhe do curso</p>
 
         <div class="form-container">
-            Form Status: {{ coursesForm.status }}
             <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)" ngNativeValidate>
-                <div class="group">
-                    <input formControlName="courseName" type="text" required placeholder="Nome do Curso">
-                    <select formControlName="teachers" class="lg" name="" id="" multiple required>
-                        <option value="">Professores</option>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 form-group">
+                        <input formControlName="courseName" class="form-control" type="text" required placeholder="Nome do Curso">
+                        <select formControlName="teachers" class="lg form-control" name="" id="" multiple required>
+                        <option disabled value="">Professores</option>
+                        <option *ngIf="this.isLoading" disabled value="">Obtendo lista de professores</option>
                         <option *ngFor="let prof of teachers" value="{{ prof.id }}">{{ prof.nome }}</option>
                     </select>
-                </div>
-                <div class="group">
-                    <select formControlName="rooms" class="md" name="" id="" multiple required>
-                        <option value="">Salas</option>
-                        <option *ngFor="let room of rooms" value="{{ room.id }}">{{ room.nome }}
-                      </select>
-                    <input formControlName="startDate" type="time" required>
-                    <input formControlName="endDate" type="time" required>
-                </div>
-                <div class="group center">
-                    <input type="submit" value="Salvar">
-                </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 form-group">
+                        <select formControlName="rooms" class="lg form-control" name="" id="" multiple required>
+                            <option disabled value="">Salas</option>
+                            <option *ngIf="this.isLoading" disabled value="">Obtendo lista de salas</option>
+                            <option *ngFor="let room of rooms" value="{{ room.id }}">{{ room.nome }}
+                        </select>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
+                                <label for="">Início</label>
+                                <input formControlName="startDate" class="form-control" type="time" required>
 
+                            </div>
+                            <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
+                                <label for="">Fim</label>
+                                <input formControlName="endDate" class="form-control" type="time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group center">
+                        <input type="submit" value="Salvar">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
