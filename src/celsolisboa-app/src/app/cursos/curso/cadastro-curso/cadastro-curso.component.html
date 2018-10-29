@@ -33,7 +33,10 @@
                         </div>
                     </div>
                     <div class="group center">
-                        <input type="submit" value="Salvar">
+                        <button type="submit">
+                            <span *ngIf='this.showMessage'>Salvo!</span>
+                            <span *ngIf='!this.showMessage'>Salvar</span>
+                        </button>
                     </div>
                 </div>
             </form>

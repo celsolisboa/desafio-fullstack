@@ -25,6 +25,7 @@ export class CadastroCursoComponent implements OnInit {
   teachers: any[]
   rooms: any[]
   isLoading: boolean = false;
+  showMessage: boolean = false;
   faArrowLeft = faArrowLeft;
 
   saveCourse(form: FormGroup) {
@@ -36,6 +37,7 @@ export class CadastroCursoComponent implements OnInit {
 
       this.service.createCourse(curso).subscribe();
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.showMessage = true;
       setTimeout(() => {
         this.router.navigate(['/cursos']);
       }, 1500)
