@@ -10,9 +10,9 @@
 
 ## Banco de dados
 
-Por default, a aplicação está configurada para apontar para um banco de dados criado no Azure. Para alterar, vá em `database/db-config` e altere as configurações. O script de criação do banco está na seção [ddl](ddl) deste documento.
+Por default, a aplicação está configurada para apontar para um banco de dados criado no Azure. Para alterar, vá em `database/db-config` e altere as configurações. O script de criação do banco está na seção [ddl](#ddl) deste documento.
 
-### DDL <a name="ddl'></a>
+### DDL <a name="ddl"></a>
 Rode o comando SQL contido no arquivo [ddl.sql](#ddl.sql) para criação do banco de dados local já com os dados iniciais.
 
 
