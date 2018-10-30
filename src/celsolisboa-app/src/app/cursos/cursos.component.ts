@@ -27,6 +27,12 @@ export class CursosComponent implements OnInit {
     });
   }
 
+  onDeleted(): any {
+    setTimeout(() => {
+      this.getCourses();
+    }, 1500)
+  }
+
   ngOnInit() {
     this.getCourses()
   }

@@ -112,11 +112,11 @@ router.delete("/api/cursos/deletar/:id", (req, res) => {
             BEGIN TRANSACTION
                 -- Delete rows from table 'curso_professor'
                 DELETE FROM curso_professor
-                WHERE 	curso_id = '${id}'
+                WHERE curso_id = '${id}'
 
                 -- Delete rows from table 'curso_sala'
                 DELETE FROM curso_sala
-                WHERE 	curso_id = '${id}'
+                WHERE curso_id = '${id}'
 
                 -- Delete rows from table 'curso'
                 DELETE FROM curso

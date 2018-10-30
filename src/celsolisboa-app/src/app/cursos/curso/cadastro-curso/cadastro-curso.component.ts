@@ -5,7 +5,6 @@ import { CursoService } from '../../curso.service';
 import { Curso } from 'src/app/_model/curso.model';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
-// import { ToastsManager } from 'ng2-toastr/ng2-toastr'
 
 @Component({
   selector: 'app-cadastro-curso',
@@ -14,7 +13,6 @@ import { Location } from '@angular/common';
 })
 export class CadastroCursoComponent implements OnInit {
   coursesForm = new FormGroup({
-    id: new FormControl(Math.round(Math.random() * 100)),
     courseName: new FormControl("", Validators.required),
     teachers: new FormControl(""),
     rooms: new FormControl(""),
@@ -30,17 +28,13 @@ export class CadastroCursoComponent implements OnInit {
 
   saveCourse(form: FormGroup) {
     if (this.coursesForm.status === "INVALID") {
-      // this.toastr.error("Formulário inválido")
       return false;
     } else {
       let curso: Curso = new Curso(this.coursesForm.value);
 
-      this.service.createCourse(curso).subscribe();
+      this.service.createCourse(curso).subscribe(() => this.router.navigate(['/cursos']));
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.showMessage = true;
-      setTimeout(() => {
-        this.router.navigate(['/cursos']);
-      }, 1500)
     }
   }
 
