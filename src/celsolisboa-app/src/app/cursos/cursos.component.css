@@ -1,0 +1,11 @@
+a,
+a:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+.loading,
+.no-content {
+    text-align: center;
+    margin-top: 50px;
+}

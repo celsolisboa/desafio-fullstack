@@ -1,0 +1,32 @@
+.center {
+    text-align: center;
+}
+
+.form-container {
+    width: 710px;
+    margin: 5% auto;
+}
+
+input[type='time'] {
+    width: 125px;
+}
+
+.group {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.md {
+    width: 202px;
+}
+
+.lg {
+    width: 322px;
+}
+
+@media screen and (max-width: 992px) {
+    .form-container {
+        width: 300px;
+        margin: 5% auto;
+    }
+}

@@ -1,0 +1,24 @@
+<section class="cursos container">
+    <div class="cursos-container">
+        <p class="cursos-title">Cursos
+            <a [routerLink]="['/cursos', 'cadastrar']">
+                <fa-icon [icon]="faPlus" size="md" pull="right"></fa-icon>
+            </a>
+        </p>
+
+        <div class="row">
+            <div *ngFor="let curso of cursos" class="curso col-12 col-sm-12 col-lg-6 col-xl-6">
+                <app-curso (deleted)="onDeleted($event)" [curso]=" curso "></app-curso>
+            </div>
+        </div>
+
+        <div *ngIf='this.isLoading' class="loading ">
+            <fa-icon [icon]="faSpinner " size="lg " spin="true "></fa-icon>
+        </div>
+
+        <div *ngIf='this.cursos && this.cursos.length <= 0' class="no-content">
+            Desculpe, nada encontrado aqui
+            <fa-icon [icon]="faFrown " size="md "></fa-icon>
+        </div>
+    </div>
+</section>
