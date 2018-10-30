@@ -1,0 +1,45 @@
+<section class="cadastro-cursos container-fluid">
+    <div class="cadastro-cursos-container">
+        <p class="cursos-title">
+            <fa-icon [icon]="faArrowLeft" size="md" (click)="this.location.back()" pull="left"></fa-icon> Detalhe do curso</p>
+
+        <div class="form-container">
+            <form [formGroup]="coursesForm" (ngSubmit)="saveCourse(this)" ngNativeValidate>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 form-group">
+                        <input formControlName="courseName" class="form-control" type="text" required placeholder="Nome do Curso">
+                        <select formControlName="teachers" class="lg form-control" name="" id="" multiple required>
+                        <option disabled value="">Professores</option>
+                        <option *ngIf="this.isLoading" disabled value="">Obtendo lista de professores</option>
+                        <option *ngFor="let prof of teachers" value="{{ prof.id }}">{{ prof.nome }}</option>
+                    </select>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 form-group">
+                        <select formControlName="rooms" class="lg form-control" name="" id="" multiple required>
+                            <option disabled value="">Salas</option>
+                            <option *ngIf="this.isLoading" disabled value="">Obtendo lista de salas</option>
+                            <option *ngFor="let room of rooms" value="{{ room.id }}">{{ room.nome }}
+                        </select>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
+                                <label for="">Início</label>
+                                <input formControlName="startDate" class="form-control" type="time" required>
+
+                            </div>
+                            <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
+                                <label for="">Fim</label>
+                                <input formControlName="endDate" class="form-control" type="time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group center">
+                        <button type="submit">
+                            <span *ngIf='this.showMessage'>Salvo!</span>
+                            <span *ngIf='!this.showMessage'>Salvar</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

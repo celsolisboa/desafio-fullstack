@@ -1,0 +1,28 @@
+section.curso {
+    border: 1px #000 solid;
+    height: 20vh;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 4%;
+}
+
+section.curso>.curso-container>span {
+    position: absolute;
+}
+
+span.prof-name {
+    left: 20px;
+    bottom: 40px;
+}
+
+span.room-name {
+    left: 20px;
+    bottom: 20px;
+}
+
+span.schedule {
+    right: 20px;
+    bottom: 20px;
+}

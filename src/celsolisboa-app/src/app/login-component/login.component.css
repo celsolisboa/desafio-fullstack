@@ -1,0 +1,26 @@
+.login {
+    margin: auto;
+    width: 100%;
+    color: #fff;
+    height: 100%;
+}
+
+.login-title span {
+    color: #000;
+}
+
+.login-title {
+    margin: 5% 0;
+}
+
+.login-container {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.group {
+    text-align: center;
+    margin: 10px;
+}

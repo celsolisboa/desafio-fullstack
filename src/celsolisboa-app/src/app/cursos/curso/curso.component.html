@@ -1,0 +1,9 @@
+<section class="curso">
+    <div class="curso curso-container">
+        <span class="course-name">{{ curso?.nome[0] }} </span>
+        <fa-icon (click)="deleteCourse(curso.id)" [icon]="faTrashAlt" size="md" pull="right"></fa-icon>
+        <span class="prof-name">{{ curso?.nome[1]}}</span>
+        <span class="room-name">{{ curso?.nome[2] }} </span>
+        <span class="schedule">{{ curso?.inicio }} às {{ curso?.fim }}</span>
+    </div>
+</section>
