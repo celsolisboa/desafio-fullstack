@@ -8,6 +8,7 @@ use App\Http\Requests\StoreCursos;
 use App\Cursos;
 use App\Salas;
 use App\Professores;
+use Illuminate\Support\Facades\Auth;
 
 class CursosController extends Controller
 {
@@ -31,7 +32,8 @@ class CursosController extends Controller
     {
         $salas 			= Salas::pluck('nome', 'id')->toArray();
         $professores 	= Professores::pluck('nome', 'id')->toArray();
-        return view('Cursos.create', compact('salas', 'professores'));
+        $user           = Auth::user()->id;
+        return view('Cursos.create', compact('salas', 'professores', 'user'));
     }
 
     /**
@@ -44,7 +46,7 @@ class CursosController extends Controller
     {
        $curso = $request->all();
        Cursos::create($curso);
-       return redirect('Cursos');
+       return redirect('cursos');
     }
 
     /**
@@ -56,7 +58,7 @@ class CursosController extends Controller
     public function show($id)
     {
         $curso=Cursos::find($id);
-        return view('Cursos.show',compact('curso'));
+        return view('cursos.show',compact('curso'));
     }
 
     /**
@@ -71,7 +73,7 @@ class CursosController extends Controller
         $status     	= Cursos::getStatus();
         $salas   		= Salas::pluck('nome', 'id')->toArray();
         $professores   	= Professores::pluck('nome', 'id')->toArray();
-        return view('Cursos.edit',compact('curso','professores', 'salas'));
+        return view('cursos.edit',compact('curso','professores', 'salas'));
     }
 
     /**
@@ -87,7 +89,7 @@ class CursosController extends Controller
        $curso         = Cursos::find($id);
        $curso->update($cursoUpdate);
 
-       return redirect('Cursos');
+       return redirect('cursos');
     }
 
     /**
@@ -100,6 +102,6 @@ class CursosController extends Controller
     {
         Cursos::find($id)->delete();
 
-        return redirect('Cursos');
+        return redirect('cursos');
     }
 }

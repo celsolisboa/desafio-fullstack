@@ -24,11 +24,11 @@ class StoreCursos extends FormRequest
     public function rules()
     {
         return [
-            'id_professor'    	=> 'required', 
-            'id_sala'    		=> 'required', 
-            'nome'        		=> 'required', 
-            'inicio'    		=> 'required', 
-            'fim'      			=> 'required',
+            'professor_id'    	=> 'required', 
+            'sala_id'    		=> 'required', 
+            'nome'        		=> 'required|max:255', 
+            'inicio'    		=> 'required|date', 
+            'fim'      			=> 'required|date',
             //
         ];
     }
