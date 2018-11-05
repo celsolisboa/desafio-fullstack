@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <h1> Criar Curso</h1>
-    {!! Form::open(['method' => 'POST', 'url' => 'cursos']) !!}
+    <h1> Editar Curso</h1>
+    {!! Form::model($curso,['method' => 'PATCH','route'=>['cursos.update',$curso->id]]) !!}
         {{ Form::hidden('user_id', $user) }}
         <div class="form-row">
             <div class="form-group col-xs-12 col-md-6">

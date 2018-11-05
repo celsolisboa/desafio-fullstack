@@ -70,10 +70,10 @@ class CursosController extends Controller
     public function edit($id)
     {
         $curso     		= Cursos::find($id);
-        $status     	= Cursos::getStatus();
         $salas   		= Salas::pluck('nome', 'id')->toArray();
         $professores   	= Professores::pluck('nome', 'id')->toArray();
-        return view('cursos.edit',compact('curso','professores', 'salas'));
+        $user           = Auth::user()->id;
+        return view('cursos.edit',compact('curso','professores', 'salas', 'user'));
     }
 
     /**

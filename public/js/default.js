@@ -8,7 +8,7 @@ $(document).ready(function(){
     };
 
     if($('.time-format').exists()){
-        $('.time-format').mask('H0:MN', {translation: {'N': {pattern: /[0-9]/}, 'M': {pattern: /[0-5]/}, 'H0': {pattern: /[0-1]/}} });
+        $('.time-format').mask('H0:MN', {translation: {'N': {pattern: /[0-9]/}, 'M': {pattern: /[0-5]/}, 'H': {pattern: /[0-1]/}} });
     }
 
 });

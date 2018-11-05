@@ -27,8 +27,8 @@ class StoreCursos extends FormRequest
             'professor_id'    	=> 'required', 
             'sala_id'    		=> 'required', 
             'nome'        		=> 'required|max:255', 
-            'inicio'    		=> 'required|date', 
-            'fim'      			=> 'required|date',
+            'inicio'    		=> 'required', 
+            'fim'      			=> 'required',
             //
         ];
     }
