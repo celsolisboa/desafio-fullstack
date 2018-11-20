@@ -29,8 +29,8 @@
                                 <div class="card-body">
                                 <div class="float-left"><?=$valor->curso;?></div><div class="float-right"><a href="#" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
                                     </br></br>
-                                <div class="float-left">Prof.: <?=$valor->professor;?></div></br> 
-                                <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->hora_inicio;?> às <?=$valor->hora_fim;?></div>
+                                <div class="float-left">Prof..: <?=$valor->professor;?></div></br> 
+                                <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->hora_inicio;?> ï¿½s <?=$valor->hora_fim;?></div>
                                 </div>
                             </div>
                         </div>
