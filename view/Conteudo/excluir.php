@@ -1,17 +1,10 @@
 <?php
 include '../../control/ConteudoControl.php';
- 
-$data = file_get_contents('php://input');
-$obj =  json_decode($data);
-//echo $obj->titulo;
 
-$id = $obj->id;
-
-
-if(!empty($data)){	
+if(isset($_GET['id']) && $_GET['id'] <> ''){	
  $conteudoControl = new ConteudoControl();
- $conteudoControl->delete($obj,$id);
- header('Location:listar.php');
+ $conteudoControl->delete($_GET['id']);
+ header('Location:index.php');
 }
 
 

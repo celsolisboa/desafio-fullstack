@@ -9,18 +9,28 @@ class ConteudoControl{
 		header('Location:listar.php');
 	}
 
-	function update($obj,$id){
+	function update($id){
 		$conteudo = new Conteudo();
-		return $conteudo->update($obj,$id);
+		return $conteudo->update($id);
 	}
 
-	function delete($obj,$id){
+	function delete($id){
 		$conteudo = new Conteudo();
-		return $conteudo->delete($obj,$id);
+		return $conteudo->delete($id);
 	}
 
 	function find($id = null){
 
+	}
+
+	function findProfessores(){
+		$conteudo = new Conteudo();
+		return $conteudo->findProfessores();
+	}
+
+	function findSalas(){
+		$conteudo = new Conteudo();
+		return $conteudo->findSalas();
 	}
 
 	function findAll(){

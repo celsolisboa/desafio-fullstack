@@ -14,39 +14,36 @@
 
     <?php
     include '../../control/ConteudoControl.php';
-    
-    $data = file_get_contents('php://input');
-    $obj =  json_decode($data);
-
-    if(!empty($data)){	
     $conteudoControl = new ConteudoControl();
-    $conteudoControl->insert($obj);
+   
+    $obj =  json_encode($_POST);
+    
+     if(!empty($obj)){	
+       $obj =  json_decode($obj);
+       $conteudoControl->insert($obj);
 
-    }
+     }
     ?>  
 
     <div class="container" style="margin-top:20px;">
     
         <div class="card">
-            <h5 class="card-header text-center">Detalhes do Curso</h5>
+        <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Detalhes do Curso</h5>
                 <div class="card-deck"> 
                     <div class="container">  
-                        <form action="">
+                        <form action="#" method="post">
 
                             <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
-                                    <input type="text" class="form-control" id="curso" placeholder="Nome do Curso">
+                                    <input type="text" name="curso" class="form-control" id="curso" placeholder="Nome do Curso">
                                 </div>
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
-                                    <select name="professor" class="form-control" id="professor" placeholder="Professores">
-                                        <option value=””>Professores</option>
-                                        <option value=”Sagres”>Sagres</option>
-                                        <option value=”Heineken”>Heineken</option>
-                                        <option value=”Carlsberg”>Carlsberg</option>
-                                        <option value=”Antartica”>Antartica</option>
-                                        …
+                                    <select name="idprofessor" class="form-control" id="idprofessor" placeholder="Professores">
+                                    <?php foreach($conteudoControl->findProfessores() as $valor){ ?>
+                                        <option value="<?=$valor->idprofessor;?>"><?=$valor->professor;?></option>
+                                    <?php } ?>
                                     </select>
                                 </div>
 
@@ -55,22 +52,19 @@
                             <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
-                                    <select name="sala" class="form-control" id="sala" placeholder="Salas">
-                                        <option value=””>Salas</option>
-                                        <option value=”Sagres”>Sagres</option>
-                                        <option value=”Heineken”>Heineken</option>
-                                        <option value=”Carlsberg”>Carlsberg</option>
-                                        <option value=”Antartica”>Antartica</option>
-                                        …
+                                    <select name="idsala" class="form-control" id="idsala" placeholder="Salas">
+                                    <?php foreach($conteudoControl->findSalas() as $valor){ ?>
+                                        <option value="<?=$valor->idsala;?>"><?=$valor->sala;?></option>
+                                    <?php } ?>
                                     </select>
                                 </div>
 
                                 <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" class="form-control" id="inicio" placeholder="Inicio">
+                                    <input type="text" name="inicio" class="form-control" id="inicio" placeholder="Inicio">
                                 </div>
 
                                 <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" class="form-control" id="fim" placeholder="Fim">
+                                    <input type="text" name="fim" class="form-control" id="fim" placeholder="Fim">
                                 </div>
 
                             </div>

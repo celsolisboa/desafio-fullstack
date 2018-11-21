@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <!-- Required meta tags -->
-    
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -27,10 +27,10 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
                             <div class="card">
                                 <div class="card-body">
-                                <div class="float-left"><?=$valor->curso;?></div><div class="float-right"><a href="#" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
+                                <div class="float-left"><?=$valor->curso;?></div><div class="float-right"><a href="excluir.php?id=<?=$valor->idcurso;?>" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
                                     </br></br>
-                                <div class="float-left">Prof..: <?=$valor->professor;?></div></br> 
-                                <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->hora_inicio;?> �s <?=$valor->hora_fim;?></div>
+                                <div class="float-left">Prof.: <?=$valor->professor;?></div></br> 
+                                <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->inicio;?> às <?=$valor->fim;?></div>
                                 </div>
                             </div>
                         </div>

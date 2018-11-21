@@ -2,100 +2,102 @@
 include '../../conexao/Conexao.php';
 
 class Conteudo extends Conexao{
-	private $titulo;
-    private $descricao;
-    private $horario;
-    private $curso_id;
-    private $periodo_id;
-    private $disciplina_id;
+	private $curso;
+    private $idprofessor;
+    private $idsala;
+    private $inicio;
+    private $fim;
 
-    function getTitulo() {
-        return $this->titulo;
+
+    function getCurso() {
+        return $this->curso;
     }
 
     function getDescricao() {
-        return $this->descricao;
+        return $this->idprofessor;
     }
 
-    function getHorario() {
-        return $this->horario;
+    function getidsala() {
+        return $this->idsala;
     }
 
-    function getCurso_id() {
-        return $this->curso_id;
+    function getinicio() {
+        return $this->inicio;
     }
 
-    function getPeriodo_id() {
-        return $this->periodo_id;
+    function getfim() {
+        return $this->fim;
     }
 
-    function getDisciplina_id() {
-        return $this->disciplina_id;
+    function setCurso($curso) {
+        $this->curso = $curso;
     }
 
-    function setTitulo($titulo) {
-        $this->titulo = $titulo;
+    function setDescricao($idprofessor) {
+        $this->idprofessor = $idprofessor;
     }
 
-    function setDescricao($descricao) {
-        $this->descricao = $descricao;
+    function setidsala($idsala) {
+        $this->idsala = $idsala;
     }
 
-    function setHorario($horario) {
-        $this->horario = $horario;
+    function setinicio($inicio) {
+        $this->inicio = $inicio;
     }
 
-    function setCurso_id($curso_id) {
-        $this->curso_id = $curso_id;
+    function setfim($fim) {
+        $this->fim = $fim;
     }
 
-    function setPeriodo_id($periodo_id) {
-        $this->periodo_id = $periodo_id;
-    }
-
-    function setDisciplina_id($disciplina_id) {
-        $this->disciplina_id = $disciplina_id;
-    }
 
     public function insert($obj){
-    	$sql = "INSERT INTO conteudo(titulo,descricao,horario,curso_id,periodo_id,disciplina_id) VALUES (:titulo,:descricao,:horario,:curso_id,:periodo_id,:disciplina_id)";
+    	$sql = "INSERT INTO cursos(curso,fk_idprofessor,fk_idsala,inicio,fim) VALUES (:curso,:idprofessor,:idsala,:inicio,:fim)";
     	$consulta = Conexao::prepare($sql);
-        $consulta->bindValue('titulo',  $obj->titulo);
-        $consulta->bindValue('descricao', $obj->descricao);
-        $consulta->bindValue('horario' , $obj->horario);
-        $consulta->bindValue('curso_id' , $obj->curso_id);
-        $consulta->bindValue('periodo_id' , $obj->periodo_id);
-        $consulta->bindValue('disciplina_id' , $obj->periodo_id);
+        $consulta->bindValue('curso',  $obj->curso);
+        $consulta->bindValue('idprofessor', $obj->idprofessor);
+        $consulta->bindValue('idsala' , $obj->idsala);
+        $consulta->bindValue('inicio' , $obj->inicio);
+        $consulta->bindValue('fim' , $obj->fim);
+       
     	return $consulta->execute();
 
 	}
 
-	public function update($obj,$id = null){
-		$sql = "UPDATE conteudo SET titulo = :titulo, descricao = :descricao,horario = :horario, curso_id = :curso_id,periodo_id =:periodo_id, disciplina_id = :disciplina_id WHERE id = :id ";
+	public function update($id = null){
+		$sql = "UPDATE cursos SET curso = :curso, fk_idprofessor = :idprofessor, fk_idsala = :idsala, inicio = :inicio, fim =:fim WHERE idcurso = :id ";
 		$consulta = Conexao::prepare($sql);
-		$consulta->bindValue('titulo', $obj->titulo);
-		$consulta->bindValue('descricao', $obj->descricao);
-		$consulta->bindValue('horario' , $obj->horario);
-		$consulta->bindValue('curso_id', $obj->curso_id);
-		$consulta->bindValue('periodo_id' , $obj->periodo_id);
-		$consulta->bindValue('disciplina_id' , $obj->disciplina_id);
+		$consulta->bindValue('curso', $obj->curso);
+		$consulta->bindValue('idprofessor', $obj->idprofessor);
+		$consulta->bindValue('idsala' , $obj->idsala);
+		$consulta->bindValue('inicio', $obj->inicio);
+		$consulta->bindValue('fim' , $obj->fim);
 		$consulta->bindValue('id', $id);
 		return $consulta->execute();
 	}
 
-	public function delete($obj,$id = null){
-		$sql =  "DELETE FROM conteudo WHERE id = :id";
+	public function delete($id = null){
+		$sql =  "DELETE FROM cursos WHERE idcurso = :id";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('id',$id);
 		$consulta->execute();
 	}
 
-	public function find($id = null){
-
+	public function findProfessores(){
+        $sql = "SELECT * FROM professores";
+		$consulta = Conexao::prepare($sql);
+		$consulta->execute();
+		return $consulta->fetchAll();
+    }
+    
+    public function findSalas(){
+        $sql = "SELECT * FROM salas";
+		$consulta = Conexao::prepare($sql);
+		$consulta->execute();
+		return $consulta->fetchAll();
 	}
 
 	public function findAll(){
-		$sql = "SELECT c.curso, p.professor, s.sala, c.hora_inicio, c.hora_fim FROM cursos c, professores p, salas s WHERE c.fk_idprofessor = p.idprofessor and c.fk_idsala = s.idsala";
+		$sql = "SELECT c.idcurso, c.curso, p.professor, s.sala, c.inicio, c.fim FROM cursos c, professores p, salas s WHERE c.fk_idprofessor = p.idprofessor and c.fk_idsala = s.idsala ORDER BY c.idcurso";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();
