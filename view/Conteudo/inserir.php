@@ -16,10 +16,11 @@
     include '../../control/ConteudoControl.php';
     $conteudoControl = new ConteudoControl();
    
-    $obj =  json_encode($_POST);
     
-     if(!empty($obj)){	
-       $obj =  json_decode($obj);
+    if(!empty($_POST)){	
+       $obj1 =  json_encode($_POST);
+      $obj =  json_decode($obj1);
+       var_dump($obj);
        $conteudoControl->insert($obj);
 
      }

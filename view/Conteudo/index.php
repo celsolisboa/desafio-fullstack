@@ -27,7 +27,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
                             <div class="card">
                                 <div class="card-body">
-                                <div class="float-left"><?=$valor->curso;?></div><div class="float-right"><a href="excluir.php?id=<?=$valor->idcurso;?>" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
+                                <div class="float-left"><a href="editar.php?id=<?=$valor->idcurso;?>"><?=$valor->curso;?></a></div><div class="float-right"><a href="excluir.php?id=<?=$valor->idcurso;?>" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
                                     </br></br>
                                 <div class="float-left">Prof.: <?=$valor->professor;?></div></br> 
                                 <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->inicio;?> às <?=$valor->fim;?></div>

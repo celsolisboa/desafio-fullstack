@@ -1,18 +1,11 @@
 <?php
 include '../../control/ConteudoControl.php';
- 
-$data = file_get_contents('php://input');
-$obj =  json_decode($data);
-//echo $obj->titulo;
 
-$id = $obj->id;
-
-
-if(!empty($data)){	
- $conteudoControl = new ConteudoControl();
- $conteudoControl->update($obj , $id);
- header('Location:listar.php');
-}
+if(isset($_GET['id']) && $_GET['id'] <> ''){	
+    $conteudoControl = new ConteudoControl();
+    $res = $conteudoControl->editCurso($_GET['id']);
+    var_dump($res);
+   }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -28,23 +21,12 @@ if(!empty($data)){
   </head>
   <body>
 
-    <?php
-    include '../../control/ConteudoControl.php';
-    $conteudoControl = new ConteudoControl();
-   
-    $obj =  json_encode($_POST);
     
-     if(!empty($obj)){	
-       $obj =  json_decode($obj);
-       $conteudoControl->insert($obj);
-
-     }
-    ?>  
 
     <div class="container" style="margin-top:20px;">
-    
+    <?php foreach($res as $val){ ?>
         <div class="card">
-        <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Detalhes do Curso</h5>
+        <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Editar Detalhes do Curso</h5>
                 <div class="card-deck"> 
                     <div class="container">  
                         <form action="#" method="post">
@@ -52,7 +34,7 @@ if(!empty($data)){
                             <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
-                                    <input type="text" name="curso" class="form-control" id="curso" placeholder="Nome do Curso" value="">
+                                    <input type="text" name="curso" class="form-control" id="curso" placeholder="Nome do Curso" value="<?=$val->curso;?>">
                                 </div>
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
@@ -76,11 +58,11 @@ if(!empty($data)){
                                 </div>
 
                                 <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" name="inicio" class="form-control" id="inicio" placeholder="Inicio" value="">
+                                    <input type="text" name="inicio" class="form-control" id="inicio" placeholder="Inicio" value="<?=$val->inicio;?>">
                                 </div>
 
                                 <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" name="fim" class="form-control" id="fim" placeholder="Fim" value="">
+                                    <input type="text" name="fim" class="form-control" id="fim" placeholder="Fim" value="<?=$val->fim;?>">
                                 </div>
 
                             </div>
@@ -94,7 +76,7 @@ if(!empty($data)){
                 </div>
          </br>
         </div>
-
+        <?php } ?>
     </div>
     
     <!-- Optional JavaScript -->

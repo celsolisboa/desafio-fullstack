@@ -23,6 +23,11 @@ class ConteudoControl{
 
 	}
 
+	function editCurso($id = null){
+		$conteudo = new Conteudo();
+		return $conteudo->editCurso($id);
+	}
+
 	function findProfessores(){
 		$conteudo = new Conteudo();
 		return $conteudo->findProfessores();
