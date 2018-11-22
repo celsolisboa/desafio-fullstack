@@ -97,7 +97,7 @@ class Conteudo extends Conexao{
 	}
     
     public function editCurso($id = null){
-		$sql =  "SELECT c.idcurso, c.curso, p.professor, s.sala, c.inicio, c.fim FROM cursos c, professores p, salas s WHERE idcurso = :id and c.fk_idprofessor = p.idprofessor and c.fk_idsala = s.idsala
+		$sql =  "SELECT c.idcurso, c.curso, p.idprofessor, s.idsala, c.inicio, c.fim FROM cursos c, professores p, salas s WHERE idcurso = :id and c.fk_idprofessor = p.idprofessor and c.fk_idsala = s.idsala
         ";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('id',$id);

@@ -52,7 +52,7 @@ if(isset($_GET['id']) && $_GET['id'] <> ''){
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
                                     <select name="idsala" class="form-control" id="idsala" placeholder="Salas">
                                     <?php foreach($conteudoControl->findSalas() as $valor){ ?>
-                                        <option value="<?=$valor->idsala;?>"><?=$valor->sala;?></option>
+                                        <option value="<?=$valor->idsala;?>" <?php if($valor->idsala = $val->idsala) echo "selected" ?>><?=$valor->sala;?></option>
                                     <?php } ?>
                                     </select>
                                 </div>
