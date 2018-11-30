@@ -9,12 +9,11 @@ export class AuthService {
   public usuarioEstaAutenticado:boolean = false
 
   autenticarUsuario(usuario:Usuario){
-    if(usuario.email === "thiago" && usuario.senha === "1"){
-      this.usuarioEstaAutenticado = true
-    }else{
-      this.usuarioEstaAutenticado = false
-    }
+
+    this.usuarioEstaAutenticado = usuario.email === "thiago" && usuario.senha === "1" ? true : false
+
     return this.usuarioEstaAutenticado
+    
   }
 
   verificarSeUsuarioEstaAutenticado(){
