@@ -32,7 +32,7 @@
         <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Detalhes do Curso</h5>
                 <div class="card-deck"> 
                     <div class="container">  
-                        <form action="#" method="post">
+                        <form action="add.php" method="post">
 
                             <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">
 
@@ -43,6 +43,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
                                     <select name="idprofessor" class="form-control" id="idprofessor" placeholder="Professores">
                                     <?php foreach($conteudoControl->findProfessores() as $valor){ ?>
+                                        <option>Professor</option>
                                         <option value="<?=$valor->idprofessor;?>"><?=$valor->professor;?></option>
                                     <?php } ?>
                                     </select>
@@ -55,6 +56,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
                                     <select name="idsala" class="form-control" id="idsala" placeholder="Salas">
                                     <?php foreach($conteudoControl->findSalas() as $valor){ ?>
+                                        <option>Sala</option>
                                         <option value="<?=$valor->idsala;?>"><?=$valor->sala;?></option>
                                     <?php } ?>
                                     </select>

@@ -30,6 +30,8 @@
                 unset($_SESSION['usuario']);
                
                 session_destroy();
+
+                header('location:login.php');
              }
 ?>
 <!doctype html>
@@ -44,7 +46,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>API Cursos</title>
   </head>
-  <body>
+  <body style="background:#ccc;">
 
     <div class="container text-center col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-top:10%;">
             <div class="card align-self-center">
