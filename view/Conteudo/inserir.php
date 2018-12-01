@@ -32,7 +32,7 @@
         <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Detalhes do Curso</h5>
                 <div class="card-deck"> 
                     <div class="container">  
-                        <form action="add.php" method="post">
+                        <form action="#" method="post">
 
                             <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">
 
