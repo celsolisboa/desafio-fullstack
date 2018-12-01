@@ -2,6 +2,7 @@
 include '../../model/Conteudo.php';
 
 class ConteudoControl{
+
 	function insert($obj){
 		$conteudo = new Conteudo();
 		//echo $obj->titulo;
@@ -41,6 +42,10 @@ class ConteudoControl{
 	function findAll(){
 		$conteudo = new Conteudo();
 		return $conteudo->findAll();
+	}
+	function login($email, $senha){
+		$conteudo = new Conteudo();
+		return $conteudo->login($email, $senha);
 	}
 }
 

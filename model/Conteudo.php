@@ -110,7 +110,18 @@ class Conteudo extends Conexao{
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();
-	}
+    }
+    
+    public function login($email, $senha){
+        $sql = "SELECT * FROM usuarios WHERE usuario = :email AND senha = :senha";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('email',$email);
+        $consulta->bindValue('senha',$senha);
+        $consulta->execute();
+        $reg = $consulta->fetchAll(0);
+        return $reg;
+            
+    }
 
 }
 
