@@ -63,7 +63,7 @@ class Conteudo extends Conexao{
 
 	}
 
-	public function update($id = null){
+	public function update($id = null, $obj){
 		$sql = "UPDATE cursos SET curso = :curso, fk_idprofessor = :idprofessor, fk_idsala = :idsala, inicio = :inicio, fim =:fim WHERE idcurso = :id ";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('curso', $obj->curso);

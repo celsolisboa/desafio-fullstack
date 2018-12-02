@@ -1,10 +1,11 @@
 <?php
+include 'header.php';
 include '../../control/ConteudoControl.php';
 
 if(isset($_GET['id']) && $_GET['id'] <> ''){	
     $conteudoControl = new ConteudoControl();
     $res = $conteudoControl->editCurso($_GET['id']);
-    var_dump($res);
+    
    }
 ?>
 <!doctype html>
@@ -19,7 +20,7 @@ if(isset($_GET['id']) && $_GET['id'] <> ''){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>API Cursos</title>
   </head>
-  <body>
+  <body style="background:#ccc;">
 
     
 
@@ -39,9 +40,13 @@ if(isset($_GET['id']) && $_GET['id'] <> ''){
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
                                     <select name="idprofessor" class="form-control" id="idprofessor" placeholder="Professores">
-                                    <?php foreach($conteudoControl->findProfessores() as $valor){ ?>
-                                        <option value="<?=$valor->idprofessor;?>"><?=$valor->professor;?></option>
-                                    <?php } ?>
+                                    <?php foreach($conteudoControl->findProfessores() as $valor){
+                                       if($valor->idprofessor == $val->idprofessor){
+                                            echo '<option value="'.$valor->idprofessor.'" selected>'.$valor->professor.'</option>';
+                                       }else{
+                                            echo '<option value="'.$valor->idprofessor.'">'.$valor->professor.'</option>';
+                                       }
+                                     } ?>
                                     </select>
                                 </div>
 
@@ -51,9 +56,13 @@ if(isset($_GET['id']) && $_GET['id'] <> ''){
 
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
                                     <select name="idsala" class="form-control" id="idsala" placeholder="Salas">
-                                    <?php foreach($conteudoControl->findSalas() as $valor){ ?>
-                                        <option value="<?=$valor->idsala;?>" <?php if($valor->idsala = $val->idsala) echo "selected" ?>><?=$valor->sala;?></option>
-                                    <?php } ?>
+                                    <?php foreach($conteudoControl->findSalas() as $valor){
+                                        if($valor->idsala == $val->idsala){
+                                            echo '<option value="'.$valor->idsala.'" selected>'.$valor->sala.'</option>';
+                                        }else{
+                                            echo '<option value="'.$valor->idsala.'">'.$valor->sala.'</option>';
+                                        }
+                                     } ?>
                                     </select>
                                 </div>
 
@@ -66,7 +75,7 @@ if(isset($_GET['id']) && $_GET['id'] <> ''){
                                 </div>
 
                             </div>
-
+                            <input type="hidden" name="id" class="form-control" id="id" value="<?=$val->idcurso;?>">
                             <div class="row justify-content-center" style="margin-top:10px;">    
                                 <button type="submit" class="btn btn-primary col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">Salvar</button>
                             </div>

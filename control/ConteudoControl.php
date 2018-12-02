@@ -10,9 +10,9 @@ class ConteudoControl{
 		header('Location:listar.php');
 	}
 
-	function update($id){
+	function update($id, $obj){
 		$conteudo = new Conteudo();
-		return $conteudo->update($id);
+		return $conteudo->update($id, $obj);
 	}
 
 	function delete($id){

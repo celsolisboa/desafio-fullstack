@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 include '../../control/ConteudoControl.php';
 
 if(isset($_GET['id']) && $_GET['id'] <> ''){	

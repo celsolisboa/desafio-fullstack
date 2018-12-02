@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 include '../../control/ConteudoControl.php';
 $conteudoControl = new ConteudoControl();
 
