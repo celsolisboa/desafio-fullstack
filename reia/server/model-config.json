@@ -14,25 +14,37 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongodb"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
+  },
+  "sala": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "professor": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "curso": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

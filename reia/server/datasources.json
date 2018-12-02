@@ -2,5 +2,10 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongodb": {
+    "url": "mongodb://reia:32Bl916Clq70@ds123664.mlab.com:23664/desafio_fullstack",
+    "name": "mongodb",
+    "connector": "mongodb"
   }
 }

@@ -1,0 +1,44 @@
+{
+  "name": "curso",
+  "plural": "cursos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "inicio": {
+      "type": "date",
+      "required": true
+    },
+    "fim": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "professor": {
+      "type": "belongsTo",
+      "model": "professor",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "sala": {
+      "type": "belongsTo",
+      "model": "sala",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
