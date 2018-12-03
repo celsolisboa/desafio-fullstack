@@ -14,7 +14,6 @@ const httpOptions = {
 export class CursosService {
 
   result: any = [];
-  listaCursos = [];
 
   constructor(private http: HttpClient){}
 
@@ -24,16 +23,13 @@ export class CursosService {
   };
 
   add(curso) {
-    this.listaCursos.push(curso);
+    console.log(curso)
+    return this.http.post(urlApiCursos, curso);
   };
 
   delete(curso) {
     console.log(curso);
-    let index = this.listaCursos.indexOf(curso);
-    console.log(index);
-    if (index >= 0) {
-      this.listaCursos.slice(index, 1);
-    }
+    return this.http.delete(`${urlApiCursos}/${curso.id}`);
   };
 
   private extractData(res: Response) {

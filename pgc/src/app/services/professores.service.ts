@@ -1,8 +1,31 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
+
+const urlApiProfessores='http://127.0.0.1:3000/api/professores';
+@Injectable()
 export class ProfessoresService {
 
-  listaProfessores = [{"nome":"Carlos Almeida","id":"5c03dd299bbf58b6e07ed6ea"},{"nome":"Maria Joaquina","id":"5c03dd3c9bbf58b6e07ed6eb"},{"nome":"Xavier","id":"5c03dd4e9bbf58b6e07ed6ec"},{"nome":"Chico","id":"5c0461d8143c48ce2d749749"}];
+  result: any = [];
 
-  get() {
-    return this.listaProfessores;
+  constructor(private http: HttpClient){}
+
+  get(): Observable<any> {
+    return this.http.get(`${urlApiProfessores}?filter[order]=nome`).pipe(
+      map(this.extractData));
+  };
+
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }
