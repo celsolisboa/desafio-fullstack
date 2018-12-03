@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,22 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  titulo = "Teste";
-  professor = "Álvares de Azavedo";
-  sala = "503";
-  inicio;
-  fim;
+  @Input() cardInfo;
+  @Output() delete = new EventEmitter();
 
   constructor() { 
-    this.inicio = new Date(2018, 11, 1, 9, 0, 0);
-    this.fim = new Date(2018, 11, 1, 11, 0, 0);
   }
 
   ngOnInit() {
   }
 
   onDelete(){
-    console.log('deleted!');
+    this.delete.emit(this.cardInfo);
   }
 
 }

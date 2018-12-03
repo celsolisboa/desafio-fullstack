@@ -2,7 +2,7 @@
   <div class="thumbnail">
     <div class="row">
       <div class="col-xs-8">
-        <h2>{{titulo}}</h2>
+        <h2>{{cardInfo.nome}}</h2>
       </div>
       <div class="col-xs-4 text-right">
         <a (click)="onDelete()" class="btn btn-default btn-delete" role="button">
@@ -12,13 +12,15 @@
     </div>
     <div class="row">
       <div class="col-xs-12 professor">
-        Prof. {{professor}}
+        Prof. {{cardInfo.professor.nome}}
       </div>
       <div class="col-xs-6">
-        Sala {{sala}}
+        Sala {{cardInfo.sala.nome}}
       </div>
       <div class="col-xs-6 text-right">
-        {{ inicio | date:'HH:MM' }} às {{ fim | date:'HH:MM' }}
+        {{ cardInfo.inicio | date:'HH:MM' }} 
+        às 
+        {{ cardInfo.fim | date:'HH:MM' }}
       </div>
     </div>
   </div>
