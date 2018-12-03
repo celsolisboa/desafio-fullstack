@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { CursosService } from '../../services/cursos.service';
 import { ProfessoresService } from '../../services/professores.service';
@@ -20,7 +21,8 @@ export class FormCursoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cursosServices: CursosService,
     private professoresServices: ProfessoresService,
-    private salasService: SalasService
+    private salasService: SalasService,
+    private router: Router
   ) { 
 
   }
@@ -62,7 +64,9 @@ export class FormCursoComponent implements OnInit {
   }
 
   onSubmit(curso) {
-    this.cursosServices.add(curso).subscribe();
+    this.cursosServices.add(curso).subscribe( () => {
+      this.router.navigate(['/']);
+    });
   };
 
 }

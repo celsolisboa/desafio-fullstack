@@ -1,33 +1,46 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <input id="nome" type="text" name="nome" formControlName="nome" class="form-control" placeholder="Nome do Curso">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 text-center">
+          <h1>Detalhes do Curso</h1>
         </div>
-        <div class="form-group col-sm-6">
-            <select class="form-control" name="professorId" formControlName="professorId">
-                <option value="" selected disabled>Professores</option>
-                <option *ngFor="let prof of listProfessores" value="{{ prof.id }}" > {{ prof.nome }} </option>
-            </select>
-        </div>
+      </div>
     </div>
+</nav>
 
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <select class="form-control" name="salaId" formControlName="salaId">
-                <option value="" selected disabled>Salas</option>
-                <option *ngFor="let sala of listSalas"  value="{{sala.id}}" > {{sala.nome}} </option>
-            </select>
+<div class="container">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <input id="nome" type="text" name="nome" formControlName="nome" class="form-control" placeholder="Nome do Curso">
+            </div>
+            <div class="form-group col-sm-6">
+                <select class="form-control" name="professorId" formControlName="professorId">
+                    <option value="" selected disabled>Professores</option>
+                    <option *ngFor="let prof of listProfessores" value="{{ prof.id }}"> {{ prof.nome }} </option>
+                </select>
+            </div>
         </div>
 
-        <div class="form-group col-xs-6 col-sm-3">
-            <input type="time" id="inicio" class="form-control" name="inicio" formControlName="inicio" data-toggle="tooltip"
-                data-placement="bottom" title="Início">
-        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <select class="form-control" name="salaId" formControlName="salaId">
+                    <option value="" selected disabled>Salas</option>
+                    <option *ngFor="let sala of listSalas" value="{{sala.id}}"> {{sala.nome}} </option>
+                </select>
+            </div>
 
-        <div class="form-group col-xs-6 col-sm-3">
-            <input type="time" id="fim" class="form-control" name="fim" formControlName="fim" data-toggle="tooltip"
-                data-placement="bottom" title="Fim">
+            <div class="form-group col-xs-6 col-sm-3">
+                <input type="time" id="inicio" class="form-control" name="inicio" formControlName="inicio" data-toggle="tooltip"
+                    data-placement="bottom" title="Início">
+            </div>
+
+            <div class="form-group col-xs-6 col-sm-3">
+                <input type="time" id="fim" class="form-control" name="fim" formControlName="fim" data-toggle="tooltip"
+                    data-placement="bottom" title="Fim">
+            </div>
         </div>
-    </div>
-    <button type="submit" class="btn btn-default btn-block" [disabled]="!form.valid" >Salvar</button>
-</form>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid">Salvar</button>
+    </form>
+</div>
