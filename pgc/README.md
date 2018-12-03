@@ -1,6 +1,12 @@
-# Pgc
+# PGC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+RG é o projeto front-end  para a Plataforma de GEstão de Cursos
+
+#### Setup & Run
+1. acessar a pasta do projeto `pgc`
+2. rode o comando `npm install`
+3. rode `npm start`
+4. acesse o sistema pela url `http://127.0.0.1:4200/`
 
 ## Development server
 
