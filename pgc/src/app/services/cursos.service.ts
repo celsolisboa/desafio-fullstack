@@ -1,8 +1,26 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 
+const urlApiCursos='http://127.0.0.1:3000/api/cursos';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
+
+@Injectable()
 export class CursosService {
 
-  get() {
-    return this.listaCursos;
+  result: any = [];
+  listaCursos = [];
+
+  constructor(private http: HttpClient){}
+
+  get(): Observable<any> {
+    return this.http.get(`${urlApiCursos}?filter={"include":["sala","professor"]}`).pipe(
+      map(this.extractData));
   };
 
   add(curso) {
@@ -18,6 +36,16 @@ export class CursosService {
     }
   };
 
-  listaCursos = [{ "nome": "Aula 02", "inicio": "2018-12-02T15:03:38.361Z", "fim": "2018-12-02T15:03:38.361Z", "id": "5c03f46c117a7cc23cb3b0a1", "professorId": "5c03dd3c9bbf58b6e07ed6eb", "salaId": "5c03dd889bbf58b6e07ed6f0", "sala": { "nome": "201", "id": "5c03dd889bbf58b6e07ed6f0" }, "professor": { "nome": "Maria Joaquina", "id": "5c03dd3c9bbf58b6e07ed6eb" } }, { "nome": "Aula 04", "inicio": "2018-12-02T22:50:46.172Z", "fim": "2018-12-02T22:50:46.172Z", "id": "5c046220143c48ce2d74974a", "professorId": "5c03dd4e9bbf58b6e07ed6ec", "salaId": "5c03dd909bbf58b6e07ed6f2", "sala": { "nome": "203", "id": "5c03dd909bbf58b6e07ed6f2" }, "professor": { "nome": "Xavier", "id": "5c03dd4e9bbf58b6e07ed6ec" } }];
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
 
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 import { CursosService } from '../../services/cursos.service';
+import { ProfessoresService } from '../../services/professores.service';
+import { SalasService } from '../../services/salas.service';
 
 @Component({
   selector: 'app-form-curso',
@@ -11,15 +13,25 @@ import { CursosService } from '../../services/cursos.service';
 export class FormCursoComponent implements OnInit {
 
   form;
+  listProfessores;
+  listSalas;
 
   constructor(
     private formBuilder: FormBuilder,
-    private cursosServices: CursosService
+    private cursosServices: CursosService,
+    private professoresServices: ProfessoresService,
+    private salasService: SalasService
   ) { 
 
   }
 
   ngOnInit() {
+
+    this.listProfessores = this.professoresServices.get();
+    this.listSalas = this.salasService.get();
+
+    console.log(this.listProfessores);
+
     this.form = this.formBuilder.group(
       {
         nome: this.formBuilder.control('', Validators.required),

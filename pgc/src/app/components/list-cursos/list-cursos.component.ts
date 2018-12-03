@@ -9,12 +9,17 @@ import { CursosService } from '../../services/cursos.service';
 })
 export class ListCursosComponent implements OnInit {
 
-  listaCursos;
+  listaCursos:any = [];
 
   constructor(private cursosService: CursosService) { }
 
   ngOnInit() {
-    this.listaCursos = this.cursosService.get();
+    this.listaCursos = [];
+    this.cursosService.get()
+      .subscribe( (data: {}) => {
+        console.log(data);
+        this.listaCursos = data;
+      } )
   }
 
   onCardDelete(curso) {

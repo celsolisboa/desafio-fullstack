@@ -6,11 +6,7 @@
         <div class="form-group col-sm-6">
             <select class="form-control" name="professorId" formControlName="professorId">
                 <option value="" selected disabled>Professores</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option *ngFor="let prof of listProfessores" value="{{ prof.id }}" > {{ prof.nome }} </option>
             </select>
         </div>
     </div>
@@ -19,11 +15,7 @@
         <div class="form-group col-sm-6">
             <select class="form-control" name="salaId" formControlName="salaId">
                 <option value="" selected disabled>Salas</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option *ngFor="let sala of listSalas"  value="{{sala.id}}" > {{sala.nome}} </option>
             </select>
         </div>
 
