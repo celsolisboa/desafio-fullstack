@@ -12,11 +12,11 @@
       "required": true
     },
     "inicio": {
-      "type": "date",
+      "type": "string",
       "required": true
     },
     "fim": {
-      "type": "date",
+      "type": "string",
       "required": true
     }
   },
