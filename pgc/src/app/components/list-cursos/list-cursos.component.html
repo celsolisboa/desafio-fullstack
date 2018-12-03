@@ -1,11 +1,9 @@
 
 
-<section>
-
+<section class="row" >
   <app-card
     *ngFor="let curso of listaCursos" 
     [cardInfo]="curso"
     (delete)="onCardDelete($event)"    
   ></app-card>
-
 </section>
