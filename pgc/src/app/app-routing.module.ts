@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FormCursoComponent } from './components/form-curso/form-curso.component';
 import { ListCursosComponent } from './components/list-cursos/list-cursos.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
 
 const routes: Routes = [
   { path: 'add', component: FormCursoComponent },
-  { path: '', component: ListCursosComponent }
+  { path: 'cursos', component: ListCursosComponent },
+  { path: '', component: FormLoginComponent },
 ];
 
 @NgModule({

@@ -65,7 +65,7 @@ export class FormCursoComponent implements OnInit {
 
   onSubmit(curso) {
     this.cursosServices.add(curso).subscribe( () => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/cursos']);
     });
   };
 

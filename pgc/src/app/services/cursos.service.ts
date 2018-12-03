@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 const urlApiCursos='http://127.0.0.1:3000/api/cursos';
 const httpOptions = {
@@ -39,7 +39,7 @@ export class CursosService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error); // log to console instead
+      console.error(error); 
       console.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
