@@ -1,0 +1,25 @@
+<div class="col-sm-6">
+  <div class="thumbnail">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2>{{titulo}}</h2>
+      </div>
+      <div class="col-xs-4 text-right">
+        <a (click)="onDelete()" class="btn btn-default btn-delete" role="button">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 professor">
+        Prof. {{professor}}
+      </div>
+      <div class="col-xs-6">
+        Sala {{sala}}
+      </div>
+      <div class="col-xs-6 text-right">
+        {{ inicio | date:'HH:MM' }} às {{ fim | date:'HH:MM' }}
+      </div>
+    </div>
+  </div>
+</div>
