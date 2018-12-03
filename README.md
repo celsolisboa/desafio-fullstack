@@ -30,3 +30,13 @@ Caso deseje rodar o banco localmente, os scripts necessários para restauração
 3. rode `npm start`
 4. acesse o sistema pela url `http://127.0.0.1:4200/`
 
+### Para acessar o PGC
+
+#### Dados para LOGIN
+
+```
+email: admin@pgc.com.br
+senha: admin
+```
+
+
