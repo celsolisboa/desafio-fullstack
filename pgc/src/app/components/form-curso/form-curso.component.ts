@@ -27,10 +27,8 @@ export class FormCursoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.listProfessores = this.professoresServices.get();
-    this.listSalas = this.salasService.get();
-
-    console.log(this.listProfessores);
+    this.getListProfessores();
+    this.getListSalas()
 
     this.form = this.formBuilder.group(
       {
@@ -43,27 +41,28 @@ export class FormCursoComponent implements OnInit {
     );
   }
 
+  getListProfessores() {
+    this.listProfessores = [];
+    this.professoresServices.get()
+      .subscribe((data: {}) => {
+        console.log(data);
+        this.listProfessores = data;
+      }
+    );
+  }
+
+  getListSalas() {
+    this.listSalas = [];
+    this.salasService.get()
+      .subscribe((data: {}) => {
+        console.log(data);
+        this.listSalas = data;
+      }
+    );
+  }
+
   onSubmit(curso) {
-
-    const cursoTemp = { 
-      nome: curso.nome, 
-      "inicio": "2018-12-02T15:03:38.361Z", 
-      "fim": "2018-12-02T15:03:38.361Z", 
-      "id": "5c03f46c117a7cc23cb3b0a1", 
-      "professorId": curso.professorId, 
-      "salaId": curso.salaId, 
-      "sala": { 
-        "nome": "Temp 201", 
-        "id": curso.salaId 
-      }, 
-      "professor": { 
-        "nome": "Temporário", 
-        "id": curso.professorId 
-      } 
-    };
-    
-
-    this.cursosServices.add(cursoTemp);
+    this.cursosServices.add(curso).subscribe();
   };
 
 }
