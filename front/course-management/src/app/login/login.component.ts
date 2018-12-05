@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     const autenticado = this.authService.autenticarUsuario(this.usuario)
 
     if(autenticado){
-      this.router.navigate(['/cursos'])
+      this.router.navigate(['/']);
     }
     
   }

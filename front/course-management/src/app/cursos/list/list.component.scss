@@ -1,0 +1,40 @@
+.header{
+    text-align:center;
+    height: 30px;
+    background: #e2e2e2;
+    padding:0px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    margin-top:4px;
+    padding-top:2px;
+}
+
+.conteudoCursos{
+    min-height:200px;
+    margin-left: -10px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+}
+
+.boxCursos{
+    box-shadow: 0px 0px 14px -3px black;
+    border-radius: 6px;
+    min-height:200px;
+    background: white;
+    padding:0px;
+    height:auto !important;
+}
+
+.add{
+    font-size: 25px;
+    float: right;
+    position: relative;
+    bottom: 3px;
+    left: 4px;
+    cursor: pointer;
+}
+
+.titulo {
+    margin-top: 30px;
+    position: relative;
+}
