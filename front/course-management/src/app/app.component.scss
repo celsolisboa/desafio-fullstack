@@ -1,6 +1,19 @@
+@media (max-width: 939px) {
+    .conteudo {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0px;
+}
+}
+
+@media (min-width: 939px) {
+
 .conteudo{
     height: 100vh;
-    width: 100%;
+    width: 94%;
     padding: 40px;
-
+    margin-left: auto;
+    margin-right: auto;
+}
 }
