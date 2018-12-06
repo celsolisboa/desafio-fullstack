@@ -1,0 +1,30 @@
+<div class="container col-sm-12">
+  <form class="formCurso col-sm-9">
+    <div class="row">
+      <mat-form-field class="col-sm-6">
+        <input matInput placeholder="Nome do Curso">
+      </mat-form-field>
+      <mat-form-field class="col-sm-6">
+        <mat-select placeholder="Professores" multiple>
+          <mat-option *ngFor="let professor of professores" [value]="professor.id">{{professor.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-sm-6">
+        <mat-select placeholder="Salas" multiple>
+          <mat-option *ngFor="let sala of salas" [value]="sala.id">{{sala.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-sm-3">
+        <input matInput placeholder="Hr Inicio">
+      </mat-form-field>
+      <mat-form-field class="col-sm-3">
+        <input matInput placeholder="Hr Fim">
+      </mat-form-field>
+    </div>
+    <div class="row linhaBtnSalvar">
+      <input class="btn btn-primary col-sm-6" type="submit" value="Salvar Curso">
+    </div>
+  </form>
+</div>

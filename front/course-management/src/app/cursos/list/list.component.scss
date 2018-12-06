@@ -27,15 +27,16 @@
 }
 
 .add{
-    font-size: 42px;
+    font-size: 33px;
     float: right;
-    position: relative;
+    position: absolute;
     bottom: 3px;
-    left: 4px;
+    right: 5px;
     cursor: pointer;
+    color: #555;
 }
 
 .titulo {
-    margin-top: 30px;
+    margin-top: 26px;
     position: relative;
 }

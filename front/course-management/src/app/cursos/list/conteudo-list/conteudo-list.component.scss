@@ -3,7 +3,7 @@ $leftCardAndLine: 18px;
 .card{
     height: 120px;
     border: 1px solid #999;
-    width: 31.5%;
+    width: 40.5%;
     margin-left: $leftCardAndLine;
     margin-top: 10px;
     padding-left: 0px;
@@ -27,4 +27,26 @@ $leftCardAndLine: 18px;
     color: red;
     float: right;
     left:9px
+}
+
+.detalheCurso{
+    clear: both;
+    height: 80px;
+    font-size: 14px;
+    margin-top: 26px;
+    line-height: 6px;
+}
+
+.detalheDirCurso{
+    float: right;
+}
+
+.descDetalhe{
+    color: #616161;
+    margin-top: 22px;
+    // float: right;
+}
+
+.tituloCurso{
+    font-size: 16px
 }
