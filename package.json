@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-restapi",
+  "version": "1.0.0",
+  "description": "Aplicacao com API REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "William dos Reis",
+    "email": "william.reiscacho14@gmail.com",
+    "url": ""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mysql": "^2.13.0",
+    "validator": "^10.9.0"
+  }
+}
