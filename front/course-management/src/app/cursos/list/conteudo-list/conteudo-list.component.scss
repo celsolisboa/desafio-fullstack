@@ -1,11 +1,11 @@
-$leftCardAndLine: 18px;
+$leftCardAndLine: 14px;
 
 .card{
     height: 120px;
     border: 1px solid #999;
-    width: 40.5%;
-    margin-left: $leftCardAndLine;
-    margin-top: 10px;
+    width: 43.3%; 
+    // margin-left: $leftCardAndLine;
+    margin-top: 25px;
     padding-left: 0px;
 }
 
@@ -16,7 +16,7 @@ $leftCardAndLine: 18px;
 }
 
 .conteudoCurso{
-    margin-left: -$leftCardAndLine;
+    margin-left: $leftCardAndLine;
     padding-right: 0px
 }
 
