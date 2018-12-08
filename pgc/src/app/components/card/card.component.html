@@ -11,16 +11,24 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 professor">
-        Prof. {{cardInfo.professor.nome}}
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12 professor" *ngFor="let professor of cardInfo.professores">
+            Prof. {{professor.nome}}
+          </div>
+          <div class="col-xs-12" *ngFor="let sala of cardInfo.salas">
+            Sala {{sala.nome}}
+          </div>
+        </div>
       </div>
-      <div class="col-xs-6">
-        Sala {{cardInfo.sala.nome}}
-      </div>
-      <div class="col-xs-6 text-right">
-        {{ cardInfo.inicio }}
-        às
-        {{ cardInfo.fim }}
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            {{ cardInfo.inicio }}
+            às
+            {{ cardInfo.fim }}
+          </div>
+        </div>
       </div>
     </div>
   </div>

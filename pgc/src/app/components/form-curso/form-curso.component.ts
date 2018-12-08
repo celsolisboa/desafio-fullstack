@@ -35,8 +35,8 @@ export class FormCursoComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         nome: this.formBuilder.control('', Validators.required),
-        professorId: this.formBuilder.control('', Validators.required),
-        salaId: this.formBuilder.control('', Validators.required),
+        professores: this.formBuilder.control('', Validators.required),
+        salas: this.formBuilder.control('', Validators.required),
         inicio: this.formBuilder.control('', Validators.required),
         fim: this.formBuilder.control('', Validators.required),
       }

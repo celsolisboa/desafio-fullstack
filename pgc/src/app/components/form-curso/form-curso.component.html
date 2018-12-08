@@ -16,18 +16,18 @@
                 <input id="nome" type="text" name="nome" formControlName="nome" class="form-control" placeholder="Nome do Curso">
             </div>
             <div class="form-group col-sm-6">
-                <select class="form-control" name="professorId" formControlName="professorId">
+                <select class="form-control" multiple name="professorId" formControlName="professores">
                     <option value="" selected disabled>Professores</option>
-                    <option *ngFor="let prof of listProfessores" value="{{ prof.id }}"> {{ prof.nome }} </option>
+                    <option *ngFor="let prof of listProfessores" value="{{ prof._id }}"> {{ prof.nome }} </option>
                 </select>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-sm-6">
-                <select class="form-control" name="salaId" formControlName="salaId">
+                <select class="form-control" multiple name="salaId" formControlName="salas">
                     <option value="" selected disabled>Salas</option>
-                    <option *ngFor="let sala of listSalas" value="{{sala.id}}"> {{sala.nome}} </option>
+                    <option *ngFor="let sala of listSalas" value="{{sala._id}}"> {{sala.nome}} </option>
                 </select>
             </div>
 
