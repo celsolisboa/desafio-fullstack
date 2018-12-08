@@ -1,18 +1,18 @@
 API Curso
 
-#Introdução
+#Introdução</br>
 
 Esta API executa um CRUD de informações sobre curso. 
 Exibindo no formato JSON: curso, Professor, Sala, Horário de início e horário de fim. 
 Este projeto é simples e básico. 
 O intuito deste é mostrar de forma fácil como consumir dados utilizando padrão Rest.
 
-#Instalação
+#Instalação</br>
 
-1- Utilize o arquivo apiCursos.sql, para a criação da base de dados.
-2- Modifique o arquivo api/config/config.php, com as informações para acessar o banco de dados MYSQL.
-3- Crie um diretório no servidor web e baixe e descompacte o conteúdo deste repositório.
-4- Por padrão usuario: admin@admin.com e senha: 123456.
+1- Utilize o arquivo apiCursos.sql, para a criação da base de dados.</br>
+2- Modifique o arquivo api/config/config.php, com as informações para acessar o banco de dados MYSQL.</br>
+3- Crie um diretório no servidor web e baixe e descompacte o conteúdo deste repositório.</br>
+4- Por padrão usuario: admin@admin.com e senha: 123456.</br>
 
 #Sobre
 
