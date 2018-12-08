@@ -15,19 +15,19 @@ import {
 } from '../controllers/curso.controller';
 
 const routes = (app) => {
-    app.route('/professores')
+    app.route('/api/professores')
         .get(getProfessores)
         .post(addProfessor);
 
-    app.route('/salas')
+    app.route('/api/salas')
         .get(getSalas)
         .post(addSala);
 
-    app.route('/cursos')
+    app.route('/api/cursos')
         .get(getCursos)
         .post(addCurso);
 
-    app.route('/cursos/:cursoId')
+    app.route('/api/cursos/:cursoId')
         .put(updateCurso);
 };
 
