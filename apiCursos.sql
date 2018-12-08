@@ -35,8 +35,8 @@ CREATE TABLE `cursos` (
   `curso` varchar(45) DEFAULT NULL,
   `hora_inico` varchar(4) DEFAULT NULL,
   `hora_fim` varchar(4) DEFAULT NULL,
-  `fk_idprofessor` int(11) NOT NULL,
-  `fk_idsala` int(11) NOT NULL
+  `idprofessor` int(11) NOT NULL,
+  `idsala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -78,7 +78,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idusuario`, `usuario`, `senha`) VALUES
-(1, 'admin', '123456');
+(1, 'admin@admin.com', '123456');
 
 --
 -- Indexes for dumped tables
@@ -88,9 +88,9 @@ INSERT INTO `usuarios` (`idusuario`, `usuario`, `senha`) VALUES
 -- Indexes for table `cursos`
 --
 ALTER TABLE `cursos`
-  ADD PRIMARY KEY (`idcurso`,`fk_idprofessor`,`fk_idsala`),
-  ADD KEY `fk_cursos_professores_idx` (`fk_idprofessor`),
-  ADD KEY `fk_cursos_salas1_idx` (`fk_idsala`);
+  ADD PRIMARY KEY (`idcurso`,`idprofessor`,`idsala`),
+  ADD KEY `fk_cursos_professores_idx` (`idprofessor`),
+  ADD KEY `fk_cursos_salas1_idx` (`idsala`);
 
 --
 -- Indexes for table `professores`
@@ -148,8 +148,8 @@ ALTER TABLE `usuarios`
 -- Limitadores para a tabela `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `fk_cursos_professores` FOREIGN KEY (`fk_idprofessor`) REFERENCES `professores` (`idprofessor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_cursos_salas1` FOREIGN KEY (`fk_idsala`) REFERENCES `salas` (`idsala`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cursos_professores` FOREIGN KEY (`idprofessor`) REFERENCES `professores` (`idprofessor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cursos_salas1` FOREIGN KEY (`idsala`) REFERENCES `salas` (`idsala`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
