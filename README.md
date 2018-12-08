@@ -14,10 +14,11 @@ Para o banco usei um ‘Database-as-a-Service’ oferecido pela `MLab`. Logo, n�
 Obs:
 Caso deseje rodar o banco localmente, os scripts necessários para restauração do bando estão na pasta `modelagem-banco` no arquivo `ds123664_desafio_fullstack_2018-12-03T170547.000Z.tgz`
 
-### RÉIA: Projeto de back-end
+
+### TARTARO: Projeto de back-end
 
 #### Setup & Run
-1. acessar a pasta do projeto `reia`
+1. acessar a pasta do projeto `tartato`
 2. rode `npm install`
 3. rode `npm start`
 4. Sistema estará rodando na url `http://127.0.0.1:3000/`
@@ -29,6 +30,16 @@ Caso deseje rodar o banco localmente, os scripts necessários para restauração
 2. rode o comando `npm install`
 3. rode `npm start`
 4. acesse o sistema pela url `http://127.0.0.1:4200/`
+
+---
+### RÉIA: Projeto de back-end (esse projeto foi substituido pelo projeto TÁRTATO, mas ficará no projeto para avaliação)
+
+#### Setup & Run
+1. acessar a pasta do projeto `reia`
+2. rode `npm install`
+3. rode `npm start`
+4. Sistema estará rodando na url `http://127.0.0.1:3000/`
+---
 
 ### Para acessar o PGC
 
