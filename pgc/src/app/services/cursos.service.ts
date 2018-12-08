@@ -18,7 +18,7 @@ export class CursosService {
   constructor(private http: HttpClient){}
 
   get(): Observable<any> {
-    return this.http.get(`${urlApiCursos}?filter={"include":["sala","professor"]}`).pipe(
+    return this.http.get(`${urlApiCursos}`).pipe(
       map(this.extractData));
   };
 
@@ -29,7 +29,7 @@ export class CursosService {
 
   delete(curso) {
     console.log(curso);
-    return this.http.delete(`${urlApiCursos}/${curso.id}`);
+    return this.http.delete(`${urlApiCursos}/${curso._id}`);
   };
 
   private extractData(res: Response) {

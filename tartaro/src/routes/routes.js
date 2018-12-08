@@ -12,6 +12,7 @@ import {
     addCurso,
     getCursos,
     updateCurso,
+    deleteCurso,
 } from '../controllers/curso.controller';
 
 const routes = (app) => {
@@ -28,7 +29,8 @@ const routes = (app) => {
         .post(addCurso);
 
     app.route('/api/cursos/:cursoId')
-        .put(updateCurso);
+        .put(updateCurso)
+        .delete(deleteCurso);
 };
 
 export default routes;

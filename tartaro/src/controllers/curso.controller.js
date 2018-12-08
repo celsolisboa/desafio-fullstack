@@ -33,6 +33,18 @@ export const updateCurso = async (req, res) => {
                 res.send(err);
             }
             res.json(curso);
+        // eslint-disable-next-line comma-dangle
         }
-    ).populate(['professores', 'salas'])
+    ).populate(['professores', 'salas']);
+};
+
+export const deleteCurso = async (req, res) => {
+    Curso.remove({ _id: req.params.cursoId }, (err) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json({
+            message: 'Curso excluido com sucesso',
+        });
+    });
 };
