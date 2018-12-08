@@ -1,6 +1,7 @@
 API Curso
 
 #Introdução
+
 Esta API executa um CRUD de informações sobre curso. 
 Exibindo no formato JSON: curso, Professor, Sala, Horário de início e horário de fim. 
 Este projeto é simples e básico. 
@@ -14,13 +15,16 @@ O intuito deste é mostrar de forma fácil como consumir dados utilizando padrã
 4- Por padrão usuario: admin@admin.com e senha: 123456.
 
 #Sobre
+
 Neste projeto foi utilizado o AJAX para comunicação da interface com a API. 
 Não foi utilizado validações de sala, horário, autenticação dentro outras deixando o projeto o mais básico possível.
 
 #Autenticação
+
 Não existe autenticação com a API. O login é básico utilizando apenas autenticação de usuario e senha.
 
 #Codigos de Erro
+
 Codigos de status e erros.
 
 create
