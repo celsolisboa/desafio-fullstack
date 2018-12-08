@@ -16,9 +16,9 @@
     
     if(isset($_GET['id']) && $_GET['id'] <> ''){	
         $id = $_GET['id'];
-        $dados = json_decode(file_get_contents('http://localhost:88/curso/api/curso/read_one.php?idcurso='.$id));
-        $professores = json_decode(file_get_contents('http://localhost:88/curso/api/professor/read.php'));
-        $salas = json_decode(file_get_contents('http://localhost:88/curso/api/sala/read.php'));
+        $dados = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/curso/read_one.php?idcurso='.$id));
+        $professores = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/professor/read.php'));
+        $salas = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/sala/read.php'));
     
         
     }

@@ -43,10 +43,9 @@ $curso->login();
     }
     
     else{
-        // set response code - 404 Not found
-        http_response_code(404);
+        // set response code - 
+        http_response_code(503);
     
-        // tell the curso does not exist
-        echo json_encode(array("message" => "Este Curso não existe."));
+        echo json_encode(array("message" => "Erro ao logar."));
     }
 ?>

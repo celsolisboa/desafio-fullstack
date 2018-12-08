@@ -1,9 +1,7 @@
 <?php
-    $professores = json_decode(file_get_contents('http://localhost:88/curso/api/professor/read.php'));
-    $salas = json_decode(file_get_contents('http://localhost:88/curso/api/sala/read.php'));  
-    
-   
-  
+    $professores = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/professor/read.php'));
+    $salas = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/sala/read.php'));  
+
 ?> 
 <!doctype html>
 <html lang="pt-br">
