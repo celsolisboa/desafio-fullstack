@@ -23,6 +23,16 @@ export const addCurso = async (req, res) => {
     });
 };
 
+export const getCursoById = async (req, res) => {
+    Curso.findById(req.params.cursoId, (err, curso) => {
+        if (err) {
+            res.statusCode = 404;
+            res.send(err);
+        }
+        res.json(curso);
+    }).populate(['professores', 'salas']);
+};
+
 export const updateCurso = async (req, res) => {
     Curso.findOneAndUpdate(
         { _id: req.params.cursoId },

@@ -11,6 +11,7 @@ import {
 import {
     addCurso,
     getCursos,
+    getCursoById,
     updateCurso,
     deleteCurso,
 } from '../controllers/curso.controller';
@@ -29,6 +30,7 @@ const routes = (app) => {
         .post(addCurso);
 
     app.route('/api/cursos/:cursoId')
+        .get(getCursoById)
         .put(updateCurso)
         .delete(deleteCurso);
 };
