@@ -27,9 +27,18 @@ export class CursosService {
     return this.http.post(urlApiCursos, curso);
   };
 
+  edit(idCurso, curso) {
+    return this.http.put(`${urlApiCursos}/${idCurso}`, curso);
+  };
+
   delete(curso) {
     console.log(curso);
     return this.http.delete(`${urlApiCursos}/${curso._id}`);
+  };
+
+  getById(cursoId) {
+    console.log(cursoId);
+    return this.http.get(`${urlApiCursos}/${cursoId}`);
   };
 
   private extractData(res: Response) {

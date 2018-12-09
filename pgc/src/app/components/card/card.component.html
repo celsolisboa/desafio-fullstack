@@ -5,6 +5,9 @@
         <h2>{{cardInfo.nome}}</h2>
       </div>
       <div class="col-xs-4 text-right">
+        <a  class="btn btn-default btn-delete" role="button" routerLink="/edit/{{cardInfo._id}}">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
         <a (click)="onDelete()" class="btn btn-default btn-delete" role="button">
           <span class="glyphicon glyphicon-trash"></span>
         </a>

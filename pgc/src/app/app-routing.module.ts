@@ -7,6 +7,7 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 
 const routes: Routes = [
   { path: 'add', component: FormCursoComponent },
+  { path: 'edit/:cursoId', component: FormCursoComponent },
   { path: 'cursos', component: ListCursosComponent },
   { path: '', component: FormLoginComponent },
 ];
