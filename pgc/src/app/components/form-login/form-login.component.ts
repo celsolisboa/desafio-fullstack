@@ -13,6 +13,8 @@ export class FormLoginComponent implements OnInit {
 
   form;
   loginFail: boolean = false;
+  email:string = 'admin@pgc.com.br';
+  senha:string = 'admin';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,14 +32,21 @@ export class FormLoginComponent implements OnInit {
     );
   }
 
-  onSubmit(curso) {
-    this.userServices.login(curso).subscribe(
-      (data: {}) => {
-        console.log(data);
-        if (data) {
-          this.router.navigate(['/cursos']);
-        }
-      });
+  onSubmit(login) {
+
+    console.log(login.email == this.email && login.password == this.senha);
+
+    if(login.email == this.email && login.password == this.senha){
+      this.router.navigate(['/cursos']);
+    }
+
+    // this.userServices.login(login).subscribe(
+    //   (data: {}) => {
+    //     console.log(data);
+    //     if (data) {
+    //       this.router.navigate(['/cursos']);
+    //     }
+    // });
   };
 
-}
+};

@@ -36,7 +36,7 @@ process.on('SIGINT', () => {
 app.use(bodyParse.urlencoded({ extended: true }));
 app.use(bodyParse.json());
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: ['http://localhost:4200', 'http://127.0.0.1:4200'] }));
 
 routes(app);
 
