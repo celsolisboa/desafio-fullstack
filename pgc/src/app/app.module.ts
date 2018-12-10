@@ -14,6 +14,9 @@ import { CursosService } from './services/cursos.service'
 import { ProfessoresService } from './services/professores.service'
 import { SalasService } from './services/salas.service';
 import { UsersService } from './services/users.service';
+import { SimpleAuthService } from './services/simple-auth.service';
+
+import { SimpleGuardAuthGuard } from './simple-guard-auth.guard'
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { UsersService } from './services/users.service';
     CursosService,
     ProfessoresService,
     SalasService,
-    UsersService
+    UsersService,
+    SimpleAuthService
   ],
   bootstrap: [AppComponent]
 })

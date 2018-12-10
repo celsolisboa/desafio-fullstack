@@ -3,6 +3,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UsersService } from '../../services/users.service';
+import { SimpleAuthService } from '../../services/simple-auth.service';
 
 @Component({
   selector: 'app-form-login',
@@ -19,7 +20,8 @@ export class FormLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userServices: UsersService,
-    private router: Router
+    private router: Router,
+    private auth: SimpleAuthService,
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class FormLoginComponent implements OnInit {
     console.log(login.email == this.email && login.password == this.senha);
 
     if(login.email == this.email && login.password == this.senha){
+      this.auth.setToken('temp_auth');
       this.router.navigate(['/cursos']);
     }
 
