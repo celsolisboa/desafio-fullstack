@@ -42,7 +42,6 @@ Caso deseje rodar o banco localmente, os scripts necessários para restauração
 ---
 
 ### Para acessar o PGC
-- sistema de login ainda não implementado. Apenas mock do processo.
 
 #### Dados para LOGIN
 
