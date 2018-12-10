@@ -14,7 +14,7 @@
 </nav>
 
 <div class="container">
-  <section class="row">
+  <section class="row grid-cursos ">
     <app-card *ngFor="let curso of listaCursos" [cardInfo]="curso" (delete)="onCardDelete($event)"></app-card>
   </section>
 </div>

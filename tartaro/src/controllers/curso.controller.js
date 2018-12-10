@@ -6,7 +6,9 @@ export const getCursos = async (req, res) => {
             res.send(err);
         }
         res.json(cursos);
-    }).populate(['professores', 'salas']).sort({ nome: 1 });
+    }).populate('professores', '_id, nome')
+        .populate('salas', '_id, nome')
+        .sort({ nome: 1 });
 };
 
 export const addCurso = async (req, res) => {
@@ -30,7 +32,7 @@ export const getCursoById = async (req, res) => {
             res.send(err);
         }
         res.json(curso);
-    }).populate(['professores', 'salas']);
+    }).populate('professores', '_id, nome').populate('salas', '_id, nome');
 };
 
 export const updateCurso = async (req, res) => {
@@ -43,9 +45,9 @@ export const updateCurso = async (req, res) => {
                 res.send(err);
             }
             res.json(curso);
-        // eslint-disable-next-line comma-dangle
+            // eslint-disable-next-line comma-dangle
         }
-    ).populate(['professores', 'salas']);
+    ).populate('professores', '_id, nome').populate('salas', '_id, nome');
 };
 
 export const deleteCurso = async (req, res) => {
