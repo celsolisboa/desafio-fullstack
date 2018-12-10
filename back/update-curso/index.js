@@ -1,16 +1,35 @@
 let db = require('./models/index');
 
-module.exports.create = (event, context, callback) => {
+module.exports.update = (event, context, callback) => {
 
     context.callbackWaitsForEmptyEventLoop = false;
-    sequelize.transaction(transaction => {
+    db.sequelize.transaction(transaction => {
 
-        db.sequelize.models.Cursos.update(event)
+        return db.sequelize.models.Cursos.findByPk(event.params.path.id, {
+            include: [
+                { model: db.sequelize.models.Salas, as: "Salas" },
+                { model: db.sequelize.models.Professores, as: "Professores" },
+            ]
+        })
             .then(data => {
-                data.setProfessores(event.idProfessores)
-                data.setSalas(event.idSalas)
-                callback(null, data)
+                if (!data) {
+                    return Promise.reject({
+                        errorMessage: "BadRequest: Curso nao encontrado!",
+                        statusCode: 400,
+                        typeError: "BadRequest"
+                    })
+                }
+                return data.update(event.body, transaction).then(curso => {
+                    let promises = []
+                    promises.concat(curso.Salas.map(sala => sala.CURSOS_SALAS.destroy(sala.CURSOS_SALAS, { transaction })))
+                    promises.concat(curso.Professores.map(prof => prof.CURSOS_PROFESSORES.destroy(prof.CURSOS_PROFESSORES, { transaction })))
+                    return Promise.all(promises).then(_ => Promise.resolve(data))
+                }).then(curso => Promise.all([
+                    curso.setSalas(event.body.idSalas, { transaction }),
+                    curso.setProfessores(event.body.idProfessores, { transaction })
+                ]).then(_ => Promise.resolve(curso)))
             })
-            .catch(erro => callback(erro, null))
+            .then(curso => callback(null, curso))
+            .catch(erro => callback(JSON.stringify(erro) == {} ? erro : JSON.stringify(erro), null))
     })
 }

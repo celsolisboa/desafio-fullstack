@@ -10,7 +10,7 @@ var db = {};
 const sequelize = new Sequelize(env.database, env.username, env.password, {
     host: env.host,
     port: env.port,
-    logging: false,
+    logging: true,
     dialect: env.dialect,
     define: {
         timestamps: false

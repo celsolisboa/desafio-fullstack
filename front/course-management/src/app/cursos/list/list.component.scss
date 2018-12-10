@@ -1,3 +1,10 @@
+@media (max-width: 939px) {
+    .boxCursos{
+        min-height: 100vh !important
+    }
+}
+
+
 .header{
     text-align:center;
     height: 50px;
@@ -24,6 +31,17 @@
     background: white;
     padding:0px;
     height:auto !important;
+}
+
+
+.back{
+    font-size: 31px;
+    float: left;
+    position: absolute;
+    bottom: -4px;
+    left: -6px;
+    cursor: pointer;
+    color: #555;
 }
 
 .add{

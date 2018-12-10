@@ -10,7 +10,7 @@ export class AuthService {
 
   autenticarUsuario(usuario:Usuario){
 
-    this.usuarioEstaAutenticado = usuario.email === "thiago" && usuario.senha === "1" ? true : false
+    this.usuarioEstaAutenticado = usuario.email === "admin@admin.com" && usuario.senha === "123" ? true : false
     // console.log(this.usuarioEstaAutenticado)
     return this.usuarioEstaAutenticado
     

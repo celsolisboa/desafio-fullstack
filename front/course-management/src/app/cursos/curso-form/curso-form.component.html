@@ -1,30 +1,33 @@
-<div class="container col-sm-12">
-  <form class="formCurso col-sm-9">
+<div class="container col-sm-12"> 
+  <form [formGroup]="formCurso" (submit)="salvarCurso()" class="formCurso col-sm-9">
     <div class="row">
       <mat-form-field class="col-sm-6">
-        <input matInput placeholder="Nome do Curso">
+        <input type="hidden" placeholder="Nome do Curso" formControlName="id">
+        <input matInput placeholder="Nome do Curso" formControlName="nome">
       </mat-form-field>
       <mat-form-field class="col-sm-6">
-        <mat-select placeholder="Professores" multiple>
+        <mat-select placeholder="Professores" formControlName="idProfessores" multiple>
           <mat-option *ngFor="let professor of professores" [value]="professor.id">{{professor.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field class="col-sm-6">
-        <mat-select placeholder="Salas" multiple>
+        <mat-select placeholder="Salas" formControlName="idSalas" multiple>
           <mat-option *ngFor="let sala of salas" [value]="sala.id">{{sala.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-sm-3">
-        <input matInput placeholder="Hr Inicio">
+        <input matInput formControlName="horaInicio" placeholder="Hr Inicio">
       </mat-form-field>
       <mat-form-field class="col-sm-3">
-        <input matInput placeholder="Hr Fim">
+        <input matInput formControlName="horaFim" placeholder="Hr Fim">
       </mat-form-field>
     </div>
     <div class="row linhaBtnSalvar">
-      <input class="btn btn-primary col-sm-6" type="submit" value="Salvar Curso">
+      <button [disabled]="!formCurso.valid" type="submit" class="btn btn-primary col-sm-6">
+        Salvar Curso
+      </button>
     </div>
   </form>
 </div>

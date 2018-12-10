@@ -1,16 +1,16 @@
 <div class="container h-100 col-sm-12 boxCursos">
   <div class="col-sm-12 header">
+    <a routerLink="/curso" class="nav-item nav-link back">
+      <i class="fa fa-arrow-left"></i>
+    </a>
     <span class="titulo"> Cursos </span>
-    <a href="/create" (click)="esconderBtnAdd(true)" class="nav-item nav-link add">
+    <a routerLink="create" class="nav-item nav-link add">
       <i class="fa fa-plus add"></i>
     </a>
   </div>
 
   <div class="col-sm-12 conteudoCursos">
-
-      <router-outlet></router-outlet>
-    <!-- <app-conteudo-list></app-conteudo-list> -->
-
+    <router-outlet></router-outlet>
   </div>
 
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CursoService } from '../curso.service';
+import { Curso } from '../curso.model';
 
 @Component({
   selector: 'app-list',
@@ -10,6 +12,7 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  
   }
 
 }

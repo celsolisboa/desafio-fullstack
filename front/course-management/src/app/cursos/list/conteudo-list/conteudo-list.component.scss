@@ -7,11 +7,15 @@ $leftCardAndLine: 14px;
     // margin-left: $leftCardAndLine;
     margin-top: 25px;
     padding-left: 0px;
+    cursor:pointer
 }
 
 @media (max-width: 939px) {
     .card {
-        width: 98%;
+        width: 98.5%;
+    }
+    .conteudoCurso{
+        margin-left: 0px !important
     }
 }
 
@@ -24,27 +28,32 @@ $leftCardAndLine: 14px;
     font-size: 25px;
     position: relative;
     bottom: 12px;
-    color: red;
+    color: red !important;
     float: right;
-    left:9px
+    left:9px;
+    cursor: pointer;
 }
 
 .detalheCurso{
     clear: both;
     height: 80px;
     font-size: 14px;
-    margin-top: 26px;
-    line-height: 6px;
+    margin-top: 22px;
+    line-height: 1px;
+    padding-left: 15px;
 }
 
 .detalheDirCurso{
     float: right;
+    right: 14px;
+    position: absolute;
 }
 
 .descDetalhe{
     color: #616161;
-    margin-top: 22px;
-    // float: right;
+    margin-top: 28px;
+    line-height: 24px;
+    
 }
 
 .tituloCurso{

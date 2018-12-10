@@ -1,7 +1,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     const Salas = sequelize.define('Salas', {
-        nome: {
+        descricao: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,

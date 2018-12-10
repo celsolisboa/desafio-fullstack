@@ -6,7 +6,7 @@ import { ConteudoListComponent } from './list/conteudo-list/conteudo-list.compon
 
 const routes: Routes = [
     {
-        path: "", component: ListComponent, children: [
+        path: "curso", component: ListComponent,  children: [
             { path: "", component: ConteudoListComponent },
             { path: "create", component: CursoFormComponent },
             { path: "update/:id", component: CursoFormComponent },

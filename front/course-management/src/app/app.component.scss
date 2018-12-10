@@ -1,6 +1,11 @@
 @media (max-width: 939px) {
+.container{
+    padding: 0px !important;
+    margin:0px !important;
+}
+
     .conteudo {
-    width: 99%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding:0px;
