@@ -1,0 +1,44 @@
+<div class="d-flex align-content-start conteudoCurso flex-wrap col-sm-12">
+  <ng-container *ngFor="let curso of cursos; let i = index">
+
+
+    <div class="p-2 bd-highlight card">
+
+      <div class="row">
+        <div class="header col-sm-12">
+          <div class="row">
+            <div class="col-sm-12">
+              <a style="cursor:pointer" [routerLink]="'update/' + curso.id">
+                <span class="tituloCurso">{{curso.nome}}</span>
+              </a>
+              <a class="xRemover" (click)="removerCurso(curso.id)">
+                <span class="fa fa-close p-2 bd-highlight "></span>
+              </a>
+            </div>
+          </div>
+          <div class="row detalheCurso">
+            <div class="detalheEsqCurso">
+              <!-- <p> -->
+                Prof:
+                <span class="descDetalhe">{{getNomesProfessores(curso.Professores)}}</span> <br/>
+              <!-- </p> -->
+              <!-- <p> -->
+                Salas:
+                <span class="descDetalhe"> {{getDescricaoSalas(curso.Salas)}} </span>
+              <!-- </p> -->
+            </div>
+            <div class="detalheDirCurso">
+              <span class="descDetalhe" style="float: right; margin-top:23px">{{curso.horaInicio}} as {{curso.horaFim}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="i % 2 == 0" class="col-sm-1">
+
+    </div>
+  </ng-container>
+
+
+  <!-- </div> -->
