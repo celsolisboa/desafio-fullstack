@@ -1,0 +1,38 @@
+<div class="col-sm-6">
+  <div class="thumbnail">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2>{{cardInfo.nome}}</h2>
+      </div>
+      <div class="col-xs-4 text-right">
+        <a  class="btn btn-default btn-delete" role="button" routerLink="/edit/{{cardInfo._id}}">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a (click)="onDelete()" class="btn btn-default btn-delete" role="button">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12 professor" *ngFor="let professor of cardInfo.professores">
+            Prof. {{professor.nome}}
+          </div>
+          <div class="col-xs-12" *ngFor="let sala of cardInfo.salas">
+            Sala {{sala.nome}}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            {{ cardInfo.inicio }}
+            às
+            {{ cardInfo.fim }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "hades",
+  "version": "1.0.0",
+  "description": "new back-end for the PGC project",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "jest",
+    "test-w": "jest --watchAll",
+    "eslint": "./node_modules/.bin/eslint server.js src/**",
+    "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'",
+    "start": "nodemon ./server.js --exec babel-node -e js"
+  },
+  "author": "Rodrigo Muniz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.7"
+  }
+}

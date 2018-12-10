@@ -1,0 +1,24 @@
+{
+  "name": "sala",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cursos": {
+      "type": "hasMany",
+      "model": "curso",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
