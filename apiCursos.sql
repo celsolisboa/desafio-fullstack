@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `apidb`
 --
-CREATE DATABASE IF NOT EXISTS `apicursos2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `apicursos2`;
+CREATE DATABASE IF NOT EXISTS `apicursos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `apicursos`;
 
 -- --------------------------------------------------------
 
