@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `apidb`
 --
-CREATE DATABASE IF NOT EXISTS `apicursos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `apicursos`;
+CREATE DATABASE IF NOT EXISTS `apicursos2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `apicursos2`;
 
 -- --------------------------------------------------------
 
@@ -33,8 +33,8 @@ USE `apicursos`;
 CREATE TABLE `cursos` (
   `idcurso` int(11) NOT NULL,
   `curso` varchar(45) DEFAULT NULL,
-  `hora_inico` varchar(4) DEFAULT NULL,
-  `hora_fim` varchar(4) DEFAULT NULL,
+  `inico` varchar(4) DEFAULT NULL,
+  `fim` varchar(4) DEFAULT NULL,
   `idprofessor` int(11) NOT NULL,
   `idsala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
