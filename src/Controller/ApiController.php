@@ -84,18 +84,24 @@ class ApiController extends AppController
     }
 
     public function listaCursoEspecifico($id)
-    {
+    {     
+
         if ($this->request->is(['get'])) {
      
-        $connection = ConnectionManager::get('default'); 
-        $my_results = $connection->execute('SELECT cps.cd_curso_professor_sala,p.nm_professor,c.nm_curso,s.nm_sala ,cps.hr_inicio , cps.hr_fim FROM curso_professor_sala cps,curso c, sala s, professor p where c.cd_curso = cps.cd_curso and cps.cd_sala = s.cd_sala and cps.cd_professor = p.cd_professor and p.cd_professor = '.$id)->fetchAll('assoc');
+         $connection = ConnectionManager::get('default'); 
+        $my_results = $connection->execute('SELECT s.cd_sala,c.cd_curso,p.cd_professor,cps.cd_curso_professor_sala,p.nm_professor,c.nm_curso,s.nm_sala ,cps.hr_inicio , cps.hr_fim FROM curso_professor_sala cps,curso c, sala s, professor p where c.cd_curso = cps.cd_curso and cps.cd_sala = s.cd_sala and cps.cd_professor = p.cd_professor and cps.cd_curso_professor_sala = '.$id)->fetchAll('assoc');
+     //   $my_results = $this->request->getQuery('id');
         $this->set([
             'my_response' => $my_results,
             '_serialize' => 'my_response',
         ]);
         $this->RequestHandler->renderAs($this, 'json');
         }
+
     }
+
+
+
 
     public function adicionarProfessorCursoSala()
     {
@@ -141,7 +147,7 @@ class ApiController extends AppController
         
     }
 
-    public function AtualizarProfessorCursoSala($id)
+    public function AtualizarProfessorCursoSala()
     {
         if ($this->request->is(['put'])) {
 
@@ -153,8 +159,8 @@ class ApiController extends AppController
             $hr_fim       = $my_results['hr_fim'];  
             $cd_curso_professor_sala  = $my_results['cd_curso_professor_sala'];      
 
-        $connection = ConnectionManager::get('default'); 
-        $my_results = $connection->execute('UPDATE `curso_professor_sala` SET `cd_curso`=$cd_curso,`cd_professor`=$cd_professor,`cd_sala`=$cd_sala,`hr_inicio`=$hr_inicio,`hr_fim`=$hr_fim where `cd_curso_professor_sala` = $cd_curso_professor_sala');
+       $connection = ConnectionManager::get('default'); 
+      $my_results = $connection->execute("UPDATE `curso_professor_sala` SET `cd_curso`=$cd_curso,`cd_professor`=$cd_professor,`cd_sala`=$cd_sala,`hr_inicio`= '$hr_inicio',`hr_fim`='$hr_fim' where `cd_curso_professor_sala` = $cd_curso_professor_sala");
         $this->set([
             'my_response' => $my_results,
             '_serialize' => 'my_response',

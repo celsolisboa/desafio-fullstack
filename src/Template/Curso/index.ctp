@@ -9,44 +9,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    
-     $.get("../Api/listaCurso", function(data, status){
-     	  $.each( data, function( key, val ) {
-     	  	$( "#divPrincipal" ).append( '<div class="col-md-3"> <div class="col-md-12 col-bg-color"> <div class="row curso" style=""><div><span style="font-size: 20px;">'+data[key].nm_curso+' <button style="float: right; margin: 0px;" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button><button onclick="deletar('+data[key].cd_curso_professor_sala+')" style="float: right;" class="btn btn-info btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></span>  </div><br> <br><br><br><div class="aux2"><p style="height: 5px;">Professor: '+data[key].nm_professor+'</p><p>'+data[key].nm_sala+' <span style="float: right; ">'+data[key].hr_inicio+' até '+data[key].hr_fim+'</span> </p></div></div></div></div> ' );
-    });
-     		       
-    });
+<script src="../js/curso.js" type="text/javascript"></script>
 
-function deletar(id){
-
-
-   if (confirm("Tem certeza que deseja excluir ?")) {
-    var curso = {
-        id: id
-    }
-   
-
-  $.ajax({
-    async:true,
-    data: JSON.stringify(curso),
-    dataType:"json",
-    beforeSend: function (xhr) { // Add this line
-        xhr.setRequestHeader('X-CSRF-Token', $('[name="_csrfToken"]').val());
-    },  // Add this line
-    success:function (data, textStatus) {
-      //$("#municipio-id").html(data);
-     // alert(data);
-     location.reload();
-    },
-      type:"DELETE", url:"../Api/deletarProfessorCursoSala"}); 
-
-
-   }
-
-
-}
-</script>
 
     <title>Curso</title>
     <style type="text/css">
@@ -54,6 +18,7 @@ function deletar(id){
             padding: 10px;
             border: 1px solid black; 
             border-radius: 10px;
+            margin: 4px;
             
         }
         .aux2{
@@ -61,14 +26,20 @@ function deletar(id){
                 top:20px;
                 width:auto;
         }
+        .div{
+              color: #fff;
+              background-color: #428bca;
+              border-color: #428bca;
+              text-align: center; 
+        }
 
     </style>
 </head>
 <body>
 
 <div class="container-fluid" style="">
-    <div class="" style="text-align: center; background-color: #c3d4da">
-      <h2>Curso <a href="curso/add"><span style="float: right;" class="glyphicon glyphicon-plus"></span></a></h2> 
+    <div class="div" style="">
+      <h2>Curso <a href="../curso/add"><span style="float: right; color: white;" class="glyphicon glyphicon-plus"></span></a></h2> 
            
     </div>
     <br>
@@ -78,6 +49,73 @@ function deletar(id){
     
                 <?= $this->Form->create() ?>                                                                  
             </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar</h4>
+        </div>
+        <div class="modal-body">
+<div class="panel panel-primary">
+    <div class="panel-heading">Detalhes do Curso</div>
+    
+    <div class="panel-body">
+<div class="form-group">
+
+<div class="col-md-11 control-label">
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <div class="col-md-6">
+   <select id="cd_curso"   class="form-control">
+</select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group"> 
+  <div class="col-md-6">
+  <select id="cd_professor"  class="form-control">
+</select>
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <div class="col-md-6">
+    <select id="cd_sala"   class="form-control">
+</select>
+
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group"> 
+  <div class="col-md-2">
+  <input id="hr_inicio" name="Inicio" placeholder="Inicio" class="form-control input-md" >
+  </div>
+   
+  <div class="col-md-2">
+  <input id="hr_fim" name="Fim" placeholder="Fim" class="form-control input-md" required="" type="text" >
+    <input  style="display: none" id="cd_curso_professor_sala" name="" placeholder="" class="form-control input-md" required="" type="text" >
+</div>
+
+</div>
+
+        </div>
+        <div class="modal-footer">
+          <button onclick="salvarEdit()" type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     </div>
   
