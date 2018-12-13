@@ -1,12 +1,10 @@
-﻿Passo 1 - Clonar arquivos do projeto .
+﻿Passo 1 - Clonar arquivos do projeto e extrair pasta vendor e src dentro do projeto desafio-fullstack.
 <br>
-Passo 2 - Instalar composer .
+Passo 2 - Executar script sql que se encontra na pasta "SQL".
 <br>
-Passo 3 - Executar o comando composer install dentro da pasta do projeto
+Passa 3 - Configurar as informações de conexão com a base mysql no arquivo "config/app.php" apartir da linha 251. por padrão esta login e senha root caminho do banco localhost.
 <br>
-Passa 4 - Configurar as informações de conexão com a base mysql no arquivo "config/app.php" apartir da linha 251. por padrão esta login e senha root caminho do banco localhost.
-<br>
-Passo 5 - http://ipservidorapache/desafil-fullstack.
+Passo 4 - http://ipservidorapache/desafil-fullstack.
 <br>
 Usuario e senha para login na aplicação
 <br>
