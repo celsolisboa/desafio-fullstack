@@ -47,13 +47,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `desafio`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `desafio`.`Usuario` (
-  `cd_usuario` INT NOT NULL AUTO_INCREMENT,
-  `nm_email` VARCHAR(45) NOT NULL,
-  `cd_senha` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`cd_usuario`))
-ENGINE = InnoDB;
-
+CREATE TABLE `desafio`.`users` (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(255),
+    role VARCHAR(20),
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);
 
 -- -----------------------------------------------------
 -- Table `desafio`.`Curso_Professor_Sala`
@@ -87,3 +88,50 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+INSERT INTO curso
+    (nm_curso)
+VALUES
+    ("Matematica"),
+    ("Ingles"),
+    ("Portugues"),
+    ("Frances");
+
+
+INSERT INTO Sala
+    (nm_sala)
+VALUES
+    ("Sala 502"),
+    ("Sala 203"),
+    ("Sala 801"),
+    ("Sala 200");
+
+
+
+INSERT INTO Professor
+    (nm_Professor)
+VALUES
+    ("William dos Reis"),
+    ("Marina Fontana"),
+    ("Marcio Oliveira"),
+    ("Pedro Alcantara");
+
+
+
+INSERT INTO curso_professor_sala
+    (cd_curso,cd_professor,cd_sala,hr_inicio,hr_fim)
+VALUES
+    (1,1,1,"09:00:00","10:00:00"),(2,2,2,"09:00:00","10:00:00"),(3,3,3,"09:00:00","10:00:00"),
+(4,4,4,"09:00:00","10:00:00");
+
+
+
+INSERT INTO users
+    (username,password,role,created,modified)
+VALUES
+    ("admin@gmail.com","$2y$10$t0JVuirR.zJM6vnRvGZT1.tWEYC0vq7Wco.kI1B4STYCSRP.53wZa","Admin","09:00:00","10:00:00");
+
+
+
+
