@@ -99,7 +99,7 @@
                     
                    // submit form data to api
                         $.ajax({
-                            url: "/curso/api/curso/update.php",
+                            url: "../api/curso/update.php",
                             type : "POST",
                             contentType : 'application/json',
                             data : form_data,

@@ -60,7 +60,7 @@
                     
                    // submit form data to api
                         $.ajax({
-                            url: "/curso/api/curso/loging.php",
+                            url: "../api/curso/loging.php",
                             type : "POST",
                             contentType : 'application/json',
                             data : form_data,

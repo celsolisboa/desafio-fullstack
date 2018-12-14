@@ -1,8 +1,7 @@
 <?php 
 // carrega todos os cursos cadastrados
 $dados = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/curso/read.php')); 
-//echo $_SERVER['HTTP_HOST'];
-// deleta curso selecionado
+
 
 if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
     
@@ -10,6 +9,7 @@ if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
     
     header('location:index.php');
    echo $dados->message;
+   
 }
 ?>  
 <!doctype html>
@@ -61,7 +61,7 @@ if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
                     
                    // submit form data to api
                         $.ajax({
-                            url: "/curso/api/curso/delete.php",
+                            url: "../api/curso/delete.php",
                             type : "GET",
                             contentType : 'application/json',
                             data : {'idcurso': id},

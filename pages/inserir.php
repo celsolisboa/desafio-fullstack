@@ -93,7 +93,7 @@
                     
                    // submit form data to api
                         $.ajax({
-                            url: "/curso/api/curso/create.php",
+                            url: "../api/curso/create.php",
                             type : "POST",
                             contentType : 'application/json',
                             data : form_data,
