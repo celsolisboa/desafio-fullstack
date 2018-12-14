@@ -11,7 +11,7 @@ O intuito deste é mostrar de forma fácil como consumir dados utilizando padrã
 
 1- Utilize o arquivo apiCursos.sql, para a criação da base de dados.</br>
 2- Modifique o arquivo api/config/config.php, com as informações para acessar o banco de dados MYSQL.</br>
-3- Crie um diretório no servidor web e baixe e descompacte o conteúdo deste repositório.</br>
+3- Crie um diretório no servidor web com o nome "curso" e baixe e descompacte o conteúdo deste repositório.</br>
 4- Por padrão usuario: admin@admin.com e senha: 123456.</br>
 
 #Sobre</br>
