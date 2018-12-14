@@ -1,17 +1,3 @@
-<?php 
-// carrega todos os cursos cadastrados
-$dados = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/curso/read.php')); 
-
-
-if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
-    
-    $dados = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/curso/delete.php?idcurso='.$_GET['id']));
-    
-    header('location:index.php');
-   echo $dados->message;
-   
-}
-?>  
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -24,26 +10,15 @@ if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>API Cursos</title>
   </head>
-  <body style="background:#ccc;">
+  <body style="background:#ccc;" onload="listarCurso();">
 <?php include 'header.php';?>
     <div class="container" style="margin-top:20px;">
     
     
         <div class="card">
             <h5 class="card-header text-center">Cursos<div class="float-right"><a href="inserir.php" class="bt bt-primary"><i class="fas fa-plus"></i></a></div></h5>
-                <div class="card-deck">
-                    <?php foreach($dados->records as $valor){ ?>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">
-                            <div class="card">
-                                <div class="card-body">
-                                <div class="float-left"><a href="editar.php?id=<?=$valor->idcurso;?>"><?=$valor->curso;?></a></div><div class="float-right"><a href="#" onclick="deletarCurso('<?=$valor->idcurso;?>');" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>
-                                    </br></br>
-                                <div class="float-left">Prof.: <?=$valor->professor;?></div></br> 
-                                <div class="float-left">Sala: <?=$valor->sala;?></div><div class="float-right"><?=$valor->inicio;?> às <?=$valor->fim;?></div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+                <div class="card-deck" id="page-content">
+                   
                 </div>
                 </br>
         </div>
@@ -83,6 +58,38 @@ if(isset($_GET['del']) && $_GET['del'] == 's' && $_GET['id'] <> ''){
                         
                         return false;
                 };
+
+            function listarCurso(){
+                
+                    
+                // get list of curso from the API
+                $.getJSON("../api/curso/read.php", function(data){
+                    
+                    // html for listing curso
+                    var read_curso_html="";
+
+                    // loop through returned list of data
+                    $.each(data.records, function(key, val) {
+                        
+                        // creating new table row per record
+                        read_curso_html+='<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;">';
+                        read_curso_html+='<div class="card">';
+                        read_curso_html+='<div class="card-body">';
+                        read_curso_html+='<div class="float-left"><a href="editar.php?id=' + val.idcurso + '">'+ val.curso +'</a></div><div class="float-right"><a href="#" onclick="deletarCurso('+ val.idcurso +');" class="bt bt-primary"><i class="far fa-trash-alt"></i></a></div>';
+                        read_curso_html+='</br></br>';
+                        read_curso_html+='<div class="float-left">Prof.: '+ val.professor +'</div></br> ';
+                        read_curso_html+='<div class="float-left">Sala: '+ val.sala +'</div><div class="float-right">'+ val.inicio +' às '+ val.fim +'</div>';
+                        read_curso_html+='</div>';
+                        read_curso_html+='</div>';
+                        read_curso_html+='</div>';
+
+                    });
+                    // inject to 'page-content' of our app
+                    $(".card-deck").html(read_curso_html);
+                });
+            };
+
+
   
     </script>
 </body>

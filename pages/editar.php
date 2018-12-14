@@ -10,19 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>API Cursos</title>
   </head>
-  <body style="background:#ccc;">
+  <body style="background:#ccc;" onload="carregarCampos(<?=$_GET['id']?>);">
     <?php
     include 'header.php';
-    
-    if(isset($_GET['id']) && $_GET['id'] <> ''){	
-        $id = $_GET['id'];
-        $dados = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/curso/read_one.php?idcurso='.$id));
-        $professores = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/professor/read.php'));
-        $salas = json_decode(file_get_contents('HTTP://'.$_SERVER['HTTP_HOST'].'/curso/api/sala/read.php'));
-    
-        
-    }
-   
     
     ?>
     
@@ -33,66 +23,130 @@
         
         <h5 class="card-header text-center"><div class="float-left"><a href="index.php" class="bt bt-primary"><i class="fas fa-arrow-left"></i></a></div>Editar Detalhes do Curso</h5>
                 <div class="card-deck"> 
-                    <div class="container">  
-                        <form action="#" method="get" id="enviar">
-                            <input type="hidden" name="idcurso" class="form-control" id="idcurso" value="<?=$dados->idcurso;?>">
-                            <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">
-
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
-                                    <input type="text" name="curso" class="form-control" id="curso" placeholder="Nome do Curso" value="<?=$dados->curso;?>" required>
-                                </div>
-
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">
-                                    <select name="idprofessor" class="form-control" id="idprofessor" placeholder="Professores" required>
-                                    <?php foreach($professores->records as $valor){
-                                       if($valor->idprofessor == $dados->idprofessor){
-                                            echo '<option value="'.$valor->idprofessor.'" selected>'.$valor->professor.'</option>';
-                                       }else{
-                                            echo '<option value="'.$valor->idprofessor.'">'.$valor->professor.'</option>';
-                                       }
-                                     } ?>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="margin-top:10px;" required>
-                                    <select name="idsala" class="form-control" id="idsala" placeholder="Salas">
-                                    <?php foreach($salas->records as $valor){
-                                        if($valor->idsala == $dados->idsala){
-                                            echo '<option value="'.$valor->idsala.'" selected>'.$valor->sala.'</option>';
-                                        }else{
-                                            echo '<option value="'.$valor->idsala.'">'.$valor->sala.'</option>';
-                                        }
-                                     } ?>
-                                    </select>
-                                </div>
-
-                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" name="inicio" class="form-control" id="inicio" placeholder="Inicio" value="<?=$dados->inicio;?>" required>
-                                </div>
-
-                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;">
-                                    <input type="text" name="fim" class="form-control" id="fim" placeholder="Fim" value="<?=$dados->fim;?>" required>
-                                </div>
-
-                            </div>
-                            
-                            <div class="row justify-content-center" style="margin-top:10px;">    
-                                <button type="submit" class="btn btn-primary col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">Salvar</button>
-                            </div>
-
-                        </form>
-                    </div>
+                    
                 </div>
          </br>
         </div>
        
     </div>
     <script>
+
+    function carregarCampos(id){
+                
+                var create_curso_html="";
+                var read_professor_html="";
+                var read_sala_html="";
+                var idcurso ="";
+                var curso = "";
+                var idprofessor = "";
+                var professor = "";
+                var idsala = "";
+                var sala = "";
+                var inicio = "";
+                var fim = "";
             
+                // read one record based on given curso id
+        $.getJSON("../api/curso/read_one.php?idcurso=" + id, function(data){
+                
+                // values will be used to fill out our form
+                var idcurso = data.idcurso;
+                var curso = data.curso;
+                var idprofessor = data.idprofessor;
+                var professor = data.professor;
+                var idsala = data.idsala;
+                var sala = data.sala;
+                var inicio = data.inicio;
+                var fim = data.fim;
+               
+             
+                
+
+
+            // carrega o select de proifessor 
+            $.getJSON("../api/professor/read.php", function(data){
+
+                // build professor option html
+                // loop through returned list of data
+                read_professor_html+="<select name='idprofessor' class='form-control' required>";
+                $.each(data.records, function(key, val){
+                     // pre-select option is category id is the same
+                    if(val.idprofessor==idprofessor){
+                        read_professor_html+="<option value='" + val.idprofessor + "' selected>" + val.professor + "</option>";
+                    }
+                    else{
+                        read_professor_html+="<option value='" + val.idprofessor + "'>" + val.professor + "</option>";
+                    }
+                });
+                read_professor_html+="</select>";
+
+                // inject to 'page-content' of our app
+                $(".professor").html(read_professor_html);
+
+            });
+            
+            // carrega o select de sala 
+            $.getJSON("../api/sala/read.php", function(data){
+                
+                // build sala option html
+                // loop through returned list of data
+                
+
+                read_sala_html+="<select name='idsala' class='form-control' required>";
+                $.each(data.records, function(key, val){
+                     // pre-select option is category id is the same
+                    if(val.idsala==idsala){
+                        read_sala_html+="<option value='" + val.idsala + "' selected>" + val.sala + "</option>";
+                    }
+                    else{
+                        read_sala_html+="<option value='" + val.idsala + "'>" + val.sala + "</option>";
+                    }
+                });
+                read_sala_html+="</select>";
+                // inject to 'page-content' of our app
+                $(".sala").html(read_sala_html);
+            });
+            
+
+            create_curso_html+='<div class="container">';  
+                create_curso_html+='<form action="editar.php" method="post" id="enviar">';
+                    create_curso_html+='<div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top:10px;">';
+                        create_curso_html+='<input type="hidden" name="idcurso" value="' + idcurso + '" class="form-control" id="idcurso">';
+
+                        create_curso_html+='<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="margin-top:10px;">';
+                        create_curso_html+='<input type="text" name="curso" value="' + curso + '" class="form-control" id="curso" placeholder="Nome do Curso" required>';
+                        create_curso_html+='</div>';
+
+                        create_curso_html+='<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 professor"  style="margin-top:10px;">';
+                        create_curso_html+= '';
+                        create_curso_html+=' </div>';
+
+                    create_curso_html+='</div>';
+
+                    create_curso_html+='<div class="form-row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                        create_curso_html+='<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 sala" style="margin-top:10px;" required>';
+                        create_curso_html+= '';
+                        create_curso_html+='</div>';
+
+                        create_curso_html+='<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;" required>';
+                        create_curso_html+='<input type="text" name="inicio" value="' + inicio + '" class="form-control" id="inicio" placeholder="Inicio">';
+                        create_curso_html+='</div>';
+
+                        create_curso_html+='<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="margin-top:10px;" required>';
+                        create_curso_html+='<input type="text" name="fim" value="' + fim + '" class="form-control" id="fim" placeholder="Fim">';
+                        create_curso_html+='</div>';
+
+                    create_curso_html+='</div>';
+
+                        create_curso_html+='<div class="row justify-content-center" style="margin-top:10px;">';    
+                        create_curso_html+='<button type="submit" class="btn btn-primary col-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">Salvar</button>';
+                        create_curso_html+='</div>';
+
+                create_curso_html+='</form>';
+            create_curso_html+='</div>';
+
+            $(".card-deck").html(create_curso_html);
+         
             $( 'form#enviar').on('submit', function(){
                     // get form data
                     var form_data=JSON.stringify($(this).serializeObject());
@@ -121,7 +175,9 @@
                         
                         return false;
                 });
-  
+
+        });
+    };
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
