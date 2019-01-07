@@ -55,10 +55,10 @@ class UsuarioService{
         	$token = self::gerarToken($usuario);
         	
         	//gravar token na tabela
-        	$this->usuario->setToken($token);
-        	$this->em->persist($this->usuario);
+        	$usuario->setToken($token);
+        	$this->em->merge($usuario);
 			$this->em->flush(); 
-			$retorno = $this->usuario->getToken();
+			$retorno = $usuario->getToken();
 		}else{			
 			throw new \Exception("Os dados de email e/ou senha são inválidos!");
 		}     

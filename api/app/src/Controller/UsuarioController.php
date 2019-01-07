@@ -21,9 +21,12 @@ class UsuarioController
 
     public function __invoke(Request $request, Response $response, $args)
     {
+    	$email = $request->getAttribute("email");
+    	$senha = md5( $request->getAttribute("senha") );
+    	
         $usuario = new Usuario();
-        $usuario->setEmail('thiago.boo@gmail.com');
-        $usuario->setSenha('1234567');
+        $usuario->setEmail($email);
+        $usuario->setSenha($senha);
         
         $us = new \App\Service\UsuarioService($usuario, $this->em);
         var_dump( $us->logar() );

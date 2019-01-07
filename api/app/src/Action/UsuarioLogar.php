@@ -20,9 +20,12 @@ class UsuarioLogar
     public function __invoke(Request $request, Response $response, $args)
     {
     	try{
-			$usuario = new Usuario();
-        	$usuario->setEmail('thiago.boo@gmail.com');
-        	$usuario->setSenha('123456');
+    		$email = $request->getParam("email");
+	    	$senha = $request->getParam("senha");
+	    	 
+	        $usuario = new Usuario();
+	        $usuario->setEmail($email);
+	        $usuario->setSenha($senha);         
         
         	$us = new \App\Service\UsuarioService( $usuario, $this->em );
         	$token = $us->logar();  
