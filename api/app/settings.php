@@ -21,28 +21,17 @@ return [
             'path' => __DIR__ . '/../log/app.log',
         ],
 
-        'doctrine' => [
-            'meta' => [
-                'entity_path' => [
-                    'app/src/Entity/'
-                ],
-                'auto_generate_proxies' => true,
-                'proxy_dir' =>  __DIR__.'/../cache/proxies',
-                'cache' => null,
-            ],
-            // path where the compiled metadata info will be cached
-            // make sure the path exists and it is writable
-            'cache_dir' => __DIR__ . '/var/doctrine',
-			'dev_mode' => true,
-            // you should add any other path containing annotated entity classes
-            'metadata_dirs' => [__DIR__ . '/src/Domain'],
-            'connection' => [
-                'driver'   => 'pdo_mysql',
-                'host'     => 'localhost',
-                'dbname'   => 'celsolisboa',
-                'user'     => 'root',
-                'password' => '',
-            ]
-        ]
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'celsolisboa',
+            'username' => 'root',
+            'password' => '',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ] 
+         
+         
     ],
 ];

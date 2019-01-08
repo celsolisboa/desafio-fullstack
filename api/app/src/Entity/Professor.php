@@ -2,38 +2,17 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Illuminate\Database\Eloquent\Model as Model;
 
-/**
- * Professor
- *
- * @ORM\Table(name="professor")
- * @ORM\Entity
- */
-class Professor
+ 
+class Professor extends Model
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=false, unique=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nome", type="string", length=255, precision=0, scale=0, nullable=false, options={"fixed"=true}, unique=false)
-     */
+    protected $table = "professor";
+    protected $hidden = array('pivot');
+    
+    private $id;    
     private $nome;
-
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
+ 
     public function getId()
     {
         return $this->id;
@@ -61,5 +40,11 @@ class Professor
     public function getNome()
     {
         return $this->nome;
+    }
+    
+    
+    public function cursos()
+    {
+        return $this->belongsToMany('\App\Entity\Curso');
     }
 }

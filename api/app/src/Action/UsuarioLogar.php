@@ -10,12 +10,8 @@ use \App\Helper\FuncoesHelper;
 
 class UsuarioLogar
 { 
-    private $em; 
-
-    public function __construct(EntityManager $em)
-    { 
-        $this->em = $em;
-    }
+   
+ 
 
     public function __invoke(Request $request, Response $response, $args)
     {
@@ -27,7 +23,7 @@ class UsuarioLogar
 	        $usuario->setEmail($email);
 	        $usuario->setSenha($senha);         
         
-        	$us = new \App\Service\UsuarioService( $usuario, $this->em );
+        	$us = new \App\Service\UsuarioService( $usuario );
         	$token = $us->logar();  
         	 
         	

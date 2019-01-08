@@ -2,23 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * CursoProfessor
  *
- * @ORM\Table(name="curso_professor", indexes={@ORM\Index(name="professor_id", columns={"professor_id"}), @ORM\Index(name="aula_id", columns={"curso_id"})})
+ * @ORM\Table(name="curso_professor", indexes={@ORM\Index(name="curso_id", columns={"curso_id"}), @ORM\Index(name="professor_id", columns={"professor_id"})})
  * @ORM\Entity
  */
-class CursoProfessor
+class CursoProfessor extends Model
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=false, unique=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
+    
+    protected $table = "curso_professor";
+    
     private $id;
 
     /**
@@ -26,7 +22,7 @@ class CursoProfessor
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Curso")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="curso_id", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="curso_id", referencedColumnName="id")
      * })
      */
     private $curso;
@@ -36,10 +32,11 @@ class CursoProfessor
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Professor")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="professor_id", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="professor_id", referencedColumnName="id")
      * })
      */
     private $professor;
+
 
 
     /**
@@ -55,7 +52,7 @@ class CursoProfessor
     /**
      * Set curso.
      *
-     * @param \App\Entity\Curso|null $curso
+     * @param \App\Entity\Curso  $curso
      *
      * @return CursoProfessor
      */
@@ -69,7 +66,7 @@ class CursoProfessor
     /**
      * Get curso.
      *
-     * @return \App\Entity\Curso|null
+     * @return \App\Entity\Curso 
      */
     public function getCurso()
     {
@@ -79,7 +76,7 @@ class CursoProfessor
     /**
      * Set professor.
      *
-     * @param \App\Entity\Professor|null $professor
+     * @param \App\Entity\Professor  $professor
      *
      * @return CursoProfessor
      */
@@ -93,7 +90,7 @@ class CursoProfessor
     /**
      * Get professor.
      *
-     * @return \App\Entity\Professor|null
+     * @return \App\Entity\Professor 
      */
     public function getProfessor()
     {

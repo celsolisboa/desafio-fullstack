@@ -1,7 +1,8 @@
 /*
 MySQL - 10.1.21-MariaDB : Database - celsolisboa
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -38,7 +39,7 @@ CREATE TABLE `curso_professor` (
   `curso_id` int(11) NOT NULL,
   `professor_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `aula_id` (`curso_id`),
+  KEY `curso_id` (`curso_id`),
   KEY `professor_id` (`professor_id`),
   CONSTRAINT `curso_professor_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
   CONSTRAINT `curso_professor_ibfk_2` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`)

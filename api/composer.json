@@ -6,6 +6,6 @@
     },
     "require": {
         "slim/slim": "^3.0", 
-        "doctrine/orm": "^2.6"
+        "illuminate/database": "^5.1"
     }
 }

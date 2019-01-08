@@ -1,21 +1,18 @@
 <?php
 namespace App\Service;
 
-use \App\Entity\Usuario;
-use Doctrine\ORM\EntityManager;
+use \App\Entity\Usuario; 
 
 class UsuarioService{
 
-    private $usuario;
-    private $em;
+    private $usuario; 
 
-    public function __construct( Usuario $usuario, EntityManager $em ){
-        $this->usuario = $usuario;
-        $this->em = $em;
+    public function __construct( Usuario $usuario ){
+        $this->usuario = $usuario; 
     }
     
     private static function gerarToken(Usuario $usuario) : string{
-    	$id = $usuario->getId();
+    	$id = $usuario->id;
     	$data = date("YmdHis");
     	
     	if( $id == null ){
@@ -30,10 +27,10 @@ class UsuarioService{
 		$email = $this->usuario->getEmail();
 		$token = $this->usuario->getToken();
 		
-		$verificado = $this->em->getRepository('\App\Entity\Usuario')->findOneBy(array('email' => $email, 'token'=> $token)); 
+		$verificado = Usuario::where(array('email' => $email, 'token'=> $token))->count(); 
 		
 		$retorno = false;
-		if( $verificado ){
+		if( $verificado > 0 ){
 			$retorno = true;
 		}else{
 			throw new \Exception("Requisição não autorizada! Token Inválido!");
@@ -48,16 +45,18 @@ class UsuarioService{
         $email = $this->usuario->getEmail();
         $senha = md5( $this->usuario->getSenha() );        
          
-        $usuario = $this->em->getRepository('\App\Entity\Usuario')->findOneBy(array('email' => $email, 'senha'=> $senha)); 
+        $usuario = Usuario::where(array('email' => $email, 'senha'=> $senha))->first();
+        
+        
         
         $retorno = "";
-        if( $usuario ){
-        	$token = self::gerarToken($usuario);
+        if(  $usuario  ){ 
+        	$token = self::gerarToken($usuario);       	
+        	 
         	
         	//gravar token na tabela
         	$usuario->setToken($token);
-        	$this->em->merge($usuario);
-			$this->em->flush(); 
+        	$usuario->save(); 
 			$retorno = $usuario->getToken();
 		}else{			
 			throw new \Exception("Os dados de email e/ou senha são inválidos!");

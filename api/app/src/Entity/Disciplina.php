@@ -2,50 +2,23 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Illuminate\Database\Eloquent\Model as Model;
 
-/**
- * Disciplina
- *
- * @ORM\Table(name="disciplina")
- * @ORM\Entity
- */
-class Disciplina
+ 
+class Disciplina extends Model
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", precision=0, scale=0, nullable=false, unique=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
+    protected $table = "disciplina";
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nome", type="string", length=255, precision=0, scale=0, nullable=false, options={"fixed"=true}, unique=false)
-     */
+ 
     private $nome;
 
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
+ 
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set nome.
-     *
-     * @param string $nome
-     *
-     * @return Disciplina
-     */
+     
     public function setNome($nome)
     {
         $this->nome = $nome;
@@ -53,11 +26,7 @@ class Disciplina
         return $this;
     }
 
-    /**
-     * Get nome.
-     *
-     * @return string
-     */
+     
     public function getNome()
     {
         return $this->nome;
