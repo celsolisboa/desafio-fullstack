@@ -2,8 +2,7 @@
 
 use App\Entity\Usuario;
 use App\Service\UsuarioService;
-use App\Helper\FuncoesHelper;
-use Doctrine\ORM\EntityManager;
+use App\Helper\FuncoesHelper; 
 
 class AutenticacaoTokenMiddleware
 {
@@ -16,24 +15,20 @@ class AutenticacaoTokenMiddleware
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    private $em; 
-
-    public function __construct(EntityManager $em)
-    { 
-        $this->em = $em;
-    }
+    
 	
     public function __invoke($request, $response, $next)
     { 
         try{
-			$tokenHeader = $request->getHeader('token_auth');
-	    	$emailHeader = $request->getHeader('email_auth');
+			$tokenHeader = $request->getHeader('token');
+	    	$emailHeader = $request->getHeader('email');
 	    	    	
 	    	$usuario = new Usuario();
 	    	$usuario->setEmail($emailHeader);
-	    	$usuario->setToken($tokenHeader);    	
+	    	$usuario->setToken($tokenHeader); 
+	    	 	
 	    	
-	    	$uS = new UsuarioService( $usuario, $this->em );
+	    	$uS = new UsuarioService( $usuario );
 	    	$verificado = $uS->verificarToken();
 	    	
 	    	$status = $response->getStatusCode();

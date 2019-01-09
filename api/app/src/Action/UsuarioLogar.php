@@ -3,15 +3,13 @@ namespace App\Action;
  
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Doctrine\ORM\EntityManager;
+use Illuminate\Database\Query\Builder;
 use \App\Entity\Usuario;
 use \App\Service\UsuarioService;
 use \App\Helper\FuncoesHelper;
 
 class UsuarioLogar
-{ 
-   
- 
+{  
 
     public function __invoke(Request $request, Response $response, $args)
     {
@@ -23,7 +21,7 @@ class UsuarioLogar
 	        $usuario->setEmail($email);
 	        $usuario->setSenha($senha);         
         
-        	$us = new \App\Service\UsuarioService( $usuario );
+        	$us = new UsuarioService( $usuario );
         	$token = $us->logar();  
         	 
         	

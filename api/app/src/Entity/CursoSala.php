@@ -12,6 +12,7 @@ class CursoSala extends Model
     private $id;     
     private $curso;     
     private $sala;
+    public $timestamps = false;
  
     public function getId()
     {

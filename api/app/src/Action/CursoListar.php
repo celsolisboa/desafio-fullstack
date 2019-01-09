@@ -15,14 +15,21 @@ class CursoListar
 
     public function __invoke(Request $request, Response $response, $args)
     { 
-    	try{ 
-			$cursos = Curso::all();  
+    	try{
+    		
+    		$id = isset($args['id']) ? $args['id'] : null;
+    		$curso = new Curso();
+    		 
+    		$cursoService = new CursoService($curso);    		
+			$cursos = $cursoService->listar($id); 
 	    	
 			$listaCursos = [];
 			foreach($cursos as $curso){  
-				$listaCursos['curso'] = $curso->toArray();
-				$listaCursos['curso']['professores'] = $curso->professores->toArray();
-				$listaCursos['curso']['salas'] = $curso->salas->toArray();				   
+				$listaCursos[] = array(	
+					'curso' => $curso->toArray(),
+					'professores' => $curso->professores->toArray(),
+					'salas'  => $curso->salas->toArray()
+				);				   
 			}     
 				
 			$erro = 0;

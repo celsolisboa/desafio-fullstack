@@ -28,9 +28,9 @@ class CursoService{
     
     public function listar($id = null) {
 		if( $id ){
-			return Curso::find($id);
+			return Curso::where('id',$id)->get();
 		}else{
-			return Curso::All();
+			return Curso::with("Disciplina")->get();
 			 
 		}
 	}

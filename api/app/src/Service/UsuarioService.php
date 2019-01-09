@@ -22,15 +22,15 @@ class UsuarioService{
 		return md5($id.$data);
 	}
 	
-	public function verificarToken() : bool{
-		
+	public function verificarToken() : bool{ 
+		 
 		$email = $this->usuario->getEmail();
-		$token = $this->usuario->getToken();
-		
-		$verificado = Usuario::where(array('email' => $email, 'token'=> $token))->count(); 
-		
+		$token = $this->usuario->getToken(); 
+		 
+		$usuario = $this->usuario->where('email',$email)->where('token',$token)->first();	 
+		 
 		$retorno = false;
-		if( $verificado > 0 ){
+		if( $usuario ){
 			$retorno = true;
 		}else{
 			throw new \Exception("Requisição não autorizada! Token Inválido!");
@@ -46,18 +46,17 @@ class UsuarioService{
         $senha = md5( $this->usuario->getSenha() );        
          
         $usuario = Usuario::where(array('email' => $email, 'senha'=> $senha))->first();
-        
-        
+         
         
         $retorno = "";
         if(  $usuario  ){ 
-        	$token = self::gerarToken($usuario);       	
+        	$token = self::gerarToken($usuario);    
+        	       	
+        	//gravar token na tabela  
+        	$usuario->token = $token;
+        	$salvou = $usuario->save(); 
         	 
-        	
-        	//gravar token na tabela
-        	$usuario->setToken($token);
-        	$usuario->save(); 
-			$retorno = $usuario->getToken();
+			$retorno = $token;
 		}else{			
 			throw new \Exception("Os dados de email e/ou senha são inválidos!");
 		}     

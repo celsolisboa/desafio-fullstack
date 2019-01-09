@@ -9,6 +9,7 @@ class Professor extends Model
 {
     protected $table = "professor";
     protected $hidden = array('pivot');
+    public $timestamps = false;
     
     private $id;    
     private $nome;

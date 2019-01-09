@@ -8,6 +8,7 @@ class Sala extends Model
 {
     protected $table = "sala";
     protected $hidden = array('pivot');
+    public $timestamps = false;
     
     private $id;
 

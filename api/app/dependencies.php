@@ -44,4 +44,7 @@ $container[App\Action\CursoListar::class] = function ($container) {
     return new App\Action\CursoListar($container['db']);
 };
 
+$container[App\Action\VerificarToken::class] = function ($container) {
+    return new App\Action\VerificarToken($container['db']);
+};
  

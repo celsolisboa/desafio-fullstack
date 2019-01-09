@@ -14,6 +14,7 @@ class CursoProfessor extends Model
 {
     
     protected $table = "curso_professor";
+    public $timestamps = false;
     
     private $id;
 
