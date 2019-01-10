@@ -1,8 +1,8 @@
 /*
+SQLyog Ultimate v12.09 (64 bit)
 MySQL - 10.1.21-MariaDB : Database - celsolisboa
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -28,7 +28,11 @@ CREATE TABLE `curso` (
   PRIMARY KEY (`id`),
   KEY `disciplina_id` (`disciplina_id`),
   CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `curso` */
+
+insert  into `curso`(`id`,`disciplina_id`,`horario_inicio`,`horario_fim`) values (1,1,'09:00:00','12:00:00'),(2,2,'09:30:00','12:30:00'),(3,3,'14:45:00','18:00:00'),(4,4,'14:45:00','18:00:00');
 
 /*Table structure for table `curso_professor` */
 
@@ -39,11 +43,15 @@ CREATE TABLE `curso_professor` (
   `curso_id` int(11) NOT NULL,
   `professor_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `curso_id` (`curso_id`),
   KEY `professor_id` (`professor_id`),
-  CONSTRAINT `curso_professor_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
-  CONSTRAINT `curso_professor_ibfk_2` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `curso_id` (`curso_id`),
+  CONSTRAINT `curso_professor_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `curso_professor_ibfk_2` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `curso_professor` */
+
+insert  into `curso_professor`(`id`,`curso_id`,`professor_id`) values (2,2,2),(3,3,3),(4,3,4),(5,4,5),(7,1,1);
 
 /*Table structure for table `curso_sala` */
 
@@ -56,9 +64,13 @@ CREATE TABLE `curso_sala` (
   PRIMARY KEY (`id`),
   KEY `curso_id` (`curso_id`),
   KEY `sala_id` (`sala_id`),
-  CONSTRAINT `curso_sala_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
-  CONSTRAINT `curso_sala_ibfk_2` FOREIGN KEY (`sala_id`) REFERENCES `sala` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `curso_sala_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `curso_sala_ibfk_2` FOREIGN KEY (`sala_id`) REFERENCES `sala` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+/*Data for the table `curso_sala` */
+
+insert  into `curso_sala`(`id`,`curso_id`,`sala_id`) values (2,2,1),(3,3,4),(4,4,2),(5,4,3),(7,1,5);
 
 /*Table structure for table `disciplina` */
 
@@ -68,7 +80,11 @@ CREATE TABLE `disciplina` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` char(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `disciplina` */
+
+insert  into `disciplina`(`id`,`nome`) values (1,'Biologia'),(2,'Gestão'),(3,'História'),(4,'Matemática');
 
 /*Table structure for table `professor` */
 
@@ -78,7 +94,11 @@ CREATE TABLE `professor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` char(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `professor` */
+
+insert  into `professor`(`id`,`nome`) values (1,'Álvares de Azevedo'),(2,'Mario de Andrade'),(3,'Ruy Barbosa'),(4,'Agatha Christie'),(5,'Mario Quintana');
 
 /*Table structure for table `sala` */
 
@@ -88,7 +108,11 @@ CREATE TABLE `sala` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `numero` char(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `sala` */
+
+insert  into `sala`(`id`,`numero`) values (1,'301'),(2,'302'),(3,'303'),(4,'402'),(5,'502');
 
 /*Table structure for table `usuario` */
 
@@ -100,7 +124,11 @@ CREATE TABLE `usuario` (
   `senha` char(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `usuario` */
+
+insert  into `usuario`(`id`,`email`,`senha`,`token`) values (1,'thiago.boo@gmail.com','e10adc3949ba59abbe56e057f20f883e','5ffdfd602794ca507cd5bdcbf9f2ecdd');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

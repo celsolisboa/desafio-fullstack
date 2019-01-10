@@ -1,4 +1,4 @@
-<?php 
+<?php  
 	$titulo = "Cursos";
 	require_once('header_painel.php');
 ?>
@@ -8,29 +8,30 @@
 		<div class="boxCurso">
 			<div class="col-lg-6 col-12 boxCursoCp clearfix">
 				<div class="card" > 
-				  <div class="card-body">
-				    <h5 class="card-title">
-				    	{{nome_disciplina}}
-				    	<a href="curso.php?id={{id}}"><i class="fa fa-trash float-right"></i></a>
-				    </h5>
-				    <div class="row">
-				    	<input type="hidden" name="id" class="id" value="{{id}}">
-				    	<div class="col-8">
-				    		<p class="card-text">
-							    Prof. <span class="professor">{{professores}}</span>
-							    <br>
-							    Sala <span class="sala">{{salas}}</span>
-						    </p> 
-				    	</div>
-				    	<div class="col-4">
-				    		<p class="card-text text-right">
-					    		<br>
-					    		<span class="horario">{{horario}}</span>
-				    		</p>
-				    	</div>
-				    </div>
-				     
-				  </div>
+					<a href="curso.php?id={{id}}">
+					  <div class="card-body">
+					    <h5 class="card-title">
+					    	{{nome_disciplina}}
+					    	<i id="{{id}}" class="fa fa-trash float-right btnExcluir"></i> 
+					    </h5>					    
+					    <div class="row">				    	
+					    	<input type="hidden" name="id" class="id" value="{{id}}">
+					    	<div class="col-8">
+					    		<p class="card-text">
+								    Prof. <span class="professor">{{professores}}</span>
+								    <br>
+								    Sala <span class="sala">{{salas}}</span>
+							    </p> 
+					    	</div>
+					    	<div class="col-4">
+					    		<p class="card-text text-right">
+						    		<br>
+						    		<span class="horario">{{horario}}</span>
+					    		</p>
+					    	</div>					    
+					    </div>					   				     
+					  </div>
+				   </a>
 				</div>
 			</div>
 		</div>
@@ -41,7 +42,25 @@
 <script>
 	
 	
-	listarCursos( function( resposta ){ 
+	function excluirCurso(id){
+		gera_confirm("Deseja realmente excluir o curso?", function(resposta){
+			if( resposta == true ){
+				var url = localStorage.getItem("base_url") + "/api/curso/"+id;		
+				requisicaoAjax( url, 'delete', {}, function( resposta ){				 
+					
+					if( resposta ){
+						location.href = localStorage.getItem("base_url") + "/painel/cursos.php";	
+					}
+									
+				});
+			} 
+		});
+	}
+	
+	
+	var url = localStorage.getItem("base_url") + "/api/cursos";
+		
+	requisicaoAjax( url, 'get', {}, function( resposta ){
 		if( resposta.erro == 0 ){ 
 		
 			for(var i=0; i<resposta.dados.length; i++){
@@ -75,7 +94,7 @@
 				
 				html = html.replace("{{nome_disciplina}}", nome_disciplina);
 				html = html.replace("{{horario}}", horario); 
-				html = html.replace("{{id}}", id); 
+				html = html.replace(/{{id}}/g, id); 
 				html = html.replace("{{professores}}", professores);
 				html = html.replace("{{salas}}", salas);
 				
@@ -83,27 +102,19 @@
 			}
 			
 			$(".boxCurso").remove();
+			
+			$(".btnExcluir").on('click', function(event){
+				var id = $(event.target).attr('id');
+				event.preventDefault(); 
+				excluirCurso( id );
+				return false;
+			});
+	
 		}else{
 			gera_modal('Erro', resposta.msg, "danger");
 		}
 	});
 	
-	function listarCursos( callback ){
-		$.ajax({
-		  accepts: "application/json", 
-		  contentType: 'application/json; charset=UTF-8',
-		  dataType: 'json',		  
-		  headers :{ "email": localStorage.getItem('email'), "token": localStorage.getItem('token') },			  
-		  data:{},
-		  method: 'GET',
-		  url: localStorage.getItem("base_url") + "/api/curso/listar",		  
-		  success: function(resposta){	   		    
-		  	  callback(resposta);
-		  },
-		  error:  function(resposta) { 	   
-		  	//location.href = localStorage.getItem('base_url') + "/erro"
-		  }
-		});
-	}
+	 
 </script>
 <?php require_once('footer_painel.php'); ?>

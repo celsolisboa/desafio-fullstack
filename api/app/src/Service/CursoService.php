@@ -28,11 +28,28 @@ class CursoService{
     
     public function listar($id = null) {
 		if( $id ){
-			return Curso::where('id',$id)->get();
+			return Curso::with("Disciplina")->where('id',$id)->get();
 		}else{
-			return Curso::with("Disciplina")->get();
-			 
+			return Curso::with("Disciplina")->get();			 
 		}
+	}
+	
+	public function excluir($id) : bool {
+		$retorno = false;
+		if( $id ){
+			 
+			$curso = Curso::find($id);
+			if($curso){
+				$retorno = $curso->delete();
+				
+				if( ! $retorno ){
+					throw new \Exception("Erro ao excluir o curso.");					
+				}				 
+			}
+				
+			  
+		}
+		return $retorno;
 	}
      
 }

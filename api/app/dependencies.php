@@ -47,4 +47,7 @@ $container[App\Action\CursoListar::class] = function ($container) {
 $container[App\Action\VerificarToken::class] = function ($container) {
     return new App\Action\VerificarToken($container['db']);
 };
- 
+
+$container[App\Action\CursoExcluir::class] = function ($container) {
+    return new App\Action\CursoExcluir($container['db']);
+};
