@@ -24,8 +24,8 @@ class AutenticacaoTokenMiddleware
 	    	$emailHeader = $request->getHeader('email');
 	    	    	
 	    	$usuario = new Usuario();
-	    	$usuario->setEmail($emailHeader);
-	    	$usuario->setToken($tokenHeader); 
+	    	$usuario->email = $emailHeader;
+	    	$usuario->token = $tokenHeader; 
 	    	 	
 	    	
 	    	$uS = new UsuarioService( $usuario );

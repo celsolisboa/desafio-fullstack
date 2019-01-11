@@ -20,8 +20,8 @@ class VerificarToken
 	    	 
 	    	 
 	    	$usuario = new Usuario();
-	    	$usuario->setEmail($email);
-	    	$usuario->setToken($token); 
+	    	$usuario->email = $email;
+	    	$usuario->token = $token; 
 	    	
 	    	$usuarioService =  new UsuarioService( $usuario );
 	    	

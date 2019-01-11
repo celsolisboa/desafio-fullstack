@@ -3,12 +3,7 @@
 namespace App\Entity;
 
 use Illuminate\Database\Eloquent\Model as Model;
-/**
- * Curso
- *
- * @ORM\Table(name="curso", indexes={@ORM\Index(name="disciplina_id", columns={"disciplina_id"})})
- * @ORM\Entity
- */
+ 
 class Curso extends Model
 {
     protected $table = "curso";

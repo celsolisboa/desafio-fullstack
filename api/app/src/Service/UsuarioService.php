@@ -24,8 +24,8 @@ class UsuarioService{
 	
 	public function verificarToken() : bool{ 
 		 
-		$email = $this->usuario->getEmail();
-		$token = $this->usuario->getToken(); 
+		$email = $this->usuario->email;
+		$token = $this->usuario->token; 
 		 
 		$usuario = $this->usuario->where('email',$email)->where('token',$token)->first();	 
 		 
@@ -42,8 +42,8 @@ class UsuarioService{
 
     public function logar() : string{ 
          
-        $email = $this->usuario->getEmail();
-        $senha = md5( $this->usuario->getSenha() );        
+        $email = $this->usuario->email;
+        $senha = md5( $this->usuario->senha );        
          
         $usuario = Usuario::where(array('email' => $email, 'senha'=> $senha))->first();
          

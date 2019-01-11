@@ -18,8 +18,8 @@ class UsuarioLogar
 	    	$senha = $request->getParam("senha");
 	    	 
 	        $usuario = new Usuario();
-	        $usuario->setEmail($email);
-	        $usuario->setSenha($senha);         
+	        $usuario->email = $email;
+	        $usuario->senha = $senha;         
         
         	$us = new UsuarioService( $usuario );
         	$token = $us->logar();  

@@ -1,5 +1,15 @@
-var url = location.protocol + "//" + location.hostname + "/desafio-fullstack";
-localStorage.setItem("base_url", url);
+if( localStorage.getItem("base_url") == null ){
+	var port = location.port == 80 ? "" : ":"+location.port;
+
+	var _pathname = location.pathname == "" ? "/" : "";
+	var url = location.protocol + "//" + location.hostname +  port + location.pathname;
+	 
+
+	localStorage.setItem("base_url", url);
+}
+
+
+ 
 
 
 function requisicaoAjax( url, metodo, params, callback ){

@@ -10,51 +10,6 @@ class Sala extends Model
     protected $hidden = array('pivot');
     public $timestamps = false;
     
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="numero", type="string", length=255, nullable=false, options={"fixed"=true})
-     */
-    private $numero;
-
-
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set numero.
-     *
-     * @param string $numero
-     *
-     * @return Sala
-     */
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    /**
-     * Get numero.
-     *
-     * @return string
-     */
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-    
     
     public function cursos()
     {

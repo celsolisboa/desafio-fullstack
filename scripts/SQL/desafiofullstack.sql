@@ -1,8 +1,8 @@
-/*
-SQLyog Ultimate v12.09 (64 bit)
+/* 
 MySQL - 10.1.21-MariaDB : Database - celsolisboa
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -128,7 +128,7 @@ CREATE TABLE `usuario` (
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`id`,`email`,`senha`,`token`) values (1,'thiago.boo@gmail.com','e10adc3949ba59abbe56e057f20f883e','5ffdfd602794ca507cd5bdcbf9f2ecdd');
+insert  into `usuario`(`id`,`email`,`senha`,`token`) values (1,'desafio@celsolisboa.edu.br','16e712811732f084779be026bd1ba896','');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -11,7 +11,7 @@ $(document).ready( function(){
 		  headers :{ "email": email, "token": token },			  
 		  data:{},
 		  method: 'GET',
-		  url: localStorage.getItem("base_url") + "/api/usuario/verificarToken", 
+		  url: localStorage.getItem("base_url") + "api/usuario/verificarToken", 
 		  success: function(resposta){	    
 		  	if( resposta.erro == 1 ){
 		  		location.href = localStorage.getItem("base_url");
