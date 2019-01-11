@@ -4,7 +4,7 @@
 
 1. Na pasta  **/scripts/SQL/**, você encontrará o arquivo **desafiofullstack.sql** para criar e popular o banco de dados MySql. Caso deseje, você pode visualizar o DER no arquivo localizado na pasta **/scrits/DER/**.
 
-2. Caso seja necessário alterar os dados de acesso ao banco, abra o arquivo **/api/src/settings.php** e encontre o seguinte trecho de código:
+2. Caso seja necessário alterar os dados de acesso ao banco, abra o arquivo **/api/app/src/settings.php** e encontre o seguinte trecho de código:
 >'db' => [
 >           'driver' => 'mysql',
 >           'host' => 'localhost',
@@ -14,7 +14,7 @@
 >           'charset'   => 'utf8',
 >           'collation' => 'utf8_unicode_ci',
 >           'prefix'    => '',
-        ]  
+>        ]  
 
 3. Na raiz do projeto, execute o comando:
 ```sh
