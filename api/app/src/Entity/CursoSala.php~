@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CursoSala
+ *
+ * @ORM\Table(name="curso_sala", indexes={@ORM\Index(name="sala_id", columns={"sala_id"}), @ORM\Index(name="curso_id", columns={"curso_id"})})
+ * @ORM\Entity
+ */
+class CursoSala
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \App\Entity\Curso
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Curso")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="curso_id", referencedColumnName="id")
+     * })
+     */
+    private $curso;
+
+    /**
+     * @var \App\Entity\Sala
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Sala")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sala_id", referencedColumnName="id")
+     * })
+     */
+    private $sala;
+
+
+}

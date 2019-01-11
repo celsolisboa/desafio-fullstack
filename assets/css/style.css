@@ -1,0 +1,7 @@
+.boxCurso{	display: none; }
+.boxCursoCp {margin-bottom: 20px;}
+.topo{	margin-bottom: 40px;}
+#iconeTopo{margin-top: 8px; color:#fff}
+#iconeTopo:hover{color:blue}
+.card a{color:#000; text-decoration: none;}
+.card i.btnExcluir:hover{color:#f00;}

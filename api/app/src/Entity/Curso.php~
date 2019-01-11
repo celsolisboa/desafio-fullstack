@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Curso
+ *
+ * @ORM\Table(name="curso", indexes={@ORM\Index(name="disciplina_id", columns={"disciplina_id"})})
+ * @ORM\Entity
+ */
+class Curso
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="horario_inicio", type="time", nullable=false)
+     */
+    private $horarioInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="horario_fim", type="time", nullable=false)
+     */
+    private $horarioFim;
+
+    /**
+     * @var \App\Entity\Disciplina
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Disciplina")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="disciplina_id", referencedColumnName="id")
+     * })
+     */
+    private $disciplina;
+
+
+}

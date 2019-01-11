@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario")
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false, options={"fixed"=true})
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="senha", type="string", length=255, nullable=false, options={"fixed"=true})
+     */
+    private $senha;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="token", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $token;
+
+
+}
