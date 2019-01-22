@@ -34,6 +34,8 @@ class CursoController extends Controller
 
     public function show(Curso $id) {
 
+        if(!$id)
+            return response('Não há curso com essa identificação', 404);
         return new CursoResource($id);
 
      }
@@ -44,19 +46,25 @@ class CursoController extends Controller
         $sala = Sala::AllNomeOfSala();
         return response([$professor, $sala], 200);
 
-
      }
 
-    public function update(Request $request, Curso $id){
+    public function update(Request $request, Curso $id) {
 
-       // $id->fill();
+        if(!$id)
+            return response('Não há curso com essa identificação para atualizaçõa', 404);
         $id->update($request->all());
         $id->createOrUpdateProfessorAndSala($request);
-
         return new CursoResource($id);
-
-
 
     }
 
+    public function destroy(Curso $id) {
+
+        if(!$id)
+            return response('Não há curso com essa identificação para deleção', 404);
+        $id->delete();
+        return response('curso deletado', 200);
+
+
+    }
 }

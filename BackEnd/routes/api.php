@@ -23,9 +23,10 @@ Route::prefix('cursos')->group(function () {
     Route::get('/{id}', 'CursoController@show');
     Route::post('/', 'CursoController@create');
     Route::put('/{id}', 'CursoController@update');
+    Route::delete('/{id}', 'CursoController@destroy');
 });
 Route::get('allProfAndSala', 'CursoController@AllProfessorAndSala');
 
 
-//
+
 
