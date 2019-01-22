@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('funcionario')->middleware('Autorizador')->group(function () {
+}
+);
