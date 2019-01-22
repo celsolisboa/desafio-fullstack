@@ -14,4 +14,9 @@ class Sala extends Model
 
         return $this->belogToT('App\Model\Curso');
     }
+
+    public static function AllNomeOfSala() {
+
+        return parent::all()->pluck('sala');
+    }
 }

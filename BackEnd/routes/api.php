@@ -21,7 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('cursos')->group(function () {
     Route::get('/', 'CursoController@index');
     Route::get('/{id}', 'CursoController@show');
+    Route::get('all', 'CursoController@AllProfessorAndSala');
 });
+Route::get('allProfAndSala', 'CursoController@AllProfessorAndSala');
 
 Route::get('/tt', function (Request $request) {
     $curso = Curso::find(1);
@@ -33,3 +35,5 @@ Route::get('/t', function (Request $request) {
     $curso = Curso::find(1);
 return $curso->professor;
 });
+//
+

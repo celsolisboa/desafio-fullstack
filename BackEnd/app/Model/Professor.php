@@ -14,4 +14,9 @@ class Professor extends Model
 
         return $this->belogToT('App\Model\Curso');
     }
+
+    public static function AllNomeOfProfessor() {
+
+        return parent::all()->pluck('nome');
+    }
 }

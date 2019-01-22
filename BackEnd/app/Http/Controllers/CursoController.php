@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Model\Professor;
+use App\Model\Sala;
 use Illuminate\Http\Request;
 use App\Model\Curso;
 use App\Http\Resources\CursoRe as CursoResource;
@@ -24,15 +25,22 @@ class CursoController extends Controller
 
     }
 
+    public function create (Request $request) {
+
+
+    }
+
     public function show(Curso $id) {
 
         return new CursoResource($id);
 
      }
 
-     public function show(Curso $id) {
+     public function AllProfessorAndSala() {
 
-        return new CursoResource($id);
+        $professor = Professor::AllNomeOfProfessor();
+        $sala = Sala::AllNomeOfSala();
+        return response([$professor, $sala], 200);
 
 
      }

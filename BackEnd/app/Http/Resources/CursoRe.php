@@ -20,9 +20,9 @@ class CursoRe extends JsonResource
         'inicio' =>$this->inicio,
         'fim' => $this->fim,
         'professor' =>  $this->professor->pluck('nome'),
-        'sala' => $this->sala->pluck('sala'),
+        'sala' => $this->sala->pluck('sala')
 
     ];
-   
+
     }
 }
