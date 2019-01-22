@@ -21,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('cursos')->group(function () {
     Route::get('/', 'CursoController@index');
     Route::get('/{id}', 'CursoController@show');
-    Route::get('all', 'CursoController@AllProfessorAndSala');
+    Route::post('/', 'CursoController@create');
+    Route::put('/{id}', 'CursoController@update');
 });
 Route::get('allProfAndSala', 'CursoController@AllProfessorAndSala');
 

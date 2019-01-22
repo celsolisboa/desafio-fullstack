@@ -26,6 +26,8 @@ class CursoController extends Controller
     }
 
     public function create (Request $request) {
+      //  return $this->curso->created($request);
+        return new CursoResource($this->curso->created($request));
 
 
     }
@@ -44,5 +46,17 @@ class CursoController extends Controller
 
 
      }
+
+    public function update(Request $request, Curso $id){
+
+       // $id->fill();
+        $id->update($request->all());
+        $id->createOrUpdateProfessorAndSala($request);
+
+        return new CursoResource($id);
+
+
+
+    }
 
 }
