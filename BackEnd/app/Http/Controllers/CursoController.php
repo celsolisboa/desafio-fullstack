@@ -35,7 +35,7 @@ class CursoController extends Controller
     public function show(Curso $id) {
 
         if(!$id)
-            return response('Não há curso com essa identificação', 404);
+            return response()->json(['erro'=>'Não há curso com essa identificação'], 404);
         return new CursoResource($id);
 
      }
@@ -51,7 +51,7 @@ class CursoController extends Controller
     public function update(Request $request, Curso $id) {
 
         if(!$id)
-            return response('Não há curso com essa identificação para atualizaçõa', 404);
+            return response()->json(['erro'=>'Não há curso com essa identificação para atualizaçõa'], 404);
         $id->update($request->all());
         $id->createOrUpdateProfessorAndSala($request);
         return new CursoResource($id);
@@ -61,7 +61,7 @@ class CursoController extends Controller
     public function destroy(Curso $id) {
 
         if(!$id)
-            return response('Não há curso com essa identificação para deleção', 404);
+            return response()->json(['erro'=>'Não há curso com essa identificação para deleção'], 404);
         $id->delete();
         return response('curso deletado', 200);
 

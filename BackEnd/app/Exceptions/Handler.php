@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return response( $exception->getMessage(), 404);
+        return response()->json(['erro'=>$exception->getMessage()], 404);
     }
 }
 
