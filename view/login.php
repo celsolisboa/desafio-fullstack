@@ -75,7 +75,7 @@ $_POST['username']	= (!empty($_POST['username']))	?	addslashes($_POST['username'
 												?>
 											</div>
 											<div class="font-16">
-												<input type="text" id="username" name="username" value="<?php print($_POST['username']); ?>" placeholder="Digite aqui seu e-mail." >
+												<input type="text" id="username" name="username" value="<?php print($_POST['username']); ?>" placeholder="Digite aqui seu e-mail." maxlength="150" size='150' >
 												<div id="avisoForm1" class="username error"></div>
 											</div>
 											<div class="font-16">
@@ -84,7 +84,7 @@ $_POST['username']	= (!empty($_POST['username']))	?	addslashes($_POST['username'
 											</div>
 											
 											<div style="text-align: right;">
-												<a href="recupera_senha.php">Efetuar cadastro.</a>
+												<a href="?cu=1">Efetuar cadastro.</a>
 											</div>
 											<input type="hidden" name="salvar" value="1">
 										</form>									
