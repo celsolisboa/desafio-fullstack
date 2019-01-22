@@ -26,15 +26,6 @@ Route::prefix('cursos')->group(function () {
 });
 Route::get('allProfAndSala', 'CursoController@AllProfessorAndSala');
 
-Route::get('/tt', function (Request $request) {
-    $curso = Curso::find(1);
-return new CursoResource($curso);
-});
 
-
-Route::get('/t', function (Request $request) {
-    $curso = Curso::find(1);
-return $curso->professor;
-});
 //
 
