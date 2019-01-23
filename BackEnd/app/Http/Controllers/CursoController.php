@@ -63,8 +63,9 @@ class CursoController extends Controller
 
         if(!$id)
             return response()->json(['erro'=>'Não há curso com essa identificação para deleção'], 404);
+        $id->deleteProfesorAndSala();
         $id->delete();
-        return response('curso deletado', 200);
+        return response()->json(['curso deletado'], 200);
 
 
     }

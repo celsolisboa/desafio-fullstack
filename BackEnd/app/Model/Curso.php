@@ -31,12 +31,18 @@ class Curso extends Model
 
       }
 
-     
+
     public function createOrUpdateProfessorAndSala($request) {
             $professor = $request->only('professor')['professor'];
             $sala  = $request->only('sala')['sala'];
             $this->professor()->sync($professor);
             $this->sala()->sync($sala);
+
+    }
+
+    public function deleteProfesorAndSala() {
+        $this->professor()->detach();
+        $this->sala()->detach();
 
     }
 }
