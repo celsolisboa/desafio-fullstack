@@ -27,7 +27,7 @@ class CursoRequest extends FormRequest
             'nome' => 'required',
             'inicio' => 'required',
             'fim' => 'required',
-            'profissa' => 'required',
+            'professor' => 'required',
             'sala' =>'required'
 
         ];

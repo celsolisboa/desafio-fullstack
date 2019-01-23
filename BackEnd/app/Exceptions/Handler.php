@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Exceptions;
-
+use Illuminate\Validation\ValidationException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Ramsey\Uuid\Provider\Node\FallbackNodeProvider;
 
 class Handler extends ExceptionHandler
 {
@@ -46,7 +47,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return response()->json(['erro'=>$exception->getMessage()], 404);
+
+            //return parent::render($request, $exception);
+
+          return  response()->json([
+                'erro'=> $exception->getMessage(),
+           'dado' => $request->all() ], 404);
     }
 }
+
 

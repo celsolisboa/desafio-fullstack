@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Model\Professor;
 use App\Model\Sala;
 use Illuminate\Http\Request;
+use App\Http\Requests\CursoRequest;
 use App\Model\Curso;
 use App\Http\Resources\CursoRe as CursoResource;
 
@@ -25,7 +26,7 @@ class CursoController extends Controller
 
     }
 
-    public function create (Request $request) {
+    public function create (CursoRequest $request) {
       //  return $this->curso->created($request);
         return new CursoResource($this->curso->created($request));
 
