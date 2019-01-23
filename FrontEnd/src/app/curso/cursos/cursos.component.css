@@ -1,0 +1,20 @@
+.card-body{
+  padding: 0.5rem;
+}
+.btn{
+  padding: 0;
+}
+.p-2 {
+  padding: 0px !important;
+}
+p{
+  border: 0cm !important;
+  margin: 0cm;
+}
+
+.col-sm-6{
+
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
