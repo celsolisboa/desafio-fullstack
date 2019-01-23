@@ -6,23 +6,23 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" *ngFor="let curso of cursos">
       <div class="card">
         <button class="btn">
           <div class="card-body">
             <div class="d-flex flex-column bd-highlight mb-2">
               <div class="p-2 bd-highlight">
-                <h5 class="card-title d-inline float-left">Hístoria</h5>
+                <h5 class="card-title d-inline float-left">{{curso.nome}}</h5>
                 <button type="button" class="btn d-inline float-right"><img src="/assets/favicon-16x16.png"></button>
               </div>
               <div class="p-2 bd-highlight">
-                  <span class="text-sm-left d-block tt col-10">fdsddasjknjndasdfdsfsdffd</span>
+                <span class="text-sm-left d-block tt col-10" >Prof. {{curso.professor}}</span>
                 <div class="d-inline float-left finalDoCard">
 
-                  <span class="text-sm-left">fdsfdghjvgvhgds</span>
+                  <span class="text-sm-left">Sala {{curso.sala}}</span>
                 </div>
                 <div class="d-inline float-right">
-                  <span class="text-sm-left  finalDoCard">fdsfdds</span>
+                  <span class="text-sm-left  finalDoCard">{{curso.inicio}} ás {{curso.fim}}</span>
                 </div>
               </div>
             </div>
@@ -30,29 +30,5 @@
         </button>
       </div>
     </div>
-    <div class="col-sm-6">
-        <div class="card">
-          <button class="btn">
-            <div class="card-body">
-              <div class="d-flex flex-column bd-highlight mb-2">
-                <div class="p-2 bd-highlight">
-                  <h5 class="card-title d-inline float-left">Hístoria</h5>
-                  <button type="button" class="btn d-inline float-right"><img src="/assets/favicon-16x16.png"></button>
-                </div>
-                <div class="p-2 bd-highlight">
-                    <span class="text-sm-left d-block tt col-10">fdsddasjknjndasdfdsfsdffd</span>
-                  <div class="d-inline float-left finalDoCard">
-
-                    <span class="text-sm-left">fdsfdghjvgvhgds</span>
-                  </div>
-                  <div class="d-inline float-right">
-                    <span class="text-sm-left  finalDoCard">fdsfdds</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-
   </div>
+</div>
