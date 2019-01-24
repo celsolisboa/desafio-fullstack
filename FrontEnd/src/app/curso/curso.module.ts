@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 import { DetalheCursoComponent } from './detalhe-curso/detalhe-curso.component';
@@ -13,7 +14,8 @@ import { CursoService } from './curso.service';
   imports: [
     CommonModule,
     CursoRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers:[CursoService]
 })

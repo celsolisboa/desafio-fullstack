@@ -25,5 +25,13 @@ export class CursosComponent implements OnInit {
         });
 
   }
+  delete($id){
+    this.cursoService.delete($id)
+    .then(cursos => {
+        this.lista();
 
+
+        });
+
+  }
 }

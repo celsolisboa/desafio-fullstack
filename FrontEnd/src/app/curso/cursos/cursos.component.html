@@ -13,7 +13,7 @@
             <div class="d-flex flex-column bd-highlight mb-2">
               <div class="p-2 bd-highlight">
                 <h5 class="card-title d-inline float-left">{{curso.nome}}</h5>
-                <button type="button" class="btn d-inline float-right"><img src="/assets/favicon-16x16.png"></button>
+                <button type="button" class="btn d-inline float-right"(click) = 'delete(curso.id)'><img src="/assets/favicon-16x16.png"></button>
               </div>
               <div class="p-2 bd-highlight">
                 <span class="text-sm-left d-block tt col-10" >Prof. {{curso.professor}}</span>
