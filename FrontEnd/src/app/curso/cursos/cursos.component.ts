@@ -7,7 +7,7 @@ import { CursoService } from '../curso.service';
   styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent implements OnInit {
-
+  maca = true;
   cursos:any
   constructor(private cursoService: CursoService) { }
 
@@ -19,7 +19,6 @@ export class CursosComponent implements OnInit {
     this.cursoService.lista()
     .then(cursos => {
       this.cursos = cursos;
-      console.log(this.cursos);
       this.cursos = this.cursos.data;
 
         });
@@ -28,10 +27,12 @@ export class CursosComponent implements OnInit {
   delete($id){
     this.cursoService.delete($id)
     .then(cursos => {
+      this.maca = true;
         this.lista();
 
 
         });
 
   }
+
 }

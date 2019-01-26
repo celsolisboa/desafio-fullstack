@@ -30,3 +30,16 @@ p{
 .bg-light {
   background-color: #e5e2e2!important;
 }
+.img {
+  width: 100%;
+  height: 100%;
+  }
+.lixo:focus:checked-lima{
+
+ background: -moz-element();
+
+}
+.lixo {
+z-index: 111111111;
+
+}
