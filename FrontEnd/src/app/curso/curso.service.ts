@@ -44,4 +44,15 @@ export class CursoService {
 
 
   }
+  buscar(id: any) {
+    return this.http.get(this.cursoUrl + '/' + id)
+      .toPromise()
+      .then(Response => Response)
+      .catch(Response => alert('O back não que trabalhar :('));
+
+  }
+  professorAndSala() {
+    
+
+  }
 }

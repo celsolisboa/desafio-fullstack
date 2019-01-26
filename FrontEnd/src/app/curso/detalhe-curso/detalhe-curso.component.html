@@ -5,13 +5,14 @@
 </nav>
 <div class="container">
   <br>
-  <div class="row">
+  <form #formCurso="ngForm" (ngSubmit) = "adicionar(formCurso)">
+      <div class="row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="inputZip" placeholder="Curso">
+      <input type="text" class="form-control" id="inputZip" name='nome' placeholder="Curso" [ngModel] = 'curso.nome'>
     </div>
 
     <div class="form-group col-md-6">
-      <select type="text" class="form-control" placeholder="Professor">
+      <select type="text" class="form-control" placeholder="Professor" >
         <option>NATAN</option>
         <option>NATAN</option>
         <option>NATAN</option>
@@ -31,12 +32,12 @@
 
     <div class="col-6  col-md-3">
       <div class="form-group">
-        <input type="time" class="form-control" placeholder="inicio">
+        <input type="time" class="form-control" name= 'inicio' placeholder="inicio" [ngModel] = 'curso.inicio'>
       </div>
     </div>
     <div class="col-6 col-md-3 ">
       <div class="form-group">
-        <input type="time" class="form-control" placeholder="inicio">
+        <input type="time" class="form-control" name= 'fim'placeholder="fim" [ngModel] = 'curso.fim'>
       </div>
     </div>
 
@@ -44,5 +45,6 @@
   <div class="d-flex justify-content-center">
     <button type="submit" class=" col-6 col-md-5 btn btn-primary">Salva</button>
   </div>
+</form>
 
 </div>

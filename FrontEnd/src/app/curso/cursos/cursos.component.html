@@ -2,13 +2,14 @@
   <div class="col d-flex justify-content-center align-content-center">
     <h5 class="col-auto">Cursos</h5>
   </div>
+  <a class="btn linkMais" routerLink = '/cursos/novo' ><img   class = "img"src="/assets/mais32.png"></a>
 </nav>
 <div class="container">
   <div class="row">
 
     <div class="col-sm-6" *ngFor="let curso of cursos">
       <div class="card">
-        <button class="btn lima" [disabled] = '!maca'  routerLink = '/cursos/detalhes' name = "lima">
+        <button class="btn lima col-auto" [disabled] = '!maca'  [routerLink] = "['cursos/detalhes',curso.id]" name = "lima">
           <div class="card-body">
             <div class="d-flex flex-column bd-highlight mb-2">
               <div class="p-2 bd-highlight">
