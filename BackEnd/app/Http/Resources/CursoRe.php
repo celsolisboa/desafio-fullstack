@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Resources;
-
+use App\Http\Resources\Professor;
+use App\Http\Resources\Sala;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CursoRe extends JsonResource
@@ -19,8 +20,8 @@ class CursoRe extends JsonResource
         'nome' => $this->nome,
         'inicio' =>$this->inicio,
         'fim' => $this->fim,
-        'professor' =>  $this->professor->pluck('nome'),
-        'sala' => $this->sala->pluck('sala')
+        'professor' => Professor::collection($this->professor),
+        'sala' => Sala::collection($this->sala)
 
     ];
 
