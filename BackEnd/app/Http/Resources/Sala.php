@@ -16,7 +16,7 @@ class Sala extends JsonResource
     {
         return [
             'id' => $this->id,
-            'nome' => $this->nome,
+            'sala' => $this->sala,
 
 
         ];
