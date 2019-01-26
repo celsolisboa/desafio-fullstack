@@ -8,7 +8,7 @@
 
     <div class="col-sm-6" *ngFor="let curso of cursos">
       <div class="card">
-        <button class="btn lima" [disabled] = '!maca' #lima routerLink = 'cursos/detalhes' name = "lima">
+        <button class="btn lima" [disabled] = '!maca'  routerLink = '/cursos/detalhes' name = "lima">
           <div class="card-body">
             <div class="d-flex flex-column bd-highlight mb-2">
               <div class="p-2 bd-highlight">
@@ -16,10 +16,10 @@
                 <button type="button" #lixo class="btn lixo d-inline float-right" (click) = 'delete(curso.id)' (focus) = "maca = false" name = 'lixo' ><img  class = "img"src="/assets/favicon-16x16.png"></button>
               </div>
               <div class="p-2 bd-highlight">
-                <span class="text-sm-left d-block tt col-10" >Prof. {{curso.professor}}</span>
+                <span class="text-sm-left d-block tt col-10" >Prof. <span *ngFor="let professor of curso.professor"> {{professor.nome}}</span></span>
                 <div class="d-inline float-left finalDoCard">
 
-                  <span class="text-sm-left">Sala {{curso.sala}}</span>
+                  <span class="text-sm-left">Sala. <span *ngFor="let sala of curso.sala"> {{sala.sala}}</span></span>
                 </div>
                 <div class="d-inline float-right">
                   <span class="text-sm-left  finalDoCard">{{curso.inicio}} ás {{curso.fim}}</span>
