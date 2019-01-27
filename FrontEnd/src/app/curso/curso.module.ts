@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 import { DetalheCursoComponent } from './detalhe-curso/detalhe-curso.component';
@@ -19,7 +21,8 @@ import { CursoService } from './curso.service';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-
+    MultiselectDropdownModule,
+    NgMultiSelectDropDownModule
 
   ],
   providers:[CursoService]

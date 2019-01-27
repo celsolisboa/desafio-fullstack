@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../curso.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm,  } from '@angular/forms';
+import { NgForm, } from '@angular/forms';
 import { Curso } from 'src/app/shared/Curso';
 import { ToastyService } from 'ng2-toasty';
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
 
 @Component({
@@ -18,6 +19,10 @@ export class DetalheCursoComponent implements OnInit {
   professores; // [{ id: '1', nome: 'Carlos' }, { id: '2', nome: 'Maros' }, { id: '3', nome: 'Andrade' }];
   salas; // = [{ id: '1', sala: '1' }, { id: '2', sala: '2' }];
 
+  myOptions: IMultiSelectOption[];
+  dropdownSettings = {};
+  salass: IMultiSelectOption[];
+  salaSettings = {};
 
   constructor(
     private cursoService: CursoService,
@@ -29,11 +34,42 @@ export class DetalheCursoComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
     this.buscaAllProfessoresAndSalas();
+
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'nome',
+      selectAllText: 'Todos',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: false,
+
+    };
+    this.salaSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'sala',
+      selectAllText: 'Todos',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: false,
+
+    };
+    this.salass = this.salas;
+    this.myOptions = this.professores
     if (this.id) {
       this.buscar(this.id);
     }
 
   }
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
 
   buscar(id: any) {
     this.cursoService.buscar(id)
@@ -63,41 +99,41 @@ export class DetalheCursoComponent implements OnInit {
   }
   atualizar(formCurso: NgForm) {
     this.cursoService.update(this.curso)
-    .then(response => {
-      this.toasty.success('Atualizado com sucesso!')
-      this.data = response;
-      this.router.navigate(['cursos']);
-    }
+      .then(response => {
+        this.toasty.success('Atualizado com sucesso!')
+        this.data = response;
+        this.router.navigate(['cursos']);
+      }
 
       )
 
   }
   salvar(formCurso: NgForm) {
     this.cursoService.create(this.curso)
-    .then(response => {
-      this.toasty.success('cadastrado com sucesso!')
-      this.data = response;
-      console.log(this.data);
-      this.router.navigate(['cursos/detalhes', this.data.data.id])
+      .then(response => {
+        this.toasty.success('cadastrado com sucesso!')
+        this.data = response;
+        console.log(this.data);
+        this.router.navigate(['cursos/detalhes', this.data.data.id])
 
-    }
+      }
 
       )
 
   }
-  compare(t1: any, t2: any){
-     return t1.id == t2.id;
+  compare(t1: any, t2: any) {
+    return t1.id == t2.id;
 
 
   }
   buscaAllProfessoresAndSalas() {
     this.cursoService.professorAndSala()
-    .then(response => {
-      this.data = response;
-      this.professores = this.data.professores;
-      this.salas = this.data.salas;
+      .then(response => {
+        this.data = response;
+        this.professores = this.data.professores;
+        this.salas = this.data.salas;
 
-    })
+      })
   }
 
 }
