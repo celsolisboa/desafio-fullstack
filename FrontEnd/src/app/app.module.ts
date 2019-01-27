@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ToastyModule} from 'ng2-toasty';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-modules';
@@ -16,7 +17,8 @@ import { CursoService } from './curso/curso.service';
     BrowserModule,
     AppRoutingModule,
     CursoModule,
-    AuthModule
+    AuthModule,
+    ToastyModule.forRoot()
   ],
   exports:[
   ],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../curso.service';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-cursos',
@@ -9,7 +10,9 @@ import { CursoService } from '../curso.service';
 export class CursosComponent implements OnInit {
   maca = true;
   cursos:any
-  constructor(private cursoService: CursoService) { }
+  constructor(
+    private cursoService: CursoService,
+    private toasty: ToastyService) { }
 
   ngOnInit() {
     this.lista();
@@ -28,6 +31,7 @@ export class CursosComponent implements OnInit {
     this.cursoService.delete($id)
     .then(cursos => {
       this.maca = true;
+      this.toasty.success('deletado com sucesso!')
         this.lista();
 
 

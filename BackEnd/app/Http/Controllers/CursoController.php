@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CursoRequest;
 use App\Model\Curso;
 use App\Http\Resources\CursoRe as CursoResource;
-
+use App\Http\Resources\Professor as ProfessorResource;
+use App\Http\Resources\Sala as SalaResource;
 class CursoController extends Controller
 {
     private $curso;
@@ -27,7 +28,8 @@ class CursoController extends Controller
     }
 
     public function create (CursoRequest $request) {
-      //  return $this->curso->created($request);
+	//	return($request);
+         
         return new CursoResource($this->curso->created($request));
 
 
@@ -43,9 +45,9 @@ class CursoController extends Controller
 
      public function AllProfessorAndSala() {
 
-        $professor = Professor::AllNomeOfProfessor();
-        $sala = Sala::AllNomeOfSala();
-        return response([$professor, $sala], 200);
+        $professor = ProfessorResource::collection(Professor::all());
+        $sala = SalaResource::collection(Sala::all());
+        return response(['professores'=>$professor,'salas'=> $sala], 200);
 
      }
 

@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CursoService {
 
   cursoUrl = 'http://localhost:8000/api/cursos';
+
   // configUrl = 'assets/config.json';
 
 
@@ -23,7 +24,7 @@ export class CursoService {
     return this.http.post(this.cursoUrl, curso)
     .toPromise()
     .then(Response => Response)
-    .catch(Response =>alert('O back não que trabalhar :('))
+    .catch(Response =>console.log(Response))
 
 
   }
@@ -52,7 +53,10 @@ export class CursoService {
 
   }
   professorAndSala() {
-    
+    return this.http.get('http://localhost:8000/api/allProfAndSala')
+        .toPromise()
+        .then(response => response);
+
 
   }
 }

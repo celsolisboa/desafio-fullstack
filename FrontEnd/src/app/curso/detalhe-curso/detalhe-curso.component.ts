@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../curso.service';
-import { ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm,  } from '@angular/forms';
 import { Curso } from 'src/app/shared/Curso';
+import { ToastyService } from 'ng2-toasty';
+
 
 @Component({
   selector: 'app-detalhe-curso',
@@ -12,15 +14,22 @@ import { Curso } from 'src/app/shared/Curso';
 export class DetalheCursoComponent implements OnInit {
   curso = new Curso();
   id: any;
-  data:any;
+  data: any;
+  professores; // [{ id: '1', nome: 'Carlos' }, { id: '2', nome: 'Maros' }, { id: '3', nome: 'Andrade' }];
+  salas; // = [{ id: '1', sala: '1' }, { id: '2', sala: '2' }];
+
 
   constructor(
     private cursoService: CursoService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private toasty: ToastyService) { }
 
   ngOnInit() {
+
     this.id = this.route.snapshot.params['id'];
-    if(this.id){
+    this.buscaAllProfessoresAndSalas();
+    if (this.id) {
       this.buscar(this.id);
     }
 
@@ -42,23 +51,53 @@ export class DetalheCursoComponent implements OnInit {
   }
 
   adicionar(formCurso: NgForm) {
-  //  console.log(formCurso);
+    //  console.log(formCurso);
     if (this.id) {
       this.atualizar(formCurso);
 
-    }else {
+    } else {
       this.salvar(formCurso);
     }
 
 
   }
   atualizar(formCurso: NgForm) {
-    console.log(formCurso);
+    this.cursoService.update(this.curso)
+    .then(response => {
+      this.toasty.success('Atualizado com sucesso!')
+      this.data = response;
+      this.router.navigate(['cursos']);
+    }
+
+      )
 
   }
   salvar(formCurso: NgForm) {
-   // console.log(formCurso);
+    this.cursoService.create(this.curso)
+    .then(response => {
+      this.toasty.success('cadastrado com sucesso!')
+      this.data = response;
+      console.log(this.data);
+      this.router.navigate(['cursos/detalhes', this.data.data.id])
 
+    }
+
+      )
+
+  }
+  compare(t1: any, t2: any){
+     return t1.id == t2.id;
+
+
+  }
+  buscaAllProfessoresAndSalas() {
+    this.cursoService.professorAndSala()
+    .then(response => {
+      this.data = response;
+      this.professores = this.data.professores;
+      this.salas = this.data.salas;
+
+    })
   }
 
 }

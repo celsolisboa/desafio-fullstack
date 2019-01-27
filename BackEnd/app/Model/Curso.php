@@ -34,7 +34,11 @@ class Curso extends Model
 
     public function createOrUpdateProfessorAndSala($request) {
             $professor = $request->only('professor')['professor'];
+			$collection = collect( $professor);
+			$professor = $collection->pluck('id');
             $sala  = $request->only('sala')['sala'];
+			$collection = collect( $sala);
+			$sala = $collection->pluck('id');
             $this->professor()->sync($professor);
             $this->sala()->sync($sala);
 

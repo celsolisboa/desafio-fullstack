@@ -10,6 +10,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { CursoRoutingModule } from './curso-routing.modules';
 import { CursoService } from './curso.service';
 
+
 @NgModule({
   declarations: [DetalheCursoComponent, CursosComponent],
   imports: [
@@ -17,7 +18,9 @@ import { CursoService } from './curso.service';
     CursoRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule 
+    FormsModule,
+
+
   ],
   providers:[CursoService]
 })
