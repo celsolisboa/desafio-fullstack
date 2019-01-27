@@ -16,7 +16,7 @@
 
       <div class="form-group col-md-6">
         <ng-multiselect-dropdown name="professor" [data]="professores" [(ngModel)]="curso.professor" [settings]="dropdownSettings"
-          (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
+           [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
     <div class="row">
       <div class="form-group col-md-6">
         <ng-multiselect-dropdown name="sala" [data]="salas" [(ngModel)]="curso.sala" [settings]="salaSettings"
-          (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
+           [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
       </div>
     <!--  <div class="form-group col-md-6">
         <select multiple type="number" [compareWith]='compare' class="form-control" id="inputZip" name='sala'

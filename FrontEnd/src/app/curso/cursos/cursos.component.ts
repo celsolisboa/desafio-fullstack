@@ -21,6 +21,7 @@ export class CursosComponent implements OnInit {
   lista(){
     this.cursoService.lista()
     .then(cursos => {
+      console.log(cursos);
       this.cursos = cursos;
       this.cursos = this.cursos.data;
 

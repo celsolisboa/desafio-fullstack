@@ -63,12 +63,7 @@ export class DetalheCursoComponent implements OnInit {
     }
 
   }
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
+
 
 
   buscar(id: any) {
@@ -81,7 +76,7 @@ export class DetalheCursoComponent implements OnInit {
         this.curso.fim = this.data.data.fim;
         this.curso.professor = this.data.data.professor;
         this.curso.sala = this.data.data.sala;
-        console.log(this.curso);
+
       })
 
   }
@@ -113,7 +108,7 @@ export class DetalheCursoComponent implements OnInit {
       .then(response => {
         this.toasty.success('cadastrado com sucesso!')
         this.data = response;
-        console.log(this.data);
+
         this.router.navigate(['cursos/detalhes', this.data.data.id])
 
       }
