@@ -6,6 +6,7 @@ use App\Model\Sala;
 use Illuminate\Http\Request;
 use App\Http\Requests\CursoRequest;
 use App\Model\Curso;
+use App\Http\Controllers\LoginController;
 use App\Http\Resources\CursoRe as CursoResource;
 use App\Http\Resources\Professor as ProfessorResource;
 use App\Http\Resources\Sala as SalaResource;
@@ -21,7 +22,6 @@ class CursoController extends Controller
 
 
     public function index() {
-
         return CursoResource::collection($this->curso->paginate(5));
 
 
@@ -29,7 +29,7 @@ class CursoController extends Controller
 
     public function create (CursoRequest $request) {
 	//	return($request);
-         
+
         return new CursoResource($this->curso->created($request));
 
 

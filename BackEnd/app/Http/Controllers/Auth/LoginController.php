@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use phpDocumentor\Reflection\DocBlock\Description;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+  //  protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -34,6 +35,20 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+       // $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request) {
+
+        $email = $request->only('email');
+        $senha = $request->only('password');
+        $senha = md5($senha);
+        $user = User::where('email', $email);
+       if($user->password == $senha) {
+        $token = sha1(time());
+        return response(['token'=> $token], 200);
+       }else {
+          return response('senha invalida', 404);
+       }
     }
 }

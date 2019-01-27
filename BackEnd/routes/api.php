@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Resources\CursoRe as CursoResource;
-use App\Model\Curso;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,9 +14,8 @@ use App\Model\Curso;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/user', 'LoginController@login');
+
 
 Route::prefix('cursos')->group(function () {
     Route::get('/', 'CursoController@index');
