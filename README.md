@@ -8,22 +8,20 @@
 
 ### Segue instruções para realizar o desafio
 
-1. Faça um fork deste repositório.
-2. Baseado no cenário acima, modele e crie o esquema do banco de dados para armazenar as informações normalizadas.
-    * Comite a imagem em jpg ou png do DER e o script do DDL.  
-3. Desenvolva uma API REST para realizar as operações necessárias com o banco de dados criado.
-4. Baseado nas imagens `wireframe/1-login-mobile.png` e `wireframe/2-login-desktop.png`, crie a tela de login da aplicação. 
-    * Considere apenas uma validação simples por e-mail e senha. 
-    * Não existe a necessidade de CRUD de usuário, recuperação de senha ou outra operação mais complexa.
-5. Baseado nas imagens `wireframe/3-cursos-mobile.png` e `wireframe/4-cursos-desktop.png`, crie a tela de visualização e deleção de cursos. 
-    * Deve conter as informações de horário, professor e sala. 
-6. Baseado nas imagens `wireframe/5-detalhe-mobile.png` e `wireframe/6-detalhe-desktop.png`, crie a tela de criação e alteração de cursos. 
-    * Os campos de professor e sala deverão ser um multi-select. 
-    * Não existe a necessidade de CRUD de professor e sala.
-7. Realizar um Pull Request para este repositório, com instruções necessárias para instalação e instânciação dos sistemas.
 
+1.roda o sql desafio-fullstack.sql para criar as tabelas.
+2 va a pasta do BackEnd e abrar o termina e digite compose install aperte enter.
+3 para start a api digite o comando php artisan serve aperte enter.
+4 va a pasta do frontEnd, abrar outro termina e digite npm install aperte enter.
+5 No terminal digite ng serve aperte enter.
+6 Va a Url http://localhost:4200/
+7 digite no email: helio@outlook.com e a senha:123.
+
+Rotas : '/' :Login. 
+		'cursos': vizualização dos cursos
+		'cursos/detalhes/:id':Atualização de um curso
+		'cursos/novo': cadastro de novo curso
 ### O que será avaliado 
 
-1. Fidelidade às instruções e ao cenário.
-2. Clean Code e boas práticas.
-3. Boas práticas de versionamento.
+
+
