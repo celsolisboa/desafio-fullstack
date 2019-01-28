@@ -1,6 +1,7 @@
 # Desafio Celso Lisboa para FullStack
-
-
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+Php 7.2.11 .
+banco sql.
 ### Instruções.
 
 
@@ -17,7 +18,7 @@
 
 1. '/' :Login. 
 2.	'cursos':  vizualização dos cursos
-3.		'cursos/detalhes/:id':  Atualização de um curso
+3.	'cursos/detalhes/:id':  Atualização de um curso
 4.  'cursos/novo':  cadastro de novo curso
  
 
