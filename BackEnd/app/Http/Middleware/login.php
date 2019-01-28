@@ -17,7 +17,7 @@ class login
     {
 
 
-
+        //return $request->all();
         if($request->is('api/user')) {
             return $next($request);
         }
