@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 21, 2019 at 02:02 AM
--- Server version: 5.7.24
--- PHP Version: 7.1.24
+-- Generation Time: 28-Jan-2019 às 22:01
+-- Versão do servidor: 5.7.22
+-- PHP Version: 7.1.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,19 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Estrutura da tabela `admin`
 --
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `usuario_funcao_id` int(11) NOT NULL,
+  `usuarioid` int(11) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `admin`
+--
+
+INSERT INTO `admin` (`id`, `usuarioid`, `data`) VALUES
+(6, 17, '2019-01-25 17:38:22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `curso`
+-- Estrutura da tabela `curso`
 --
 
 CREATE TABLE `curso` (
@@ -49,19 +56,29 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funcao`
+-- Estrutura da tabela `funcao`
 --
 
 CREATE TABLE `funcao` (
   `id` int(11) NOT NULL,
-  `funcao` int(11) NOT NULL,
+  `funcao` varchar(100) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `funcao`
+--
+
+INSERT INTO `funcao` (`id`, `funcao`, `data`) VALUES
+(1, 'usuário', '2019-01-24 00:00:00'),
+(2, 'professor', '2019-01-24 00:00:00'),
+(3, 'coordenador', '2019-01-24 00:00:00'),
+(4, 'marketing', '2019-01-26 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sala`
+-- Estrutura da tabela `sala`
 --
 
 CREATE TABLE `sala` (
@@ -71,41 +88,68 @@ CREATE TABLE `sala` (
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `sala`
+--
+
+INSERT INTO `sala` (`id`, `nome`, `localizacao`, `data`) VALUES
+(3, '101', '', '2019-01-26 00:00:00'),
+(4, '102', '', '2019-01-26 00:00:00'),
+(5, '103', '', '2019-01-26 00:00:00'),
+(6, '104', '', '2019-01-26 00:00:00'),
+(7, '201', '', '2019-01-26 00:00:00'),
+(8, '202', '', '2019-01-26 00:00:00'),
+(9, '203', '', '2019-01-26 00:00:00'),
+(10, '204', '', '2019-01-26 00:00:00'),
+(11, '301', '', '2019-01-27 00:00:00'),
+(12, '302', '', '2019-01-27 00:00:00'),
+(13, '303', '', '2019-01-27 00:00:00'),
+(16, '304', '', '2019-01-27 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `turma`
+-- Estrutura da tabela `turma`
 --
 
 CREATE TABLE `turma` (
   `id` int(11) NOT NULL,
-  `usuario_funcao_id` int(11) NOT NULL,
+  `turma` int(11) NOT NULL,
+  `usuario_funcaoid` int(11) NOT NULL,
   `cursoid` int(11) NOT NULL,
   `salaid` int(11) NOT NULL,
   `hora_inicio` time NOT NULL,
   `hora_termino` time NOT NULL,
-  `dia_semana` varchar(20) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estrutura da tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
+  `celular` varchar(15) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `email`, `celular`, `senha`, `data`) VALUES
+(1, 'admin', 'admin@gmail.com', '(21) 97629-9507', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-01-22 23:23:25'),
+(17, 'admin2', 'admin2@gmail.com', '(21) 29950-8755', 'a3904757039c21d216f9cab4c4ae743cecabcdba', '2019-01-25 17:19:08');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario_funcao`
+-- Estrutura da tabela `usuario_funcao`
 --
 
 CREATE TABLE `usuario_funcao` (
@@ -116,6 +160,13 @@ CREATE TABLE `usuario_funcao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Extraindo dados da tabela `usuario_funcao`
+--
+
+INSERT INTO `usuario_funcao` (`id`, `usuarioid`, `funcaoid`, `data`) VALUES
+(9, 17, 3, '2019-01-25 17:19:08');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -124,8 +175,8 @@ CREATE TABLE `usuario_funcao` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `usuarioid_2` (`usuario_funcao_id`),
-  ADD KEY `usuarioid` (`usuario_funcao_id`);
+  ADD UNIQUE KEY `usuarioid_2` (`usuarioid`),
+  ADD KEY `usuarioid` (`usuarioid`);
 
 --
 -- Indexes for table `curso`
@@ -150,15 +201,16 @@ ALTER TABLE `sala`
 --
 ALTER TABLE `turma`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_funcao_id` (`usuario_funcao_id`),
   ADD KEY `cursoid` (`cursoid`),
-  ADD KEY `salaid` (`salaid`);
+  ADD KEY `salaid` (`salaid`),
+  ADD KEY `usuario_funcaoid` (`usuario_funcaoid`) USING BTREE;
 
 --
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `usuario_funcao`
@@ -166,7 +218,7 @@ ALTER TABLE `usuario`
 ALTER TABLE `usuario_funcao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuarioid` (`usuarioid`),
-  ADD KEY `funcaoid` (`funcaoid`);
+  ADD KEY `funcaoid` (`funcaoid`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -176,64 +228,64 @@ ALTER TABLE `usuario_funcao`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `funcao`
 --
 ALTER TABLE `funcao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `usuario_funcao`
 --
 ALTER TABLE `usuario_funcao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `admin`
+-- Limitadores para a tabela `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`usuario_funcao_id`) REFERENCES `usuario_funcao` (`id`);
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`usuarioid`) REFERENCES `usuario` (`id`);
 
 --
--- Constraints for table `turma`
+-- Limitadores para a tabela `turma`
 --
 ALTER TABLE `turma`
-  ADD CONSTRAINT `turma_ibfk_1` FOREIGN KEY (`usuario_funcao_id`) REFERENCES `usuario_funcao` (`id`),
+  ADD CONSTRAINT `turma_ibfk_1` FOREIGN KEY (`usuario_funcaoid`) REFERENCES `usuario_funcao` (`id`),
   ADD CONSTRAINT `turma_ibfk_2` FOREIGN KEY (`cursoid`) REFERENCES `curso` (`id`),
   ADD CONSTRAINT `turma_ibfk_3` FOREIGN KEY (`salaid`) REFERENCES `sala` (`id`);
 
 --
--- Constraints for table `usuario_funcao`
+-- Limitadores para a tabela `usuario_funcao`
 --
 ALTER TABLE `usuario_funcao`
   ADD CONSTRAINT `usuario_funcao_ibfk_1` FOREIGN KEY (`usuarioid`) REFERENCES `usuario` (`id`),
