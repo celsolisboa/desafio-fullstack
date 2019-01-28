@@ -1,0 +1,51 @@
+.card-body{
+  padding: 0.5rem;
+  padding-bottom: 00.1rem;
+}
+.btn{
+  padding: 0;
+}
+.p-2 {
+  padding: 0px !important;
+}
+p{
+  border: 0cm !important;
+  margin: 0cm;
+}
+
+.col-sm-6{
+
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.mb-2, .my-2 {
+  margin-bottom:0!important;
+}
+.tt{
+  margin-top:1rem;
+ padding-left: 0cm;
+ text-align: left!important;
+}
+.bg-light {
+  background-color: #e5e2e2!important;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  }
+.lixo:focus:checked-lima{
+
+ background: -moz-element();
+
+}
+.lixo {
+z-index: 111111111;
+
+}
+.linkMais {
+font-size: 15px;
+font-weight: 100;
+
+
+}

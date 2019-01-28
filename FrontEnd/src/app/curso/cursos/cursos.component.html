@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="col d-flex justify-content-center align-content-center">
+    <h5 class="col-auto">Cursos</h5>
+  </div>
+  <a class="btn linkMais" routerLink = '/cursos/novo' ><img   class = "img"src="/assets/mais32.png"></a>
+</nav>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6" *ngFor="let curso of cursos">
+      <div class="card">
+        <button class="btn  bordeBlack lima col-auto" [disabled] = '!maca'  [routerLink] = "['/cursos/detalhes', curso.id]" name = "lima">
+          <div class="card-body">
+            <div class="d-flex flex-column bd-highlight mb-2">
+              <div class="p-2 bd-highlight">
+                <h5 class="card-title d-inline float-left">{{curso.nome}}</h5>
+                <button type="button" #lixo class="btn lixo d-inline float-right" (click) = 'delete(curso.id)' (focus) = "maca = false" name = 'lixo' ><img  class = "img"src="/assets/favicon-16x16.png"></button>
+              </div>
+              <div class="p-2 bd-highlight">
+                <span class="text-sm-left d-block tt col-10" >Prof. <span *ngFor="let professor of curso.professor"> {{professor.nome}}</span></span>
+                <div class="d-inline float-left finalDoCard">
+
+                  <span class="text-sm-left">Sala. <span *ngFor="let sala of curso.sala"> {{sala.sala}}</span></span>
+                </div>
+                <div class="d-inline float-right">
+                  <span class="text-sm-left  finalDoCard">{{curso.inicio}} ás {{curso.fim}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

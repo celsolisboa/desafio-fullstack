@@ -1,0 +1,51 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="col d-flex justify-content-center align-content-center">
+    <h5 class="col-auto">Detalhe do Cursos</h5>
+  </div>
+</nav>
+<div class=" d-flex justify-content-center align-content-center">
+  <div class="container">
+
+    <br>
+    <form #formCurso="ngForm" (ngSubmit)="adicionar(formCurso)">
+      <div class="row d-flex justify-content-center">
+        <div class="form-group col-md-4 col-lg-4">
+          <input type="text" class="form-control" name='nome' placeholder="Nome do curso" [(ngModel)]='curso.nome'
+            required>
+        </div>
+
+
+        <div class="form-group col-md-4 col-lg-4">
+          <ng-multiselect-dropdown name="professor" [placeholder]="'Professores'" [data]="professores" [(ngModel)]="curso.professor"
+            [settings]="dropdownSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+        </div>
+      </div>
+
+
+      <div class="row d-flex justify-content-center">
+        <div class="form-group col-md-4 col-lg-4">
+          <ng-multiselect-dropdown name="sala" [placeholder]="'Salas'" [data]="salas" [(ngModel)]="curso.sala"
+            [settings]="salaSettings" [ngModelOptions]="{standalone: true}" required></ng-multiselect-dropdown>
+        </div>
+
+
+        <div class="col-6  col-md-2 col-lg-2">
+          <div class="form-group">
+            <input type="time" class="form-control" name='inicio' placeholder="inicio" [(ngModel)]='curso.inicio'
+              required>
+          </div>
+        </div>
+        <div class="col-6 col-md-2 col-lg-2">
+          <div class="form-group">
+            <input type="time" class="form-control" name='fim' placeholder="fim" [(ngModel)]='curso.fim' required>
+          </div>
+        </div>
+
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class=" corBlackDoBotao col-6 col-md-5 btn btn-primary" >Salva</button>
+      </div>
+    </form>
+
+  </div>
+</div>

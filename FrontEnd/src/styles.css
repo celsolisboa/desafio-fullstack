@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.corBlackDoBotao {
+  background: black !important;
+  border-bottom-color: black !important;
+  border-color: black !important;
+  }
+.bordeBlack {
+  border-color: black !important;
+}
