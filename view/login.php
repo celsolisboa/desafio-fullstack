@@ -68,12 +68,10 @@ $_POST['username']	= (!empty($_POST['username']))	?	addslashes($_POST['username'
 									</div>
 									<section class="group-acesso">
 										<form name="myform" class="form-horizontal" action="?" method="post">
-											<div class="error">	
-												<?php
-													/*retorna a mensagem de ERRO de cadastro*/ 
-													$objModelsLogin->modelsLoginValidaError(); 
-												?>
-											</div>
+											<?php
+												/*retorna a mensagem de ERRO de cadastro*/ 
+												$objModelsLogin->modelsLoginValidaError(); 
+											?>
 											<div class="font-16">
 												<input type="text" id="username" name="username" value="<?php print($_POST['username']); ?>" placeholder="Digite aqui seu e-mail." maxlength="150" size='150' >
 												<div id="avisoForm1" class="username error"></div>
