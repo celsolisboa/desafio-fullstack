@@ -9,7 +9,7 @@ import { ToastyService } from 'ng2-toasty';
 })
 export class CursosComponent implements OnInit {
   maca = true;
-  cursos:any
+  cursos: any
   constructor(
     private cursoService: CursoService,
     private toasty: ToastyService) { }
@@ -18,24 +18,29 @@ export class CursosComponent implements OnInit {
     this.lista();
   }
 
-  lista(){
+  lista() {
     this.cursoService.lista()
-    .then(cursos => {
-      console.log(cursos);
-      this.cursos = cursos;
-      this.cursos = this.cursos.data;
-
+      .then(cursos => {
+        console.log(cursos);
+        this.cursos = cursos;
+        this.cursos = this.cursos.data;
+      })
+      .catch(
+        response => {
+          this.toasty.error('Erro');
         });
 
   }
-  delete($id){
+  delete($id) {
     this.cursoService.delete($id)
-    .then(cursos => {
-      this.maca = true;
-      this.toasty.success('deletado com sucesso!')
+      .then(cursos => {
+        this.maca = true;
+        this.toasty.success('deletado com sucesso!')
         this.lista();
-
-
+      })
+      .catch(
+        response => {
+          this.toasty.error('Erro');
         });
 
   }

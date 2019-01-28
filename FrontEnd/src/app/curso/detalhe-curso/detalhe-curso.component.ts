@@ -16,8 +16,8 @@ export class DetalheCursoComponent implements OnInit {
   curso = new Curso();
   id: any;
   data: any;
-  professores; // [{ id: '1', nome: 'Carlos' }, { id: '2', nome: 'Maros' }, { id: '3', nome: 'Andrade' }];
-  salas; // = [{ id: '1', sala: '1' }, { id: '2', sala: '2' }];
+  professores;
+  salas;
 
   myOptions: IMultiSelectOption[];
   dropdownSettings = {};
@@ -82,7 +82,10 @@ export class DetalheCursoComponent implements OnInit {
   }
 
   adicionar(formCurso: NgForm) {
-    //  console.log(formCurso);
+    if (!formCurso.valid) {
+      this.toasty.error('Formulario invalido!');
+      return false;
+    }
     if (this.id) {
       this.atualizar(formCurso);
 
@@ -98,9 +101,11 @@ export class DetalheCursoComponent implements OnInit {
         this.toasty.success('Atualizado com sucesso!')
         this.data = response;
         this.router.navigate(['cursos']);
-      }
-
-      )
+      })
+      .catch(
+        response => {
+          this.toasty.error('Erro');
+        });
 
   }
   salvar(formCurso: NgForm) {
@@ -108,12 +113,12 @@ export class DetalheCursoComponent implements OnInit {
       .then(response => {
         this.toasty.success('cadastrado com sucesso!')
         this.data = response;
-
         this.router.navigate(['cursos/detalhes', this.data.data.id])
-
-      }
-
-      )
+      })
+      .catch(
+        response => {
+          this.toasty.error('Erro');
+        });
 
   }
   compare(t1: any, t2: any) {
@@ -129,6 +134,10 @@ export class DetalheCursoComponent implements OnInit {
         this.salas = this.data.salas;
 
       })
+      .catch(
+        response => {
+          this.toasty.error('Erro');
+        });
   }
 
 }

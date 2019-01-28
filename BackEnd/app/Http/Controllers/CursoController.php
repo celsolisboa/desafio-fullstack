@@ -22,7 +22,7 @@ class CursoController extends Controller
 
 
     public function index() {
-        return CursoResource::collection($this->curso->paginate(5));
+        return CursoResource::collection($this->curso->all());
 
 
     }

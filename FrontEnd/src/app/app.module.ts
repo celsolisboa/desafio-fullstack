@@ -12,6 +12,7 @@ import { CursoModule } from './curso/curso.module';
 import { AuthModule } from './auth/auth.module';
 import { CursoService } from './curso/curso.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CommonModule } from '@angular/common';
   ],
   exports:[
   ],
-  providers: [CursoService],
+  providers: [CursoService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
