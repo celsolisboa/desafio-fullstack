@@ -20,10 +20,10 @@
 ### Rotas
 
 
-###	'/' :Login. 
-###		'cursos':  vizualização dos cursos
-###		'cursos/detalhes/:id':  Atualização de um curso
-###'cursos/novo':  cadastro de novo curso
+1. '/' :Login. 
+2.	'cursos':  vizualização dos cursos
+3.		'cursos/detalhes/:id':  Atualização de um curso
+4.  'cursos/novo':  cadastro de novo curso
  
 
 
