@@ -3,31 +3,50 @@
 									#######################################
 
 ###Versão dos aplicativo###
+
 *Packages:
 
 *Apache 2.4.37
+
 *PHP 7.1.24
+
 *MySQL 5.7.24
+
 *Smarty 3.1.33
+
 *SQLite 3.25.3
+
 *PhpMyAdmin 4.8.3
+
 *Xdebug 2.6.1 / 2.5.5
 
+
 ###Instalação do sistema###
+
 1.Baixe todo sistema (Pastas: controller, database, model, view e Arquivos: conexao.php, index.php) para dentro de uma raiz;
 
 2.Acesse o arquivo de conexão e onde está onde está escrito o trecho a baixo próximo a linha 19 configure o host, usuario e senha:
+
 /*Banco de Homologação*/
+
 private static $dbtypeHomolog	= "mysql";
+
 private static $hostHomolog		= "localhost";
+
 private static $portHomolog		= "3306";
+
 private static $userHomolog		= "root";
+
 private static $passwordHomolog	= "vertrigo";
+
 /*termino*/
 
 3.Acesse o arquivo de conexão e onde está onde está escrito o trecho a baixo próximo a linha 35 configure o nome do banco no caso está como desafio-fullstack-master:
+
 /*Retorna o nome do banco de Homologação*/
+
 private static $dbHomolog	= "desafio-fullstack-master";
+
 /*Homologação*/
 
 4.Baixe o arquivo desafio-fullstack-master.sql e execute no banco para criação das tabelas e dados necessários para efetuar os testes;
