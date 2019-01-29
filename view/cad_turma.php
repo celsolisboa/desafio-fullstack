@@ -72,7 +72,7 @@ $postCadHoraTermino		= !empty($_POST["hora_termino"])	?	$_POST["hora_termino"]	:
 										</ul>
 									</li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cursos<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li><a href="?ct=1">Cadastro de cursos</a></li>
 											<li><a href="?lt=1">Lista de cursos</a></li>
