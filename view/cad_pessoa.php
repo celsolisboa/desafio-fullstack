@@ -193,3 +193,7 @@ $sessAdmin	= !empty($_SESSION["admin"])	?	$_SESSION["admin"]	: null;
 		</footer>
     </body>    
 </html>
+
+
+
+
