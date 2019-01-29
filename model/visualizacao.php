@@ -22,9 +22,9 @@ class models_visualizacao	{
 			
 			if ($varLeftRight == 0)	{
 					$varPosicao = "left";
-			} else {
+			} else 	{
 					$varPosicao = "right";
-			}
+			} 
 			
 			return $varPosicao;
 		}
@@ -40,7 +40,7 @@ class models_visualizacao	{
 				$rowTurmaId	= $row["id"];
 				$rowTurma	= $row["turma"];
 
-				if (visualizacaoPosicao($rowTurma) == "left")	{
+				if (visualizacaoPosicao($rowTurmaId) == "left")	{
 					$HTML	.= '<table style="border: 1px solid #000;">';
 						$HTML	.= '<tr>';
 							$HTML	.= '<td class="titulo-curso"><strong>'.ucfirst($row["curso"]).'</td>';
@@ -87,7 +87,7 @@ class models_visualizacao	{
 				$rowTurmaId	= $row["id"];
 				$rowTurma	= $row["turma"];
 
-				if (visualizacaoPosicao($rowTurma) == "right")	{					
+				if (visualizacaoPosicao($rowTurmaId) == "right")	{					
 					$HTML	.= '<table style="border: 1px solid #000;">';
 						$HTML	.= '<tr>';
 							$HTML	.= '<td class="titulo-curso"><strong>'.ucfirst($row["curso"]).'</td>';
