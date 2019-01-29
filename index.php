@@ -28,6 +28,7 @@
 	$sessUserId	= !empty($_SESSION["userid"])	?	$_SESSION["userid"]	: null;
 	$sessAdmin	= !empty($_SESSION["admin"])	?	$_SESSION["admin"]	: null;
 	
+
 	if (!empty($sessUserId) AND !empty($sessAdmin))	{
 		/*
 		*Exibe a tela de painel de funcionalidades
@@ -112,9 +113,7 @@
 			require_once("view/visualizacao.php");
 
 			die;
-		}
-		
-		
+		}		
 	}
 	
 	###################################

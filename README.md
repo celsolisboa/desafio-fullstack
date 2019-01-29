@@ -30,7 +30,7 @@ private static $passwordHomolog	= "vertrigo";
 private static $dbHomolog	= "desafio-fullstack-master";
 /*Homologação*/
 
-4.Baixe o arquivo desafio-fullstack-master(4).sql e execute no banco para criação das tabelas e dados necessários para efetuar os testes;
+4.Baixe o arquivo desafio-fullstack-master.sql e execute no banco para criação das tabelas e dados necessários para efetuar os testes;
 
 ###FIM da Instalação do Sistema###
 
@@ -58,5 +58,16 @@ o painel de controle;
 
 6) Altere o perfil do usuário para Professor se for o caso cadastre mais de 1 usuário para exibir na tela curso como professor;
 
-6) Na mesma tela de alteraçãod e usuário é possível transformar o usuário em administrador do sistema para efetuar as mesmas alterações;
- 
+7) Na mesma tela de alteração de usuário é possível transformar os perfins que são diferentes de usuário em administrador do sistema para efetuar as mesmas alterações;
+
+8) Agora na tela curso cadastre os crusos que serão exibidos repare que os professores que aparecem são os que são apontados como perfil professores na tela de alteração de usuário;
+
+OBS: Perceba que o campo curso resgata os cursos cadastrados para não ser necessário digitar novamente nem ficar com nomes duplicados no banco;
+
+9) Após terem criado os cursos clique na parte superior da tela mesmo de cadastro de cursos ou clique na seta para voltar para 
+o painel de controle;
+
+OBS: Exibe todos os cursos cadastrados e clicando no botão de alteção ao lado do curso é possível efetuar alterações;
+
+10) Para visualizar com usuário os cursos clique na imagem de olho na parte superior da tela mesmo de lista de cursos ou clique na seta para voltar para 
+o painel de controle e clique em visualizar é a ultima imagem do painel de controle;
