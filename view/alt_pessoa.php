@@ -169,8 +169,8 @@ $rowAdminId	= $objModelsAltPessoa->modelsAltPessoaAdmin($varAltFuncao);
 													<label class="col-md-3 control-label" for="funcao">Perfil</label> <div class="col-md-8">
 														<select	id="funcao" name="funcao" class="form-control input-md"  placeholder='Funcao completo' onchange="exibe_admin();">
 															<option value="<?php print($rowAltFuncaoId); ?>"><?php print($varAltFuncao); ?></option>
-															<?php $objModelsAltPessoa->modelsAltPessoaListaFuncao($rowAltFuncaoId); ?>
-														</select>
+															<?php $objModelsAltPessoa->modelsAltPessoaListaFuncao($rowAltFuncaoId, $varAltNome, $rowUserId); ?>
+														</select>                                                                
 													</div>
 												</div>
 												<div class="form-group">
