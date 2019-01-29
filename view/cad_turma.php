@@ -74,8 +74,8 @@ $postCadHoraTermino		= !empty($_POST["hora_termino"])	?	$_POST["hora_termino"]	:
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li><a href="?ct=1">Cadastro de turmas</a></li>
-											<li><a href="?lt=1">Lista de turmas</a></li>
+											<li><a href="?ct=1">Cadastro de cursos</a></li>
+											<li><a href="?lt=1">Lista de cursos</a></li>
 										</ul>
 									</li>
 														
@@ -96,7 +96,7 @@ $postCadHoraTermino		= !empty($_POST["hora_termino"])	?	$_POST["hora_termino"]	:
                             <div class="col-lg-offset-4 col-lg-4">
                                 <div class="login-content ">
 									<div class="top-login font-24">
-										Detalhes do Curso         
+										Cadastro de Curso         
 									</div>
 									<a href="?pn=1">
 										<i class="large material-icons">reply_all</i>
