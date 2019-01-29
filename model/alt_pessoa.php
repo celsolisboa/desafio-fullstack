@@ -71,7 +71,7 @@
 
 			$HTML	= null;
 			
-			if ($varAltNome != "admin" AND $varAltNome != "admin2")	{
+			if ($varAltNome != "admin" AND $varAltNome != "admin2" )	{
 				if (empty($rowAdminSenha) AND $varAltFuncao != "usuário")	{
 					$HTML	.= '<div class="col-md-8">';
 						$HTML	.= '<div id="avisoForm1" class="admin" >
@@ -95,12 +95,21 @@
 						$HTML	.= '<div id="avisoForm1" class="admin"></div>';
 					$HTML	.= '</div>';
 				}
+			} else if (empty($rowAdminSenha)) {
+				$HTML	.= '<div class="col-md-8">';
+						$HTML	.= '<div id="avisoForm1" class="admin" >
+										<label class="col-md-3 control-label" for="admin">
+											Admin
+											<input id="admin" name="admin" type="checkbox"  value="1" checked>
+										</label>
+									</div>';
+					$HTML	.= '</div>';
 			} else {
 				$HTML	.= '<div class="col-md-8">';
 						$HTML	.= '<div id="avisoForm1" class="admin" >
 										<label class="col-md-3 control-label" for="admin">
 											Admin
-											<input type="checkbox"  value="1" checked disabled>
+											<input id="admin" name="admin" type="checkbox"  value="1" checked disabled>
 										</label>
 									</div>';
 					$HTML	.= '</div>';

@@ -54,7 +54,7 @@ class model_listPessoa	{
 										<span class="glyphicon glyphicon-star-empty" aria-hidden="true">Não</span>
 									</button>';
 				}
-								
+							
 				$HTML	.= "</td>";
 				$HTML	.= "<td>";
 				$HTML	.= '<div class="btn-group">
