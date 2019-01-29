@@ -64,26 +64,46 @@
 		}
 		
 		/*Retorna a informação se já é ADMIN*/
-		public function modelsAltPessoaAdmin($varAltFuncao = null)	{
+		public function modelsAltPessoaAdmin($varAltFuncao = null, $varAltNome = null)	{
 			$objControllerAltPessoa		= new controller_altPessoa();
 
 			$rowAdminSenha	= $objControllerAltPessoa->controllersAltPessoaAdmin();
 
 			$HTML	= null;
-
-			if (empty($rowAdminSenha))	{
+			
+			if ($varAltNome != "admin" AND $varAltNome != "admin2")	{
+				if (empty($rowAdminSenha) AND $varAltFuncao != "usuário")	{
+					$HTML	.= '<div class="col-md-8">';
+						$HTML	.= '<div id="avisoForm1" class="admin" >
+										<label class="col-md-3 control-label" for="admin">
+											Admin
+											<input id="admin" name="admin" type="checkbox"  value="1">
+										</label>
+									</div>';
+					$HTML	.= '</div>';
+				} else if (!empty($rowAdminSenha) AND $varAltFuncao != "usuário" )	{
+					$HTML	.= '<div class="col-md-8">';
+						$HTML	.= '<div id="avisoForm1" class="admin" >
+										<label class="col-md-3 control-label" for="admin">
+											Admin
+											<input id="admin" name="admin" type="checkbox"  value="1" checked>
+										</label>
+									</div>';
+					$HTML	.= '</div>';
+				} else {
+					$HTML	.= '<div class="col-md-8">';
+						$HTML	.= '<div id="avisoForm1" class="admin"></div>';
+					$HTML	.= '</div>';
+				}
+			} else {
 				$HTML	.= '<div class="col-md-8">';
-					$HTML	.= '<div id="avisoForm1" class="admin"></div>';
-				$HTML	.= '</div>';
-			} else if (!empty($rowAdminSenha) AND $varAltFuncao != "usuário" )	{
-				$HTML	.= '<div class="col-md-8">';
-					$HTML	.= '<div id="avisoForm1" class="admin" >
-									<label class="col-md-3 control-label" for="admin">
-										Admin
-										<input id="admin" name="admin" type="checkbox"  value="1" checked>
-									</label>
-								</div>';
-				$HTML	.= '</div>';
+						$HTML	.= '<div id="avisoForm1" class="admin" >
+										<label class="col-md-3 control-label" for="admin">
+											Admin
+											<input type="checkbox"  value="1" checked disabled>
+										</label>
+									</div>';
+					$HTML	.= '</div>';
 			}
 
 			return $HTML;
