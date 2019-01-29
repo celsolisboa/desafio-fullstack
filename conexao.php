@@ -1,6 +1,6 @@
 <?php
 class conexao	{
-	/*Servidor de Produ√ß√£o*/
+	/*Servidor de ProduÁ„o*/
 	private static $dbtypeProd		= "mysql";
     private static $hostProd		= " ";
     private static $portProd		= "3306";
@@ -16,7 +16,7 @@ class conexao	{
 	private static $passwordLocal	= "vertrigo";
 	/*termino*/
 	
-	/*Banco de Homologa√ß√£o*/
+	/*Banco de HomologaÁ„o*/
 	private static $dbtypeHomolog	= "mysql";
 	private static $hostHomolog		= "localhost";
 	private static $portHomolog		= "3306";
@@ -24,19 +24,19 @@ class conexao	{
 	private static $passwordHomolog	= "vertrigo";
 	/*termino*/
 
-	/*Retorna o nome do banco de Produ√ß√£o*/
+	/*Retorna o nome do banco de ProduÁ„o*/
 	private static $dbProd		= "desafio-fullstack-master";
-	/*Homologa√ß√£o*/
+	/*HomologaÁ„o*/
 	
 	/*Retorna o nome do banco de Desenvolvimento*/
 	private static $dbLocalHost	= "desafio-fullstack-master";
-	/*Homologa√ß√£o*/
+	/*HomologaÁ„o*/
 	
-	/*Retorna o nome do banco de Homologa√ß√£o*/
+	/*Retorna o nome do banco de HomologaÁ„o*/
 	private static $dbHomolog	= "desafio-fullstack-master";
-	/*Homologa√ß√£o*/
+	/*HomologaÁ„o*/
 
-	/*Efetua a conex√£o com o Banco de Dados de Produ√ß√£o*/
+	/*Efetua a conex„o com o Banco de Dados de ProduÁ„o*/
     private function getHostProd()		{
         return self::$hostProd;
     }
@@ -55,7 +55,7 @@ class conexao	{
 	/*termino*/
 
 
-	/*Efetua a conex√£o com o Desenvolvimento*/
+	/*Efetua a conex„o com o Desenvolvimento*/
     private function getHostLocal()		{
         return self::$hostLocal;
     }
@@ -73,7 +73,7 @@ class conexao	{
     }
 	/*termino*/
 	
-	/*Efetua a conex√£o com o Homologa√ß√£o*/
+	/*Efetua a conex„o com o HomologaÁ„o*/
 	private function getHostHomolog()		{
         return self::$hostHomolog;
     }
@@ -91,7 +91,7 @@ class conexao	{
     }
 	/*termino*/
 	
-	/*Chama o Banco de Dados de Produ√ß√£o*/
+	/*Chama o Banco de Dados de ProduÁ„o*/
 	private function getDBProd()		{
         return self::$dbProd;
 	}
@@ -101,42 +101,42 @@ class conexao	{
         return self::$dbLocalHost;
 	}
 	
-	/*Chama o banco de Homologa√ß√£o*/
+	/*Chama o banco de HomologaÁ„o*/
 	private function getDBHomolog()		{
         return self::$dbHomolog;
 	}
 	
-	/* Fun√ß√£o que faz a conex√£o com o banco de dados */
+	/* FunÁ„o que faz a conex„o com o banco de dados */
     public function bd() {		
-		/*DATA Modifica a zona de tempo a ser utilizada. Disnov√≠vel desde o PHP 5.1*/
+		/*DATA Modifica a zona de tempo a ser utilizada. DisnovÌvel desde o PHP 5.1*/
 		date_default_timezone_set('UTC');
 		
-		/*Efetua a conex√£o com o Banco de Dados de Produ√ß√£o*/
+		/*Efetua a conex„o com o Banco de Dados de ProduÁ„o*/
 		if ($_SERVER['HTTP_HOST'] == " ")	{
 			$conect = mysqli_connect($this->getHostProd(), $this->getUserProd(), $this->getPasswordProd(),$this->getDBProd());
 				
 			return $conect;
-		/*Efetua a conex√£o com o Banco de Dados Desenvolvimento*/
+		/*Efetua a conex„o com o Banco de Dados Desenvolvimento*/
 		} else if($_SERVER['HTTP_HOST'] == "" OR $_SERVER['HTTP_HOST'] == "127.0.0.1")	{			
 			$conect = mysqli_connect($this->getHostLocal(), $this->getUserLocal(), $this->getPasswordLocal(),$this->getDBLocalHost());
 				
 			return $conect;
-		/*Efetua a conex√£o com o Banco para Homologacao*/
+		/*Efetua a conex„o com o Banco para Homologacao*/
 		}	else	{
 			$conect = mysqli_connect($this->getHostHomolog(), $this->getUserHomolog(), $this->getPasswordHomolog(),$this->getDBHomolog());
 				
 			return $conect;
-		/*Efetua a conex√£o com o Banco de Dados Desenvolvimento*/
+		/*Efetua a conex„o com o Banco de Dados Desenvolvimento*/
 		}	
 		
-		/*exibe a mensagem de erro em caso de n√£o conectar*/
+		/*exibe a mensagem de erro em caso de n„o conectar*/
 		if (empty($conect))	{
-			print("√â necess√°rio verificar a conex√£o com o banco");
+			print("… necess·rio verificar a conex„o com o banco");
 			
 			die;
 		}
 		
-		/*Aqui est√° o segredo do erro de caracter quando houver*/
+		/*Aqui est· o segredo do erro de caracter quando houver*/
 		#mysql_query("SET NAMES 'utf8'");
 		#mysql_query('SET character_set_connection=utf8');
 		#mysql_query('SET character_set_client=utf8');
