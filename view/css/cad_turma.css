@@ -7,10 +7,20 @@
     Author     : nme
 */
 
+.campo1 {
+   float:left;
+}
+
 html,
 body {
     font-family: 'Droid Sans', Arial, sans-serif;
     height: 100%;
+}
+
+.campo data_incio {
+    margin-bottom: 0.2em;
+    color: #666;
+    display: block;
 }
 
 .wrapper {
@@ -500,6 +510,18 @@ fieldset {
 
 .yellow-tooltip + .tooltip > .tooltip-arrow {
     border-color:#fcf8e3;
+}
+
+
+.appearance-select{
+   -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+   background: /*url(../img/ico-seta-appearance.gif)*/ no-repeat #ffffff;  /* Imagem de fundo (Seta) */
+   background-position: 100% center;  /*Posição da imagem do background*/
+   width: 99%; /* Tamanho do select, maior que o tamanho da div "div-select" */
+   height:47px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
+   border:1px solid #a4a4a4;
 }
 
 .select-all{

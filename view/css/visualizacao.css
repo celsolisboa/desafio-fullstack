@@ -72,9 +72,9 @@ footer img {
 }
 
 .login-content {
-    width: 100%;
+    /width: 100%;
     background-color: #fff;
-    border: 2px #DEDEDE solid;
+   /*border: 2px #DEDEDE solid;*/
     margin-bottom: 10px;
     margin-top: 20px;
 }
@@ -87,7 +87,12 @@ div.error {
     padding-bottom: 5px;
 }
 
-div.top-login {
+.titulo-curso { 
+  font-weight: bold;
+  text-align:left;
+}
+
+div.top-visualizar {
     background-color: #000000;
     text-align: center;
     color: #fff;

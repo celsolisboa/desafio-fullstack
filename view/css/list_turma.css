@@ -160,12 +160,12 @@ div.top-login {
 }
 
 .button.primary-button {
-    background-color: #000000;
+    background-color: #FF00FF;
     color: #fff !important;
 }
 
 .button.primary-button:hover {
-    background-color: #C0C0C0;
+    background-color: #9CA0D4;
 }
 
 .button.success-button {

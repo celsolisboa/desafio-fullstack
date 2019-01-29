@@ -23,6 +23,10 @@ header, footer {
     color: #fff;
 }
 
+header {
+    background: #000000 ;
+}
+
 footer {
     position: relative;
     margin-top: -80px; /* negative value of footer height */
@@ -79,14 +83,6 @@ footer img {
     margin-top: 20px;
 }
 
-div.error {
-    text-align: center;
-    color: #ff4040;
-    font-family: 'Droid Sans', Arial, sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 div.top-login {
     background-color: #000000;
     text-align: center;
@@ -106,6 +102,16 @@ div.top-login {
     border: 1px #BBBBBB solid;
     width: 100%;
     color: #157397;
+}
+
+.login-content section.group-acesso input[type="text"] {
+    padding-left: 35px;
+    background: url("../img/User-32.png") no-repeat;
+}
+
+.login-content section.group-acesso input[type="password"] {
+    padding-left: 35px;
+    background: url("../img/Key-32.png") no-repeat;
 }
 
 
@@ -160,12 +166,12 @@ div.top-login {
 }
 
 .button.primary-button {
-    background-color: #000000;
+    background-color: #FF00FF;
     color: #fff !important;
 }
 
 .button.primary-button:hover {
-    background-color: #C0C0C0;
+    background-color: #9CA0D4;
 }
 
 .button.success-button {
