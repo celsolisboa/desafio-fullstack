@@ -48,17 +48,19 @@
 		}
 		
 		/*Lista todas as funções cadastradas*/
-		public function modelsAltPessoaListaFuncao($rowFuncaoId	= null)	{
+		public function modelsAltPessoaListaFuncao($rowFuncaoId	= null, $varAltNome = null, $rowUserId = null)	{
 			$objControllerAltPessoa		= new controller_altPessoa();
 
-			$result	=	$objControllerAltPessoa->controllersAltPessoaListaFuncao($rowFuncaoId);
-
-			$HTML	= null;
-			while($row = mysqli_fetch_assoc($result))	{
-				$HTML	.=	'<option value="'.$row['funcaoid'].'">'.$row['funcao'].'</option>';		
+			if ($varAltNome != "admin" AND $varAltNome != "admin2")	{
+				$result	=	$objControllerAltPessoa->controllersAltPessoaListaFuncao($rowFuncaoId);
+	
+				$HTML	= null;
+				while($row = mysqli_fetch_assoc($result))	{
+					$HTML	.=	'<option value="'.$row['funcaoid'].'">'.$row['funcao'].'</option>';		
+				}
+	
+				print($HTML);
 			}
-
-			print($HTML);
 		}
 		
 		/*Retorna a informação se já é ADMIN*/
