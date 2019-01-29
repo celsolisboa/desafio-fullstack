@@ -79,7 +79,7 @@ $sessAdmin	= !empty($_SESSION["admin"])	?	$_SESSION["admin"]	: null;
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li><a href="?cu=1">Cadastro de turmas</a></li>
+											<li><a href="?ct=1">Cadastro de turmas</a></li>
 											<li><a href="?lt=1">Lista de turmas</a></li>
 										</ul>
 									</li>

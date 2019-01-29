@@ -47,6 +47,41 @@ $objModelsVisualizacao	=	new models_visualizacao();
 				</div>
 			</header>
 			<div class="container">
+				<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<?php /*Valida se for administrador exibe o menu*/if (!empty($sessAdmin))	{ ?>
+										
+									<li>
+										<a href="?pn=1">Início </a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="?cu=1">Cadastro de usuários</a></li>
+											<li><a href="?lu=1">Lista de usuários</a></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="?ct=1">Cadastro de turmas</a></li>
+											<li><a href="?lt=1">Lista de turmas</a></li>
+										</ul>
+									</li>
+														
+													
+									<?php } ?>
+								<li>
+									<a href="?">Sair</a>
+								</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+				</nav>     
+            </div>
+			<div class="container">
 				<div class="row">
 					<div class="col-md-7">
                         <div class="text-apresentacao">
@@ -72,113 +107,7 @@ $objModelsVisualizacao	=	new models_visualizacao();
 										</a>
 									<?php } ?>
 									<hr>
-									<!--section id="left" class="left"!-->
-										<?php /*função para visualização*/$objModelsVisualizacao->modelsVisualizacao(); ?>
-										<!--table style="border: 1px solid #000;">
-											<tr>
-											<td class="titulo-curso"><strong>Biologia</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-										<table style="border: 1px solid #000;">
-											<tr>
-											<td class="titulo-curso"><strong>Biologia</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-										<table style="border: 1px solid #000;">
-											<tr>
-											<td class="titulo-curso"><strong>Biologia</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-									</section>
-									<section id="right" class="right">
-										<table style="border: 1px solid #000;" >
-											<tr>
-											<td class="titulo-curso"><strong>Hitória</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-										<table style="border: 1px solid #000;" >
-											<tr>
-											<td class="titulo-curso"><strong>Hitória</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-										<table style="border: 1px solid #000;" >
-											<tr>
-											<td class="titulo-curso"><strong>Hitória</td>
-											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align:right;"><span class="glyphicon glyphicon-trash" ></span></td>
-											</tr>
-											<tr>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											<td><br><br><br></td>
-											</tr>
-											<tr>
-											<td>Prof:Mário Quitanda<br>Sala 301 e 304</td>
-											<td></td>
-											<td>14:45 ás 18:30</td>
-											</tr>
-										</table>
-									</section!-->								
+									<?php /*função para visualização*/$objModelsVisualizacao->modelsVisualizacao(); ?>							
 								</div>
 							</div>
 						</div>

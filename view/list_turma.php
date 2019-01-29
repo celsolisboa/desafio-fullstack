@@ -48,33 +48,38 @@ $objModelListTurma	= new model_listTurma();
 
             <div class="container">    
               <nav class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li>
-									<a href="?pn=1">Início </a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="?cu=1">Cadastro de usuários</a></li>
-										<li><a href="?lu=1">Lista de usuários</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="?cpd=1">Cadastro de turmas</a></li>
-										<li><a href="?lpd=1">Lista de turmas</a></li>
-									</ul>
-								</li>
+						<div class="container-fluid">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<?php /*Valida se for administrador exibe o menu*/if (!empty($sessAdmin))	{ ?>
+										
+									<li>
+										<a href="?pn=1">Início </a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="?cu=1">Cadastro de usuários</a></li>
+											<li><a href="?lu=1">Lista de usuários</a></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Turmas<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="?ct=1">Cadastro de turmas</a></li>
+											<li><a href="?lt=1">Lista de turmas</a></li>
+										</ul>
+									</li>
+														
+													
+									<?php } ?>
 								<li>
 									<a href="?">Sair</a>
 								</li>
-							</ul>
-						</div><!-- /.navbar-collapse -->
-					</div><!-- /.container-fluid -->
-				</nav>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+				</nav> 
                     <div class="masthead">
                         <h3 class="text-muted">Lista de Turmas</h3>
                     </div>
