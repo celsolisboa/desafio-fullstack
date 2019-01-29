@@ -1,29 +1,95 @@
-# Desafio Celso Lisboa para FullStack
+									#######################################
+									#####Celso Lisboa para FullStack#######
+									#######################################
 
-### Cenário
+###Versão dos aplicativo###
 
-**Como** Coordenador Acadêmico de uma Instituição de Ensino  
-**Eu preciso** realizar a gestão dos cursos oferecidos pela Instituição, com seus respectivos professores, salas e horários  
-**Para** que o setor de Marketing possa vender os cursos online.
+*Packages:
 
-### Segue instruções para realizar o desafio
+*Apache 2.4.37
 
-1. Faça um fork deste repositório.
-2. Baseado no cenário acima, modele e crie o esquema do banco de dados para armazenar as informações normalizadas.
-    * Comite a imagem em jpg ou png do DER e o script do DDL.  
-3. Desenvolva uma API REST para realizar as operações necessárias com o banco de dados criado.
-4. Baseado nas imagens `wireframe/1-login-mobile.png` e `wireframe/2-login-desktop.png`, crie a tela de login da aplicação. 
-    * Considere apenas uma validação simples por e-mail e senha. 
-    * Não existe a necessidade de CRUD de usuário, recuperação de senha ou outra operação mais complexa.
-5. Baseado nas imagens `wireframe/3-cursos-mobile.png` e `wireframe/4-cursos-desktop.png`, crie a tela de visualização e deleção de cursos. 
-    * Deve conter as informações de horário, professor e sala. 
-6. Baseado nas imagens `wireframe/5-detalhe-mobile.png` e `wireframe/6-detalhe-desktop.png`, crie a tela de criação e alteração de cursos. 
-    * Os campos de professor e sala deverão ser um multi-select. 
-    * Não existe a necessidade de CRUD de professor e sala.
-7. Realizar um Pull Request para este repositório, com instruções necessárias para instalação e instânciação dos sistemas.
+*PHP 7.1.24
 
-### O que será avaliado 
+*MySQL 5.7.24
 
-1. Fidelidade às instruções e ao cenário.
-2. Clean Code e boas práticas.
-3. Boas práticas de versionamento.
+*Smarty 3.1.33
+
+*SQLite 3.25.3
+
+*PhpMyAdmin 4.8.3
+
+*Xdebug 2.6.1 / 2.5.5
+
+
+###Instalação do sistema###
+
+1.Baixe todo sistema (Pastas: controller, database, model, view e Arquivos: conexao.php, index.php) para dentro de uma raiz;
+
+2.Acesse o arquivo de conexão e onde está escrito o trecho a baixo próximo a linha 19 configure o host, usuario e senha:
+
+/*Banco de Homologação*/
+
+private static $dbtypeHomolog	= "mysql";
+
+private static $hostHomolog		= "localhost";
+
+private static $portHomolog		= "3306";
+
+private static $userHomolog		= "root";
+
+private static $passwordHomolog	= "vertrigo";
+
+/*termino*/
+
+3.Acesse o arquivo de conexão e onde está escrito o trecho a baixo próximo a linha 35 configure o nome do banco no caso está como desafio-fullstack-master:
+
+/*Retorna o nome do banco de Homologação*/
+
+private static $dbHomolog	= "desafio-fullstack-master";
+
+/*Homologação*/
+
+4.Baixe o arquivo desafio-fullstack-master.sql e execute no banco para criação das tabelas e dados necessários para efetuar os testes;
+
+###FIM da Instalação do Sistema###
+
+															###OBS####
+															#ATENÇÃO!#
+															##########
+										- Verifique se o seu PHP está com a session_start está ativo caso estejá:
+							1) Retire a linha 6 do arquivo index.php ou desative no arquivo php.ini linha 1444 comando (session.auto_start).
+
+
+###Utilização das funcionalidades do sistema###
+
+1) já existe 2 admin cadastrado 1 é o e-mail admin2@gmail.com senha 12345678 e o outro é e-mail admin@gmail.com senha 12345678.
+
+2) Acesse o sistema utilizando o campo usuário(e-mail) e senha;
+
+3) O sistema irá te direcionar para a tela painel de controle onde se encontram 6 opções de funcionalidades: Cadastrar Usuário,
+ Listar Usuário, Cadastrar Turma, Listar turma, Visualizar cursos;
+ 
+3) Clique em cadastrar usuário para alimentar o sistema;
+
+4) Clique em listar usuários na parte superior da tela mesmo de cadastro de usuário ou clique na seta para voltar para 
+o painel de controle;
+
+5) Clique em alterar usuário ao lado do nome do usuário cadastrado no link de alteração;
+
+6) Altere o perfil do usuário para Professor se for o caso cadastre mais de 1 usuário para exibir na tela curso como professor;
+
+OBS: Na mesma tela de alteração de usuário é possível transformar os perfins que são diferentes de usuário em administrador do sistema para efetuar as mesmas alterações;
+
+7) Agora na tela curso cadastre os cursos que serão exibidos;
+
+OBS: Repare que os professores que aparecem são os que são apontados como perfil professores na tela de alteração de usuário;
+
+OBS: Perceba que o campo curso resgata os cursos cadastrados para não ser necessário digitar novamente nem ficar com nomes duplicados no banco;
+
+8) Após terem criado os cursos clique na parte superior da tela mesmo de cadastro de cursos ou clique na seta para voltar para 
+o painel de controle;
+
+OBS: Exibe todos os cursos cadastrados e clicando no botão de alteção ao lado do curso é possível efetuar alterações;
+
+9) Para visualizar como usuário os cursos clique na imagem de olho na parte superior da tela mesmo de lista de cursos ou clique na seta para voltar para 
+o painel de controle e clique em visualizar, é a ultima imagem do painel de controle;

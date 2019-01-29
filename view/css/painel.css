@@ -1,0 +1,514 @@
+/*
+    Created on : Nov 28, 2013, 2:53:05 PM
+    Author     : nme
+*/
+/*
+    Created on : Nov 28, 2013, 8:31:35 AM
+    Author     : nme
+*/
+
+html,
+body {
+    font-family: 'Droid Sans', Arial, sans-serif;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    padding-bottom: 80px;
+}
+
+header, footer {
+    background-color: #000000;
+    color: #fff;
+}
+
+header {
+    background: #000000 ;
+}
+
+footer {
+    position: relative;
+    margin-top: -80px; /* negative value of footer height */
+    height: 80px;
+    clear:both;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
+footer .container {
+    width: 100%;
+}
+
+footer address {
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+footer img {
+    width: 56%;
+    max-width: 262px;
+    height: auto;
+}
+
+.licenca_sistema{
+    padding-left: 25px;
+    text-align: center;
+}
+
+.licenca_sistema img{
+    width: 18%;
+    max-width: 81px;
+    height: auto;
+}
+
+.licenca_sistema a{
+    color:#07206F;
+}
+
+.logo {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.logo .title {
+    font-size: 30px;
+}
+
+.login-content {
+    width: 100%;
+    background-color: #fff;
+    border: 2px #DEDEDE solid;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+div.top-login {
+    background-color: #000000;
+    text-align: center;
+    color: #fff;
+    font-family: 'Droid Sans', Arial, sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.login-content section.group-acesso {
+    padding: 30px 30px 0 30px;
+}
+
+.login-content section.group-acesso input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px #BBBBBB solid;
+    width: 100%;
+    color: #157397;
+}
+
+.login-content section.group-acesso input[type="text"] {
+    padding-left: 35px;
+    background: url("../img/User-32.png") no-repeat;
+}
+
+.login-content section.group-acesso input[type="password"] {
+    padding-left: 35px;
+    background: url("../img/Key-32.png") no-repeat;
+}
+
+
+
+.login-content section.button-acesss {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.login-content section.presentation {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.login-content section.presentation input[type="text"] {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+    margin-bottom: 0;
+    height: 50px;
+    background: none;
+    padding-left: 10px;
+}
+
+.login-content section.presentation button {
+    width: 100%;
+    height: 50px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.input-group-btn .button {
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
+
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-top-left-radius: 0px;
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.button {
+    width: 210px;
+    border: none;
+    height: auto;
+    padding: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.button.primary-button {
+    background-color: #FF00FF;
+    color: #fff !important;
+}
+
+.button.primary-button:hover {
+    background-color: #9CA0D4;
+}
+
+.button.success-button {
+    background-color: #38B12E;
+    color: #fff !important;
+}
+
+.button.success-button:hover {
+    border: solid #77C371;
+    background-color: #77C371;
+}
+
+.button.danger-button {
+    background-color: #E7234A;
+    color: #fff !important;
+}
+
+.font-8 {
+    font-size: 8px;
+}
+
+.font-10 {
+    font-size: 10px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.alert {
+    margin-top: 5px;
+}
+
+fieldset {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.acesso {
+    border: 2px #EDEEEE solid;
+    background-color: #f4f4f4;
+    margin-top: 24px;
+    padding: 10px;
+    width: 22%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.acesso .foto {
+    width: 64px;
+    height: auto;
+}
+
+.acesso div.info_user {
+    padding: 5px 5px 3px 25px;
+    color: #20729A;
+    width: 62.666667%;
+    font-size: 18px;
+}
+
+.acesso div.info_user p.sair {
+    font-size: 14px;
+    margin: 0;
+}
+
+.acesso div.info_user p.sair a {
+    color: red;
+}
+
+.justificativadocumentos {
+    height: 50px;
+}
+
+.group-control {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.text-apresentacao {
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Droid Sans', Arial;
+}
+
+.text-apresentacao p {
+    text-indent: 50px;
+}
+
+.accesso-sistema {
+    margin-top: 40.00%;
+    text-align: center;
+}
+
+.accesso-sistema input[type="button"] {
+    font-size: 25px;
+    width: 100%;
+}
+
+.input-group-btn .button {
+    padding: 7px;
+}
+
+.validar-documento {
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
+
+.table > tbody > tr.disabled {
+    background-color: #F7F7F7;
+}
+
+.panel .form-group {
+    margin-bottom: 0px;
+}
+
+.panel .form-group .button {
+    margin-top: 10px;
+}
+
+.loader {
+    width: 30px;
+    height: auto;
+    margin: 5px;
+}
+
+.alert-navegadores h1 {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.alert-navegadores span.navegador {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-unasus-footer{
+    width: 100%;
+    height: auto;
+}
+
+.logo-unasus-footer img {
+    width: auto;
+    height: 45px;
+}
+
+@media (width:320px) {
+    .login-content section.button-acesss {
+        text-align: center;
+    }
+
+    .login-content section.button-acesss button {
+        width: 120px;
+        padding: 5px;
+    }
+
+    .login-content section.group-acesso input {
+        font-size: 12px;
+    }
+
+    .login-content section.group-acesso p {
+        font-size: 12px;
+    }
+
+    .acesso {
+        border: 1px #EDEEEE solid;
+        background-color: #f4f4f4;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        width: auto;
+    }
+
+    .acesso div.info_user {
+        width: auto;
+        padding: 0;
+    }
+
+    .text-apresentacao {
+        font-size: 10px;
+    }
+
+    .accesso-sistema {
+        margin-top: 20px;;
+        text-align: center;
+    }
+
+    .accesso-sistema input[type="button"] {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .input-group-btn .button {
+        width: 100px;
+    }
+}
+
+@media (min-width: 10px) and (max-width: 800px) {
+    footer img {
+        max-width: 150px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .acesso {
+        border: 1px #EDEEEE solid;
+        background-color: #f4f4f4;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        width: 89% !important;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        height: auto !important;
+    }
+
+    .text-apresentacao {
+        font-size: 25px;
+    }
+
+    .accesso-sistema {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .accesso-sistema input[type="button"] {
+        font-size: 20px;
+        width: 100% !important;
+    }
+
+    .logo-unasus-footer{
+        width: 220px;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1025px) {
+    .acesso {
+        width: 100% !important;
+    }
+
+    .acesso div.info_user {
+        width: 100%;
+        padding: 10px;
+    }
+
+    header .col-md-9 {
+        width: 100%;
+    }
+
+    header .logo {
+        width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 991px) {
+    footer {
+        height: auto !important;
+    }
+
+    .acesso {
+        border: 1px #EDEEEE solid;
+        background-color: #f4f4f4;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .acesso div.info_user {
+        width: auto;
+        padding: 0;
+    }
+
+    .group-control {
+        width: 100%;
+    }
+
+    .group-control button, input[type="button"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .text-apresentacao {
+        font-size: 15px;
+    }
+
+    .accesso-sistema {
+        margin-top: 20px;;
+        text-align: center;
+    }
+
+    .accesso-sistema input[type="button"] {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .input-group-btn .button {
+        width: 100px;
+    }
+}
+
+.yellow-tooltip + .tooltip > .tooltip-inner {
+    background-color: #767CC5; color:#fff; border-color: #fcf8e3
+}
+
+.yellow-tooltip + .tooltip > .tooltip-arrow {
+    border-color:#fcf8e3;
+}
+
+.select-all{
+    height: 15px;
+    width: 15px;
+}
