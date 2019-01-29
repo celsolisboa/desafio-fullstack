@@ -92,7 +92,7 @@
 											<img src="view/img/listar_turma.png"		title="Listar turmas!">
 										</a>
 										<a href="?v=1">
-											<img src="view/img/visualizacao.png"		title="Relatorio de compras!">
+											<img src="view/img/visualizacao.png"		title="Visuão da exibição dos cursos!">
 										</a>
 										</div>
 									</section>
