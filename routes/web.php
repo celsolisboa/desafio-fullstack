@@ -20,10 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Rotas de cursos
-Route::get('/cursos', 'CursoController@index');
+Route::get('/cursos', 'CursosController@index');
 
 //Rotas de Sala
-Route::get('/salas', 'SalaController@index');
-
-//Rotas de Professor
-Route::get('/professores', 'ProfessoreController@index');
+Route::get('/salas', 'SalasController@index');
