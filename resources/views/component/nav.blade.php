@@ -13,6 +13,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/cursos">Cursos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/salas">Salas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/professores">Professores</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
