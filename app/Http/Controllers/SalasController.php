@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sala;
-class SalaController extends Controller
+class SalasController extends Controller
 {
     public function index(){
         $sala = Sala::all();
