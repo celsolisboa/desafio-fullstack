@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-
+manual-de-intalacao.txt
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
