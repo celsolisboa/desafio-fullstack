@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Sala;
 
 class SalaController extends Controller
-{
+{   
+    public function __contruct(){
+        $this->middleware('auth');
+    }
     public function index(){
         $sala = Sala::all();
         if( isset( $sala ) ):

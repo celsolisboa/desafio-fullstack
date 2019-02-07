@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Professor;
 
 class ProfessorController extends Controller
-{
+{   
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $professor = Professor::all();
         if( isset( $professor ) ):
