@@ -43,3 +43,7 @@
         </div>
     </div>
 @endsection
+
+@section('javascript')
+    <script src="{{ asset('js/curso.js') }}"></script>
+@endsection
