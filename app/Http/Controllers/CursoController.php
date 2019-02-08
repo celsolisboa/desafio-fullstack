@@ -34,8 +34,12 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('cadastrar-curso');
+    {   
+        //lista de professores
+        $prof = Professor::all();        
+        //lista de salas
+        $sala = Sala::all();            
+        return view('cadastrar-curso', compact('prof', 'sala'));
     }
 
     /**
@@ -46,24 +50,28 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
+        // Regras de validação
         $regras = ([
             'nome_curso' => 'required|min:3|max:50',
-            'professor' => 'required',
-            'sala' => 'required',
+            'professor_id' => 'required',
+            'sala_id' => 'required',
             'inicio' => 'required',
             'fim' => 'required'
         ]);
+        //Personalização de mensagens
         $msg = ([
             'required' => 'O atributo :attribute é obrigatório!',
             'nome_curso.required' => 'O campo nome é obrigatório!',
             'nome_curso.min' => 'O campo nome do curso deve conter no mínimo 3 caracteres!',
             'nome_curso.max' => 'O campo nome do curso deve conter no máximo 50 caracteres!',
-            'professor.required' => 'O campo professor é obrigatório!',
-            'sala.required' => 'O campo sala é obrigatório!',
+            'professor_id.required' => 'O campo professor é obrigatório!',
+            'sala_id.required' => 'O campo sala é obrigatório!',
             'inicio.required' => 'O campo início é obrigatório!',
             'fim.required' => 'O campo fim é obrigatório!'
         ]);
+        //Chama o método no request com as informações necessárias para a validação
         $request->validate($regras, $msg);
+        //Tudo ok então cadastre no banco
         $curso = new Curso();
         $curso->nome_curso = $request->input('nome_curso');
         $curso->sala_id = $request->input('sala_id');
@@ -71,6 +79,7 @@ class CursoController extends Controller
         $curso->inicio = $request->input('inicio');
         $curso->fim = $request->input('fim');
         $curso->save();
+        return redirect('/cursos');
 
     }
 
@@ -122,4 +131,5 @@ class CursoController extends Controller
         endif;
         return redirect('/cursos');
     }
+
 }

@@ -1,45 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<section>
     <div class="container">
         <div class="row">
-            @if( count($prof) > 0 )
-                @foreach($prof as $p)
-            <div class="col-md-6">
-                @foreach($p->salas as $s)
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h5 class="card-title">{{ $s->pivot->nome_curso }}</h5>                        
+            @if( count( $prof ) > 0 )
+                @foreach( $prof as $p )
+                    @foreach( $p->salas as $s  )
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{ $s->pivot->nome_curso }}</h5>
+                                      <h6 class="card-subtitle mb-2 text-muted">{{ $s->pivot->inicio }} às {{ $s->pivot->fim }}</h6>
+                                      <p class="card-text"><i class="fas fa-chalkboard-teacher"></i> {{ $p->nome }} {{ $p->sobrenome }}</p>
+                                      <a href="/cursos/apagar/{{ $s->pivot->id }}" class="card-link"><i class="far fa-trash-alt"></i></a>
+                                      <a href="/cursos/editar" class="card-link"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                </div>                
                             </div>
-                            <div class="col-md-1">
-                                <a href="/cursos/apagar/{{ $s->pivot->id }}"><i class="far fa-trash-alt"></i></a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p class="card-text">Professor: {{ $p->nome }} {{ $p->sobrenome }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <p>Sala: {{ $s->sala }}</p>                            
-                            </div>
-                            <div class="col-md-3">
-                                <p>{{ $s->pivot->inicio }} às {{ $s->pivot->fim }}</p>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            @endforeach
-            @else
-                <div class="alert alert-primary" role="alert">
-                    <strong>Erro!</strong> Nenhum registro foi cadastrado.
-                </div>
+                    @endforeach        
+                @endforeach    
             @endif
         </div>
     </div>
+</section>
 @endsection

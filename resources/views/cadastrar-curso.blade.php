@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <section>
         <div class="container">
             <div class="row">
@@ -19,24 +20,30 @@
                                     @endif 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="sala">Sala de Aula</label>
-                                    <select name="sala_id" class="form-control {{ $errors->has('sala') ? 'is-invalid' : '' }}">
-                                        <option value=""></option>
+                                    <label for="sala_id">Sala de Aula</label>
+                                    <select name="sala_id" class="form-control {{ $errors->has('sala_id') ? 'is-invalid' : '' }}">
+                                        <option value="">Selecione</option>
+                                        @foreach($sala as $s)
+                                        <option value="{{ $s->id }}">{{ $s->sala }}</option>
+                                        @endforeach
                                     </select>
-                                    @if($errors->has('sala'))
+                                    @if($errors->has('sala_id'))
                                     <div class="invalid-feedback">
-                                        {{ $errors->first('sala') }}
+                                        {{ $errors->first('sala_id') }}
                                     </div>
                                     @endif 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="professor">Professor</label>
-                                    <select name="professor_id" class="form-control {{ $errors->has('sala') ? 'is-invalid' : '' }}">
-                                        <option value=""></option>
+                                    <label for="professor_id">Professor</label>
+                                    <select name="professor_id" class="form-control {{ $errors->has('professor_id') ? 'is-invalid' : '' }}">
+                                    <option value="">Selecione</option>
+                                        @foreach($prof as $p)
+                                        <option value="{{ $p->id }}">{{ $p->nome }} {{ $p->sobrenome }}</option>
+                                        @endforeach
                                     </select>
-                                    @if($errors->has('professor'))
+                                    @if($errors->has('professor_id'))
                                     <div class="invalid-feedback">
-                                        {{ $errors->first('professor') }}
+                                        {{ $errors->first('professor_id') }}
                                     </div>
                                     @endif 
                                 </div>
