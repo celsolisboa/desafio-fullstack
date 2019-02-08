@@ -35,7 +35,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cadastrar-curso');
     }
 
     /**
@@ -46,7 +46,32 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = ([
+            'nome_curso' => 'required|min:3|max:50',
+            'professor' => 'required',
+            'sala' => 'required',
+            'inicio' => 'required',
+            'fim' => 'required'
+        ]);
+        $msg = ([
+            'required' => 'O atributo :attribute é obrigatório!',
+            'nome_curso.required' => 'O campo nome é obrigatório!',
+            'nome_curso.min' => 'O campo nome do curso deve conter no mínimo 3 caracteres!',
+            'nome_curso.max' => 'O campo nome do curso deve conter no máximo 50 caracteres!',
+            'professor.required' => 'O campo professor é obrigatório!',
+            'sala.required' => 'O campo sala é obrigatório!',
+            'inicio.required' => 'O campo início é obrigatório!',
+            'fim.required' => 'O campo fim é obrigatório!'
+        ]);
+        $request->validate($regras, $msg);
+        $curso = new Curso();
+        $curso->nome_curso = $request->input('nome_curso');
+        $curso->sala_id = $request->input('sala_id');
+        $curso->professor_id = $request->input('professor_id');
+        $curso->inicio = $request->input('inicio');
+        $curso->fim = $request->input('fim');
+        $curso->save();
+
     }
 
     /**

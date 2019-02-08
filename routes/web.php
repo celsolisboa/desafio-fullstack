@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Rotas de cursos
 Route::get('/cursos', 'CursoController@index');
 Route::get('/cursos/apagar/{id}', 'CursoController@destroy');
+Route::get('/cursos/cadastrar', 'CursoController@create');
+Route::post('/cursos/cadastrar','CursoController@store');
 
 //Rotas de Sala
 Route::get('/salas', 'SalaController@index');
