@@ -14,6 +14,7 @@ class CreateCursosTable extends Migration
     public function up()
     {
         Schema::create('cursos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('sala_id')->unsigned();
             $table->foreign('sala_id')->references('id')->on('salas');
             $table->integer('professor_id')->unsigned();
@@ -22,7 +23,7 @@ class CreateCursosTable extends Migration
             $table->string('inicio');
             $table->string('fim');
             $table->timestamps();
-            $table->primary(['sala_id', 'professor_id']);
+            
         });
     }
 
