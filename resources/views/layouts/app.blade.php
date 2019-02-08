@@ -29,8 +29,5 @@
             @yield('content')
         </main>
     </div>
-    @hasSection('javascript')
-        @yield('javascript')
-    @endif
 </body>
 </html>
