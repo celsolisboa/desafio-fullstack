@@ -91,6 +91,10 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Curso::find($id);
+        if ( isset( $curso ) ):
+            $curso->delete();
+        endif;
+        return redirect('/cursos');
     }
 }

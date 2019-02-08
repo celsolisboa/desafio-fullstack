@@ -13,6 +13,6 @@ class Professor extends Model
     protected $table = "professores";
 
     public function salas(){
-        return $this->belongsToMany('App\Sala', 'cursos')->withPivot('inicio', 'fim', 'nome_curso');
+        return $this->belongsToMany('App\Sala', 'cursos')->withPivot('id','inicio', 'fim', 'nome_curso');
     }
 }

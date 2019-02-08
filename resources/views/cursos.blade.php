@@ -14,7 +14,7 @@
                                 <h5 class="card-title">{{ $s->pivot->nome_curso }}</h5>                        
                             </div>
                             <div class="col-md-1">
-                                <i class="far fa-trash-alt"></i>
+                                <a href="/cursos/apagar/{{ $s->pivot->id }}"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </div>
                         <div class="row">
