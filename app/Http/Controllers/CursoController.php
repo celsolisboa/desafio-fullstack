@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Curso;
+use App\Professor;
+use App\Sala;
 class CursoController extends Controller
 {   
     public function __construct(){
@@ -16,9 +18,16 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+       
+        $prof = Professor::with('salas')->get();
+        if ( isset($prof) ):
+            return view('cursos', compact('prof'));
+        else:
+            $error = "Nenhum registro foi encontrado na base de dados!";
+        endif;    
+      
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
