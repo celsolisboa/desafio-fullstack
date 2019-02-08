@@ -16,13 +16,13 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->integer('sala_id')->unsigned();
             $table->foreign('sala_id')->references('id')->on('salas');
-            $table->integer('prof_id')->unsigned();
-            $table->foreign('prof_id')->references('id')->on('professores');
-            $table->string('nome');
+            $table->integer('professor_id')->unsigned();
+            $table->foreign('professor_id')->references('id')->on('professores');
+            $table->string('nome_curso');
             $table->string('inicio');
             $table->string('fim');
             $table->timestamps();
-            $table->primary(['sala_id', 'prof_id']);
+            $table->primary(['sala_id', 'professor_id']);
         });
     }
 
