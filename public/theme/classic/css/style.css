@@ -3,73 +3,8 @@ body{
     background: #f9f9f9;
 }
 
-/* DEFAULT */
-.padding-y0{
-    padding:0!important;
+.card{
+    border: solid 0.2rem #222!important;
+    border-radius: 20px;
 }
 
-.main-header{
-    text-align: center;
-    margin-top: 6%;    
-}
-
-/*CARD CLASSIC*/
-ul{
-    list-style: none;
-}
-.card-classic{
-    background: #fff;
-    width: 100%;
-}
-
-.card-classic .card-classic-header{
-    background: #f2f2f2;
-    padding: 0.8rem 0;
-}
-
-.card-classic .card-classic-body{
-    padding: 2rem;
-}
-
-/* FORM LOGIN*/
-.login{
-    margin-top: 20%;
-    text-align: center;
-}
-
-.form-classic{
-    border: solid #222 1px;
-    padding: 0.6rem 0.8rem;
-    border-radius: 10px;
-    outline: none;
-    width: 100%;
-}
-.btn-classic{
-    background: #111;
-    color: #eee;
-    border-radius: 10px;
-    padding: 0.6rem 0.8rem;
-    outline: none;
-    width: 100%;
-}
-.btn-classic:hover{
-    transition: all linear 1s;
-    background: #555;    
-}
-
-/*BOX COURSES*/
-.box-courses{
-    border: solid #222 2px;
-    padding: 2rem;
-    border-radius: 10px;
-    outline: none;
-    width: 100%;
-}
-
-.box-courses-header{
-   margin-bottom: 1rem;
-}
-
-.box-courses-body{
-   
-}
