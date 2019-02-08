@@ -11,4 +11,8 @@ class Professor extends Model
     *  e por este motivo eu estou abaixo criando uma variável protegida com o nome da tabela no banco. 
     */
     protected $table = "professores";
+
+    public function salas(){
+        return $this->belongsToMany('App\Sala', 'cursos')->withPivot('inicio', 'fim', 'nome_curso');
+    }
 }
