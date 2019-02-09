@@ -11,7 +11,7 @@
                             @csrf
                                 <div class="form-group col-md-12">
                                     <label for="nome_curso">Nome do curso:</label>
-                                    <input type="text" name="nome_curso" class="form-control {{ $errors->has('nome_curso') ? 'is-invalid' : '' }}">
+                                    <input type="text" name="nome_curso" id="nomeCurso" class="form-control {{ $errors->has('nome_curso') ? 'is-invalid' : '' }}"  >
                                     @if($errors->has('nome_curso'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('nome_curso') }}
@@ -75,5 +75,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>   
 @endsection
