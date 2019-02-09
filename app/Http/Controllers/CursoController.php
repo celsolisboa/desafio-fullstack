@@ -102,7 +102,16 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+        if( isset($curso) ):
+            //lista de professores
+            $prof = Professor::all();        
+            //lista de salas
+            $sala = Sala::all(); 
+            return view('editar-curso', compact('curso','prof', 'sala'));
+        else: 
+            return redirect('/cursos');    
+        endif;    
     }
 
     /**
@@ -114,7 +123,16 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+        if( isset( $curso ) ):
+            $curso->nome_curso = $request->input('nome_curso');
+            $curso->sala_id = $request->input('sala_id');
+            $curso->professor_id = $request->input('professor_id');
+            $curso->inicio = $request->input('inicio');
+            $curso->fim = $request->input('fim');
+            $curso->save();
+        endif;
+        return redirect('/cursos');
     }
 
     /**

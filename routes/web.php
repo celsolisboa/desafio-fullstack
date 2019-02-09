@@ -24,6 +24,8 @@ Route::get('/cursos', 'CursoController@index');
 Route::get('/cursos/apagar/{id}', 'CursoController@destroy');
 Route::get('/cursos/cadastrar', 'CursoController@create');
 Route::post('/cursos/cadastrar','CursoController@store');
+Route::get('cursos/editar/{id}', 'CursoController@edit');
+Route::post('cursos/{id}', 'CursoController@update');
 
 //Rotas de Sala
 Route::get('/salas', 'SalaController@index');
