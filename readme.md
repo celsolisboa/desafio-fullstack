@@ -21,7 +21,7 @@ Banco de dados: Mysql
 ### Observação
 Não feche o terminal onde você está rodando o comando * php artisan serve * e se quiser abrir o sistema e só abrir a pasta do projeto via terminal e digitar o comando php artisan serve --port=8080 ou a porta que preferir.
 
-## Manual de uso
+## Manual de uso da versão 1.2
 
 ### Cursos
 Em cursos você tem duas opções, uma para listar todos os cursos e cadastrar para inserir um novo curso.
