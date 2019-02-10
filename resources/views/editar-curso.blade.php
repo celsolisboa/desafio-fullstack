@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Cadastro de Curso</h5>
+                            <h5 class="card-title">Editar Curso</h5>
                             <form action="/cursos/{{ $curso->id }}" class="form-row" method="post">
                             @csrf
                                 <div class="form-group col-md-12">
