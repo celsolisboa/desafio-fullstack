@@ -1,0 +1,39 @@
+<div class="w-100 title">
+  <div class="flex-row">
+    <div class="flex-column w-100-p pl-70"><h3 class="text-center pt-10">Cursos</h3></div>
+    <div class="flex-column"><i class="fa fa-plus fa-2x plus" aria-hidden="true"></i></div>
+  </div>
+</div>
+
+<div class="container">
+<div class="container-fluid">
+  <div class="mt-40">
+
+      <div (click)="detalhes()" class="item" *ngFor="let item of lista; let i = index">
+        <div class="flex-row mt-20">
+          <div class="flex-column w-80-p ml-10">
+              <h5 class="text-left mt-10">{{item.nome}}</h5>
+          </div>
+          <div class="flex-column w-100-p mr-10">
+            <div class="text-right"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></div>
+          </div>   
+        </div>
+
+        <div class="flex-row mt-20">
+          <div class="flex-column w-80-p ml-10">
+            <div class="text-left mt-10">
+              <div class="inline text-left" *ngFor="let professor of item.professores; let i = index"> {{ sizeProfessores(item.professores, i)  }} {{ professor.nome }} &nbsp;</div>  
+              <div class="text-left" *ngFor="let sala of item.salas">{{ sala.nome }}</div>
+            </div>
+            </div>
+       
+          <div class="flex-column w-100-p mr-10">
+            <div class="text-right">{{item.horario}}</div>
+          </div>   
+              
+      </div>
+
+    </div>
+  </div>
+</div>
+  
