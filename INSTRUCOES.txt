@@ -1,0 +1,10 @@
+Tenha o JDK e a variável de ambiente java_home.
+
+Importe a api Rest como um projeto maven para o STS 3 e pode rodar clicando com o botão direito em cima do projeto na opção run as e escolha Spring Boot App.
+
+OBS.:
+Uso framework para mapeamento de dados e peguei o script gerado de acordo com as classes e suas cardinalidades.
+Para ver o banco de dados após rodar o projeto:
+http://localhost:8080/h2-console/
+
+Para rodar o front. No terminal digite 'npm install' na raíz do app e 'ng s' para rodar.

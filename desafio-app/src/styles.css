@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.mt-100 {
+    margin-top: 100px !important;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.pt-20 {
+    padding-top: 20px !important;
+}
+
+.w-100-p {
+    width: 100% !important;
+}
+
+.pt-100 {
+    padding-top: 100px;
+}
+
+button {
+    background-color: black;
+    color: white;
+}
+
+.title {
+    background-color:#E8E8E8;
+    color: black;
+    height: 65px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.item {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    flex-grow: 1000;
+    height: 130px;
+    width: 49% !important;
+    display: inline-block;
+}
+
+.w-92-p {
+    width: 92% !important;
+}
+
+.w-76-p {
+    width: 76% !important;
+}
+
+.w-80-p {
+    width: 80% !important;
+}
+
+.ml-10 {
+    margin-left: 10px !important;
+}
+
+.mr-10 {
+    margin-right: 10px !important;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) 
+{
+    .item {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 5px;
+        flex-grow: 1000;
+        height: auto !important;
+        width: 100% !important;
+        display: inline-block;
+    }
+
+    .inline {
+        display: block;
+    }
+}
+
+.plus {
+    float: right;
+    padding: 15px;
+    padding-right: 30px;
+}
+
+.pl-70 {
+    padding-left: 70px;
+}
+
+.btn-w {
+    width: 150px;
+}

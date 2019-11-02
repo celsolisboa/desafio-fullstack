@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-center mt-100">
+      
+      <div class="mt-100">
+        <div class="flex-column">
+          <h3 class="d-flex justify-content-center">Login</h3>
+          <div class="pt-100 form-group">
+            <input class="form-control" [(ngModel)]="creds.email" name="email" type="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" [(ngModel)]="creds.senha" name="senha" type="password" placeholder="Senha">
+          </div>
+          <button (click)="login()" class="d-flex justify-content-center">Acessar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
