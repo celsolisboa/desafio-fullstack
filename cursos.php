@@ -16,10 +16,6 @@
 
     <?php include 'src/cursos/content.php' ?>
 
-
-    <script>
-
-    </script>
 </body>
 
 </html>

@@ -19,10 +19,6 @@
 
     <?php include 'src/detalhe/content.php' ?>
 
-
-    <script>
-
-    </script>
 </body>
 
 </html>

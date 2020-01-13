@@ -5,8 +5,8 @@
         <div class="col-lg-12">
 
             <form class="form-group login">
-                
-            <div class="entalheLogin"></div>
+
+                <div class="entalheLogin"></div>
 
                 <h4>Login</h4>
 
@@ -41,3 +41,10 @@
     </div>
 
 </div>
+
+<script>
+    function acessar() {
+        //if 
+        alert('Autenticado com sucesso!');
+    }
+</script>

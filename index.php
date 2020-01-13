@@ -17,13 +17,6 @@
 
     <?php include 'src/login/content.php' ?>
 
-
-    <script>
-        function acessar(){
-            //if 
-            alert('Autenticado com sucesso!');
-        }
-    </script>
 </body>
 
 </html>
