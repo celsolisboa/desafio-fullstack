@@ -1,10 +1,3 @@
-<?php
-
-    //session_start();
-    //include ('../backend/conexao.php');
-    //include ('../backend/upload.php');
-
-?>
 <div class="container detalhe">
 
     <div class="row">

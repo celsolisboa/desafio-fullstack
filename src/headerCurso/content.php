@@ -6,7 +6,17 @@
 
             <div class="headerCurso">
 
-                <h4>Cursos<span class="adicionar"><a href="detalhe.php">+</span></a></h4>
+                <h4>
+
+                    Cursos
+
+                    <span>
+
+                        <a href="detalhe.php" class="adicionar"></a>
+
+                    </span>
+
+                </h4>
 
             </div>
 
