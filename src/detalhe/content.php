@@ -1,74 +1,106 @@
 <div class="container detalhe">
 
-    <div class="row">
+    <form id="formAdiciona">
 
-        <div class="col-lg-6">
+        <div class="row">
 
-            <input type="text" id="nomeCurso" class="form-control espaco" placeholder="Nome do Curso" autocomplete="off" required>
+            <div class="col-lg-6">
+
+                <input type="text" id="nomeCurso" name="nomeCurso" class="form-control espaco" placeholder="Nome do Curso" autocomplete="off" required>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <select class="form-control espaco" id="professor" name="professor">
+
+                    <option value="" disabled selected>Professores</option>
+                    <option value="Sávio">Sávio</option>
+                    <option value="Otávio">Otávio</option>
+                    <option value="Fábio">Fábio</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <select name="select" class="form-control espaco" id="sala" name="sala">
+
+                    <option value="" disabled selected>Salas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <input type="time" class="form-control espaco" id="horarioInicio" name="horarioInicio" placeholder="Início" min="09:00" max="21:00" required>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <input type="time" class="form-control espaco" id="horarioFim" name="horarioFim" placeholder="Fim" min="10:00" max="22:00" required>
+
+            </div>
+
+            <div class="col-lg-12">
+                <button class="btn-primary btn" id="adicionarCurso">Salvar</button>
+            </div>
 
         </div>
 
-        <div class="col-lg-6">
+    </form>
 
-            <select class="form-control espaco" id="professor">
-
-                <option value="" disabled selected>Professores</option>
-                <option value="1">Sávio</option>
-                <option value="2">Otávio</option>
-                <option value="3">Fábio</option>
-
-            </select>
-
-        </div>
-
-        <div class="col-lg-6">
-
-            <select name="select" class="form-control espaco" id="sala">
-
-                <option value="" disabled selected>Salas</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-
-            </select>
-
-        </div>
-
-        <div class="col-lg-3">
-
-            <input type="time" class="form-control espaco" id="horarioInicio" placeholder="Início" min="09:00" max="21:00" required>
-
-        </div>
-
-        <div class="col-lg-3">
-
-            <input type="time" class="form-control espaco" id="horarioFim" placeholder="Fim" min="10:00" max="22:00" required>
-
-        </div>
-
-        <div class="col-lg-12">
-            <button class="btn-primary btn" onclick="adicionar()">Salvar</button>
-        </div>
-    </div>
 </div>
 
 <script>
-    function adicionar() {
-        var nomeCurso = document.getElementById("nomeCurso");
-        var professor = document.getElementById("professor");
-        var sala = document.getElementById("sala");
-        var horarioInicio = document.getElementById("horarioInicio");
-        var horarioFim = document.getElementById("horarioFim");
+    
+    /*
+    var botaoAdicionar = document.querySelector("#adicionarCurso");
+    botaoAdicionar.addEventListener("click", function(){
 
-        if (nomeCurso.value !== "" && professor.value !== "" && sala.value !== "" && horarioInicio.value !== "" && horarioFim.value !== ""){
-            
-            console.log("Adicionado")
-            //alert('Adicionado com sucesso');
+        var form = document.querySelector("#formAdiciona");
 
-        }
+        var nomeCurso = form.nomeCurso.value;
+        var professor = form.professor.value;
+        var sala = form.sala.value;
+        var horarioInicio = form.horarioInicio.value;
+        var horarioFim = form.horarioFim.value;
 
-        //alert('Adicionado com sucesso!');
+        var boxCurso = document.createElement("div");
 
-    }
+        var cursoDiv = document.createElement("div");
+        var professorDiv = document.createElement("div");
+        var salaDiv = document.createElement("div");
+        var horarioInicioDiv = document.createElement("div");
+        var horarioFimDiv = document.createElement("div");
+
+        cursoDiv.textContent = nomeCurso;
+        professorDiv.textContent = professor;
+        salaDiv.textContent = sala;
+        horarioInicioDiv.textContent = horarioInicio;
+        horarioFimDiv.textContent = horarioFim;
+
+        boxCurso.appendChild(cursoDiv);
+        boxCurso.appendChild(professorDiv);
+        boxCurso.appendChild(salaDiv);
+        boxCurso.appendChild(horarioInicioDiv);
+        boxCurso.appendChild(horarioFimDiv);
+
+        var coluna = document.querySelector("#coluna");
+
+        coluna.appendChild(boxCurso);
+
+        
+
+
+    })
+
+    */
 </script>

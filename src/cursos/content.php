@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        <div class="col-lg-6">
+        <div class="col-lg-6" id="coluna">
 
             <div class="box">
 
@@ -34,6 +34,7 @@
         </div>
 
         <div class="col-lg-6">
+
             <div class="box">
 
                 <div class="cursoName">
@@ -131,10 +132,4 @@
 
 </div>
 
-<script>
-    function deletaCurso() {
-        var deleteCurso = document.getElementById("iconLixeira");
-
-
-    }
-</script>
+<script src="./desafio-fullstack/js/deletaCurso.js"></script>
