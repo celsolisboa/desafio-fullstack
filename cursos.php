@@ -3,7 +3,13 @@
 
 <head>
 
-    <?php include 'src/head/content.php' ?>
+    <?php 
+    
+    include 'src/head/content.php';
+    include 'src/backend/conexao.php';
+    include 'src/backend/bancoCurso.php';
+
+    ?>
 
 </head>
 

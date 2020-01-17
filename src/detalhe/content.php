@@ -1,6 +1,6 @@
 <div class="container detalhe">
 
-    <form id="formAdiciona">
+    <form id="formAdiciona" method="GET" action="./src/backend/adicionaCurso.php">
 
         <div class="row">
 
@@ -25,13 +25,13 @@
 
             <div class="col-lg-6">
 
-                <select name="select" class="form-control espaco" id="sala" name="sala">
+                <select class="form-control espaco" id="sala" name="sala">
 
                     <option value="" disabled selected>Salas</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="101">101</option>
+                    <option value="201">201</option>
+                    <option value="301">301</option>
+                    <option value="401">401</option>
 
                 </select>
 
@@ -50,7 +50,7 @@
             </div>
 
             <div class="col-lg-12">
-                <button class="btn-primary btn" id="adicionarCurso">Salvar</button>
+                <input type="submit" class="btn-primary btn" id="adicionarCurso" onclick="alerta()" value="Salvar">
             </div>
 
         </div>
@@ -61,6 +61,11 @@
 
 <script>
     
+    function alerta(){
+        alert("Dados adicionados :)")
+    }
+
+
     /*
     var botaoAdicionar = document.querySelector("#adicionarCurso");
     botaoAdicionar.addEventListener("click", function(){

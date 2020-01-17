@@ -5,13 +5,16 @@
 
 <head>
 
-    <?php include 'src/head/content.php' ?>
+    <?php 
+    include 'src/head/content.php';
+    include 'src/backend/adicionaCurso.php';
+    ?>
 
 </head>
 
 <body>
     <header>
-        
+
         <?php include 'src/headerDetalhe/content.php' ?>
 
     </header>

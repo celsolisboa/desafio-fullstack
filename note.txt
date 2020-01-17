@@ -1,4 +1,8 @@
-função de remover curso;
+conexão com o banco; OK
 
-função de adicionar curso;
+função de adicionar curso no banco; OK
+
+puxar curso do banco e listar;
+
+função de remover curso;
 

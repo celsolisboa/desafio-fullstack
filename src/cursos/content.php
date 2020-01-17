@@ -14,7 +14,7 @@
 
                         <span>
 
-                            <a href="#" id="iconLixeira" class="iconeApagar" onclick="deletaCurso()"></a>
+                            <a href="././backend/removeCurso.php?id=<?= $curso['id'] ?>" id="iconLixeira" class="iconeApagar"></a>
 
                         </span>
 
@@ -127,9 +127,52 @@
 
         </div>
 
+        <div class="col-lg-6" id="coluna">
+
+        <?php
+
+        $curso = listaCurso($conexao);
+        foreach ($cursos as $curso) :
+
+        ?>
+            <div class="box">
+
+                <div class="cursoName">
+
+                    <h4>
+
+                        <?= $curso['nomeCurso'] ?>
+
+                        <span>
+
+                            <a href="././backend/removeCurso.php?id=<?= $curso['id'] ?>" id="iconLixeira" class="iconeApagar"></a>
+
+                        </span>
+
+                    </h4>
+
+                </div>
+
+
+                <div>
+                    <?= $curso['professor'] ?> <br>
+                    <?= $curso['sala'] ?>
+                    <span class="horario"><?= $curso['horarioInicio'] ?> às <?= $curso['horarioFim'] ?></span>
+                </div>
+
+            </div>
+
+            <?php
+            endforeach;
+
+            ?>
+
+        </div>
+
 
     </div>
 
 </div>
 
-<script src="./desafio-fullstack/js/deletaCurso.js"></script>
+<script>
+</script>
