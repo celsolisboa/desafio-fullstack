@@ -2,7 +2,10 @@ conexão com o banco; OK
 
 função de adicionar curso no banco; OK
 
-puxar curso do banco e listar;
+puxar curso do banco e listar; OK
+
+entrada no banco apenas ao salvar form;
 
 função de remover curso;
 
+criar credencial de login;

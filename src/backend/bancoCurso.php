@@ -1,16 +1,8 @@
 <?php
 
-function listaCurso($conexao){
-    $cursos = array();
+include 'conexao.php';
 
-    $retorna = mysqli_query($conexao, "select * from banco");
-    while($curso = mysqli_fetch_assoc($retorna)){
-        array_push($cursos, $curso);
-    }
-    return $cursos;
-}
+$consulta = "select * from cursos";
 
-function removeCurso($conexao, $id){
-    $query = "delete from banco where id = {$id}";
-    return mysqli_query($conexao, $query);
-}
+$retornaCurso = mysqli_query($conexao, $consulta);
+

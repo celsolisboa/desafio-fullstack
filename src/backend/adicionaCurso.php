@@ -1,5 +1,5 @@
 <?php
-#session_start();
+session_start();
 
 include('conexao.php');
 include('bancoCurso.php');
@@ -14,7 +14,3 @@ $query = "INSERT into cursos (nomeCurso, professor, sala, horarioInicio, horario
 mysqli_query($conexao, $query); //faz a conexao com o banco de dados e insere o conteúdo
 
 mysqli_close($conexao); //fecha a conexao após inserção dos dados
-
-#if (mysqli_insert_id($conexao)){
-#    header("Location: ../src/cursos/content.php");
-#}
