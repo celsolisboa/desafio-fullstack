@@ -4,8 +4,8 @@ função de adicionar curso no banco; OK
 
 puxar curso do banco e listar; OK
 
-entrada no banco apenas ao salvar form;
+entrada no banco apenas ao salvar form; OK
 
-função de remover curso;
+função de remover curso; 
 
 criar credencial de login;

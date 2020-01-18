@@ -19,7 +19,7 @@
 
                             <span>
 
-                                <a href="././backend/removeCurso.php?id=<?= $curso['id'] ?>" id="iconLixeira" class="iconeApagar"></a>
+                                <a href="src/backend/removeCurso.php?id=<?= $dados['id'] ?>" id="iconLixeira" class="iconeApagar"></a>
 
                             </span>
 

@@ -77,50 +77,7 @@
 <script>
     
     function alerta(){
-        alert("Dados adicionados :)")
-    }
+        alert("Dados adicionados");
+    };
 
-
-    /*
-    var botaoAdicionar = document.querySelector("#adicionarCurso");
-    botaoAdicionar.addEventListener("click", function(){
-
-        var form = document.querySelector("#formAdiciona");
-
-        var nomeCurso = form.nomeCurso.value;
-        var professor = form.professor.value;
-        var sala = form.sala.value;
-        var horarioInicio = form.horarioInicio.value;
-        var horarioFim = form.horarioFim.value;
-
-        var boxCurso = document.createElement("div");
-
-        var cursoDiv = document.createElement("div");
-        var professorDiv = document.createElement("div");
-        var salaDiv = document.createElement("div");
-        var horarioInicioDiv = document.createElement("div");
-        var horarioFimDiv = document.createElement("div");
-
-        cursoDiv.textContent = nomeCurso;
-        professorDiv.textContent = professor;
-        salaDiv.textContent = sala;
-        horarioInicioDiv.textContent = horarioInicio;
-        horarioFimDiv.textContent = horarioFim;
-
-        boxCurso.appendChild(cursoDiv);
-        boxCurso.appendChild(professorDiv);
-        boxCurso.appendChild(salaDiv);
-        boxCurso.appendChild(horarioInicioDiv);
-        boxCurso.appendChild(horarioFimDiv);
-
-        var coluna = document.querySelector("#coluna");
-
-        coluna.appendChild(boxCurso);
-
-        
-
-
-    })
-
-    */
 </script>
