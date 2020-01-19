@@ -30,7 +30,7 @@
                     <div>
                         Prof. <?php echo $dados["professor"]; ?><br>
                         Sala <?php echo $dados["sala"]; ?>
-                        <span class="horario"> <?php $dados["horarioInicio"] ?> às <?php $dados["horarioFim"]; ?></span>
+                        <span class="horario"> <?php echo $dados["horarioInicio"] ?> às <?php echo $dados["horarioFim"]; ?></span>
                     </div>
 
                 </div>

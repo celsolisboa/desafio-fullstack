@@ -13,4 +13,3 @@ mysqli_set_charset($conexao, "utf8"); //aceita registro com acentuação
 #}else{
 #    echo "Conexão estabelecida";
 #}
-#mysqli_close($conexao);

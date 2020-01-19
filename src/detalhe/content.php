@@ -20,6 +20,7 @@
                     <option value="Ruy Barbosa">Ruy Barbosa</option>
                     <option value="Agatha Christie">Agatha Christie</option>
                     <option value="Mário Quintana">Mário Quintana</option>
+                    <option value="Ruy Barbosa e Agatha Christie">Ruy Barbosa e Agatha Christie</option>
 
                 </select>
 
@@ -39,7 +40,7 @@
                     <option value="402">402</option>
                     <option value="501">501</option>
                     <option value="502">502</option>
-                    
+
                 </select>
 
             </div>
@@ -49,9 +50,9 @@
             </div>
 
             <div class="col-lg-2">
-                
+
                 <input type="time" class="form-control espaco" id="horarioInicio" name="horarioInicio" placeholder="Início" min="09:00" max="21:00" required>
-                
+
             </div>
 
             <div class="col-lg-1">
@@ -64,8 +65,9 @@
 
             </div>
 
-            <div class="col-lg-12">
-                <input type="submit" class="btn-primary btn" id="adicionarCurso" onclick="alerta()" value="Salvar">
+            <div class="col-lg-6">
+                <input type="submit" class="btn-primary btn" id="adicionarCurso" value="Salvar">
+
             </div>
 
         </div>
@@ -75,9 +77,6 @@
 </div>
 
 <script>
-    
-    function alerta(){
-        alert("Dados adicionados");
-    };
+
 
 </script>

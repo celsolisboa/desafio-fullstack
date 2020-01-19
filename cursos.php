@@ -10,10 +10,6 @@
     include 'src/backend/bancoCurso.php';
     include 'src/backend/removeCurso.php';
 
-    if (array_key_exists("removido", $_GET) && $_GET['removido'] == true){
-        header("Location: cursos.php");
-    }
-
     ?>
 
 </head>

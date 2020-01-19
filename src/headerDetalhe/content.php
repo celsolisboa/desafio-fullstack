@@ -6,7 +6,17 @@
 
             <div class="headerDetalhe">
 
-                <h4>Detalhe do Curso</h4>
+                <h4>
+
+                    Detalhe do Curso
+
+                    <span>
+
+                        <a href="cursos.php" class="voltar"></a>
+
+                    </span>
+
+                </h4>
 
             </div>
 

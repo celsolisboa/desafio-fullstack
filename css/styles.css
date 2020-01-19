@@ -50,6 +50,13 @@ body{padding-bottom: 30px;}
     height: 25px;
 }
 
+.voltar{
+    background: url(../icons/back.svg) no-repeat;
+    float: left;
+    width: 25px;
+    height: 25px;
+}
+
 .headerCurso, .headerDetalhe{margin:1.1em;}
 
 
@@ -86,5 +93,3 @@ background-color: ghostwhite;
 }
 
 .espaco{margin-bottom: 2em;}
-
-.botao{}
