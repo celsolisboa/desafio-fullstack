@@ -4,7 +4,7 @@
 
         <div class="col-lg-12">
 
-            <form class="form-group login">
+            <form class="form-group login" method="POST" action="./src/backend/verificaLogin.php">
 
                 <div class="entalheLogin"></div>
 
@@ -16,7 +16,7 @@
 
                     Email
                     <br>
-                    <input type="email" class="form-control" placeholder="Email" required autocomplete="off">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu email" required autocomplete="off">
 
                 </label>
 
@@ -26,13 +26,23 @@
 
                     Senha
                     <br>
-                    <input type="password" class="form-control" placeholder="Senha" required autocomplete="off">
+                    <input type="password" id="senha" name="senha" class="form-control" placeholder="E aqui a sua senha" required autocomplete="off">
 
                 </label>
 
                 <br>
 
-                <button class="btn-primary btn" onclick="acessar()">Acessar</button>
+                <input type="submit" class="btn-primary btn" value="Acessar">
+
+                <p class="text-danger">
+
+                    <?php
+                    
+
+
+                    ?>
+
+                </p>
 
             </form>
 

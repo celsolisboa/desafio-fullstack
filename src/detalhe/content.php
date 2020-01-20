@@ -1,6 +1,6 @@
 <div class="container detalhe">
 
-    <form id="formAdiciona" method="GET" action="./src/backend/adicionaCurso.php">
+    <form id="formAdiciona" method="GET" action="src/backend/adicionaCurso.php">
 
         <div class="row">
 

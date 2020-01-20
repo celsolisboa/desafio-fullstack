@@ -11,9 +11,10 @@ $horarioInicio = $_GET['horarioInicio'];
 $horarioFim = $_GET['horarioFim'];
 
 $query = "INSERT into cursos (nomeCurso, professor, sala, horarioInicio, horarioFim) VALUES ('$nomeCurso', '$professor', '$sala', '$horarioInicio', '$horarioFim')";
+
 if (isset($_GET['nomeCurso']) === true) {
     mysqli_query($conexao, $query); //faz a conexao com o banco de dados e insere o conteúdo
-}
+};
 
 if (mysqli_insert_id($conexao)) {
     header("Location: ../../detalhe.php");

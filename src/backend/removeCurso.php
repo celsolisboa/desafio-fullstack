@@ -11,10 +11,9 @@ $deleteCurso = "DELETE FROM cursos WHERE id={$id}";
 $removeCurso = mysqli_query($conexao, $deleteCurso);
 
 
-if (mysqli_affected_rows($conexao)){
-    header("Location: cursos.php");
-    exit;
+if ($removeCurso === true){
+    header("Location: ../../cursos.php");
     #echo "<script>location.href='cursos.php';</script>";
-}else{
-    header("Location: ");
 }
+
+mysqli_close($conexao);

@@ -6,10 +6,11 @@
 <head>
 
     <?php 
-    session_start();
-    
+
     include 'src/head/content.php';
+    include 'src/backend/conexao.php';
     include 'src/backend/adicionaCurso.php';
+    
     ?>
 
 </head>
