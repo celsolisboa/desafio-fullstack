@@ -1,0 +1,95 @@
+body{padding-bottom: 30px;}
+
+.container-fluid{padding:0 !important; margin:0 !important;}
+
+.adicionar a:hover, a:visited, a:link{
+    color: black;
+    text-decoration: none;
+
+}
+
+.content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login{
+    text-align: center;
+    background-color: gainsboro;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px black;
+
+}
+
+.entalheLogin{
+    background-color: #1E90FF;
+    height:10px;
+    border-top-left-radius:10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.btn{width: 50%; margin-top:20px;}
+
+.menu{
+    background-color: gainsboro;
+    text-align: center;
+}
+
+.adicionar{
+    background: url(../icons/plus.svg) no-repeat;
+    float: right;
+    width: 25px;
+    height: 25px;
+}
+
+.voltar{
+    background: url(../icons/back.svg) no-repeat;
+    float: left;
+    width: 25px;
+    height: 25px;
+}
+
+.headerCurso, .headerDetalhe{margin:1.1em;}
+
+
+.box{
+background-color: ghostwhite;
+    border-collapse: collapse;
+    border:1px solid black;
+    border-radius: 7px;
+    margin-top:2em;
+    padding: 10px;
+}
+
+.detalhe{
+    width: 100vw;
+    text-align: center;
+    margin: 2em;
+}
+
+.cursoName{
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+.iconeApagar{
+    background: url(../icons/trash.svg) no-repeat;
+    float: right;
+    width: 27px;
+    height: 27px;
+
+}
+
+.horario{
+    float: right;
+}
+
+.espaco{margin-bottom: 2em;}
