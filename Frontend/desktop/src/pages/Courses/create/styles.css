@@ -1,0 +1,32 @@
+.container.create{
+    max-width: 700px;
+    width: 100%;
+    height: 70vh;
+    background-color: #fff;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, 20%);
+}
+
+.row h2{
+    margin-top: 4%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.container.create .content.create{
+    position: absolute;
+    max-width: 400px;
+    height: 55vh;
+    width: 70%;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+}
+
+.container.create .content.create button{
+    margin-top: 20px;
+    margin-left: 38%;
+}

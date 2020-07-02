@@ -10,6 +10,6 @@ routes_courses.post('/courses/', CoursesCreate.create);
 routes_courses.get('/courses/', CoursesRead.readall);
 routes_courses.get('/coursesbyattributes/', CoursesRead.readByAttributes);
 routes_courses.put('/courses/:id', CoursesUpdate.update);
-routes_courses.get('/courses/:id', CoursesDelete.delete);
+routes_courses.delete('/courses/:id', CoursesDelete.delete);
 
 module.exports = routes_courses;

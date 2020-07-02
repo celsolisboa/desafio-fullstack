@@ -17,7 +17,6 @@ module.exports = {
       teachers: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       room: {
         type: Sequelize.STRING,

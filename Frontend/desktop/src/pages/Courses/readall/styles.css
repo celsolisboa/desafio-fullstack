@@ -1,0 +1,96 @@
+.courses h1{
+    text-align: center;
+    margin-top: 3%;
+    font: 500 50px Roboto, sans-serif;
+    color: #fff;
+}
+
+.courses-container{
+    background-color: transparent;
+    width: 100%;
+    max-width: 1300px;
+    height: 60vh;
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.courses-container ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    list-style: none;
+}
+
+.courses-container ul li{
+    background: transparent;
+    border: 1px solid;
+    border-color: #fff;
+    height: 15vh;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.courses-container .name{
+    color: #fff;
+    line-height: 15px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -200%);
+}
+.courses-container .teachers{
+    color: #fff;
+    line-height: 15px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 25%);
+}
+.courses-container .room{
+    color: #fff;
+    line-height: 15px;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 250%);
+}
+
+.courses-container .schedule{
+    color: #fff;
+    line-height: 15px;
+    font-size: 14px;
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    transform: translate(40%, 250%);
+}
+
+.courses-container .edit{
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 20%
+}
+
+.courses-container .trash{
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 60%
+}
+
+.courses .new.create{
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    margin-left: 95%;
+}
