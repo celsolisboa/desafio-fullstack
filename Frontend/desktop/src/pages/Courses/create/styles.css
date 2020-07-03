@@ -1,0 +1,25 @@
+.container.create{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 10%;
+    max-width: 600px;
+}
+
+.row h2{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.container.create .content.create button{
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.container.create .home{
+    border: 0;
+    background-color: transparent;
+}

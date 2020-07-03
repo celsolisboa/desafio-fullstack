@@ -1,0 +1,129 @@
+/* .courses h1{
+    text-align: center;
+    margin-top: 3%;
+    font: 500 50px Roboto, sans-serif;
+    color: #fff;
+}
+
+.courses-container{
+    background-color: transparent;
+    width: 100%;
+    max-width: 1300px;
+    height: 60vh;
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.courses-container ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    list-style: none;
+}
+
+.courses-container ul li{
+    background: transparent;
+    border: 1px solid;
+    border-color: #fff;
+    height: 15vh;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.courses-container .name{
+    color: #fff;
+    line-height: 15px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -200%);
+}
+
+.courses-container .adress{
+    color: #fff;
+    line-height: 15px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.courses-container .schedule{
+    color: #fff;
+    line-height: 15px;
+    font-size: 12px;
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    transform: translate(50%, 250%);
+}
+
+ */
+ .courses h1{
+    text-align: center;
+    margin-top: 3%;
+    font: 500 50px Roboto, sans-serif;
+    color: #fff;
+}
+
+ .courses-container .edit{
+    background-color: transparent;
+    border: 0;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+ .courses-container .trash{
+    background-color: transparent;
+    border: 0;
+}
+
+.courses button{
+    border: 0;
+    background-color: transparent;
+    display: block;
+    margin-top: 3%;
+    margin-left: auto;
+}
+
+.stylecourse{
+    margin-top: 6%;
+    background: transparent;
+    border: 1px solid;
+    border-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.stylecourse p{
+    color: #fff
+}
+
+.stylecourse .name{
+    text-align: center;
+}
+
+.stylecourse .teachers{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.stylecourse .schedule{
+    text-align: right;
+    display: block;
+    margin-bottom: auto;
+}
+
+.stylecourse .room{
+    text-align: right;
+    display: block;
+    margin-bottom: auto;
+}
