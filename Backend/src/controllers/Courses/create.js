@@ -7,31 +7,31 @@ module.exports = {
 
         //Proibindo campos vazios
         if(empty(name)){
-            return res.json("O campo 'nome' está vazio!")
+            return res.status(201).json("O campo 'nome' está vazio!")
             &&
             console.log("O campo 'nome' está vazio!")
         }
 
         if(empty(teachers)){
-            return res.json("O campo 'professor' está vazio!")
+            return res.status(201).json("O campo 'professor' está vazio!")
             &&
             console.log("O campo 'professor' está vazio!")
         }
 
         if(empty(room)){
-            return res.json("O campo 'sala' está vazio!")
+            return res.status(201).json("O campo 'sala' está vazio!")
             &&
             console.log("O campo 'sala' está vazio!")
         }
 
         if(empty(start)){
-            return res.json("O campo 'inicio' está vazio!")
+            return res.status(201).json("O campo 'inicio' está vazio!")
             &&
             console.log("O campo 'inicio' está vazio!")
         }
 
         if(empty(end)){
-            return res.json("O campo 'fim' está vazio!")
+            return res.status(201).json("O campo 'fim' está vazio!")
             &&
             console.log("O campo 'fim' está vazio!")
         }

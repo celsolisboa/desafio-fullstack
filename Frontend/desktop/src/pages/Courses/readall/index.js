@@ -49,30 +49,37 @@ export default function Courses(){
     }
 
     return (
-        <div className="courses">
-            <button onClick={handleNewCourse} className="new create" type="button">
-              <FiPlusCircle size={40} color="#fff" />
-            </button>
-            <h1>Cursos</h1>
-            <div className="courses-container">
-            <ul>
+        <div className="container">
+            <div className="row">
+                <div className="col-12">
+                    <div className="courses">
+                        <button onClick={handleNewCourse} className="new create" type="button">
+                            <FiPlusCircle size={40} color="#fff" />
+                        </button>
+                        <h1>Cursos</h1>
+                    </div>
+                    </div>
+                    <div className="row courses-container">
                         {courses.map(course => (
-                            <li key={course.id}>
-                            <p className="name">{course.name}</p>
-                            <p className="teachers"> Prof.(s): {course.teachers}</p>
-                            <p className="room">Sala {course.room}</p>
-                        <p className="schedule">{course.start} às {course.end}</p>
-                        <button onClick={() => handleUpdateCourse(course.id)} className="edit" type="button">
-                                <FiEdit2 size={20} color="#fff" />
-                            </button>
-                        <button onClick={() => handleDeleteCourse(course.id)} className="trash" type="button">
-                                <FiTrash2 size={20} color="#fff" />
-                            </button>
-                        </li>
+                            <div className="col-12 col-md-6" key={course.id}>
+                                <div className="stylecourse">
+                                <p className="name">{course.name}</p>
+                                <p className="teachers"> Prof.(s): {course.teachers}</p>
+                                <p className="room">Sala {course.room}</p>
+                                <p className="schedule">{course.start} às {course.end}</p>
+                                <button onClick={() => handleUpdateCourse(course.id)} className="edit" type="button">
+                                    <FiEdit2 size={20} color="#fff" />
+                                </button>
+                                <button onClick={() => handleDeleteCourse(course.id)} className="trash" type="button">
+                                    <FiTrash2 size={20} color="#fff" />
+                                </button>
+                                </div>
+                            </div>
                         ))
                         }
-                    </ul>
+                    </div>
             </div>
         </div>
-        )
+
+    )
 }

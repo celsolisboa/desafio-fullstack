@@ -10,7 +10,7 @@ module.exports = {
 
         //Checando se a curso existe antes de deletar
         if(!courses){
-          return res.json("Curso não encontrado!")
+          return res.status(201).json("Curso não encontrado!")
           &&
           console.log("Curso não encontrado!")
         }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './styles.css';
 import api from '../../../services/api';
 import {useHistory} from 'react-router-dom'
+import {FiHome} from 'react-icons/fi'
 
 export default function CourseUpdate(){
     const [name, setName] = useState('')
@@ -27,23 +28,31 @@ export default function CourseUpdate(){
 
             const message = create.data;
             const status = create.status;
+            return console.log(status)
 
             if(status != 200){
                 return alert(message)
            } else {
                alert(message)
+               history.push('/courses')
            }
 
-           history.push('/courses')
         } catch (error) {
             alert(error, "Falha ao cadastrar")
         }
     }
 
+    function home(){
+        history.push('/courses');
+    }
+
     return(
         <div className="container create">
+            <button onClick={home} className="home" type="button" >
+                            <FiHome size={40} color="#000" />
+            </button>
             <div className="row">
-                <h2>Informações do curso</h2>
+                <h2>Cadastro do curso</h2>
             </div>
             <div className="content create">
                     <form onSubmit={createCourse}>
