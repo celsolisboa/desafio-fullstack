@@ -7,13 +7,13 @@ module.exports = {
 
         // proibindo campo vazio
         if(empty(email)){
-            return res.json("O campo 'email' está vazio.")
+            return res.status(201).json("O campo 'email' está vazio.")
             &&
             console.log("O campo 'email' está vazio.");
         }
 
         if(empty(password)){
-            return res.json("O campo 'senha' está vazio.")
+            return res.status(201).json("O campo 'senha' está vazio.")
             &&
             console.log("O campo 'senha' está vazio.");
         }
