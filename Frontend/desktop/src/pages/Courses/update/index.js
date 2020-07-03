@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './styles.css';
 import api from '../../../services/api';
 import {useHistory} from 'react-router-dom'
+import {FiHome} from 'react-icons/fi'
 
 export default function CourseUpdate(){
 
@@ -46,8 +47,16 @@ export default function CourseUpdate(){
         }
     }
 
+    function home() {
+        history.push('/courses')
+        localStorage.removeItem('course')
+    }
+
     return(
         <div className="container update">
+            <button onClick={home} className="home" type="button" >
+                            <FiHome size={40} color="#000" />
+            </button>
             <div className="row">
                 <h2>Informações do curso</h2>
             </div>

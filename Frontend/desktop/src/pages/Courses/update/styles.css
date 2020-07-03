@@ -18,3 +18,8 @@
     margin: auto;
     margin-top: 5%;
 }
+
+.container.update .home{
+    border: 0;
+    background-color: transparent;
+}
