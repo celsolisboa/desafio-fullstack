@@ -8,31 +8,31 @@ module.exports = {
 
         //Proibindo campos vazios
         if(empty(name)){
-            return res.json("O campo 'nome' está vazio!")
+            return res.status(201).json("O campo 'nome' está vazio!")
             &&
             console.log("O campo 'nome' está vazio!")
         }
 
         if(empty(teachers)){
-            return res.json("O campo 'teachers' está vazio!")
+            return res.status(201).json("O campo 'teachers' está vazio!")
             &&
             console.log("O campo 'teachers' está vazio!")
         }
 
         if(empty(room)){
-            return res.json("O campo 'sala' está vazio!")
+            return res.status(201).json("O campo 'sala' está vazio!")
             &&
             console.log("O campo 'sala' está vazio!")
         }
 
         if(empty(start)){
-            return res.json("O campo 'início' está vazio!")
+            return res.status(201).json("O campo 'início' está vazio!")
             &&
             console.log("O campo 'início' está vazio!")
         }
 
         if(empty(end)){
-            return res.json("O campo 'fim' está vazio!")
+            return res.status(201).json("O campo 'fim' está vazio!")
             &&
             console.log("O campo 'fim' está vazio!")
         }
@@ -41,7 +41,7 @@ module.exports = {
         const course = await Courses.findByPk(id);
 
         if (!course) {
-            return res.json("Este curso não existe!")
+            return res.status(201).json("Este curso não existe!")
             &&
             console.log("Este curso não existe!")
         }

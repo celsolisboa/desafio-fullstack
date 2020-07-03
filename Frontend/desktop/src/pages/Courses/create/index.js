@@ -28,7 +28,6 @@ export default function CourseUpdate(){
 
             const message = create.data;
             const status = create.status;
-            return console.log(status)
 
             if(status != 200){
                 return alert(message)
