@@ -1,8 +1,8 @@
-const connection = require('../database/connection');
+const DB = require('../database/connection');
 
 module.exports = {
-  async index(req, res) {
-    connection.find("rooms")
+  async show(req, res) {
+    DB.find("rooms")
     .then(data => {
       res.status(200).json(data);
     })

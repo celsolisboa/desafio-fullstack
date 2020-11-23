@@ -3,15 +3,6 @@ const config = require("../../knexfile");
 
 const db = knex(config.development);
 
-module.exports = {
-  add,
-  find,
-  findWithId,
-  findById,
-  deleteById,
-  deleteWithId
-};
-
 async function add(tablename, data) {
   const [id] = await db(tablename).insert(data);
   return id;
@@ -36,3 +27,12 @@ function deleteById(talblename,id) {
 function deleteWithId(talblename,id) {
   return db(talblename).where({"course_id": id}).del()
 }
+
+module.exports = {
+  add,
+  find,
+  findWithId,
+  findById,
+  deleteById,
+  deleteWithId
+};
