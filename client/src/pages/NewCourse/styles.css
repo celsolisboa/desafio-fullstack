@@ -1,0 +1,25 @@
+.add-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 0 30px;
+  margin: 120px auto;
+}
+
+.add-container .schedule {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.add-container button {
+  width: 100%;
+  height: 40px;
+  background: #ff0669;
+  color: #e1e2e2;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 300;
+  margin-top: 8px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}

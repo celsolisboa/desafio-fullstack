@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 30px;
+  margin: 32px auto;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header a {
+  text-align: center;
+  padding: 4px;
+  width: 100px;
+  border-radius: 8px;
+  background: #ff0669;
+  color: #e1e2e2;
+  text-decoration: none;
+}
+
+.header a:hover {
+  filter: brightness(90%);
+}
+
+.header img {
+  height: 32px;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: #e1e2e2;
+}
