@@ -1,0 +1,6 @@
+<div>
+    <div *ngIf="isUserLoggedIn()">
+       <div class="align-in-container">Logged In</div>
+    </div>
+    <app-login-page *ngIf="!isUserLoggedIn()"></app-login-page>
+</div>
