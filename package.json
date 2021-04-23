@@ -1,0 +1,11 @@
+{
+    "name": "ligaedu",
+    "version": "1.0.0",
+    "workspaces": [
+        "packages/*"
+    ],
+    "repository": "https://github.com/miladr100/desafio-fullstack",
+    "author": "Milad Roghanian <miladr100@gmail.com>",
+    "private": true,
+    "license": "MIT"
+}

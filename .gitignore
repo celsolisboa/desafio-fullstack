@@ -1,0 +1,8 @@
+front-web
+server
+node_modules
+dist
+yarn-error.log
+.env
+.idea
+node_modules
