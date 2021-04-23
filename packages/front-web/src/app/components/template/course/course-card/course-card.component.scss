@@ -1,0 +1,22 @@
+.courses {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &-card {
+    width: 400px;
+    margin: 12px;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-informations {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+}

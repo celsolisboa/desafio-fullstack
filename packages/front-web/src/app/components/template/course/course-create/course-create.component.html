@@ -1,0 +1,72 @@
+<mat-card class="course-create">
+    <mat-card-title>Novo curso</mat-card-title>
+    <form class="course-create-form">
+        <mat-form-field class="course-create-form__title">
+            <input 
+                matInput 
+                placeholder="Título" 
+                [(ngModel)]="course.title" 
+                name="title"
+            >
+        </mat-form-field>
+
+        <mat-form-field class="course-create-form__teacher" >
+            <input 
+                matInput 
+                placeholder="Professor" 
+                [(ngModel)]="course.teachers" 
+                name="teachers"
+            >
+        </mat-form-field>
+
+        <mat-form-field class="course-create-form__class"> 
+            <input 
+                matInput 
+                placeholder="Salas"
+                [(ngModel)]="course.classes" 
+                name="classes"
+            >
+        </mat-form-field>
+
+        <div class="course-create-form__time">
+            <mat-form-field class="course-create-form__time-init">
+                <input matInput placeholder="Horário Início">
+            </mat-form-field>
+            <mat-form-field class="course-create-form__time-end">
+                <input matInput placeholder="Horário Fim">
+            </mat-form-field>
+        </div>
+    </form>
+    
+    <div class="course-create-button">
+        <div class="course-create-button__actions">
+            <button
+                class="course-create-button__actions-create"
+                mat-raised-button 
+                (click)="createCourse()" 
+                color="primary"
+            >
+                Criar Curso
+            </button>
+
+            <button
+                class="course-create-button__actions-clear"
+                mat-raised-button 
+                (click)="clearFields()" 
+                color="secondary"
+            >
+                Limpar Campos
+            </button>
+        </div>
+        <button
+            class="course-create-button__cancel"
+            mat-raised-button 
+            (click)="redirectToCourse()" 
+            color="secondary"
+        >
+            Voltar
+        </button>
+    </div>
+</mat-card>
+
+
