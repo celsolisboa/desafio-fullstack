@@ -20,13 +20,23 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
 import { LoginComponent } from './components/template/login/login.component';
 import { HomeComponent } from './views/home/home.component';
+import { HeaderComponent } from './components/template/header/header.component';
+import { NavMenuComponent } from './components/template/nav-menu/nav-menu.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { CourseCardComponent } from './components/template/course/course-card/course-card.component';
+import { CourseCreateComponent } from './components/template/course/course-create/course-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    NavMenuComponent,
+    FooterComponent,
+    CourseCardComponent,
+    CourseCreateComponent
   ],
   imports: [
     BrowserModule,
