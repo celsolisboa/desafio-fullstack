@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Milad Roghanian",
+      "email": "milad.roghanian@gmail.com",
+      "password": "milad123"
+    },
+    {
+      "id": 1,
+      "name": "Carlos Martel",
+      "email": "carlos.martel@gmail.com",
+      "password": "carlos123"
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "title": "Biologia",
+      "teachers": [
+        "Álvaro de Azevedo"
+      ],
+      "classes": [
+        502
+      ],
+      "time": {
+        "init": "9:00",
+        "end": "12:00"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Gestão",
+      "teachers": [
+        "Mário de Andrade"
+      ],
+      "classes": [
+        301
+      ],
+      "time": {
+        "init": "9:30",
+        "end": "12:30"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Matemática",
+      "teachers": [
+        "Mário Quintana"
+      ],
+      "classes": [
+        302,
+        303
+      ],
+      "time": {
+        "init": "14:45",
+        "end": "18:00"
+      }
+    },
+    {
+      "id": 4,
+      "title": "História",
+      "teachers": [
+        "Ruy Barbosa",
+        "Agatha Christie"
+      ],
+      "classes": [
+        402
+      ],
+      "time": {
+        "init": "14:45",
+        "end": "18:00"
+      }
+    },
+    {
+      "title": "Prezão Semanal",
+      "teachers": "Marcos souza",
+      "classes": "001",
+      "time": {
+        "init": "",
+        "end": ""
+      },
+      "id": 5
+    },
+    {
+      "title": "Prezão Semanal",
+      "teachers": "Marcos souza",
+      "classes": "001",
+      "time": {
+        "init": "",
+        "end": ""
+      },
+      "id": 6
+    }
+  ]
+}
