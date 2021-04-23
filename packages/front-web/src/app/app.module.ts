@@ -25,6 +25,8 @@ import { NavMenuComponent } from './components/template/nav-menu/nav-menu.compon
 import { FooterComponent } from './components/template/footer/footer.component';
 import { CourseCardComponent } from './components/template/course/course-card/course-card.component';
 import { CourseCreateComponent } from './components/template/course/course-create/course-create.component';
+import { CoursesComponent } from './views/courses/courses.component';
+import { PrimaryDirective } from './directives/primary.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { CourseCreateComponent } from './components/template/course/course-creat
     NavMenuComponent,
     FooterComponent,
     CourseCardComponent,
-    CourseCreateComponent
+    CourseCreateComponent,
+    CoursesComponent,
+    PrimaryDirective
   ],
   imports: [
     BrowserModule,
