@@ -1,0 +1,19 @@
+.nav-container {
+  background-color: #00695c;
+  width: 190px;
+
+  &__nav-list {
+    &-icon {
+      color: #fff;
+      &-home {
+        color: #fff;
+        padding-right: 8px;
+      }
+
+      &-storefront {
+        color: #fff;
+        padding-right: 8px;
+      }
+    }
+  }
+}
