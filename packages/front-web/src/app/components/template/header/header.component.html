@@ -1,0 +1,21 @@
+<mat-toolbar class="header mat-elevation-z4">
+    <div class="header__block">
+        <span>
+            <a class="header header__link" routerLink="/home">
+            <h1 class="header header__link-text">Teste LigaEdu</h1> 
+            </a>
+        </span>
+        <span>
+            <a class="header__title">
+                <i class="material-icons header__title-icon">home</i>
+                <p class="header__title-text">Início</p>
+            </a>
+        </span>
+    </div>
+    <span>
+        <a class="header__title" (click)='logoutUser()'>
+            <p class="header__title-text">Sair</p>
+            <i class="material-icons header__title-icon">logout</i>
+        </a>
+    </span>
+</mat-toolbar>
