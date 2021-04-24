@@ -7,6 +7,26 @@
     width: 400px;
     margin: 12px;
 
+    &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-icons {
+        display: flex;
+        flex-direction: row;
+
+        &-edit {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+        &-delete {
+          cursor: pointer;
+        }
+      }
+    }
+
     &__content {
       display: flex;
       flex-direction: column;

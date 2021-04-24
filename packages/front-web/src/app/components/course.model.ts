@@ -1,7 +1,7 @@
 export interface Course {
-    id?: Number;
-    title: String;
-    teachers: Array<String>;
-    classes: Array<Number>;
+    id?: string;
+    title: string;
+    teachers: Array<string>;
+    classes: Array<number>;
     time: Object
 }

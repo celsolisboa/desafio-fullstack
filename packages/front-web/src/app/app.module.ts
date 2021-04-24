@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
@@ -24,9 +25,10 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { NavMenuComponent } from './components/template/nav-menu/nav-menu.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { CourseCardComponent } from './components/template/course/course-card/course-card.component';
-import { CourseCreateComponent } from './components/template/course/course-create/course-create.component';
+import { CourseEditComponent } from './components/template/course/course-edit/course-edit.component';
 import { CoursesComponent } from './views/courses/courses.component';
 import { PrimaryDirective } from './directives/primary.directive';
+import { ConfirmDialogComponent } from './helpers/components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,10 @@ import { PrimaryDirective } from './directives/primary.directive';
     NavMenuComponent,
     FooterComponent,
     CourseCardComponent,
-    CourseCreateComponent,
+    CourseEditComponent,
     CoursesComponent,
-    PrimaryDirective
+    PrimaryDirective,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +60,10 @@ import { PrimaryDirective } from './directives/primary.directive';
     MatListModule,
     MatToolbarModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
+  entryComponents: [ConfirmDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

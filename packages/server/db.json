@@ -15,34 +15,6 @@
   ],
   "cursos": [
     {
-      "id": 1,
-      "title": "Biologia",
-      "teachers": [
-        "Álvaro de Azevedo"
-      ],
-      "classes": [
-        502
-      ],
-      "time": {
-        "init": "9:00",
-        "end": "12:00"
-      }
-    },
-    {
-      "id": 2,
-      "title": "Gestão",
-      "teachers": [
-        "Mário de Andrade"
-      ],
-      "classes": [
-        301
-      ],
-      "time": {
-        "init": "9:30",
-        "end": "12:30"
-      }
-    },
-    {
       "id": 3,
       "title": "Matemática",
       "teachers": [
@@ -73,17 +45,7 @@
       }
     },
     {
-      "title": "Prezão Semanal",
-      "teachers": "Marcos souza",
-      "classes": "001",
-      "time": {
-        "init": "",
-        "end": ""
-      },
-      "id": 5
-    },
-    {
-      "title": "Prezão Semanal",
+      "title": "Biologia",
       "teachers": "Marcos souza",
       "classes": "001",
       "time": {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, RouterEvent } from '@angular/router';
 import { AppServicesService } from 'src/app/app-services.service';
 
 @Component({
@@ -10,9 +10,14 @@ import { AppServicesService } from 'src/app/app-services.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private activatedRouteSnapshot: ActivatedRoute,
+    private router: Router,
     private appServices: AppServicesService
-  ) {}
+  ) {
+    
+    this.router.events.subscribe(event => {
+      this.appServices.setActualRouteData()
+    })
+  }
 
   ngOnInit(): void {
     this.getCurrentPageTitle()
@@ -23,8 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getCurrentPageTitle(): string {
-    this.activatedRouteSnapshot.data.subscribe(title => console.log(title))
-    return "Milad"
+    return this.appServices.actualRouteData['title']
   }
 
   // getCurrentPageIcon(): string {

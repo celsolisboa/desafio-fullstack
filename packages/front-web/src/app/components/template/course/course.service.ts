@@ -9,7 +9,22 @@ import { AppServicesService } from 'src/app/app-services.service';
 })
 export class CourseService {
 
+  formCourse: Course = {
+    id: '',
+    title: '',
+    teachers: [],
+    classes: [],
+    time: {
+      init: '',
+      end: ''
+    }
+  }
+
   constructor(private http: HttpClient, private appServices: AppServicesService) { }
+
+  setFormCourses(course: Course) {
+    this.formCourse = course
+  }
 
   showMessage(msg: string): void {
     this.appServices.showSnackBarMessage(msg)
@@ -21,5 +36,17 @@ export class CourseService {
 
   getCoursesAsync(): Observable<Course[]> {
     return this.http.get<Course[]>(`${this.appServices.BASE_URL}/cursos`)
+  }
+
+  getCourseByIdAsync(id: string): Observable<Course> {
+    return this.http.get<Course>(`${this.appServices.BASE_URL}/cursos/${id}`)
+  }
+
+  updateCourseAsync(course: Course): Observable<Course> {
+    return this.http.put<Course>(`${this.appServices.BASE_URL}/cursos/${course.id}`, course)
+  }
+
+  deleteCourseByIdAsync(id: string): Observable<Course> {
+    return this.http.delete<Course>(`${this.appServices.BASE_URL}/cursos/${id}`)
   }
 }

@@ -41,6 +41,7 @@
     <div class="course-create-button">
         <div class="course-create-button__actions">
             <button
+                *ngIf="typeForm == 'create'"
                 class="course-create-button__actions-create"
                 mat-raised-button 
                 (click)="createCourse()" 
@@ -50,12 +51,22 @@
             </button>
 
             <button
+                *ngIf="typeForm == 'create'"
                 class="course-create-button__actions-clear"
                 mat-raised-button 
                 (click)="clearFields()" 
                 color="secondary"
             >
                 Limpar Campos
+            </button>
+            <button
+                *ngIf="typeForm == 'edit'"
+                class="course-create-button__actions-create"
+                mat-raised-button 
+                (click)="editCourse()" 
+                color="primary"
+            >
+                Editar Curso
             </button>
         </div>
         <button

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { User } from './components/user.model'
 import { Router } from '@angular/router';
+import { Helpers } from './helpers/helpers.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,13 @@ import { Router } from '@angular/router';
 export class AppServicesService {
 
   BASE_URL = 'http://localhost:3001' 
+
+  actualRouteData: Object = {
+    title: '',
+    breadcrumb: '',
+    path: '',
+    icon: ''
+  }
 
   userLogin: User = {
     id: 0,
@@ -20,6 +28,7 @@ export class AppServicesService {
   }
 
   constructor(
+    private helpers: Helpers,
     private router: Router,
     private snackBar: MatSnackBar, 
     private http: HttpClient
@@ -36,6 +45,12 @@ export class AppServicesService {
 
   getUsersAsync(): Observable<User> {
     return this.http.get<User>(`${this.BASE_URL}/users`)
+  }
+
+  setActualRouteData(): void {
+    const actualPath = this.helpers.getCurrentPathName()
+    const newRouteData = this.helpers.routesData.filter(route => route.path == actualPath)[0]
+    if (newRouteData && this.actualRouteData != newRouteData) this.actualRouteData = newRouteData
   }
 
   showSnackBarMessage(msg: string): void {

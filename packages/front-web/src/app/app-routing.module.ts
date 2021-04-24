@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
-import { CourseCreateComponent } from './components/template/course/course-create/course-create.component';
+import { CourseEditComponent } from './components/template/course/course-edit/course-edit.component';
 import { CoursesComponent } from './views/courses/courses.component';
 
 const routes: Routes = [
@@ -36,7 +36,15 @@ const routes: Routes = [
       title: "Cursos",
       icon: "courses"
     },
-    component: CourseCreateComponent,
+    component: CourseEditComponent,
+  },
+  {
+    path: "courses/edit/:id",
+    data: {
+      title: "Cursos",
+      icon: "courses"
+    },
+    component: CourseEditComponent,
   }
 ]
 
