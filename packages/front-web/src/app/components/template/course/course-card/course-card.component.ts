@@ -43,8 +43,16 @@ export class CourseCardComponent implements OnInit {
   }
 
 
-  getFormattedTime(timeObj: any): String {
-    return `${timeObj.init} às ${timeObj.end}`
+  getFormattedTime(start_time: string, end_time: string): string {
+    return `${start_time} às ${end_time}`
+  }
+
+  getStringOfTeachers(teachers: string): string{
+    return JSON.parse(teachers).join(" , ")
+  }
+
+  getStringOfClasses(classes: string): string {
+    return JSON.parse(classes).join(" , ")
   }
 
   redirectEditCourse(course: Course): void {

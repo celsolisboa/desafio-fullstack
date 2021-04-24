@@ -14,7 +14,7 @@
             <input 
                 matInput 
                 placeholder="Professor" 
-                [(ngModel)]="course.teachers" 
+                [(ngModel)]="unformattedTeachers" 
                 name="teachers"
             >
         </mat-form-field>
@@ -23,17 +23,17 @@
             <input 
                 matInput 
                 placeholder="Salas"
-                [(ngModel)]="course.classes" 
+                [(ngModel)]="unformattedClasses" 
                 name="classes"
             >
         </mat-form-field>
 
         <div class="course-create-form__time">
             <mat-form-field class="course-create-form__time-init">
-                <input matInput placeholder="Horário Início">
+                <input matInput placeholder="Horário Início" [(ngModel)]="course.start_time" name="start_time">
             </mat-form-field>
             <mat-form-field class="course-create-form__time-end">
-                <input matInput placeholder="Horário Fim">
+                <input matInput placeholder="Horário Fim" [(ngModel)]="course.end_time" name="end_time">
             </mat-form-field>
         </div>
     </form>

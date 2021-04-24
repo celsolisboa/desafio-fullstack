@@ -13,15 +13,17 @@ export class CourseEditComponent implements OnInit {
 
   typeForm: string = "create"
 
+  unformattedTeachers: string = ''
+  unformattedClasses: string = ''
+
   course: Course = {
     id: '',
+    user_id: '',
     title: '',
     teachers: [],
     classes: [],
-    time: {
-      init: '',
-      end: ''
-    }
+    start_time: '',
+    end_time: '',
   }
 
   constructor(
@@ -48,6 +50,8 @@ export class CourseEditComponent implements OnInit {
   }
 
   createCourse(): void {
+    this.course.teachers = [this.unformattedTeachers]
+    this.course.classes = [this.unformattedClasses]
     this.courseService.postCourseAsync(this.course).subscribe(() => {
       this.courseService.showMessage('Curso criado com sucesso!')
       this.redirectToCourse()
@@ -65,7 +69,8 @@ export class CourseEditComponent implements OnInit {
     this.course.title = ''
     this.course.teachers = []
     this.course.classes = []
-    this.course.time = { init: '', end: '' }
+    this.course.start_time = '',
+    this.course.end_time = ''
   }
 
   redirectToCourse(): void {

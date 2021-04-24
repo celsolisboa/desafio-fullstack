@@ -21,10 +21,10 @@
           </div>
         </mat-card-header>
         <mat-card-content class="courses-card__content">
-            <p>{{course.teachers}}</p>
+            <p>{{getStringOfTeachers(course.teachers)}}</p>
             <div class="courses-card__content-informations">
-                <p>{{course.classes}}</p>
-                <p>{{getFormattedTime(course.time)}}</p>
+                <p>{{getStringOfClasses(course.classes)}}</p>
+                <p>{{getFormattedTime(course.start_time,course.end_time)}}</p>
             </div>
         </mat-card-content>
         <!-- <mat-card-actions>

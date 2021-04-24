@@ -11,14 +11,13 @@ import { AppServicesService } from 'src/app/app-services.service';
 export class CourseService {
 
   formCourse: Course = {
+    user_id: '',
     id: '',
     title: '',
     teachers: [],
     classes: [],
-    time: {
-      init: '',
-      end: ''
-    }
+    start_time: '',
+    end_time: '',
   }
 
   constructor(private http: HttpClient, private appServices: AppServicesService) { }
@@ -32,35 +31,37 @@ export class CourseService {
   }
 
   postCourseAsync(course: Course): Observable<Course> {
-    return this.http.post<Course>(`${this.appServices.BASE_URL}/cursos`, course).pipe(
+    course.user_id = this.appServices.userData.id
+    return this.http.post<Course>(`${this.appServices.BASE_URL}/courses`, course).pipe(
       map(obj => obj),
       catchError(err => this.appServices.handleErrorMessage(err))
     )
   }
 
   getCoursesAsync(): Observable<Course[]> {
-    return this.http.get<Course[]>(`${this.appServices.BASE_URL}/cursos`).pipe(
+    const request = `${this.appServices.BASE_URL}/courses/${this.appServices.userData.id}`
+    return this.http.get<Course[]>(request).pipe(
       map(obj => obj),
       catchError(err => this.appServices.handleErrorMessage(err))
     )
   }
 
   getCourseByIdAsync(id: string): Observable<Course> {
-    return this.http.get<Course>(`${this.appServices.BASE_URL}/cursos/${id}`).pipe(
+    return this.http.get<Course>(`${this.appServices.BASE_URL}/courses/${id}`).pipe(
       map(obj => obj),
       catchError(err => this.appServices.handleErrorMessage(err))
     )
   }
 
   updateCourseAsync(course: Course): Observable<Course> {
-    return this.http.put<Course>(`${this.appServices.BASE_URL}/cursos/${course.id}`, course).pipe(
+    return this.http.put<Course>(`${this.appServices.BASE_URL}/courses/${course.id}`, course).pipe(
       map(obj => obj),
       catchError(err => this.appServices.handleErrorMessage(err))
     )
   }
 
   deleteCourseByIdAsync(id: string): Observable<Course> {
-    return this.http.delete<Course>(`${this.appServices.BASE_URL}/cursos/${id}`).pipe(
+    return this.http.delete<Course>(`${this.appServices.BASE_URL}/courses/${id}`).pipe(
       map(obj => obj),
       catchError(err => this.appServices.handleErrorMessage(err))
     )
