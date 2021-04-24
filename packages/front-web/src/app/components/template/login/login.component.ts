@@ -1,7 +1,6 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppServicesService } from 'src/app/app-services.service';
-import { User } from '../../user.model';
 
 @Component({
   selector: 'app-login',
@@ -18,30 +17,22 @@ export class LoginComponent {
 
   handleSubmit() {
     if (this.username && this.password) {
-      this.appServices.getUsersAsync().subscribe(users => {
-          if (this.verifyUserAndPassword([users])) {
-            this.setUser([users])
-            this.router.navigate(['home'])
-            this.showMessage("Login realizado com sucesso!")
-          }
+      this.appServices.userData.email = this.username
+      this.appServices.userData.password = this.password
+      this.appServices.getUserAsync().subscribe(user => {
+        this.appServices.userData = user
+        this.setUserInSessionStorage(user.email, user.id)
+        this.router.navigate(['home'])
+        this.showMessage("Login realizado com sucesso!")
       })
-      // this.appServices.userLogin.name = this.username
       return
     }
     this.showMessage("Por favor digite o login e a senha")
   }
 
-  verifyUserAndPassword(users: any[]): boolean {
-    return users[0].some((user: { email: string; password: string; }) =>
-      user.email == this.username && user.password == this.password
-    )
-  }
-
-  setUser(users: any[]): void {
-    const getUser = users[0].filter((user: { email: string; password: string; }) =>
-      user.email == this.username && user.password == this.password
-    )[0]
-    this.appServices.userLogin = getUser
+  setUserInSessionStorage(email: string, id: string): void {
+    sessionStorage.setItem("userId", id)
+    sessionStorage.setItem("userEmail", email)
   }
 
   showMessage(msg: string): void {
