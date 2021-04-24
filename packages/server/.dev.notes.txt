@@ -1,0 +1,5 @@
+Criar uma migration: yarn typeorm migration:create -n CreateMigrationName
+Rodar uma migration: yarn typeorm migration:run
+Instalar tipagens de uma biblioteca: yarn add @types/biblioteca -D
+
+Fluxo de criação: migration -> entidade -> repository -> service -> controller
