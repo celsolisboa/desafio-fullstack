@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Milad Roghanian",
+      "email": "milad.roghanian@gmail.com",
+      "password": "milad123"
+    },
+    {
+      "id": 1,
+      "name": "Carlos Martel",
+      "email": "carlos.martel@gmail.com",
+      "password": "carlos123"
+    }
+  ],
+  "cursos": [
+    {
+      "id": 3,
+      "title": "Física Avançada",
+      "teachers": [
+        "Mário Quintana"
+      ],
+      "classes": [
+        302,
+        303
+      ],
+      "time": {
+        "init": "14:45",
+        "end": "18:00"
+      }
+    },
+    {
+      "id": 4,
+      "title": "História",
+      "teachers": [
+        "Ruy Barbosa",
+        "Agatha Christie"
+      ],
+      "classes": [
+        402
+      ],
+      "time": {
+        "init": "14:45",
+        "end": "18:00"
+      }
+    },
+    {
+      "title": "Biologia",
+      "teachers": "Marcos souza",
+      "classes": "001",
+      "time": {
+        "init": "",
+        "end": ""
+      },
+      "id": 6
+    }
+  ]
+}
