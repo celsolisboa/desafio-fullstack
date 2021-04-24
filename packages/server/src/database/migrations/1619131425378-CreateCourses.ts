@@ -29,6 +29,14 @@ export class CreateCourses1619131425378 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "start_time",
+                        type: "varchar"
+                    },
+                    {
+                        name: "end_time",
+                        type: "varchar"
+                    },
+                    {
                         name: "updated_at",
                         type: "timestamp",
                         default: "now()"

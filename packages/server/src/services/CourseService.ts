@@ -9,6 +9,8 @@ interface ICourseCreate {
     title: string;
     teachers: string;
     classes: string;
+    start_time: string;
+    end_time: string;
 }
 
 class CourseService {
@@ -20,7 +22,7 @@ class CourseService {
         this.coursesRepository = getCustomRepository(CoursesRepository)
     }
 
-    async create({ user_id, title, teachers, classes }: ICourseCreate) { 
+    async create({ user_id, title, teachers, classes, start_time, end_time}: ICourseCreate) { 
         const userExists = await this.usersRepository.findOne({ id: user_id })
 
         if(!userExists) throw new Error("User do not exists!")
@@ -36,7 +38,9 @@ class CourseService {
             user_id,
             title,
             teachers,
-            classes
+            classes,
+            start_time,
+            end_time
         })
 
         await this.coursesRepository.save(courses)

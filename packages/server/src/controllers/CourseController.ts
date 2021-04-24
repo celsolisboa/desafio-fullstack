@@ -3,12 +3,14 @@ import { CourseService } from '../services/CourseService'
 
 class CourseController {
     async create(req: Request, res: Response): Promise<Response> {
-        const { user_id, title, teachers, classes } = req.body
+        const { user_id, title, teachers, classes, start_time, end_time } = req.body
 
         const courseService = new CourseService()
 
         try {
-            const course = await courseService.create({ user_id, title, teachers, classes })
+            const course = await courseService.create(
+                { user_id, title, teachers, classes, start_time, end_time }
+            )
 
             return res.json(course)
         } catch (err) {

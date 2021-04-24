@@ -33,6 +33,12 @@ class Course {
     @Column()
     classes: string;
 
+    @Column()
+    start_time: string;
+
+    @Column()
+    end_time: string;
+
     @UpdateDateColumn()
     updated_at: Date;
 
