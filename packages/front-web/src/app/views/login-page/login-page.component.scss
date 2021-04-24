@@ -1,0 +1,18 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+  }
+
+  &__login {
+    margin-top: 24px;
+    padding: 0;
+    width: 200px;
+  }
+}
