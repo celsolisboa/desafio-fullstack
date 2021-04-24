@@ -4,7 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { User } from './components/user.model'
 import { Router } from '@angular/router';
-import { Helpers } from './helpers/helpers.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +11,6 @@ import { Helpers } from './helpers/helpers.service';
 export class AppServicesService {
 
   BASE_URL = 'http://localhost:3001' 
-
-  actualRouteData: Object = {
-    title: '',
-    breadcrumb: '',
-    path: '',
-    icon: ''
-  }
 
   userLogin: User = {
     id: 0,
@@ -28,11 +20,10 @@ export class AppServicesService {
   }
 
   constructor(
-    private helpers: Helpers,
     private router: Router,
     private snackBar: MatSnackBar, 
     private http: HttpClient
-  ) {}
+  ) { }
 
   isLoggedIn(): boolean {
     return !!this.userLogin.email
@@ -47,17 +38,12 @@ export class AppServicesService {
     return this.http.get<User>(`${this.BASE_URL}/users`)
   }
 
-  setActualRouteData(): void {
-    const actualPath = this.helpers.getCurrentPathName()
-    const newRouteData = this.helpers.routesData.filter(route => route.path == actualPath)[0]
-    if (newRouteData && this.actualRouteData != newRouteData) this.actualRouteData = newRouteData
-  }
-
-  showSnackBarMessage(msg: string): void {
+  showSnackBarMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: 'right',
-      verticalPosition: 'top'
+      verticalPosition: 'top',
+      panelClass: isError ? ['msg-error'] : ['msg-success']
     })
   }
 }

@@ -2,6 +2,7 @@ import { CourseService } from "../course.service";
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../course.model';
 import { Router } from "@angular/router";
+import { HeaderService } from "../../header/header.service";
 
 @Component({
   selector: 'app-course-edit',
@@ -24,11 +25,18 @@ export class CourseEditComponent implements OnInit {
   }
 
   constructor(
+    private headerService: HeaderService,
     private courseService: CourseService, 
     private router: Router
     ) {
       this.setIfIsCreateOrEdit()
       if (this.typeForm == 'edit') this.course = this.courseService.formCourse
+
+      headerService.headerData = {
+        title: this.typeForm=='edit' ? 'Editar Curso' : 'Cadastro de Curso',
+        icon: this.typeForm=='edit' ? 'edit' : 'add',
+        routeUrl: this.typeForm=='edit' ? `/courses/edit/${this.course.id}` : '/courses/create'
+      }
   }
 
   ngOnInit(): void {}

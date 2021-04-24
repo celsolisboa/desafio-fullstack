@@ -29,7 +29,6 @@ import { CourseEditComponent } from './components/template/course/course-edit/co
 import { CoursesComponent } from './views/courses/courses.component';
 import { PrimaryDirective } from './directives/primary.directive';
 import { ConfirmDialogComponent } from './helpers/components/confirm-dialog/confirm-dialog.component';
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterEvent } from '@angular/router';
 import { AppServicesService } from 'src/app/app-services.service';
+import { HeaderService } from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -10,28 +10,26 @@ import { AppServicesService } from 'src/app/app-services.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    private headerService: HeaderService,
     private appServices: AppServicesService
   ) {
-    
-    this.router.events.subscribe(event => {
-      this.appServices.setActualRouteData()
-    })
   }
 
-  ngOnInit(): void {
-    this.getCurrentPageTitle()
-  }
+  ngOnInit(): void {}
 
   logoutUser(): void {
     this.appServices.logout()
   }
 
-  getCurrentPageTitle(): string {
-    return this.appServices.actualRouteData['title']
+  get title(): string {
+    return this.headerService.headerData.title
   }
 
-  // getCurrentPageIcon(): string {
-  //   return this.activatedRouteSnapshot.snapshot.data['icon']
-  // }
+  get icon(): string {
+    return this.headerService.headerData.icon
+  }
+
+  get routeUrl(): string {
+    return this.headerService.headerData.routeUrl
+  }
 }
