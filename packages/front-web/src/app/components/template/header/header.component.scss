@@ -7,6 +7,10 @@
   display: flex;
   justify-content: space-between;
 
+  &__button-hamburger {
+    color: #fff;
+  }
+
   &__block {
     display: flex;
     align-items: center;
@@ -19,6 +23,7 @@
     align-items: center;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
 
     &-text {
       font-size: 1.6rem;
@@ -34,7 +39,7 @@
     flex-direction: row;
     align-items: center;
     text-decoration: none;
-    padding-left: 25px;
+    padding-left: 15px;
     color: #fff;
     cursor: pointer;
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './components/user.model'
 import { Router } from '@angular/router';
 
@@ -18,6 +18,8 @@ export class AppServicesService {
     email: "",
     password: ""
   }
+
+  private _drawerSideNav = new BehaviorSubject<boolean>(false)
 
   constructor(
     private router: Router,
@@ -45,5 +47,13 @@ export class AppServicesService {
       verticalPosition: 'top',
       panelClass: isError ? ['msg-error'] : ['msg-success']
     })
+  }
+
+  get drawerSideNav(): boolean {
+    return this._drawerSideNav.value
+  }
+
+  set drawerSideNav(data: boolean) {
+    this._drawerSideNav.next(data)
   }
 }

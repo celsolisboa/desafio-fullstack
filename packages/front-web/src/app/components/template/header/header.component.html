@@ -1,8 +1,18 @@
 <mat-toolbar class="header mat-elevation-z4">
     <div class="header__block">
-        <span>
+        <button class="header__button-hamburger"
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="openSideNav()"
+            *ngIf="(isHandset | async)!.matches"
+        >
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+        <span *ngIf="!(isHandset | async)!.matches">
             <a class="header header__link" routerLink="/home">
-            <h1 class="header header__link-text">Teste LigaEdu</h1> 
+                <h1 class="header header__link-text">App LigaEdu</h1> 
             </a>
         </span>
         <span>

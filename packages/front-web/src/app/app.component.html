@@ -1,8 +1,10 @@
 <div>
     <div *ngIf="isUserLoggedIn()">
-        <app-header></app-header>
+        <app-header (sideNavDraw)="drawer=$event"></app-header>
         <app-nav-menu></app-nav-menu>
-        <div class="align-in-container"><router-outlet></router-outlet></div>
+        <div [ngClass]="{'align-in-container': !(isHandset | async)!.matches}">
+            <router-outlet></router-outlet>
+        </div>
         <app-footer></app-footer>
     </div>
     <app-login-page *ngIf="!isUserLoggedIn()"></app-login-page>

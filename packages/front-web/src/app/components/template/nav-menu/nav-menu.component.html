@@ -1,10 +1,19 @@
 <mat-sidenav-container>
     <mat-sidenav 
+        fixedInViewport="true"
         class="sidenav nav-container" 
         mode="side"
-        opened 
-        fixedInViewport="true"
-        fixedTopGap="64">
+        [attr.role]="isHandset ? 'dialog' : 'navigation'"
+        [mode]="!(isHandset | async)!.matches ? 'over' : 'side'"
+        [opened]="!(isHandset | async)!.matches || drawer"
+        fixedTopGap="56"
+    >
+        <mat-toolbar 
+            *ngIf="(isHandset | async)!.matches"
+            class="nav-container__mobile-toolbar"
+        >
+            App LigaEdu
+        </mat-toolbar>
         <mat-nav-list class="nav-container__nav-list">
             <a class="nav-container__nav-list-icon"
                 routerLink="/home" 
