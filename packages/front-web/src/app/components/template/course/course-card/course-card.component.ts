@@ -18,7 +18,7 @@ export class CourseCardComponent implements OnInit {
     private courseService: CourseService, 
     private router: Router,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.courseService.getCoursesAsync().subscribe(courses => {
@@ -47,12 +47,16 @@ export class CourseCardComponent implements OnInit {
     return `${start_time} às ${end_time}`
   }
 
-  getStringOfTeachers(teachers: string): string{
-    return JSON.parse(teachers).join(" , ")
+  getStringOfTeachers(teachers: any): string {
+    const parsedTeachers = JSON.parse(teachers)
+    if(parsedTeachers.length > 2) return `${parsedTeachers.slice(0,2).join(" , ")}...`
+    return parsedTeachers.join(" , ")
   }
 
-  getStringOfClasses(classes: string): string {
-    return JSON.parse(classes).join(" , ")
+  getStringOfClasses(classes: any): string {
+    const parsedClasses = JSON.parse(classes)
+    if(parsedClasses.length > 2) return `${parsedClasses.slice(0,2).join(" , ")}...`
+    return parsedClasses.join(" , ")
   }
 
   redirectEditCourse(course: Course): void {

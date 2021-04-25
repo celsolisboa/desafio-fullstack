@@ -16,8 +16,8 @@ export class CourseEditComponent implements OnInit {
 
   typeForm: string = "create"
 
-  unformattedTeachers: string = ''
-  unformattedClasses: string = ''
+  unformattedTeachers: any = ''
+  unformattedClasses: any = ''
 
   course: Course = {
     id: '',
@@ -36,7 +36,7 @@ export class CourseEditComponent implements OnInit {
     private router: Router
     ) {
       this.setIfIsCreateOrEdit()
-      if (this.typeForm == 'edit') this.course = this.courseService.formCourse
+      if (this.typeForm == 'edit') this.setCourseFromFormCourse()
 
       headerService.headerData = {
         title: this.typeForm=='edit' ? 'Editar Curso' : 'Criar Curso',
@@ -53,6 +53,19 @@ export class CourseEditComponent implements OnInit {
     if (arrPath[arrPath.length-1] != 'create') this.typeForm = "edit"
   }
 
+  setCourseFromFormCourse(): void {
+    this.course = this.courseService.formCourse
+    this.unformattedClasses = this.course.classes
+    this.unformattedTeachers = this.course.teachers
+    this.unformattedClasses = JSON.parse(this.unformattedClasses).join(',')
+    this.unformattedTeachers = JSON.parse(this.unformattedTeachers).join(',')
+  }
+
+  formatCoursesForSubmission(): void {
+    this.course.teachers = JSON.stringify(this.unformattedTeachers.trim().split(','))
+    this.course.classes = JSON.stringify(this.unformattedClasses.trim().split(','))
+  }
+
   createCourse(): void {
     this.course.teachers = [this.unformattedTeachers]
     this.course.classes = [this.unformattedClasses]
@@ -63,6 +76,7 @@ export class CourseEditComponent implements OnInit {
   }
 
   editCourse(): void {
+    this.formatCoursesForSubmission()
     this.courseService.updateCourseAsync(this.course).subscribe(() => {
       this.courseService.showMessage('Curso editado com sucesso!')
       this.redirectToCourse()
