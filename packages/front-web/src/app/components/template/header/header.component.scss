@@ -1,0 +1,55 @@
+.header {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0;
+  z-index: 1000;
+  background-color: #009688;
+  display: flex;
+  justify-content: space-between;
+
+  &__button-hamburger {
+    color: #fff;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+
+    &-text {
+      font-size: 1.6rem;
+    }
+
+    &-logo {
+      max-height: 200px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 15px;
+    color: #fff;
+    cursor: pointer;
+
+    &-text {
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &-icon {
+    }
+  }
+}

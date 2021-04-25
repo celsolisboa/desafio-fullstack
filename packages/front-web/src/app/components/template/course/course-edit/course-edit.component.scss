@@ -1,0 +1,61 @@
+.course-create {
+  &-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 28px 0 8px;
+
+    &__title {
+    }
+
+    &__teacher {
+    }
+
+    &__class {
+    }
+
+    &__time {
+      &-init {
+      }
+
+      &-end {
+        margin-left: 18px;
+      }
+    }
+
+    &__time-mobile {
+      display: flex;
+      flex-direction: column;
+      &-end {
+        margin: 0;
+      }
+    }
+  }
+
+  &-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-left: 10px;
+
+    &__actions {
+      &-create {
+        margin-right: 12px;
+      }
+
+      &-clear {
+        margin-left: 12px;
+      }
+
+      &-mobile {
+        &-clear {
+          margin: 12px 0 0 0;
+        }
+      }
+    }
+
+    &__cancel {
+      margin-right: 24px;
+    }
+  }
+}

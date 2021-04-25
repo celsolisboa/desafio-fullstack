@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.v-middle {
+  vertical-align: middle;
+}
+
+.align-in-container {
+  margin: 12px 0 0 210px;
+  padding-bottom: 70px;
+}
+
+.primary {
+  color: #e35e6b;
+}
+
+.msg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.msg-error {
+  background-color: #e35e6b;
+  color: #fff;
+}

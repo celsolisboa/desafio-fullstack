@@ -1,0 +1,35 @@
+<div class="courses">
+    <mat-card 
+        class="courses-card mat-elevation-z3"
+        *ngFor="let course of courses"
+    >
+        <mat-card-header class="courses-card__title">
+          <mat-card-title class="courses-card__title-text">{{course.title}}</mat-card-title>
+          <div class="courses-card__title-icons">
+            <i 
+              class="material-icons courses-card__title-icons-edit" 
+              (click)=redirectEditCourse(course)
+            >
+              edit
+            </i>
+            <i 
+              class="material-icons courses-card__title-icons-delete"
+              (click)="openDialog(course.title, course.id)"
+            >
+              delete
+            </i>
+          </div>
+        </mat-card-header>
+        <mat-card-content class="courses-card__content">
+            <p>{{getStringOfTeachers(course.teachers)}}</p>
+            <div class="courses-card__content-informations">
+                <p>{{getStringOfClasses(course.classes)}}</p>
+                <p>{{getFormattedTime(course.start_time,course.end_time)}}</p>
+            </div>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+      </mat-card>
+</div>

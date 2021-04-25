@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-title>{{actionButton}}</mat-card-title>
+    <mat-card-content>
+        <form>
+            <p *ngIf="actionButton=='Cadastrar-se'">
+                <mat-form-field>
+                    <input 
+                        type="text" 
+                        matInput 
+                        placeholder="Nome" 
+                        [(ngModel)]="userData.name" 
+                        name="name"
+                    >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                <input type="text" matInput placeholder="Usuário" [(ngModel)]="userData.email" name="email">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                <input type="password" matInput placeholder="Senha" [(ngModel)]="userData.password" name="password">
+                </mat-form-field>
+            </p>
+
+            <p *ngIf="error" class="error">
+                {{ error }}
+            </p>
+
+            <div class="button">
+                <button type="submit" mat-button (click)="handleSubmit()">{{actionButton}}</button>
+            </div>
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button 
+            mat-button
+            (click)="subscribeAction()"
+            *ngIf="actionButton=='Cadastrar-se'"
+        >
+            Voltar
+        </button>
+        <button 
+            mat-button
+            (click)="subscribeAction()"
+            *ngIf="actionButton=='Login'"
+        >
+            Inscrever-se
+        </button>
+    </mat-card-actions>
+</mat-card>
+

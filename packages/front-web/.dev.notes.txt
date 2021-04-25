@@ -1,0 +1,3 @@
+para gerar um component: ng g c path/nome-do-componente
+para gerar um service: ng g s path/nome-do-service
+para gerar um directive: ng g d path/nome-da-diretiva

@@ -1,0 +1,90 @@
+<mat-card class="course-create">
+    <mat-card-title>Novo curso</mat-card-title>
+    <form class="course-create-form">
+        <mat-form-field class="course-create-form__title">
+            <input 
+                matInput 
+                placeholder="Título" 
+                [(ngModel)]="course.title" 
+                name="title"
+            >
+        </mat-form-field>
+
+        <mat-form-field class="course-create-form__teacher" >
+            <input 
+                matInput 
+                placeholder="Professor" 
+                [(ngModel)]="unformattedTeachers" 
+                name="teachers"
+            >
+        </mat-form-field>
+
+        <mat-form-field class="course-create-form__class"> 
+            <input 
+                matInput 
+                placeholder="Salas"
+                [(ngModel)]="unformattedClasses" 
+                name="classes"
+            >
+        </mat-form-field>
+
+        <div 
+            class="course-create-form__time"
+            [ngClass]="{'course-create-form__time-mobile': (isHandset | async)!.matches}"
+        >
+            <mat-form-field class="course-create-form__time-init">
+                <input matInput placeholder="Horário Início" [(ngModel)]="course.start_time" name="start_time">
+            </mat-form-field>
+            <mat-form-field 
+                class="course-create-form__time-end"
+                [ngClass]="{'course-create-form__time-mobile-end': (isHandset | async)!.matches}"
+            >
+                <input matInput placeholder="Horário Fim" [(ngModel)]="course.end_time" name="end_time">
+            </mat-form-field>
+        </div>
+    </form>
+    
+    <div class="course-create-button">
+        <div class="course-create-button__actions">
+            <button
+                *ngIf="typeForm == 'create'"
+                class="course-create-button__actions-create"
+                mat-raised-button 
+                (click)="createCourse()" 
+                color="primary"
+            >
+                Criar Curso
+            </button>
+
+            <button
+                *ngIf="typeForm == 'create'"
+                class="course-create-button__actions-clear"
+                mat-raised-button 
+                (click)="clearFields()"
+                [ngClass]="{'course-create-button__actions-mobile-clear': (isHandset | async)!.matches}"
+                color="secondary"
+            >
+                Limpar Campos
+            </button>
+            <button
+                *ngIf="typeForm == 'edit'"
+                class="course-create-button__actions-create"
+                mat-raised-button 
+                (click)="editCourse()" 
+                color="primary"
+            >
+                Editar Curso
+            </button>
+        </div>
+        <button
+            class="course-create-button__cancel"
+            mat-raised-button 
+            (click)="redirectToCourse()" 
+            color="secondary"
+        >
+            Voltar
+        </button>
+    </div>
+</mat-card>
+
+
