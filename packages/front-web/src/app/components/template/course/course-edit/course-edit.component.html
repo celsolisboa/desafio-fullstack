@@ -28,11 +28,17 @@
             >
         </mat-form-field>
 
-        <div class="course-create-form__time">
+        <div 
+            class="course-create-form__time"
+            [ngClass]="{'course-create-form__time-mobile': (isHandset | async)!.matches}"
+        >
             <mat-form-field class="course-create-form__time-init">
                 <input matInput placeholder="Horário Início" [(ngModel)]="course.start_time" name="start_time">
             </mat-form-field>
-            <mat-form-field class="course-create-form__time-end">
+            <mat-form-field 
+                class="course-create-form__time-end"
+                [ngClass]="{'course-create-form__time-mobile-end': (isHandset | async)!.matches}"
+            >
                 <input matInput placeholder="Horário Fim" [(ngModel)]="course.end_time" name="end_time">
             </mat-form-field>
         </div>
@@ -54,7 +60,8 @@
                 *ngIf="typeForm == 'create'"
                 class="course-create-button__actions-clear"
                 mat-raised-button 
-                (click)="clearFields()" 
+                (click)="clearFields()"
+                [ngClass]="{'course-create-button__actions-mobile-clear': (isHandset | async)!.matches}"
                 color="secondary"
             >
                 Limpar Campos

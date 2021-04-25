@@ -21,6 +21,14 @@
         margin-left: 18px;
       }
     }
+
+    &__time-mobile {
+      display: flex;
+      flex-direction: column;
+      &-end {
+        margin: 0;
+      }
+    }
   }
 
   &-button {
@@ -37,6 +45,12 @@
 
       &-clear {
         margin-left: 12px;
+      }
+
+      &-mobile {
+        &-clear {
+          margin: 12px 0 0 0;
+        }
       }
     }
 

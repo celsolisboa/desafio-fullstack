@@ -41,6 +41,7 @@ export class AppServicesService {
 
     sessionStorage.removeItem('userId')
     sessionStorage.removeItem('userEmail')
+    sessionStorage.removeItem('userName')
 
     this.router.navigate(['/'])
   }
@@ -48,16 +49,25 @@ export class AppServicesService {
   getAndSetUserInSessionStorage(): void {
     const id = sessionStorage.getItem("userId")
     const email = sessionStorage.getItem("userEmail")
+    const name = sessionStorage.getItem("userName")
 
-    if(id && email) {
+    if(id && email && name) {
       this.userData.id = id
       this.userData.email = email
+      this.userData.name = name
     }
   }
 
   getUserAsync(): Observable<User> {
     const queryString = `${this.BASE_URL}/users?email=${this.userData.email}&password=${this.userData.password}`
     return this.http.get<User>(queryString).pipe(
+      map(obj => obj),
+      catchError(err => this.handleErrorMessage(err))
+    )
+  }
+
+  postUserAsync(user: User): Observable<User> {
+    return this.http.post<User>(`${this.BASE_URL}/users`,user).pipe(
       map(obj => obj),
       catchError(err => this.handleErrorMessage(err))
     )

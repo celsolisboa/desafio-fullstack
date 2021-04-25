@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../course.model';
 import { Router } from "@angular/router";
 import { HeaderService } from "../../header/header.service";
+import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-course-edit',
@@ -10,6 +12,7 @@ import { HeaderService } from "../../header/header.service";
   styleUrls: ['./course-edit.component.scss']
 })
 export class CourseEditComponent implements OnInit {
+  isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset)
 
   typeForm: string = "create"
 
@@ -27,6 +30,7 @@ export class CourseEditComponent implements OnInit {
   }
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private headerService: HeaderService,
     private courseService: CourseService, 
     private router: Router
@@ -35,7 +39,7 @@ export class CourseEditComponent implements OnInit {
       if (this.typeForm == 'edit') this.course = this.courseService.formCourse
 
       headerService.headerData = {
-        title: this.typeForm=='edit' ? 'Editar Curso' : 'Cadastro de Curso',
+        title: this.typeForm=='edit' ? 'Editar Curso' : 'Criar Curso',
         icon: this.typeForm=='edit' ? 'edit' : 'add',
         routeUrl: this.typeForm=='edit' ? `/courses/edit/${this.course.id}` : '/courses/create'
       }
@@ -67,8 +71,8 @@ export class CourseEditComponent implements OnInit {
 
   clearFields(): void {
     this.course.title = ''
-    this.course.teachers = []
-    this.course.classes = []
+    this.unformattedTeachers = ''
+    this.unformattedClasses = ''
     this.course.start_time = '',
     this.course.end_time = ''
   }
