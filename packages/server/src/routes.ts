@@ -11,5 +11,7 @@ routes.post("/users", userController.create)
 routes.get("/users", userController.findUserByEmailAndPassword)
 routes.post("/courses", courseController.create)
 routes.get("/courses/:id", courseController.findByUser)
+routes.put("/courses/:id", courseController.putCourse)
+routes.delete("/courses/:id", courseController.deleteCourseById)
 
 export { routes }

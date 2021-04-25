@@ -5,6 +5,7 @@ import { CoursesRepository } from "../repositories/CoursesRepository"
 import { UsersRepository } from "../repositories/UsersRepository"
 
 interface ICourseCreate {
+    id?: string;
     user_id: string;
     title: string;
     teachers: string;
@@ -34,7 +35,7 @@ class CourseService {
         teachers = JSON.stringify(teachers)
         classes = JSON.stringify(classes)
 
-        const courses = this.coursesRepository.create({
+        const course = this.coursesRepository.create({
             user_id,
             title,
             teachers,
@@ -43,15 +44,48 @@ class CourseService {
             end_time
         })
 
-        await this.coursesRepository.save(courses)
+        await this.coursesRepository.save(course)
 
-        return courses
+        return course
     }
 
     async listByUser(user_id: string) { 
         const listCourses = await this.coursesRepository.find({user_id})
 
         return listCourses
+    }
+
+    async updateCourse ({ id, user_id, title, teachers, classes, start_time, end_time}: ICourseCreate) {
+        const courseExists = await this.coursesRepository.findOne({ id })
+
+        if(!courseExists) throw new Error("Course do not exists!")
+        
+        const course = this.coursesRepository.create({
+            user_id,
+            title,
+            teachers,
+            classes,
+            start_time,
+            end_time
+        })
+        
+        const updatedCourse = await this.coursesRepository.update(id, course)
+
+        if (updatedCourse) return course
+
+        throw new Error("Error in update course!")
+    }
+
+    async deleteCourse (id: string) {
+        const courseExists = await this.coursesRepository.findOne({ id })
+
+        if(!courseExists) throw new Error("Course do not exists!")
+        
+        const deletedCourse = await this.coursesRepository.delete(id)
+
+        if (deletedCourse) return courseExists
+
+        throw new Error("Error in update course!")
     }
 }
 
