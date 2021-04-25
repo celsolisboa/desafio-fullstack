@@ -5,14 +5,14 @@ import { BehaviorSubject, Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { User } from './components/user.model'
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppServicesService {
 
-  //https://mocki.io/v1/c9125120-8fde-4a5f-896c-4eb75bcc4b71
-  BASE_URL = 'http://localhost:3000' 
+  BASE_URL = environment.API_URL || 'http://localhost:3000' 
 
   private _userData = new BehaviorSubject<User>({
     id: '',

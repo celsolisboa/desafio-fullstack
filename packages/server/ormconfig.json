@@ -1,6 +1,12 @@
 {
-    "type": "sqlite",
-    "database": "./src/database/database.sqlite",
+    "type": "postgres",
+    "host": "appligaedu.cbo2ws86calo.sa-east-1.rds.amazonaws.com",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "",
+    "synchronize": true,
+    "logging": false,
     "migrations": ["./src/database/migrations/**.ts"],
     "entities": ["./src/entities/**.ts"],
     "cli": {
