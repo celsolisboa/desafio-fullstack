@@ -1,0 +1,28 @@
+<div class="main">
+  <div fxFlex fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <form [formGroup]="loginForm">
+      <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+        <div class="mat-h2">Login</div>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="text" formControlName="email" required>
+          <mat-error *ngIf="loginForm.controls.email.errors && loginForm.controls.email.errors.required">E-mail é obrigatório</mat-error>
+          <mat-error *ngIf="loginForm.controls.email.errors && loginForm.controls.email.errors.email">E-mail com formato inválido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.controls.password.errors && loginForm.controls.password.errors.required">Senha é obrigatória</mat-error>
+          <mat-error *ngIf="loginForm.controls.password.errors && loginForm.controls.password.errors.minlength && loginForm.controls.password.errors.minlength.requiredLength">Mínimo 8 caracteres</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="w-100" [disabled]="loginForm.invalid" (click)="goToListCourses()">
+          Acessar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

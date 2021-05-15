@@ -1,0 +1,48 @@
+:host(app-courses) {
+  mat-card {
+    border: 1px solid;
+    padding: 8px 0px;
+  }
+  
+  mat-card-title {
+    margin-bottom: 0;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .m-4 {
+    margin: 4px;
+  }
+
+  .px-16 {
+    padding: 0 16px;
+
+    p {
+      margin: 0;
+      word-break: break-word;
+      max-width: 41vw;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.center {
+        text-align: end;
+      }
+    }
+  }
+
+  .px-18{
+    padding: 0 18px;
+  }
+
+  .mt-0 {
+    margin-top: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    mat-card {
+      width: 95%;
+    }
+  }
+}

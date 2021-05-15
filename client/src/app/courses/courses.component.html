@@ -1,0 +1,37 @@
+<p class="mt-0">
+  <mat-toolbar color="primary">
+    <div fxFlex></div>
+    <span>Cursos</span>
+    <div fxFlex></div>
+    <button mat-icon-button (click)="goToAdd()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<div class="px-18">
+  <div fxFlex fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="start center" fxFill>
+    <div class="mat-h2" *ngIf="!courses.length">Nenhum curso encontrado</div>
+    <mat-card fxFlex="50" fxFlex.xs="100" *ngFor="let course of courses">
+      <mat-card-header>
+        <mat-card-title (click)="edit(course.id)">{{ course.name }}</mat-card-title>
+        <div fxFlex></div>
+        <button mat-icon-button (click)="delete(course.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxFlex fxLayout="column" class="px-16">
+          <div fxLayout=row>
+            <p>{{ course.teachers }}</p>
+            <p></p>
+          </div>
+          <div fxLayout=row fxLayoutAlign="space-between center">
+            <p>{{ course.rooms }}</p>
+            <p class="center">{{ course.start_at }} às {{ course.end_at }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
