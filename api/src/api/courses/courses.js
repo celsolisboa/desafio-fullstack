@@ -36,7 +36,6 @@ const accounts = {
   delete: async (request, response) => {
     try {
       await coursesActions.remove(request.params.id)
-      console.log('archived')
       return response.status(202).json({})
     } catch (error) {
       return response.status(422).send(error)

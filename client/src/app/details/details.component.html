@@ -1,0 +1,65 @@
+<p class="mt-0">
+  <mat-toolbar color="primary">
+    <div fxFlex></div>
+    <span>Detalhe do curso</span>
+    <div fxFlex></div>
+  </mat-toolbar>
+</p>
+
+<div class="main">
+  <div fxFlex fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <form [formGroup]="courseForm">
+      <div fxFlex fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="4px grid">
+        <mat-form-field appearance="outline" fxFlex="50" fxFlex.xs="100">
+          <mat-label>Nome do curso</mat-label>
+          <input matInput type="text" formControlName="name" required>
+          <mat-error *ngIf="courseForm.controls.name.errors && courseForm.controls.name.errors.required">Nome é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="50" fxFlex.xs="100">
+          <mat-label>Professores</mat-label>
+          <mat-select formControlName="teachers" multiple>
+            <mat-select-trigger>
+              {{courseForm.controls.teachers.value ? courseForm.controls.teachers.value[0] : ''}}
+              <span *ngIf="courseForm.controls.teachers.value?.length > 1">
+                (+{{courseForm.controls.teachers.value.length - 1}} {{courseForm.controls.teachers.value?.length === 2 ? 'professor' : 'professores'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let teacher of teachersList" [value]="teacher">{{teacher}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="courseForm.controls.teachers.errors && courseForm.controls.teachers.errors.required">Escolha 1 professor pelo menos</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="50" fxFlex.xs="100">
+          <mat-label>Salas</mat-label>
+          <mat-select formControlName="rooms" multiple>
+            <mat-select-trigger>
+              {{courseForm.controls.rooms.value ? courseForm.controls.rooms.value[0] : ''}}
+              <span *ngIf="courseForm.controls.rooms.value?.length > 1">
+                (+{{courseForm.controls.rooms.value.length - 1}} {{courseForm.controls.rooms.value?.length === 2 ? 'sala' : 'salas'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let room of roomsList" [value]="room">{{room}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="courseForm.controls.rooms.errors && courseForm.controls.rooms.errors.required">Escolha 1 sala pelo menos</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="25" fxFlex.xs="50">
+          <mat-label>Início</mat-label>
+          <input matInput type="time" formControlName="start_at" required>
+          <mat-error *ngIf="courseForm.controls.start_at.errors && courseForm.controls.start_at.errors.required">Início é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="25" fxFlex.xs="50">
+          <mat-label>Fim</mat-label>
+          <input matInput type="time" formControlName="end_at" required>
+          <mat-error *ngIf="courseForm.controls.end_at.errors && courseForm.controls.end_at.errors.required">Fim é obrigatório</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="courseForm.invalid">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

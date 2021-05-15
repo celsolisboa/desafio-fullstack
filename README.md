@@ -25,3 +25,11 @@ npm install -g jest eslint db-migrate db-migrate-pg
 
 ## Instalação Client
 
+```shellscript
+npm install
+npm install -g @angular/cli@8.2.2
+```
+
+## Executar API
+
+`cd client/ && npm start`
