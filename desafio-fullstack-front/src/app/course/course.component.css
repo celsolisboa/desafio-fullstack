@@ -1,0 +1,83 @@
+.main {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+
+.grid-list-courses {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-content-course {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.left {
+    text-align: left !important;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.grid-container .grid-item img {
+    margin-top: 14px;
+}
+
+.container-center {
+    width: 100% !important;
+}
+
+.container-content {
+    padding: 40px;
+}
+
+.teachers {
+    text-align: left;
+    margin: 0;
+}
+
+.classrooms {
+    margin: 0;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+.schedule {
+    margin: 0;
+}
+
+.card {
+    margin: 10px;
+    padding: 20px;
+    border: 2px black solid;
+    border-radius: 5px;
+}
+
+.container-header {
+    text-align: center;
+    background-color: #bdbdbd;
+    width: 100% !important;
+}
+
+.container-header h1 {
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+}

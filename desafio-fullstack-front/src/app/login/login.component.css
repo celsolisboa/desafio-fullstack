@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.login {
+    text-align: center;
+    width: 400px;
+}
+
+.login h1 {
+    text-align: center;
+}
+
+.input-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input-container input {
+    width: 400px;
+    height: 30px;
+    background-color: #fff !important;
+    box-shadow: none !important;
+}
+
+.button-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button-container button {
+    height: 40px;
+    width: 150px;
+    background-color: black;
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .login {
+        text-align: center;
+        width: 250px;
+    }
+
+    .input-container input {
+        width: 250px;
+    }
+}

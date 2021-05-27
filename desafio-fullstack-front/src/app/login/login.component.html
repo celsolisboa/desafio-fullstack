@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="container-center">
+    <div class="login">
+      <h1>Login</h1>
+      <div class="form" [formGroup]="formGroup">
+        <div class="input-container">
+          <input formControlName="email" placeholder="E-mail" type="email">
+        </div>
+        <div class="input-container">
+          <input formControlName="password" placeholder="Senha" type='password'>
+        </div>
+        <div class="button-container">
+          <button [disabled]="loading" (click)="login()">{{ loading ? 'Acessando...' : 'Acessar' }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

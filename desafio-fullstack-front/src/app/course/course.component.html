@@ -1,0 +1,56 @@
+<div class="main">
+  <div class="container-center">
+    <div class="container-header">
+      <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item">
+          <h1>Cursos</h1>
+        </div>
+        <div class="grid-item">
+          <button [routerLink]="['/course-detail']"><img width="50" src="assets/images/add-outline.svg" /></button>
+        </div>
+      </div>
+    </div>
+    <div class="container-content">
+      <div class="grid-list-courses">
+        <div *ngFor="let course of courses" class="grid-item">
+          <div class="card">
+            <div class="grid-content-course">
+              <div [routerLink]="['/course-detail', course.id]" class="grid-item left">
+                {{course.name}}
+              </div>
+              <div class="grid-item right">
+                <button (click)="removeCourse(course.id)"><img width="20"
+                    src="assets/images/trash-outline.svg" /></button>
+              </div>
+            </div>
+            <br />
+            <p class="teachers">
+              <span *ngFor="let teacher of course.teachers; let i = index">
+                Prof. {{teacher.name}}
+                {{ i == (course.teachers.length - 1) ? '' : course.teachers.length > 1 && course.teachers.length < 3
+                  ? ' e ' : course.teachers.length> 2 ? ', ' : '' }}
+              </span>
+            </p>
+            <div class="grid-content-course">
+              <div class="grid-item left">
+                <p class="classrooms">
+                  <span *ngFor="let classroom of course.classrooms; let i = index">
+                    {{classroom.name}}
+                    {{ i == (course.classrooms.length - 1) ? '' : course.classrooms.length > 1 &&
+                    course.classrooms.length < 3 ? ' e ' : course.classrooms.length> 2 ? ', ' : '' }}
+                  </span>
+                </p>
+              </div>
+              <div class="grid-item right">
+                <p class="schedule">
+                  {{ course.startTime }} às {{ course.endTime }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
