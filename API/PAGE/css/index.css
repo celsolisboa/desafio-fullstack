@@ -1,0 +1,110 @@
+/* geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    color: #323232;
+    border: none;
+  }
+  
+  body
+  {
+    background:
+      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+  }
+
+  textarea:focus, input:focus {
+    outline: none;
+  }
+
+  /* Conteiner login */
+
+  #login-container {
+    background-color: #FFF;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  /* formulario */
+  form {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .box {
+    flex: 1 1 100%;
+    position: relative;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #08558B;
+  }
+
+  button {
+    border-radius: 20px;
+    border: none;
+    height: 40px;
+    width: 70%;
+    cursor: pointer;
+    background-color: #08558B;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #3213bd;
+    transition: .6s;
+  }
+
+  button[disabled] {
+    background-color: gray;
+    opacity: .5;
+  }
+
+  .error {
+    color: red;
+    display: none;
+  }
+ /* input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #FFF;
+    background-color: #08558B;
+    cursor: pointer;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }*/
+
+  /* input[type="submit"]:hover {
+    background-color: #3213bd;
+    transition: .6s;
+  }*/

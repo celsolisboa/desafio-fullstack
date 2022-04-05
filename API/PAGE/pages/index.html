@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login com validação JS simples</title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <div id="login-container">
+    <h1>Login</h1>
+    <form id="login" action="">
+       <div class="'box">
+            <input type="email" name="email" id="email" placeholder="E-mail" onchange="validateField()">
+       </div>
+       <div class="error" id="email-invalid-error">Email é inválido</div>
+       <div class="error" id="email-error"></div>
+       <div class="'box">
+            <input type="password" name="password" id="password" placeholder="Senha" onchange="validateField()">
+       </div>
+       <div class="error" id="password-error">Senha é obrigatória</div>
+          <button type="button" id="button" onclick="getLogin()" disabled="true" >Acessar</button>
+    </form>
+  </div>
+  <script src="../js/index.js"></script>
+</body>
+</html>
