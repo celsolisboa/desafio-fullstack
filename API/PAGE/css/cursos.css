@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    color: #323232;
+    border: none;
+}
+
+body {
+    background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+main {
+    padding: 2rem 4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+header {
+    background-color: white;
+    display: flex;
+    color: black;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+
+.card-body {
+    position: relative;
+}
+
+/* .card {
+    max-width: 300px;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.nav_link {
+    display: flex;
+    color: black;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px;
+}
+
+/* CSS FLEXBOX */
+
+#horai,
+#horaf {
+    padding-bottom: 10px;
+    position: relative;
+    align-items: right;
+}
+
+#horarios {
+    display: block;
+    display: inline-block;
+    align-content: right;
+    margin-left: 50%;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+
+}
+
+#sala {
+    display: block;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
+}
+
+#prof {
+    display: block;
+    position: absolute;
+    bottom: 20%;
+    left: 3%;
+}
+
+#disciplina {
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+}
+
+#delete-curso {
+    display: block;
+    border: none;
+    height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+
+.flex {
+    display: flex;
+    color: black;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: relative;
+
+}
+
+.flex>div {
+    display: flex;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    flex: 1 1 200px;
+    border: 1px solid;
+    padding: 10px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    min-width: 300px;
+    max-width: 350px;
+    height: 150px;
+
+}
+
+@media only screen and (min-width: 300px) and (max-width: 420px) {
+
+    main {
+        width: 100vw;
+        padding-left: 1px;
+    }
+
+    .flex {
+        display: flex;
+        color: black;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin: 10px;
+        position: relative;
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+
+    .flex>div {
+        display: flex;
+        flex: 1 1 200px;
+        border: 1px solid;
+        padding: 10px 10px;
+        margin-top: 10px;
+        border-radius: 1px;
+        background-color: white;
+        height: 150px;
+        margin-right: 50%;
+
+    }
+}
+
+@media only screen and (min-width: 1800px) and (max-width: 2400px) {
+
+    .flex>div {
+        max-width: 300px;
+        
+    }
+    
+  }

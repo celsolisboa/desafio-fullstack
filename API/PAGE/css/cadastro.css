@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  color: #323232;
+  border: none;
+}
+
+body {
+  background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 44%;
+  right: 56%;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  color: black;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+
+
+}
+
+
+.box {
+  flex: 1 1 100%;
+  position: relative;
+}
+
+#cadastro-container {
+  background-color: #FFF;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px;
+  margin-top: 10vh;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#button-save,
+#button-edit {
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 30%;
+  cursor: pointer;
+  background-color: #08558B;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px
+}
+
+#dis {
+  width: 220px;
+  font-size: 16px;
+  text-align: justify;
+  padding: 5px;
+}
+
+#horarios {
+  display: flex;
+
+}
+
+#horai,
+#horaf {
+  width: 104px;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px;
+  margin-left: 11px;
+  ;
+
+}
+
+button:hover {
+  background-color: #3213bd;
+  transition: .6s;
+}
+
+button[disabled] {
+  background-color: gray;
+  opacity: .5;
+}
+
+.nav_link {
+  display: flex;
+  color: black;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin: 10px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 420px) {
+
+  h1 {
+    position: absolute;
+    left: 30%;
+    right: 70%;
+  }
+
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1900px) {
+
+  h1 {
+    position: absolute;
+    left: 30%;
+    right: 70%;
+  }
+  
+}

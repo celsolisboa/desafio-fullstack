@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cadastro de Cursos</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../css/cadastro.css">
+
+
+</head>
+
+<body>
+  <header id="header" class="header">
+    <a href="cursos.html" class="nav_link"><span class="material-icons">
+        navigate_before
+      </span></a>
+    <h1 id="h-cadastro">Cadastro</h1>
+    <nav class="nav">
+
+    </nav>
+  </header>
+  <main>
+    <div id="cadastro-container">
+      <form action=' ' method='' class="box">
+        <div id="div-flex">
+          <input type="name" name="disciplina" placeholder="  Disciplina" id="dis" onchange="toggleButtonErrors()">
+        </div>
+        <div>
+
+          <select class="selectpicker" name='select' id="post-prof" multiple placeholder="Professor" onchange="toggleButtonErrors()" >
+            <option value="" disabled selected>Professores</option>
+            <option value="1">Prof. Álvares de Azevedo</option>
+            <option value="2">Prof. Mario de Andrade</option>
+            <option value="3">Prof. Ruy Barbosa</option>
+            <option value="4">Prof. Agatha Cristie</option>
+            <option value="5">Prof. Mário Quintana</option>
+          </select>
+
+
+          <div>
+            <select class="selectpicker" multiple id="post-sala" data-mdb-placeholder="Sala" onchange="toggleButtonErrors()">
+              <option value="" disabled selected>Sala</option>
+              <option value="1">301</option>
+              <option value="2">302</option>
+              <option value="3">303</option>
+              <option value="4">402</option>
+              <option value="5">502</option>
+            </select>
+          </div>
+
+          <div id="horarios">
+            <input type="text" name="hora_i" id="horai" placeholder=" Início" onchange="toggleButtonErrors()">
+            <input type="text" name="hora_f" id="horaf" placeholder=" Fim" onchange="toggleButtonErrors()">
+          </div>
+
+          <button type="submit" id="button-save" disabled="true">Salvar</button>
+          <button type="submit" id="button-edit" disabled="true">Editar</button>
+      </form>
+      
+    </div>
+
+  </main>
+
+  <script src="../js/cadastro.js"></script>
+
+</body>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+
+</html>
