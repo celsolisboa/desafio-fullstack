@@ -18,7 +18,7 @@ export default class CourseService {
         return await Courses.all()
     }
 
-    public static async delete(id){
+    public static async delete(id: string){
         return await Courses.query().where('id', id).delete()
     
     }
