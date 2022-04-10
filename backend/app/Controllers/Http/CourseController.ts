@@ -1,7 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Course from 'App/Models/Course'
 import CourseService from 'App/Services/CourseService'
-import CourseValidator from 'App/Validations/CouseValidator'
 
 export default class CourseController{
   constructor () {
@@ -15,7 +14,6 @@ export default class CourseController{
   }
   
   public async create ({ request } : HttpContextContract){
-    await CourseValidator.validate(request)
     const params = request.all()
     
     const course = new Course()
