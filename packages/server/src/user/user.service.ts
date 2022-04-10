@@ -29,8 +29,8 @@ export class UserService {
     return user;
   }
 
-  async findOne(id: number): Promise<User> {
-    const user = await this.prisma.user.findUnique({ where: { id } });
+  async findOne(email: string): Promise<User> {
+    const user = await this.prisma.user.findUnique({ where: { email } });
     if (!user) {
       throw new NotFoundException('Usuário não cadastrado');
     } else {

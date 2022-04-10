@@ -33,7 +33,7 @@ model Classroom {
 }
 
 model User {
-  id       Int    @id
-  email    String
+  id       Int
+  email    String @id @unique
   password String
 }
