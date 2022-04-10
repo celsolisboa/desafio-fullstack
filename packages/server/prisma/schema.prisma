@@ -31,3 +31,9 @@ model Classroom {
   number Int      @id
   course Course[]
 }
+
+model User {
+  id       Int    @id
+  email    String
+  password String
+}
