@@ -44,4 +44,25 @@
 
 - ### acessar
 
-`http://localhost:4200`
+`http://localhost:4200` ou `http://localhost:3000/cursos` em qualquer client HTTP REST, como Postman, Insomnia, etc.
+
+- ### Endpoints:
+
+| Endpoint | Requisição | Parâmetros | Mensagem                          |
+| -------- | ---------- | ---------- | --------------------------------- |
+| /cursos  | `GET`      | /:id       | Retorna um objeto                 |
+| /cursos  | `PATCH`    | /:id, body | Atualiza uma ou mais propriedades |
+| /cursos  | `DELETE`   | /:id       | Remove um objeto                  |
+| /cursos  | `POST`     | body       | Cadastra um novo objeto           |
+
+- ### Corpo da requisição
+
+```
+{
+  name: string | nome do curso,
+  start_time: string | hora de inicio,
+  finish_time: string | hora do término,
+  classroom_number: number | numero da sala do curso,
+  instructor_name: string | nome do professor do curso
+}
+```
