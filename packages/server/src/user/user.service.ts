@@ -23,7 +23,9 @@ export class UserService {
     }
 
     if (login.password !== user.password) {
-      throw new UnauthorizedException('Senha inválida');
+      console.log(login.password);
+      console.log(user.password);
+      throw new UnauthorizedException('Senha inválida!!!!!');
     }
 
     return user;

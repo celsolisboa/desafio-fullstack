@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../model/user.model';
 
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private loginService: LoginService
   ) {}
 
@@ -24,14 +22,10 @@ export class LoginComponent implements OnInit {
       email: [''],
       password: [''],
     });
-    this.getUser;
+    this.postUser();
   }
 
-  async getUser(): Promise<void> {
-    (await this.loginService.getLogin()).subscribe((user) => {
-      this.user = user;
-      this.loginForm.reset();
-      this.router.navigate(['cursos']);
-    });
+  async postUser(): Promise<void> {
+    (await this.loginService.postLogin(this.user)).subscribe();
   }
 }

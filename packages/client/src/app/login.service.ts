@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  async getLogin(): Promise<Observable<User>> {
-    return this.http.get<User>(this.URL);
+  async postLogin(user: User) {
+    return this.http.post(this.URL, user);
   }
 }

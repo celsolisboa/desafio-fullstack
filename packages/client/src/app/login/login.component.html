@@ -1,7 +1,7 @@
 <div
   class="col-sm-4 d-flex justify-content-center d-flex align-items-center position-absolute top-50 start-50 translate-middle"
 >
-  <form [formGroup]="loginForm" (ngSubmit)="getUser()">
+  <form [formGroup]="loginForm" (ngSubmit)="postUser()">
     <h2 class="justify-content-center d-flex align-items-center">Login</h2>
     <br />
     <div class="form-floating mb-3">
@@ -28,8 +28,10 @@
     <button
       class="btn btn-dark position-absolute top-10 start-50 translate-middle"
       type="submit"
+      (click)="postUser()"
     >
       Acessar
     </button>
   </form>
 </div>
+<router-outlet></router-outlet>
