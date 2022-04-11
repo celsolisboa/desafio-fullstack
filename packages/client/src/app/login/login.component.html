@@ -1,0 +1,35 @@
+<div
+  class="col-sm-4 d-flex justify-content-center d-flex align-items-center position-absolute top-50 start-50 translate-middle"
+>
+  <form [formGroup]="loginForm" (ngSubmit)="getUser()">
+    <h2 class="justify-content-center d-flex align-items-center">Login</h2>
+    <br />
+    <div class="form-floating mb-3">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+      />
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+      />
+      <label for="floatingPassword">Senha</label>
+    </div>
+    <br />
+    <button
+      class="btn btn-dark position-absolute top-10 start-50 translate-middle"
+      type="submit"
+    >
+      Acessar
+    </button>
+  </form>
+</div>
