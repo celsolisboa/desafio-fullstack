@@ -13,7 +13,7 @@ export default function Courses({ title, isAddCoursePage}){
     }
     
     return(
-        <body>
+        <>
             <div id="escopo">
                 <header>
                     <span>{title}</span>
@@ -27,6 +27,6 @@ export default function Courses({ title, isAddCoursePage}){
                     
                 </header>
             </div>
-        </body>   
+        </>  
     );
 }
