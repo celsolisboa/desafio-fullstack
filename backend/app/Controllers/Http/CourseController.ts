@@ -17,14 +17,14 @@ export default class CourseController{
     const params = request.all()
     
     const course = new Course()
-  
-    await CourseService.create(
-        course.name = params.name,
-        course.class_room = params.classRoom,
-        course.beginning = params.beginning,
-        course.end = params.end,
-        course.teacher_id = params.teacher
-    )
+
+    course.name = params.name
+    course.class_room = params.classRoom
+    course.beginning = params.beginning
+    course.end = params.end
+    course.teacher_id = params.teacher
+    
+    await CourseService.create(course)
 
     return {status: 204}
   }
