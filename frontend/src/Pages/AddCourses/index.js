@@ -16,110 +16,110 @@ export default function AddCourses(){
 
     const navigate = useNavigate();
 
-    const data = {
-        name,
-        teacher,
-        beginning,
-        end,
-        classRoom
-    }
+    async function handleInsertCourses(event) {
+        event.preventDefault();
 
-    async function handleInsertCourses(e){
-        e.preventDefault();
-
-        try{
-            console.log(data)
-            await api.post('/courses', data)
+        try {
+            const data = {
+                name,
+                teacher,
+                beginning,
+                end,
+                classRoom
+            }
+    
+            await api.post('/courses', data);
             
-        }catch (err) {
-            console.log(e.err)
+            navigate('/courses');
+
+        } catch (error) {
+            console.error(event.error)
+            alert("Não foi possivel inserir os cursos!")
         }
 
-        navigate('/courses');
+        
     }
     
-    return(
+    return (
         
-        <body>
-        <Escopo title="Detalhe do Curso" isAddCoursePage={false}/> 
+        <>
+            <Escopo title="Detalhe do Curso" isAddCoursePage={false}/> 
 
-        <div className='add-courses-container'>
-            <form onSubmit={handleInsertCourses}>
-                <fieldset>
-                    <input
-                        className='course'
-                        placeholder='Nome do Curso'
-                        name = "nome"
-                        id = "nome"
-                        required
-                        value = { name }
-                        onChange = { e => setName( e.target.value)}
-                    />
-                
-                    <select
-                        className='teacher'
-                        required
-                        value = {teacher}
-                        onChange = { e => setTeacher(e.target.value) }>
-
-                        <option value="" disabled selected hidden>Selecione o Professor</option>
-
-                        <option value="PROFESSOR A">Professor A</option>
-                        <option value="PROFESSOR B">Professor B</option>
-                        <option value="PROFESSOR C">Professor C</option>
-                    
-                    </select> 
-                </fieldset>
-
-                <fieldset>
-                    <select 
-                        className='class'
-                        required
-                        value = {classRoom}
-                        onChange = { e => setClassRoom(e.target.value) }>
-
-                        <option value="" disabled selected hidden>Selecione a Sala</option>
-
-                        <option value="101">101</option>
-                        <option value="102">102</option>
-                        <option value="103">103</option>
-                    
-                    </select> 
-
-                    <div className='input-group'>
-                                        
-                        <InputMask
-                            className='initial-date'
-                            placeholder="Inicio"
-                            mask = "99:99"
-                            name = "beginning"
-                            id = "beginning"
+            <div className='add-courses-container'>
+                <form onSubmit={handleInsertCourses}>
+                    <fieldset>
+                        <input
+                            className='course'
+                            placeholder='Nome do Curso'
+                            id = "name"
                             required
-                            value = { beginning }
-                            onChange = { e => setBeginning( e.target.value)}
+                            value = { name }
+                            onChange = { event => setName( event.target.value)}
                         />
                     
-                        <InputMask
-                            className='final-date'
-                            placeholder="Fim"
-                            mask = "99:99"
-                            name = "end"
-                            id = "end"
+                        <select
+                            className='teacher'
                             required
-                            value = { end }
-                            onChange = { e => setEnd( e.target.value)}
-                        />
+                            value = {teacher}
+                            onChange = { event => setTeacher(event.target.value) }
+                        >
 
+                            <option value="" disabled selected hidden>Selecione o Professor</option>
+
+                            <option value="PROFESSOR A">Professor A</option>
+                            <option value="PROFESSOR B">Professor B</option>
+                            <option value="PROFESSOR C">Professor C</option>
+                        
+                        </select> 
+                    </fieldset>
+
+                    <fieldset>
+                        <select 
+                            className='class'
+                            required
+                            value = {classRoom}
+                            onChange = { event => setClassRoom(event.target.value) }
+                        >
+
+                            <option value="" disabled selected hidden>Selecione a Sala</option>
+
+                            <option value="101">101</option>
+                            <option value="102">102</option>
+                            <option value="103">103</option>
+                        
+                        </select> 
+
+                        <div className='input-group'>
+                                            
+                            <InputMask
+                                className='initial-date'
+                                placeholder="Inicio"
+                                mask = "99:99"
+                                id = "beginning"
+                                required
+                                value = { beginning }
+                                onChange = { event => setBeginning( event.target.value)}
+                            />
+                        
+                            <InputMask
+                                className='final-date'
+                                placeholder="Fim"
+                                mask = "99:99"
+                                id = "end"
+                                required
+                                value = { end }
+                                onChange = { event => setEnd( event.target.value)}
+                            />
+
+                        </div>
+
+                    </fieldset>
+
+                    <div className='button-container'> 
+                        <button className="button" type="submit">Entrar</button>
                     </div>
-
-
-                </fieldset>
-                <div className='button-container'> 
-                    <button className="button" type="submit">Entrar</button>
-                </div>
-    
-            </form>
-        </div>
-    </body>   
-);
+                </form>
+            </div>
+        </>  
+    );
 }
