@@ -15,7 +15,7 @@ export default function Logon(){
     }
     
     return(
-        <body>
+        <>
 
             <div id="page">
 
@@ -27,7 +27,8 @@ export default function Logon(){
                         <div className="input-block">
                             <input
                                 placeholder = "E-mail"
-                                type="email"
+                                type= "email"
+                                id= "email"
                                 value={email}
                                 onChange={ e => setEmail(e.target.value)}
                                 required
@@ -37,7 +38,8 @@ export default function Logon(){
                         <div className="input-block">
                             <input
                                 placeholder = "Senha"
-                                type="password"
+                                type= "password"
+                                id = "password"
                                 minLength={6}
                                 value={password}
                                 onChange={ e => setPassword(e.target.value)}
@@ -46,15 +48,9 @@ export default function Logon(){
                         </div>
 
                         <button className="button" type="submit">Entrar</button>
-                        
                     </form>
-
                 </div>
-
             </div>
-            
-        </body>   
-        
-
+        </>
     );
 }
