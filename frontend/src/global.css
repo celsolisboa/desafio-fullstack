@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --title-color: #292B2D;
+    --primary-color: #FFFFFF;
+}
+
+body{
+    font: 400 14px Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: black;
+}
+
+input, button, textarea, select{
+    font: 400 18px Roboto, sans-serif;
+}
+
+h1, h2, h3{
+   color: var(--title-color);
+}
+
+button{
+    cursor: pointer;
+    color: var(--title-color)
+}

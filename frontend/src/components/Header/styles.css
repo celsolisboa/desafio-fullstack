@@ -1,0 +1,46 @@
+#escopo{
+    background-color: var(--title-color);
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    position: relative;
+
+    width: 100%;
+    padding: 15px 50px;
+    
+    text-align: center;
+}
+
+header > div{
+    width: 57px;
+    height: 57px;
+}
+
+header span{
+    font-size: 40px;
+    color: var(--primary-color);
+}
+
+header button {
+    position: absolute;
+    right: 0;
+
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+
+    border-radius: 8px;
+    border: 1px solid var(--title-color);
+
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+header button:hover {
+    border-color: #999;
+}

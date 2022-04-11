@@ -1,0 +1,73 @@
+:root {
+    --title-color: #292B2D;
+    --primary-color: #FFFFFF;
+}
+
+body{
+    background-color: white;
+}
+
+#page-logon{
+    background-color: white;
+}
+
+
+.logon-container{
+    width: 100%;
+    max-width: 1120px;
+    margin: 350px auto;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logon-container h1{
+    font-size: 40px;
+    font-weight: bold;
+
+    margin-bottom: 40px;
+    
+    color: var(--title-color);
+
+}
+
+.logon-container form .input-block input{
+    color: var(--title-color);
+
+    height: 45px;
+    width: 270px;
+
+    font: 700;
+    font-size: 16px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+    border: 1px solid var(--title-color);
+}
+
+.logon-container form .button{
+    height: 58px;
+    width: 200px;
+
+    color: #FFFFFF;
+    background-color: black;
+
+    font-weight: 700;
+    text-align: center;
+
+    margin-top: 20px;
+    
+    border-radius: 8px;
+    border: 1px solid var(--title-color);
+   
+}
+
+.logon-container form .button:hover{
+    filter: brightness(90%);
+}
+
+

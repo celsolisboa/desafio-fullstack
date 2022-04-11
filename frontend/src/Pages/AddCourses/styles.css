@@ -1,0 +1,83 @@
+.add-courses-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 30px auto;
+    width: 900px;
+}
+
+.add-courses-container form fieldset{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    
+    margin-bottom: 30px;
+    margin-top: 40px;
+
+    border: 0;
+}
+
+.add-courses-container form fieldset input{
+    padding: 15px 10px;
+
+    border-width: 3px;
+    border-color: var(--title-color);
+    border-radius: 8px;
+    
+    outline: none;
+}
+
+.add-courses-container form fieldset select{
+    padding: 15px 10px;
+
+    border-width: 3px;
+    border-color: var(--title-color);
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.add-courses-container form fieldset .input-group input {
+    text-align: center;
+}
+.add-courses-container form fieldset .input-group .final-date{
+    margin-left: 8px;
+}
+
+.add-courses-container form .button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-courses-container form .button{
+    height: 58px;
+    width: 270px;
+
+    color: var(--primary-color);
+    background-color: var(--title-color);
+
+    font-weight: 700;
+    text-align: center;
+    
+
+    border-radius: 8px;
+    border: 1px solid var(--title-color);
+   
+}
+
+.add-courses-container form .button:hover{
+    filter: brightness(90%);
+}
+
+
+@media (max-width: 760px) {
+    .add-courses-container{
+        width: 500px;
+    }
+
+    .add-courses-container form fieldset{
+        grid-template-columns: 1fr;
+    }
+}
