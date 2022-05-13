@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import { Course } from "../types/course";
-import { existsOrError } from "../utils/validators";
 
 export default class CourseController {
   async getCourses(req: Request, res: Response): Promise<any> {
@@ -12,7 +11,7 @@ export default class CourseController {
         where: { deleted: false },
       });
 
-      const convertedCourses = courses.map((item) => {
+      const convertedCourses = courses.map((item: any) => {
         return {
           id: item.id,
           name: item.name,
