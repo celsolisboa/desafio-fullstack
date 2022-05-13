@@ -31,6 +31,7 @@ CREATE TABLE "Course" (
     "teacher" TEXT[],
     "startTime" TEXT NOT NULL,
     "endTime" TEXT NOT NULL,
+    "deleted" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Course_pkey" PRIMARY KEY ("id")
 );
