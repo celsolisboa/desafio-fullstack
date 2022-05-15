@@ -26,6 +26,6 @@
         }
       ],
       "indent": "off",
-      "no-return-await": "off"
+      "no-return-await": "off"      
     }
 }
