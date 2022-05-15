@@ -1,68 +1,78 @@
-CREATE DOMAIN varc VARCHAR(45);
+CREATE DATABASE IF NOT EXISTS "Database" WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION
+LIMIT
+	= -1;
 
-CREATE TABLE Horario (
-	idHorario INT NOT NULL,
-	horario DATE,
-	PRIMARY KEY (idHorario)
+CREATE TABLE IF NOT EXISTS Usuario (
+	id_Usuario serial NOT NULL,
+	email VARCHAR(45),
+	senha VARCHAR(45),
+	PRIMARY KEY(id_Usuario)
 );
 
-CREATE TABLE UF (
-	idUF INT NOT NULL,
-	siglaUF VARCHAR(2),
-	PRIMARY KEY (idUF)
+CREATE TABLE IF NOT EXISTS Curso (
+	id_Curso serial NOT NULL,
+	nome VARCHAR(45),
+	inicio DATETIME,
+	fim DATETIME,
+	PRIMARY KEY(id_Curso)
 );
 
-CREATE TABLE Sala (
-	idSala INT NOT NULL,
-	numeroSala varc,
-	PRIMARY KEY (idSala)
+CREATE TABLE IF NOT EXISTS Sala (
+	id_Sala serial NOT NULL,
+	numero INT,
+	PRIMARY KEY (id_Sala)
 );
 
-CREATE TABLE Bairro (
-	idBairro INT NOT NULL,
-	nomeBairro varc,
-	PRIMARY KEY (idBairro)
+CREATE TABLE IF NOT EXISTS Professor (
+	id_Professor INT NOT NULL,
+	nome VARCHAR(45),
+	PRIMARY KEY (id_Professor)
 );
 
-CREATE TABLE Usuario (
-	idUsuario INT NOT NULL,
-	nome varc,
-	cpf VARCHAR(11),
-	endereco_idEndereco INT NOT NULL,
-	FOREIGN KEY (endereco_idEndereco) REFERENCES Endereco (idEndereco),
-	PRIMARY KEY (idUsuario)
+CREATE TABLE Professor_Curso (
+	profcurso_id INT NOT NULL,
+	professor_id INT NOT NULL,
+	Curso_id INT NOT NULL,
+	FOREIGN KEY (professor_id) REFERENCES Professor (id_Professor),
+	FOREIGN KEY (Curso_id) REFERENCES Curso (id_Curso),
+	PRIMARY KEY (profcurso_id)
 );
 
-CREATE TABLE Endereco (
-	idEndereco INT NOT NULL,
-	UF_idUF INT NOT NULL,
-	bAIRRO_idBairro INT NOT NULL,
-	FOREIGN KEY (UF_idUF) REFERENCES UF (idUF),
-	FOREIGN KEY (Bairro_idBairro) REFERENCES Bairro (idBairro),
-	PRIMARY KEY (idEndereco)
+CREATE TABLE IF NOT EXISTS Sala_Curso (
+	Salacurso_id INT NOT NULL,
+	Sala_id INT NOT NULL,
+	Curso_id INT NOT NULL,
+	FOREIGN KEY (Sala_id) REFERENCES Sala (id_Sala),
+	FOREIGN KEY (Curso_id) REFERENCES Curso (id_Curso),
+	PRIMARY KEY (Salacurso_id)
 );
 
-CREATE TABLE Professor (
-	idProfessor INT NOT NULL,
-	nome varc,
-	endereco_idEndereco INT NOT NULL,
-	Coordenador INT NOT NULL,
-	FOREIGN KEY (endereco_idEndereco) REFERENCES Endereco (idEndereco),
-	FOREIGN KEY (Coordenador) REFERENCES Professor (idProfessor),
-	PRIMARY KEY (idProfessor)
-);
+INSERT INTO
+	Usuario (id_usuario, email, senha)
+VALUES
+	(1, "gusthenrique273@gmail.com", "123456");
 
-CREATE TABLE Curso (
-	idCurso INT NOT NULL,
-	nomeCurso varc,
-	descricaoCurso varc,
-	endereco_idEndereco INT NOT NULL,
-	Horario_idHorario INT NOT NULL,
-	Professor_idProfessor INT NOT NULL,
-	Sala_idSala INT NOT NULL,
-	FOREIGN KEY (endereco_idEndereco) REFERENCES Endereco (idEndereco),
-	FOREIGN KEY (Horario_idHorario) REFERENCES Horario (idHorario),
-	FOREIGN KEY (Professor_idProfessor) REFERENCES Professor (idProfessor),
-	FOREIGN KEY (Sala_idSala) REFERENCES Sala (idSala),
-	PRIMARY KEY (idCurso)
-);
+INSERT INTO
+	Curso (id_curso, nome, inicio, fim)
+VALUES
+	(3, "Curso de Javascript", "18:00", "22:00");
+
+INSERT INTO
+	Professor (id_professor, nome)
+VALUES
+	("3", "Paulo Cesar");
+
+INSERT INTO
+	Sala (id_sala, numero)
+VALUES
+	(3, 1003);
+
+INSERT INTO
+	Professor_Curso (profcurso_id, professor_id, curso_id)
+VALUES
+	(1, 3, 1);
+
+INSERT INTO
+	Sala_Curso (salacurso_id, sala_id, curso_id)
+VALUES
+	(1, 2, 2);
