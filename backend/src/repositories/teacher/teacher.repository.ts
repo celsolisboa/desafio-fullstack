@@ -11,7 +11,13 @@ class TeacherRepository implements TeacherRepoTypes {
 
   findAll = async () => await this.ormRepository.find();
 
-  findTeacher = async (data: string) => await this.ormRepository.findOne({ email: data });
+  // findTeacher = async (data: string) => await this.ormRepository.findOne({ email: data });
+  findTeacher = async (data: string | any) => await this.ormRepository
+      .createQueryBuilder(data)
+      .addSelect('password')
+      .addSelect('email')
+      .andWhere(data)
+      .getOne();
 }
 
 export { TeacherRepository, TeacherTypes };
