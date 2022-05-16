@@ -4,7 +4,7 @@ import {
   Column,
   ManyToMany,
 } from 'typeorm';
-import Classroom from './classroom';
+import Classroom from './Classroom';
 
 @Entity('teachers')
 class Teacher {
