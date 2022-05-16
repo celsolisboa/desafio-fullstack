@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getTeachersController, loginTeacherController } from './controllers';
+import { getClassroomController, getTeachersController, loginTeacherController } from './controllers';
 import { authTeacher } from './middlewares';
 
 const router = Router();
@@ -7,5 +7,7 @@ const router = Router();
 router.post('/login', loginTeacherController);
 
 router.get('/teachers', authTeacher, getTeachersController);
+
+router.get('/classroom', authTeacher, getClassroomController);
 
 export default router;

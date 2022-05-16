@@ -17,7 +17,7 @@ class Course {
 
     @OneToOne(() => Teacher, { nullable: true })
     @JoinColumn()
-    teacher_id: number;
+    teacher_id: Teacher;
 }
 
 export default Course;

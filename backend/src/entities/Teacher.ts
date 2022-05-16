@@ -2,7 +2,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  ManyToMany,
 } from 'typeorm';
+import Classroom from './classroom';
 
 @Entity('teachers')
 class Teacher {
@@ -21,8 +23,8 @@ class Teacher {
     @Column({ select: false })
     password: string;
 
-    @Column()
-    course: string;
+    @ManyToMany(() => Classroom, (classroom) => classroom.teacher)
+    classroom: Classroom[];
 }
 
 export default Teacher;
