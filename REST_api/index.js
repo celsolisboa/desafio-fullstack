@@ -13,8 +13,8 @@ app.listen(8080, ()=> {
 });
 
 // INICIO ROTAS GET
-app.get('/users', (req, res)=>{
-    client.query(`Select * from usuario`, (err, result)=>{
+app.get('/cursos', (req, res)=>{
+    client.query(`Select * from curso`, (err, result)=>{
         if(!err){
             res.send(result.rows);
         }
@@ -22,10 +22,10 @@ app.get('/users', (req, res)=>{
     client.end;
 })
 
-app.get('/users/:id', (req, res)=>{
+app.get('/curso/:id', (req, res)=>{
     var id = req.params.id
-    var logQuery = `Select * from usuario 
-                        where id_usuario = ${id};`
+    var logQuery = `Select * from curso 
+                        where id_curso = ${id};`
     client.query(logQuery, (err, result)=>{
         if(!err){
             res.send(result.rows);
@@ -37,10 +37,10 @@ app.get('/users/:id', (req, res)=>{
 // FIM ROTAS GET
 
 // INICIO ROTAS POST
-app.post('/users', (req, res)=>{
+app.post('/curso/novo-curso', (req, res)=>{
     const user = req.body;
-    let insertQuery =  ` insert into usuario(id_usuario, email, senha)
-                      values(${user.id_usuario}, '${user.email}' , '${user.senha}')`
+    let insertQuery =  ` insert into curso(id_curso, nome, inicio, fim)
+                      values(${user.id_curso}, '${user.nome}' , '${user.inicio}' , '${user.fim}')`
 
    client.query(insertQuery, (err, result) => {
         if ( ! err){
@@ -52,27 +52,10 @@ app.post('/users', (req, res)=>{
 })
 // FIM ROTAS POST
 
-// INICIO ROTAS PUT
-app.put('/users/:id', (req, res)=> {
-    var user = req.body;
-    var updateQuery = `UPDATE usuario
-                       SET email = '${user.email}',
-                       senha = '${user.senha}'
-                       where id_usuario = ${user.id_usuario};`
-    client.query(updateQuery, (err, result)=>{
-        if(!err){
-            res.send('Update was successful')
-        }
-        else{ console.log(err.message) }
-    })
-    client.end;
-})
-// FIM ROTAS PUT
-
 // INICIO ROTAS DELETE
-app.delete('/users/:id', (req, res)=> {
+app.delete('/curso/:id', (req, res)=> {
     var id = req.params.id
-    let insertQuery = `delete from usuario where id_usuario=${id}`
+    let insertQuery = `delete from curso where id_curso=${id}`
 
     client.query(insertQuery, (err, result)=>{
         if(!err){
