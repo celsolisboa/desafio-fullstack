@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const client = require("./js/_database");
 
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -13,7 +14,7 @@ app.listen(8080, ()=> {
 });
 
 // INICIO ROTAS GET
-app.get('/cursos', (req, res)=>{
+app.get('/curso', (req, res)=>{
     client.query(`Select * from curso`, (err, result)=>{
         if(!err){
             res.send(result.rows);
