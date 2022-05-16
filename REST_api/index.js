@@ -50,6 +50,22 @@ app.post('/curso/novo-curso', (req, res)=>{
    })
    client.end;
 })
+
+app.post('/login', async (req, res)=> {
+
+    const email = req.body.email;
+    const senha = req.body.senha;
+
+    const data = await client.query(`SELECT email, senha 
+                                    FROM public.usuario 
+                                    WHERE email='${email}' and senha='${senha}'`)
+    if(data.rows == ''){
+        res.send('Email ou senha inválidos')
+    } else {
+        res.send('Logado com sucesso')
+    }
+    
+});
 // FIM ROTAS POST
 
 // INICIO ROTAS DELETE
@@ -59,7 +75,7 @@ app.delete('/curso/:id', (req, res)=> {
 
     client.query(insertQuery, (err, result)=>{
         if(!err){
-            res.send('Deletion was successful')
+            res.send('Foi deletado com sucesso')
         }
         else{ console.log(err.message) }
     })
