@@ -7,7 +7,7 @@ import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.com
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'cursos', component: CursoComponent},
-  {path: 'curso/novo-curso', component: NovoCursoComponent}
+  {path: 'curso/novo-curso', component: NovoCursoComponent},
 ];
 
 @NgModule({
