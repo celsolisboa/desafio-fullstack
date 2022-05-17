@@ -10,6 +10,12 @@
         <strong>{{ msgErro }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+
+    <div class="pb-2">
+        <a href="http://localhost:4200/cursos">
+            <button type="button" class="botao-voltar">Retornar a lista</button>
+        </a>
+    </div>
     
     <form (ngSubmit)="userSubmit()">
         <div class="row align-items-center">
@@ -35,11 +41,11 @@
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputInicio" class="input-group-text">Escolha o horário de ínicio</label>
-                <input type="text" placeholder="Exemplo: 12:00" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 12:00" maxlength="6" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
-                <input type="text" placeholder="Exemplo: 15:00" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 15:00" minlength="3" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
             </div>
             
         </form>

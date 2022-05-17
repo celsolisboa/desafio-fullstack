@@ -38,10 +38,11 @@ export class ApiService {
     return this._http.post(`${this.apiUrlCreate}`, data)
   }
 
-  login(data:any):Observable<any>
+  login(dataF:any):Observable<any>
   {
-    return this._http.post(`${this.apiUrlLogin}`, data)
+    return this._http.post(`${this.apiUrlLogin}`, dataF)
   }
+
 
   deleteData(id:any):Observable<any>
   {

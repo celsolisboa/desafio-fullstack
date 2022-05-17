@@ -28,6 +28,24 @@
     background-color: #403866;
   }
 
+  .botao-voltar {
+    font-family: 'Silian Rail';
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    padding: 0px 20px;
+    width: 17%;
+    height: 30px;
+    background-color: #827ffe;
+    border-radius: 3px;
+    transition: all 0.4s;
+    border: none;
+  }
+
+  .botao-voltar:hover {
+    background-color: #403866;
+  }
+
   
  
 

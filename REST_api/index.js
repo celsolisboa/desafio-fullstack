@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const client = require("./js/_database");
-const cors = require('cors')
+const cors = require('cors');
+const { response } = require('express');
 
 app.use(cors())
 
@@ -88,7 +89,7 @@ app.post('/curso/novo-curso', (req, res)=>{
    client.end;
 })
 
-app.post('/login', async (req, res)=> {
+app.post('/login', async (req, res, result)=> {
 
     const email = req.body.email;
     const senha = req.body.senha;
@@ -97,9 +98,9 @@ app.post('/login', async (req, res)=> {
                                     FROM public.usuario 
                                     WHERE email='${email}' and senha='${senha}'`)
     if(data.rows == ''){
-        res.send('Email ou senha inválidos')
+        return res.status(401).send('Email ou senha inválidos')
     } else {
-        res.send('Logado com sucesso')
+        return res.status(200).send(response)
     }
     
 });
