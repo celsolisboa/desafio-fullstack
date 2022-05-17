@@ -12,8 +12,6 @@ import { CursoComponent } from './components/pages/curso/curso.component';
 import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.component';
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card'
-import {MatButtonModule} from '@angular/material/button';
 import { CardsComponent } from './components/cards/cards.component'
 
 @NgModule({
@@ -33,8 +31,6 @@ import { CardsComponent } from './components/cards/cards.component'
     FormsModule, 
     ReactiveFormsModule, 
     BrowserAnimationsModule, 
-    MatCardModule, 
-    MatButtonModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
