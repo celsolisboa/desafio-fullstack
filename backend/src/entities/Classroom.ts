@@ -17,6 +17,9 @@ class Classroom {
 
     @Column()
     end_time: string;
+
+    @Column()
+    course: string;
 }
 
 export default Classroom;

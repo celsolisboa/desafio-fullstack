@@ -1,12 +1,13 @@
 import { CourseRepository } from '../../repositories/course/course.epository';
 
 const updateCourseService = async (data, id) => {
+  try {
+    const updatedCourse = await new CourseRepository().updateCourse(data, id);
 
-
-    console.log(data.teachers[0], id)
-
-    const updatedCourse = await new CourseRepository().updateCourse(data.teachers[0], id);
-    console.log(updatedCourse)
-}
+    return updatedCourse;
+  } catch (error) {
+    return error;
+  }
+};
 
 export default updateCourseService;

@@ -1,12 +1,13 @@
-import { Request, Response } from "express";
-import { updateCourseService } from "../../services";
+import { Request, Response } from 'express';
+import { updateCourseService } from '../../services';
 
-const updateCourseController = async (req: Request, res: Response) => {
+const updateCourseController = (req: Request, res: Response) => {
+    const { id } = req.params;
 
-    // console.log(req.body, req.params)
+    // eslint-disable-next-line no-unused-vars
+    const course = updateCourseService(req.body, parseInt(id, 10));
 
-    const course = await updateCourseService(req.body.course, req.params.id)
-
-}
+    return res.status(200).json();
+};
 
 export default updateCourseController;

@@ -11,14 +11,19 @@ class CourseRepository implements CourseRepoTypes {
 
   createCourse = async (data: any) => await this.ormRepository.save(data);
 
-  findAllCourses = async () => await this.ormRepository
-      .createQueryBuilder('course')
-      .leftJoinAndSelect('course.teachers', 'teachers')
-      .leftJoinAndSelect('course.classrooms', 'classrooms')
-      .addOrderBy('course.id')
-      .getMany();
+  findAllCourses = async () => await this.ormRepository.find({
+    relations: ['teacher', 'classroom'],
+  });
 
-  updateCourse = async (data: any, id: number) => await this.ormRepository.update(data, { id });
+  updateCourse = async (data: any, id: number) => await this.ormRepository
+    .createQueryBuilder()
+    .update(Course)
+    .set(data)
+    .where({ id })
+    .returning('*')
+    .execute();
+
+  deleteCourse = async (id: number) => await this.ormRepository.delete({ id });
 }
 
 export { CourseRepository, CourseTypes };

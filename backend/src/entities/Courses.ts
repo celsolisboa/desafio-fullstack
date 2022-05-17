@@ -5,6 +5,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import Classroom from './Classroom';
 import Teacher from './Teacher';
 
 @Entity('courses')
@@ -20,6 +21,12 @@ class Course {
     })
     @JoinColumn({ name: 'teacher_id' })
     teacher: Teacher;
+
+    @ManyToOne(() => Classroom, (classroom) => classroom.course, {
+    onDelete: 'CASCADE',
+    })
+    @JoinColumn({ name: 'classroom_id' })
+    classroom: Classroom;
 }
 
 export default Course;
