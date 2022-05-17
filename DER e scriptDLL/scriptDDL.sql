@@ -50,9 +50,19 @@ CREATE TABLE IF NOT EXISTS Sala_Curso (
 );
 
 INSERT INTO
-	Usuario (id_usuario, email, senha)
+	Usuario (email, senha)
 VALUES
-	(1, "gusthenrique273@gmail.com", "123456");
+	("gusthenrique273@gmail.com", "123456");
+
+INSERT INTO
+	Usuario (email, senha)
+VALUES
+	("gust.leles2@gmail.com", "33566296");
+
+INSERT INTO
+	Usuario (email, senha)
+VALUES
+	("guseles2@gmail.com", "aiuhnfy3");
 
 INSERT INTO
 	Professor (nome)
@@ -87,10 +97,15 @@ VALUES
 INSERT INTO
 	novo_curso(nome, inicio, fim, professor, sala)
 VALUES
-	("Curso de Javascript", "18:00", "22:00", "Gustavo", 1001);
+	("Curso de NodeJS", "12:00", "15:00", "Gustavo Henrique", 1001);
 
 INSERT INTO
 	novo_curso(nome, inicio, fim, professor, sala)
 VALUES
-	("Curso de Python", "15:00", "19:00", "Paulo", 1002);
+	("Curso de Angular", "16:00", "20:00", "Paulo Cesar", 1002);
+
+INSERT INTO
+	novo_curso(nome, inicio, fim, professor, sala)
+VALUES
+	("Curso de PostgreSQL", "20:00", "23:59", "Lecy da Silva", 1002);
 

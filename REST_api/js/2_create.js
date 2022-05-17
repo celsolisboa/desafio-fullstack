@@ -3,6 +3,11 @@ const db = require("./_database")
 async function createTables(){
     await db.connect()
 
+    await db.query(`CREATE DATABASE IF NOT EXISTS "Database" 
+    WITH OWNER = postgres 
+    ENCODING = 'UTF8' 
+    CONNECTION LIMIT = -1;`)
+
     await db.query(`CREATE TABLE IF NOT EXISTS Usuario (
         id_Usuario BIGINT NOT NULL PRIMARY KEY,
         email VARCHAR(45),
