@@ -59,5 +59,4 @@ export class NovoCursoComponent implements OnInit {
 
   }
 
-
 }

@@ -9,13 +9,38 @@ import { ApiService } from 'src/app/services/api.service';
 export class CardsComponent implements OnInit {
 
   readData: any;
+  deletemsg: any;
 
   constructor(private service:ApiService) { }
 
   ngOnInit(): void {
     this.service.getAllDataCurso().subscribe((res)=>{
       this.readData = res.data;
+      
     });
   }
+
+  deleteId(id:any){
+    console.log(id)
+    this.service.deleteData(id).subscribe((res)=> {
+      console.log(res, 'deletado');
+      this.deletemsg = res.message
+
+      this.service.getAllDataCurso().subscribe((res)=>{
+        this.readData = res.data;
+        
+      });
+    });
+  }
+
+  onSubmit(){
+    console.log('deu');
+    const app = document.getElementById("app");
+    const p = document.createElement("p");
+      p.textContent = "Olá, Mundo!";
+      app?.appendChild(p);
+  }
+
+  
 
 }

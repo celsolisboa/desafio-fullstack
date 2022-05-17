@@ -43,4 +43,10 @@ export class ApiService {
     return this._http.post(`${this.apiUrlLogin}`, data)
   }
 
+  deleteData(id:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.delete(`${this.apiUrlCurso}/${ids}`)
+  }
+
 }

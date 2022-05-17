@@ -1,12 +1,13 @@
 <app-header></app-header>
 <div>
-    <div *ngIf="msgErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{ msgErro }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
 
     <div *ngIf="msgSucesso"class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>{{ msgSucesso }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="msgErro"class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ msgErro }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     
@@ -40,13 +41,13 @@
                 <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
                 <input type="text" placeholder="Exemplo: 15:00" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
             </div>
+            
         </form>
-    
-            <div class="conteudo-criar pt-4 position-absolute top-50 start-50 translate-middle">
-                <input type="submit" class="botao-criar" value="Criar curso">
-            </div>
-    
-    
+
+        <div class="pt-4 pb-4">
+            <input type="submit" class="botao-criar" value="Criar curso">
+        </div>
+
     </form>
 </div>
 <app-footer></app-footer>
