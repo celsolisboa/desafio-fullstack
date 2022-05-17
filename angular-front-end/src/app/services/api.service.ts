@@ -21,6 +21,18 @@ export class ApiService {
     return this._http.get(`${this.apiUrlCurso}`);
   }
 
+  GetByIdProfessorData(id:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.delete(`${this.apiUrlProfessor}/${ids}`)
+  }
+
+  GetByIdSalaData(id:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.delete(`${this.apiUrlSala}/${ids}`)
+  }
+
   getAllDataProfessor():Observable<any>
   {
     return this._http.get(`${this.apiUrlProfessor}`);

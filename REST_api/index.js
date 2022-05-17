@@ -43,6 +43,30 @@ app.get('/curso/:id', (req, res)=>{
     client.end;
 })
 
+app.get('/professor/:id', (req, res)=>{
+    var id = req.params.id
+    var logQuery = `Select * from professor 
+                        where id_professor = ${id};`
+    client.query(logQuery, (err, result)=>{
+        if(!err){
+            res.send(result.rows);
+        }
+    });
+    client.end;
+})
+
+app.get('/sala/:id', (req, res)=>{
+    var id = req.params.id
+    var logQuery = `Select * from sala 
+                        where id_sala = ${id};`
+    client.query(logQuery, (err, result)=>{
+        if(!err){
+            res.send(result.rows);
+        }
+    });
+    client.end;
+})
+
 app.get('/professor', (req, res)=>{
     client.query(`Select * from professor`, (err, result)=>{
         if(!err){
@@ -106,6 +130,30 @@ app.post('/login', async (req, res, result)=> {
 });
 
 // FIM ROTAS POST
+
+//INICIO ROTAS PUT
+
+app.put('curso/:id', (req, res)=> {
+    var curso = req.params
+    let insertQuery = `UPDATE novo_curso SET nome = "${curso.nome}",
+                       professor = "${curso.nome}",
+                       inicio = "${curso.inicio}",
+                       fim = "${curso.fim}",
+                       sala = "${curso.sala}" 
+                       WHERE id_novo_curso=${curso.id_novo_curso}`
+
+    client.query(insertQuery, (err, result)=>{
+        if(!err){
+            res.send({
+                message: 'Curso removido com sucesso!',
+            })
+        }
+        else{ console.log(err.message) }
+    })
+});
+
+
+//FIM ROTAS PUT
 
 // INICIO ROTAS DELETE
 app.delete('/curso/:id', (req, res)=> {

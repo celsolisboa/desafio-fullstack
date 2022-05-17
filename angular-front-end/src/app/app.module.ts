@@ -12,7 +12,8 @@ import { CursoComponent } from './components/pages/curso/curso.component';
 import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.component';
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CardsComponent } from './components/cards/cards.component'
+import { CardsComponent } from './components/cards/cards.component';
+import { EditarCursoComponent } from './components/pages/editar-curso/editar-curso.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CardsComponent } from './components/cards/cards.component'
     CursoComponent,
     NovoCursoComponent,
     CardsComponent,
+    EditarCursoComponent,
   ],
   imports: [
     BrowserModule,
