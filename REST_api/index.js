@@ -17,7 +17,7 @@ app.listen(8080, ()=> {
 
 // INICIO ROTAS GET
 app.get('/curso', (req, res)=>{
-    client.query(`Select * from curso`, (err, result)=>{
+    client.query(`Select * from novo_curso`, (err, result)=>{
         if(!err){
             res.send({
                 message: 'Todos os cursos',
@@ -27,6 +27,8 @@ app.get('/curso', (req, res)=>{
     });
     client.end;
 })
+
+
 
 app.get('/curso/:id', (req, res)=>{
     var id = req.params.id
@@ -67,13 +69,19 @@ app.get('/sala', (req, res)=>{
 
 // INICIO ROTAS POST
 app.post('/curso/novo-curso', (req, res)=>{
-    const user = req.body;
-    let insertQuery =  ` insert into curso(id_curso, nome, inicio, fim)
-                      values(${user.id_curso}, '${user.nome}' , '${user.inicio}' , '${user.fim}')`
+    const name = req.body.nome;
+    const inicio = req.body.inicio;
+    const fim = req.body.fim;
+    const professor = req.body.professor;
+    const sala = req.body.sala;
+    let insertQuery =  ` insert into novo_curso(nome, inicio, fim, professor, sala)
+                      values('${name}' , '${inicio}' , '${fim}', '${professor}', '${sala}' )`
 
    client.query(insertQuery, (err, result) => {
         if ( ! err){
-           res.send( 'Inserção com sucesso' )
+           res.send({
+            message: 'Curso cadastrado com sucesso!',
+        })
        }
        else { console.log(err.message) }
    })
@@ -101,7 +109,7 @@ app.post('/login', async (req, res)=> {
 // INICIO ROTAS DELETE
 app.delete('/curso/:id', (req, res)=> {
     var id = req.params.id
-    let insertQuery = `delete from curso where id_curso=${id}`
+    let insertQuery = `delete from novo_curso where id_novo_curso=${id}`
 
     client.query(insertQuery, (err, result)=>{
         if(!err){

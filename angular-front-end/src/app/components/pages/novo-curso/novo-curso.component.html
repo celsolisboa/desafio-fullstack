@@ -4,6 +4,11 @@
         <strong>{{ msgErro }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+
+    <div *ngIf="msgSucesso"class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ msgSucesso }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     
     <form (ngSubmit)="userSubmit()">
         <div class="row align-items-center">
@@ -14,7 +19,8 @@
             <div class="col-6" [formGroup]="userForm">
                 <label class="input-group-text" for="InputSala">Professores</label>
                 <select class="form-select" id="InputSala" formControlName="professor">
-                  <option selected *ngFor="let professor of professores">{{professor.nome}}</option>
+                    <option  selected [value]="null">Selecione o professor</option>
+                    <option *ngFor="let professor of professores">{{professor.nome}}</option>
                 </select>
             </div>
         </div>
@@ -22,16 +28,17 @@
             <div class="col-6" [formGroup]="userForm">
                 <label class="input-group-text" for="InputSala">Sala</label>
                 <select class="form-select" id="InputSala" formControlName="sala">
-                  <option selected *ngFor="let sala of salas">{{sala.numero}}</option>
+                    <option  selected [value]="null">Selecione a sala</option>
+                    <option *ngFor="let sala of salas">{{sala.numero}}</option>
                 </select>
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputInicio" class="input-group-text">Escolha o horário de ínicio</label>
-                <input type="text" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 12:00" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
-                <input type="text" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 15:00" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
             </div>
         </form>
     

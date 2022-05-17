@@ -12,6 +12,7 @@ import { salas } from 'src/app/salas';
 })
 export class NovoCursoComponent implements OnInit {
 
+  msgSucesso: any;
   msgErro: any;
   salas!: salas[];
   professores!: professores[];
@@ -46,7 +47,8 @@ export class NovoCursoComponent implements OnInit {
     if(this.userForm.valid){
       console.log(this.userForm.value);
       this.service.createData(this.userForm.value).subscribe((res)=>{
-        console.log(res, 'res==>');
+      this.userForm.reset();
+      this.msgSucesso = res.message;
         
       });
     } else {

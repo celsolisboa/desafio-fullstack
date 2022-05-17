@@ -10,27 +10,13 @@ export class CursoComponent implements OnInit {
 
   constructor(private service:ApiService) { }
 
-  readDataCurso: any;
-  readDataSala: any;
-  readDataProfessor: any;
+  readData: any;
+
 
   ngOnInit(): void {
     this.service.getAllDataCurso().subscribe((res)=>{
       console.log(res);
-
-      this.readDataCurso = res.data;
-    });
-
-    this.service.getAllDataProfessor().subscribe((res)=>{
-      console.log(res);
-
-      this.readDataProfessor = res.data;
-    });
-
-    this.service.getAllDataSala().subscribe((res)=>{
-      console.log(res);
-
-      this.readDataSala = res.data;
+      this.readData = res.data;
     });
   }
 
