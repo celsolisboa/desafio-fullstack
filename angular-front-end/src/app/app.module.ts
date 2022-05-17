@@ -11,6 +11,10 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { CursoComponent } from './components/pages/curso/curso.component';
 import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.component';
 import { ApiService } from './services/api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card'
+import {MatButtonModule} from '@angular/material/button';
+import { CardsComponent } from './components/cards/cards.component'
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { ApiService } from './services/api.service';
     LoginComponent,
     CursoComponent,
     NovoCursoComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-    ReactiveFormsModule,
+    ReactiveFormsModule, 
+    BrowserAnimationsModule, 
+    MatCardModule, 
+    MatButtonModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

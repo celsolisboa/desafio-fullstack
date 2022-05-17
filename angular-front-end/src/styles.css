@@ -24,3 +24,5 @@ a:hover{
     font-family: 'Silian Rail';
     src: url(./app/fontes/SilianRail.otf) format('opentype');
   }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  todosC: any;
+  detalhesC: any;
+
+  
+
   constructor() { }
 
   ngOnInit(): void {

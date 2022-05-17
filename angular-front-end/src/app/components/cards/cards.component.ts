@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
-
 @Component({
-  selector: 'app-curso',
-  templateUrl: './curso.component.html',
-  styleUrls: ['./curso.component.css']
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.css']
 })
-export class CursoComponent implements OnInit {
-
-  constructor(private service:ApiService) { }
+export class CardsComponent implements OnInit {
 
   readData: any;
 
+  constructor(private service:ApiService) { }
 
   ngOnInit(): void {
     this.service.getAllDataCurso().subscribe((res)=>{
-      console.log(res);
       this.readData = res.data;
     });
   }

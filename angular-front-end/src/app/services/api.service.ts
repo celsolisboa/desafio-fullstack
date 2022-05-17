@@ -13,6 +13,7 @@ export class ApiService {
   apiUrlProfessor = 'http://localhost:8080/professor';
   apiUrlSala = 'http://localhost:8080/sala';
   apiUrlCreate = 'http://localhost:8080/curso/novo-curso';
+  apiUrlLogin = 'http://localhost:8080/login';
 
 
   getAllDataCurso():Observable<any>
@@ -35,6 +36,11 @@ export class ApiService {
     console.log(data, 'createapi=>');
     
     return this._http.post(`${this.apiUrlCreate}`, data)
+  }
+
+  login(data:any):Observable<any>
+  {
+    return this._http.post(`${this.apiUrlLogin}`, data)
   }
 
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+
 
 
 @Component({
@@ -10,27 +13,40 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  public login$!: Observable<any>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private service:ApiService, private router:Router) {}
+
+  msgErro: any;
 
   ngOnInit(): void {
 
-    this.login$ = this.http.post('http://localhost:8080/users', {
-      email: 'email@aqui.com',
-      senha: '123'
-    })
-
   }
 
-  onSubmit(email: string, senha: string){
-    console.log(email, senha)
-  }
+  userForm = new FormGroup({
+    'email': new FormControl('', Validators.required),
+    'senha': new FormControl('', Validators.required),
+  });
 
-  login(){
+  onSubmit(){
+    if(this.userForm.valid){
+      console.log(this.userForm.value);
+      this.service.login(this.userForm.value).pipe(
+        catchError(error => {
+          return  of([])
+        })
+      ).subscribe((res)=>{
+        this.userForm.reset();    
+        });
+      console.log('Login realizado');
+      this.router.navigate(['/cursos'])
+        
 
-  }
+    } else {
+
+      this.msgErro = 'Email ou senha inválidos!'
     
+    }
+  }
 
 
 }
