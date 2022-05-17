@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { CursoComponent } from './components/pages/curso/curso.component';
 import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.component';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.com
     FormsModule, 
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

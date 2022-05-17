@@ -19,7 +19,10 @@ app.listen(8080, ()=> {
 app.get('/curso', (req, res)=>{
     client.query(`Select * from curso`, (err, result)=>{
         if(!err){
-            res.send(result.rows);
+            res.send({
+                message: 'Todos os cursos',
+                data:result.rows
+            });
         }
     });
     client.end;
@@ -37,6 +40,29 @@ app.get('/curso/:id', (req, res)=>{
     client.end;
 })
 
+app.get('/professor', (req, res)=>{
+    client.query(`Select * from professor`, (err, result)=>{
+        if(!err){
+            res.send({
+                message: 'Todos os professores',
+                data:result.rows
+            });
+        }
+    });
+    client.end;
+})
+
+app.get('/sala', (req, res)=>{
+    client.query(`Select * from sala`, (err, result)=>{
+        if(!err){
+            res.send({
+                message: 'Todas as salas',
+                data:result.rows
+            });
+        }
+    });
+    client.end;
+})
 // FIM ROTAS GET
 
 // INICIO ROTAS POST
@@ -69,6 +95,7 @@ app.post('/login', async (req, res)=> {
     }
     
 });
+
 // FIM ROTAS POST
 
 // INICIO ROTAS DELETE

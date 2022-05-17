@@ -1,45 +1,45 @@
 <app-header></app-header>
 <div>
-    <form class="row align-items-center">
-        <div class="col-6">
-            <span class="input-group-text" id="inputGroup-sizing-default">Nome do curso</span>
-            <input type="text" class="form-control" formControlName="nome" placeholder="Digite um nome para o curso.">
-        </div>        
-        <div class="col-6">
-            <label class="input-group-text" for="InputSala">Professores</label>
-            <select class="form-select" id="InputSala">
-              <option selected>Escolha um professor</option>
-              <option value="1">Professor 1</option>
-              <option value="2">Professor 2</option>
-              <option value="3">Professor 3</option>
-            </select>
+    <div *ngIf="msgErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ msgErro }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    <form (ngSubmit)="userSubmit()">
+        <div class="row align-items-center">
+            <div class="col-6" [formGroup]="userForm">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nome do curso</span>
+                <input type="text" class="form-control" formControlName="nome" placeholder="Digite um nome para o curso.">
+            </div>        
+            <div class="col-6" [formGroup]="userForm">
+                <label class="input-group-text" for="InputSala">Professores</label>
+                <select class="form-select" id="InputSala" formControlName="professor">
+                  <option selected *ngFor="let professor of professores">{{professor.nome}}</option>
+                </select>
+            </div>
         </div>
+        <form class="row align-items-center pt-5">       
+            <div class="col-6" [formGroup]="userForm">
+                <label class="input-group-text" for="InputSala">Sala</label>
+                <select class="form-select" id="InputSala" formControlName="sala">
+                  <option selected *ngFor="let sala of salas">{{sala.numero}}</option>
+                </select>
+            </div>
+            <div class="col-3" [formGroup]="userForm">
+                <label for="InputInicio" class="input-group-text">Escolha o horário de ínicio</label>
+                <input type="text" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
+            </div>
+            <div class="col-3" [formGroup]="userForm">
+                <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
+                <input type="text" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
+            </div>
+        </form>
+    
+            <div class="conteudo-criar pt-4 position-absolute top-50 start-50 translate-middle">
+                <input type="submit" class="botao-criar" value="Criar curso">
+            </div>
+    
+    
     </form>
-    <form class="row align-items-center pt-5">       
-        <div class="col-6">
-            <label class="input-group-text" for="InputSala">Sala</label>
-            <select class="form-select" id="InputSala">
-              <option selected>Escolha uma sala</option>
-              <option value="1">1001</option>
-              <option value="2">1002</option>
-              <option value="3">1003</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <label for="InputInicio" class="input-group-text">Escolha o horário de ínicio</label>
-            <input type="time" id="InputInicio" class="form-control" tabindex="27"> 
-        </div>
-        <div class="col-3">
-            <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
-            <input type="time" id="InputFim" class="form-control" tabindex="27"> 
-        </div>
-    </form>
-
-    <form>
-        <div class="conteudo-criar pt-4 position-absolute top-50 start-50 translate-middle">
-            <input type="submit" class="botao-criar" value="Criar curso">
-        </div>
-    </form>
-
 </div>
 <app-footer></app-footer>
