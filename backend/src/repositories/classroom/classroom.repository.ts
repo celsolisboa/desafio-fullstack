@@ -1,5 +1,5 @@
 import { Repository, getRepository } from 'typeorm';
-import Classroom from '../../entities/classroom';
+import Classroom from '../../entities/Classroom';
 import { ClassroomRepoTypes, ClassroomTypes } from './interfaces';
 
 class ClassroomRepository implements ClassroomRepoTypes {

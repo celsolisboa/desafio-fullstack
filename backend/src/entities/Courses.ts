@@ -2,7 +2,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  OneToOne,
+  ManyToOne,
   JoinColumn,
 } from 'typeorm';
 import Teacher from './Teacher';
@@ -15,9 +15,11 @@ class Course {
     @Column()
     name: string;
 
-    @OneToOne(() => Teacher, { nullable: true })
-    @JoinColumn()
-    teacher_id: Teacher;
+    @ManyToOne(() => Teacher, (teacher) => teacher.course, {
+      onDelete: 'CASCADE',
+    })
+    @JoinColumn({ name: 'teacher_id' })
+    teacher: Teacher;
 }
 
 export default Course;
