@@ -2,9 +2,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  ManyToMany,
 } from 'typeorm';
-import Teacher from './Teacher';
 
 @Entity('classroom')
 class Classroom {
@@ -19,9 +17,6 @@ class Classroom {
 
     @Column()
     end_time: string;
-
-    @ManyToMany(() => Teacher, (teacher) => teacher.classroom)
-    teacher: Teacher[];
 }
 
 export default Classroom;
