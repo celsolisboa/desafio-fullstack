@@ -113,7 +113,9 @@ app.delete('/curso/:id', (req, res)=> {
 
     client.query(insertQuery, (err, result)=>{
         if(!err){
-            res.send('Foi deletado com sucesso')
+            res.send({
+                message: 'Curso removido com sucesso!',
+            })
         }
         else{ console.log(err.message) }
     })

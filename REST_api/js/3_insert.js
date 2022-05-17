@@ -8,16 +8,16 @@ async function insertData(){
     await db.query(queryUsuario, [1, "gusthenrique273@gmail.com", "123456"])
 
     //CRIAR CURSO
-    const queryCurso = `INSERT INTO Curso (id_curso, nome, inicio, fim) VALUES ($1, $2, $3, $4)`
-    await db.query(queryCurso, [3, "Curso de Javascript", "18:00", "22:00"])
+    const queryCurso = `insert into novo_curso(nome, inicio, fim, professor, sala) values($1, $2, $3, $4)`
+    await db.query(queryCurso, ["Curso de Javascript", "18:00", "22:00", "Gustavo", 1001])
 
     //CRIAR PROFESSORES
     const queryProfessores = `INSERT INTO Professor (id_professor, nome) VALUES ($1, $2)`
     await db.query(queryProfessores, ["3", "Paulo Cesar"])
 
     //CRIAR SALA
-    const querySala = `INSERT INTO Sala (id_sala, numero) VALUES ($1, $2)`
-    await db.query(querySala, [3, 1003])
+    const querySala = `INSERT INTO Sala (numero) VALUES ($1)`
+    await db.query(querySala, [1001])
 
     //CRIAR PROFESSORES DOS CURSOS
     const queryProfessoresCursos = `INSERT INTO Professor_Curso (profcurso_id, professor_id, curso_id) VALUES ($1, $2, $3)`
