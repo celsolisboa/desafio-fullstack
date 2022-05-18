@@ -16,7 +16,6 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllDataCurso().subscribe((res)=>{
       this.readData = res.data;
-      
     });
   }
 
@@ -32,15 +31,5 @@ export class CardsComponent implements OnInit {
       });
     });
   }
-
-  onSubmit(){
-    console.log('deu');
-    const app = document.getElementById("app");
-    const p = document.createElement("p");
-      p.textContent = "Olá, Mundo!";
-      app?.appendChild(p);
-  }
-
-  
 
 }
