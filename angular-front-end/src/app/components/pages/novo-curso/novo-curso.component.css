@@ -32,10 +32,8 @@
     font-family: 'Silian Rail';
     font-size: 16px;
     color: #fff;
-    line-height: 1.2;
+    line-height: 2.5em;
     padding: 0px 20px;
-    width: 17%;
-    height: 30px;
     background-color: #827ffe;
     border-radius: 3px;
     transition: all 0.4s;
