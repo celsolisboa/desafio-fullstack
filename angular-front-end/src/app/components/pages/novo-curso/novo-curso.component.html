@@ -41,11 +41,11 @@
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputInicio" class="input-group-text">Escolha o horário de ínicio</label>
-                <input type="text" placeholder="Exemplo: 12:00" maxlength="6" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 12:00" mask="00:00" minlength="5" maxlength="5" id="InputInicio" formControlName="inicio" class="form-control" tabindex="27"> 
             </div>
             <div class="col-3" [formGroup]="userForm">
                 <label for="InputFim" class="input-group-text">Escolha o horário do fim</label>
-                <input type="text" placeholder="Exemplo: 15:00" minlength="3" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
+                <input type="text" placeholder="Exemplo: 15:00" mask="00:00" minlength="5" maxlength="5" id="InputFim" formControlName="fim" class="form-control" tabindex="27"> 
             </div>
             
         </form>

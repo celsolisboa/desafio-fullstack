@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { professores } from 'src/app/professores';
 import { salas } from 'src/app/salas';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class NovoCursoComponent implements OnInit {
   constructor(private service:ApiService) { }
 
   ngOnInit(): void {
+
+    NgxMaskModule.forChild();
 
     this.service.getAllDataProfessor().subscribe((res)=>{
       console.log(res);
