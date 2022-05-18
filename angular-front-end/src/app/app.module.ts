@@ -14,7 +14,7 @@ import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.com
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardsComponent } from './components/cards/cards.component';
-import { EditarCursoComponent } from './components/pages/editar-curso/editar-curso.component'
+
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import { EditarCursoComponent } from './components/pages/editar-curso/editar-cur
     CursoComponent,
     NovoCursoComponent,
     CardsComponent,
-    EditarCursoComponent,
   ],
   imports: [
     BrowserModule,

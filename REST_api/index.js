@@ -29,8 +29,6 @@ app.get('/curso', (req, res)=>{
     client.end;
 })
 
-
-
 app.get('/curso/:id', (req, res)=>{
     var id = req.params.id
     var logQuery = `Select * from novo_curso 
@@ -41,18 +39,6 @@ app.get('/curso/:id', (req, res)=>{
                 message: 'Todos os cursos',
                 data: result.rows
             });
-        }
-    });
-    client.end;
-})
-
-app.get('/professor/:id', (req, res)=>{
-    var id = req.params.id
-    var logQuery = `Select * from professor 
-                        where id_professor = ${id};`
-    client.query(logQuery, (err, result)=>{
-        if(!err){
-            res.send(result.rows);
         }
     });
     client.end;
@@ -137,16 +123,17 @@ app.post('/login', async (req, res, result)=> {
 
 //INICIO ROTAS PUT
 app.put('/curso/:id', (req, res)=> {
+    var data = '';
     const gId = req.params
-    const nome = req.body
-    const name = req.body.nome
-    console.log(nome, nome.nome, name)
-
-    client.query(`UPDATE novo_curso SET nome = '${nome.nome}', 
-                       sala = '${nome.sala}',
-                       inicio = '${nome.inicio}',
-                       fim = '${nome.fim}',
-                       professor = '${nome.professor}'
+    console.log(req.body)
+    data = req.body.nome
+    const body = JSON.stringify(req.body.nome)
+    console.log(data)
+    client.query(`UPDATE novo_curso SET nome = '${body.nome}', 
+                       sala = '${body.sala}',
+                       inicio = '${body.inicio}',
+                       fim = '${body.fim}',
+                       professor = '${body.professor}'
                        where id_novo_curso = ${gId}`, (err, result)=>{
         if(!err){
             res.send({
