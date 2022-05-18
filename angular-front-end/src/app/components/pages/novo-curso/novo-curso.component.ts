@@ -5,6 +5,7 @@ import { professores } from 'src/app/professores';
 import { salas } from 'src/app/salas';
 import { NgxMaskModule } from 'ngx-mask';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 
@@ -21,7 +22,7 @@ export class NovoCursoComponent implements OnInit {
   professores!: professores[];
   getParamid:any;
 
-  constructor(private service:ApiService, private route:ActivatedRoute) { }
+  constructor(private service:ApiService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -71,9 +72,7 @@ export class NovoCursoComponent implements OnInit {
     if(this.userForm.valid){
       this.service.updateData(this.userForm.value, this.getParamid).subscribe((res)=>{
         console.log(res, 'resupdated');
-        
-      //this.msgSucesso = res.message;
-      //this.userForm.reset();
+        this.router.navigate(['/cursos'])
       });
     } else {
       this.msgErro = 'Todos os campos são obrigatórios!'
