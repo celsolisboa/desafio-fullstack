@@ -4,6 +4,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { professores } from 'src/app/professores';
 import { salas } from 'src/app/salas';
 import { NgxMaskModule } from 'ngx-mask';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -18,9 +20,25 @@ export class NovoCursoComponent implements OnInit {
   salas!: salas[];
   professores!: professores[];
 
-  constructor(private service:ApiService) { }
+  constructor(private service:ApiService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    var registro = null;
+
+    this.route.params.subscribe(
+      (params: any) => {
+        const id = params['id'];
+        console.log(id);
+        const curso = this.service.loadById(id);
+        curso.subscribe(curso => {
+          this.updateForm(curso);
+          registro = curso
+          this.updateForm(registro)
+        })
+      }
+      );
+  
 
     NgxMaskModule.forChild();
 
@@ -38,6 +56,16 @@ export class NovoCursoComponent implements OnInit {
 
   }
 
+  updateForm(curso:any){
+    this.userForm.patchValue({
+      'nome': curso.nome,
+      'professor': curso.professor,
+      'sala': curso.sala,
+      'inicio': curso.inicio,
+      'fim': curso.fim
+    });
+  }
+
   userForm = new FormGroup({
     'nome': new FormControl('', Validators.required),
     'professor': new FormControl('', Validators.required),
@@ -50,9 +78,8 @@ export class NovoCursoComponent implements OnInit {
     if(this.userForm.valid){
       console.log(this.userForm.value);
       this.service.createData(this.userForm.value).subscribe((res)=>{
-      this.userForm.reset();
       this.msgSucesso = res.message;
-        
+      this.userForm.reset();
       });
     } else {
 
@@ -61,5 +88,6 @@ export class NovoCursoComponent implements OnInit {
     }
 
   }
+
 
 }

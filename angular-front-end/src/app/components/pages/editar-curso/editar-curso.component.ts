@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { professores } from 'src/app/professores';
 import { salas } from 'src/app/salas';
 import { ApiService } from 'src/app/services/api.service';
+import { NgxMaskModule } from 'ngx-mask';
 
 @Component({
   selector: 'app-editar-curso',
@@ -10,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./editar-curso.component.css']
 })
 export class EditarCursoComponent implements OnInit {
+  
 
   msgSucesso: any;
   msgErro: any;
@@ -18,7 +20,10 @@ export class EditarCursoComponent implements OnInit {
 
   constructor(private service:ApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    NgxMaskModule.forChild();
+  }
+
 
   toEdit(id:any){
     this.service.GetByIdProfessorData(id).subscribe((res)=>{

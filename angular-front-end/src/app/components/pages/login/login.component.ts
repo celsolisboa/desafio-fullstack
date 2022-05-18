@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, empty, of } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 
 
