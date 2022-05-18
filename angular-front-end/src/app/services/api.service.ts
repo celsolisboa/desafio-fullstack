@@ -15,8 +15,16 @@ export class ApiService {
   apiUrlCreate = 'http://localhost:8080/curso/novo-curso';
   apiUrlLogin = 'http://localhost:8080/login';
 
-  loadById(id:any){
-    return this._http.get(`${this.apiUrlCurso}/${id}`).pipe(take(1));
+  loadById(id:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.get(`${this.apiUrlCurso}/${ids}`); 
+  }
+
+  updateData(id:any, data:any):Observable<any>
+  {
+    let ids = id;
+    return this._http.put(`${this.apiUrlCurso}/${ids}`, data)
   }
 
   getAllDataCurso():Observable<any>
@@ -47,9 +55,7 @@ export class ApiService {
   }
 
   createData(data:any):Observable<any>
-  {
-    console.log(data, 'createapi=>');
-    
+  { 
     return this._http.post(`${this.apiUrlCreate}`, data)
   }
 

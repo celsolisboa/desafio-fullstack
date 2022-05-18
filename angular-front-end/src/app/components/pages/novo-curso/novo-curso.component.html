@@ -17,7 +17,7 @@
         </a>
     </div>
     
-    <form (ngSubmit)="userSubmit()">
+    <form>
         <div class="row align-items-center">
             <div class="col-6" [formGroup]="userForm">
                 <span class="input-group-text" id="inputGroup-sizing-default">Nome do curso</span>
@@ -50,8 +50,12 @@
             
         </form>
 
-        <div class="pt-4 pb-4">
-            <input type="submit" class="botao-criar" value="Criar curso">
+        <div class="pt-4 pb-4" *ngIf="!getParamid">
+            <input type="submit" class="botao-criar" (click)="userSubmit()" value="Criar curso">
+        </div>
+
+        <div class="pt-4 pb-4" *ngIf="getParamid">
+            <input type="submit" class="botao-criar" (click)="userUpdate()" value="Editar curso">
         </div>
 
     </form>

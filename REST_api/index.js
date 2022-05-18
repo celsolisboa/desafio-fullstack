@@ -37,7 +37,10 @@ app.get('/curso/:id', (req, res)=>{
                         where id_novo_curso = ${id};`
     client.query(logQuery, (err, result)=>{
         if(!err){
-            res.send(result.rows);
+            res.send({
+                message: 'Todos os cursos',
+                data: result.rows
+            });
         }
     });
     client.end;
@@ -118,6 +121,7 @@ app.post('/login', async (req, res, result)=> {
     const email = req.body.email;
     const senha = req.body.senha;
 
+
     const data = await client.query(`SELECT email, senha 
                                     FROM public.usuario 
                                     WHERE email='${email}' and senha='${senha}'`)
@@ -132,26 +136,27 @@ app.post('/login', async (req, res, result)=> {
 // FIM ROTAS POST
 
 //INICIO ROTAS PUT
+app.put('/curso/:id', (req, res)=> {
+    const gId = req.params
+    const nome = req.body
+    const name = req.body.nome
+    console.log(nome, nome.nome, name)
 
-app.put('curso/:id', (req, res)=> {
-    var curso = req.params
-    let insertQuery = `UPDATE novo_curso SET nome = "${curso.nome}",
-                       professor = "${curso.nome}",
-                       inicio = "${curso.inicio}",
-                       fim = "${curso.fim}",
-                       sala = "${curso.sala}" 
-                       WHERE id_novo_curso=${curso.id_novo_curso}`
-
-    client.query(insertQuery, (err, result)=>{
+    client.query(`UPDATE novo_curso SET nome = '${nome.nome}', 
+                       sala = '${nome.sala}',
+                       inicio = '${nome.inicio}',
+                       fim = '${nome.fim}',
+                       professor = '${nome.professor}'
+                       where id_novo_curso = ${gId}`, (err, result)=>{
         if(!err){
             res.send({
-                message: 'Curso removido com sucesso!',
+                message: 'Curso atualizado com sucesso!',
+                data: result.rows
             })
         }
         else{ console.log(err.message) }
     })
 });
-
 
 //FIM ROTAS PUT
 

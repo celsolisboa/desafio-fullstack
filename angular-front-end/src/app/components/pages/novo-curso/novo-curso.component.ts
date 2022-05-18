@@ -19,53 +19,35 @@ export class NovoCursoComponent implements OnInit {
   msgErro: any;
   salas!: salas[];
   professores!: professores[];
+  getParamid:any;
 
   constructor(private service:ApiService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    var registro = null;
-
-    this.route.params.subscribe(
-      (params: any) => {
-        const id = params['id'];
-        console.log(id);
-        const curso = this.service.loadById(id);
-        curso.subscribe(curso => {
-          this.updateForm(curso);
-          registro = curso
-          this.updateForm(registro)
-        })
-      }
-      );
+    this.getParamid = this.route.snapshot.paramMap.get('id');
+    this.service.loadById(this.getParamid).subscribe((res)=> {
+      console.log(res, 'res==>');
+      this.userForm.patchValue({
+        'nome': res.data[0].nome,
+        'professor': res.data[0].professor,
+        'sala': res.data[0].sala,
+        'inicio': res.data[0].inicio,
+        'fim': res.data[0].fim
+      })
+    });
   
-
     NgxMaskModule.forChild();
 
     this.service.getAllDataProfessor().subscribe((res)=>{
-      console.log(res);
-
       this.professores = res.data;
     });
 
     this.service.getAllDataSala().subscribe((res)=>{
-      console.log(res);
-
       this.salas = res.data;
     });
 
   }
-
-  updateForm(curso:any){
-    this.userForm.patchValue({
-      'nome': curso.nome,
-      'professor': curso.professor,
-      'sala': curso.sala,
-      'inicio': curso.inicio,
-      'fim': curso.fim
-    });
-  }
-
   userForm = new FormGroup({
     'nome': new FormControl('', Validators.required),
     'professor': new FormControl('', Validators.required),
@@ -76,18 +58,29 @@ export class NovoCursoComponent implements OnInit {
 
   userSubmit(){
     if(this.userForm.valid){
-      console.log(this.userForm.value);
       this.service.createData(this.userForm.value).subscribe((res)=>{
       this.msgSucesso = res.message;
       this.userForm.reset();
       });
     } else {
-
       this.msgErro = 'Todos os campos são obrigatórios!'
-
     }
-
   }
+
+  userUpdate(){
+    if(this.userForm.valid){
+      this.service.updateData(this.userForm.value, this.getParamid).subscribe((res)=>{
+        console.log(res, 'resupdated');
+        
+      //this.msgSucesso = res.message;
+      //this.userForm.reset();
+      });
+    } else {
+      this.msgErro = 'Todos os campos são obrigatórios!'
+    }
+  }
+
+
 
 
 }
