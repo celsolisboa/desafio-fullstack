@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'cursos', component: CursoComponent},
   {path: 'curso/novo-curso', component: NovoCursoComponent},
+  {path: 'curso/editar/:id', component: NovoCursoComponent},
   {path: 'curso/editar-curso', component: EditarCursoComponent}
 ];
 

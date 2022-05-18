@@ -33,8 +33,8 @@ app.get('/curso', (req, res)=>{
 
 app.get('/curso/:id', (req, res)=>{
     var id = req.params.id
-    var logQuery = `Select * from curso 
-                        where id_curso = ${id};`
+    var logQuery = `Select * from novo_curso 
+                        where id_novo_curso = ${id};`
     client.query(logQuery, (err, result)=>{
         if(!err){
             res.send(result.rows);

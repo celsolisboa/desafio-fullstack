@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,12 +12,16 @@ export class CardsComponent implements OnInit {
   readData: any;
   deletemsg: any;
 
-  constructor(private service:ApiService) { }
+  constructor(private service:ApiService, private router:Router) { }
 
   ngOnInit(): void {
     this.service.getAllDataCurso().subscribe((res)=>{
       this.readData = res.data;
     });
+  }
+
+  editId(id:any){
+    this.router.navigate(['curso/editar/', id]);
   }
 
   deleteId(id:any){

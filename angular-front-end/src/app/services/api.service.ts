@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class ApiService {
   apiUrlCreate = 'http://localhost:8080/curso/novo-curso';
   apiUrlLogin = 'http://localhost:8080/login';
 
+  loadById(id:any){
+    return this._http.get(`${this.apiUrlCurso}/${id}`).pipe(take(1));
+  }
 
   getAllDataCurso():Observable<any>
   {
