@@ -6,24 +6,25 @@
 **Eu preciso** realizar a gestão dos cursos oferecidos pela Instituição, com seus respectivos professores, salas e horários  
 **Para** que o setor de Marketing possa vender os cursos online.
 
-### Segue instruções para realizar o desafio
+### Segue instruções iniciar o sistema
 
-1. Faça um fork deste repositório.
-2. Baseado no cenário acima, modele e crie o esquema do banco de dados para armazenar as informações normalizadas.
-    * Comite a imagem em jpg ou png do DER e o script do DDL.  
-3. Desenvolva uma API REST para realizar as operações necessárias com o banco de dados criado.
-4. Baseado nas imagens `wireframe/1-login-mobile.png` e `wireframe/2-login-desktop.png`, crie a tela de login da aplicação. 
-    * Considere apenas uma validação simples por e-mail e senha. 
-    * Não existe a necessidade de CRUD de usuário, recuperação de senha ou outra operação mais complexa.
-5. Baseado nas imagens `wireframe/3-cursos-mobile.png` e `wireframe/4-cursos-desktop.png`, crie a tela de visualização e deleção de cursos. 
-    * Deve conter as informações de horário, professor e sala. 
-6. Baseado nas imagens `wireframe/5-detalhe-mobile.png` e `wireframe/6-detalhe-desktop.png`, crie a tela de criação e alteração de cursos. 
-    * Os campos de professor e sala deverão ser um multi-select. 
-    * Não existe a necessidade de CRUD de professor e sala.
-7. Realizar um Pull Request para este repositório, com instruções necessárias para instalação e instânciação dos sistemas.
+1. Instalar as dependências com: **npm install --save** na pasta REST_api , é necessário ter
+o Node na versão: 16.15.0 e o NPM na versão: 8.5.5  instalado na maquina.
 
-### O que será avaliado 
+2. Instalar as dependências com: **npm install --save** na pasta angular-front-end, é necessário ter
+o CLI na versão: 13.5.5 e o NPM na versão: 8.5.5 instalado na maquina.
 
-1. Fidelidade às instruções e ao cenário.
-2. Clean Code e boas práticas.
-3. Boas práticas de versionamento.
+3. Rodar o scriptDLL.sql ou por meio do comando "node + nome do arquivo" rodar os arquivos 2_create.js, 3_insert.js para gerar o banco de dados em PostgreSQL.
+
+4. As credenciais do PostgreSQL devem ser user: **postgres** , senha: **admin** , porta: **5432** e o nome do banco de dados: **Database**.
+
+5. Na pasta REST_api iniciar com **npm run dev** ou **node index.js**, o servidor irá rodar na porta **8080**, certifique-se de não estar sendo utilizada.
+
+6. Na pasta angular-front-end iniciar com **ng serve**, o servidor irá rodar na porta **4200**, certifique-se de não estar sendo utilizada.
+
+7. A aplicação estará rodando em **http://localhost:4200/**.
+
+8. As credenciais corretas para o login: **Email: gusthenrique273@gmail.com, senha:123456** 
+                                         **Email: gust.leles2@gmail.com, senha: 33566296**
+                                         **Email: guseles2@gmail.com, senha: aiuhnfy3**
+
