@@ -127,7 +127,7 @@ app.put('/curso/:id', (req, res)=> {
     const gId = req.params
     console.log(req.body)
     data = req.body.nome
-    const body = JSON.stringify(req.body.nome)
+    const body = req.body.nome
     console.log(data)
     client.query(`UPDATE novo_curso SET nome = '${body.nome}', 
                        sala = '${body.sala}',

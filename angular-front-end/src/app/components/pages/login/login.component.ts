@@ -52,8 +52,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  handleError(){
-
-  }
-
 }

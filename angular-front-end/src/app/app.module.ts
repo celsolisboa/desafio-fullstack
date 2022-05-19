@@ -14,6 +14,7 @@ import { NovoCursoComponent } from './components/pages/novo-curso/novo-curso.com
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardsComponent } from './components/cards/cards.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CardsComponent } from './components/cards/cards.component';
     NgxMaskModule.forRoot({
       dropSpecialCharacters: false
     }),
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
