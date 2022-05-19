@@ -24,3 +24,7 @@ o CLI na versão: 13.5.5 e o NPM na versão: 8.5.5 instalado na maquina.
 
 7. A aplicação estará rodando em **http://localhost:4200/**.
 
+8. As credenciais corretas para o login: **Email: gusthenrique273@gmail.com, senha:123456** 
+                                         **Email: gust.leles2@gmail.com, senha: 33566296**
+                                         **Email: guseles2@gmail.com, senha: aiuhnfy3**
+
