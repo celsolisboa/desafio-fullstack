@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { TeacherLogin } from '../interfaces/Teacher';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,7 +15,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  createLogin(formData: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formData)
+  createLogin(teacher: TeacherLogin): Observable<TeacherLogin> {      
+    return this.http.post<TeacherLogin>(this.apiUrl, teacher)
   }
 }
