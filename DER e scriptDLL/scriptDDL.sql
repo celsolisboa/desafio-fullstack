@@ -15,19 +15,16 @@ CREATE TABLE IF NOT EXISTS Curso (
 	fim TIME WITHOUT TIME ZONE
 );
 
-CREATE TABLE IF NOT EXISTS novo_curso (
-    id_novo_curso BIGINT NOT NULL PRIMARY KEY,
-    nome VARCHAR(45),
-    inicio TIME WITHOUT TIME ZONE,
-    fim TIME WITHOUT TIME ZONE,
-    professor VARCHAR(45),
-    sala INTEGER
-);
-
-CREATE TABLE IF NOT EXISTS Sala (
-	id_Sala BIGINT NOT NULL PRIMARY KEY,
-	numero INT
-);
+CREATE TABLE IF NOT EXISTS public.novo_curso
+(
+    id_novo_curso bigint NOT NULL DEFAULT nextval('novo_curso_id_novo_curso_seq'::regclass),
+    sala integer,
+    inicio time without time zone,
+    fim time without time zone,
+    professor character varying(45) COLLATE pg_catalog."default",
+    nome character varying(45) COLLATE pg_catalog."default",
+    CONSTRAINT novo_curso_pkey PRIMARY KEY (id_novo_curso)
+)
 
 CREATE TABLE IF NOT EXISTS Professor (
 	id_Professor BIGINT NOT NULL PRIMARY KEY,
@@ -53,49 +50,49 @@ CREATE TABLE IF NOT EXISTS Sala_Curso (
 );
 
 INSERT INTO
-	Usuario (email, senha)
+	Usuario (id_usuario, email, senha)
 VALUES
-	('gusthenrique273@gmail.com', '123456');
+	(1, 'gusthenrique273@gmail.com', '123456');
 
 INSERT INTO
 	Usuario (email, senha)
 VALUES
-	('gust.leles2@gmail.com', '33566296');
+	(2, 'gust.leles2@gmail.com', '33566296');
 
 INSERT INTO
 	Usuario (email, senha)
 VALUES
-	('guseles2@gmail.com', 'aiuhnfy3');
+	(3, 'guseles2@gmail.com', 'aiuhnfy3');
 
 INSERT INTO
-	Professor (nome)
+	Professor (id_professor, nome)
 VALUES
-	('Paulo Cesar');
+	(1, 'Paulo Cesar');
 
 INSERT INTO
-	Professor (nome)
+	Professor (id_professor, nome)
 VALUES
-	('Gustavo Henrique');
+	(2, 'Gustavo Henrique');
 
 INSERT INTO
-	Professor (nome)
+	Professor (id_professor, nome)
 VALUES
-	('Lecy da Silva');
+	(3, 'Lecy da Silva');
 
 INSERT INTO
-	Sala (numero)
+	Sala (id_sala, numero)
 VALUES
-	(1001);
+	(1, 1001);
 
 INSERT INTO
-	Sala (numero)
+	Sala (id_sala, numero)
 VALUES
-	(1002);
+	(2, 1002);
 
 INSERT INTO
-	Sala (numero)
+	Sala (id_sala, numero)
 VALUES
-	(1003);
+	(3, 1003);
 
 INSERT INTO
 	novo_curso(nome, inicio, fim, professor, sala)
