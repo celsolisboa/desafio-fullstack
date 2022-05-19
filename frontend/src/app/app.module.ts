@@ -8,20 +8,24 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { CourseCardComponent } from './components/course-card/course-card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    LoginFormComponent,    
+    LoginFormComponent,
+    CourseCardComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
