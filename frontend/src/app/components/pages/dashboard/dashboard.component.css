@@ -1,0 +1,30 @@
+header {
+    background-color: #C0C0C0;
+    /* min-width: 80%; */
+    
+}
+
+.title {
+    text-aling: center;
+}
+
+.title-container {
+    display: inline-block;
+}
+
+.add-course {
+    border: transparent;
+    margin: 0 0.3em;
+    font-size: 1.8em;
+    background-color: #C0C0C0;
+    
+    cursor: pointer;
+}
+
+.list-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2em;
+}
