@@ -1,8 +1,12 @@
 <header>
+  <div class="title-container">
     <h1 class="title">Cursos</h1>
-    <div class="add-course">
-        <fa-icon [icon]="faPlus"></fa-icon>
-    </div>
-</header>
+  </div>
 
-<app-course-card></app-course-card>
+  <button class="add-course">
+    <fa-icon [icon]="faPlus">s</fa-icon>
+  </button>
+</header>
+<div class="list-cards" >
+  <app-course-card *ngFor="let teacher of teachers"></app-course-card>
+</div>
