@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    text-align: center;
+}
+
+.login h1 {
+    text-align: center;
+}
+
+.input-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.input-container input {
+    width: 22rem;
+    height: 1.8rem;
+  border-radius: 1rem;
+}

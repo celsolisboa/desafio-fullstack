@@ -1,0 +1,16 @@
+<div>
+    <div class="login">
+       <h2>Login</h2>
+       <div class="Form">
+           <div class="input-container">
+            <input formControlName="email" placeholder="Digite seu e-mail aqui" type="email">
+           </div>
+           <div class="input-container">
+               <input formControlName="password" placeholder="Digite sua senha" type="password">
+           </div>
+           <div class="button-container">
+               <button [disabled]="loading" class="input-button"type="submit">Entrar</button>
+           </div>
+       </div>
+    </div>
+</div>
