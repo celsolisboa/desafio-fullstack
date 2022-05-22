@@ -10,31 +10,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Teacher {
+model Teachers {
   id String @id @default(uuid())
-
   name String
-  sub_name String
-  email String
+  email String @unique
   password String
+  classroom Classroom[]
+}
 
-  @@map("teacher")
+model Classroom {
+  id String @id @default(uuid())
+  room_number Int 
+  start_time String
+  end_time String
+  courses Courses? @relation(fields: [courseId], references: [id])
+  courseId String?
+  teacher Teachers? @relation(fields: [teachersId], references: [id])
+  teachersId String?
+
 }
 
 model Courses {
   id String @id @default(uuid())
   name String
-  room String
-  teacher String
-  start_time String
-  end_time String
-
-  @@map("course")
-}
-
-model Room {
-  id String @id @default(uuid())
-  name String
-
-  @@map("room")
+  classroom Classroom[]
 }
