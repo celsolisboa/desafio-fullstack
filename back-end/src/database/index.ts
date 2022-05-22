@@ -8,7 +8,8 @@ const AppDataSource = new DataSource({
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
-})
+    entities: [__dirname + '/../entities/*.ts']
+});
 
 AppDataSource.initialize()
     .then(() => {
@@ -16,4 +17,6 @@ AppDataSource.initialize()
     })
     .catch((err) => {
         console.error("Error during Data Source initialization", err)
-    })
+    });
+
+export { AppDataSource };
