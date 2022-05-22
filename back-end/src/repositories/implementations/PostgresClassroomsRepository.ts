@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Repository, Any } from "typeorm";
 import { AppDataSource } from "../../database";
 import { Classroom } from "../../entities/Classroom";
 import { IClassroomsRepository } from "../IClassroomsRepository";
@@ -12,5 +12,9 @@ export class PostgresClassroomsRepository implements IClassroomsRepository {
 
     async list(): Promise<Classroom[]> {
         return await this.classRoomRepository.find();
+    }
+
+    async findByIds(ids: string[]): Promise<Classroom[]> {
+        return await this.classRoomRepository.findBy({ id: Any(ids) });
     }
 }
