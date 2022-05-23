@@ -23,4 +23,12 @@ export class CoursesRepositoryStub implements ICoursesRepository {
     async list(): Promise<Course[]> {
         return new Array<Course>();
     }
+
+    async findById(id: string): Promise<Course> {
+        let course: Course;
+
+        return course;
+    }
+
+    async delete(id: string): Promise<void> {}
 }

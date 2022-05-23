@@ -39,6 +39,20 @@ export class PostgresCoursesRepository implements ICoursesRepository {
         });
     }
 
+    async findById(id: string): Promise<Course> {
+        return await this.coursesRepository.findOne({
+            where: { id },
+            relations: {
+                teachers: true,
+                classrooms: true
+            }
+        });
+    }
+
+    async update(course: Course): Promise<void> {
+        await this.coursesRepository.save(course);
+    }
+
     async delete(id: string): Promise<void> {
         await this.coursesRepository.delete(id);
     }
