@@ -38,4 +38,8 @@ export class PostgresCoursesRepository implements ICoursesRepository {
             }
         });
     }
+
+    async delete(id: string): Promise<void> {
+        await this.coursesRepository.delete(id);
+    }
 }

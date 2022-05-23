@@ -17,7 +17,10 @@ export class Course {
     @Column()
     end_time: string
 
-    @ManyToMany(() => Teacher)
+    @ManyToMany(() => Teacher, {
+        cascade: true,
+        onDelete: 'CASCADE'
+    })
     @JoinTable({
         name: 'courses_teachers',
         joinColumn: {
@@ -31,7 +34,10 @@ export class Course {
     })
     teachers: Teacher[]
 
-    @ManyToMany(() => Classroom)
+    @ManyToMany(() => Classroom, {
+        cascade: true,
+        onDelete: 'CASCADE'
+    })
     @JoinTable({
         name: 'courses_classrooms',
         joinColumn: {
