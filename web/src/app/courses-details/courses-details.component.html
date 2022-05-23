@@ -1,0 +1,67 @@
+<div class="full-width courses-details-container">
+  <form class="courses-details-grid">
+    <div class="grid-item">
+      <form class="full-width" appearance="outline">
+        <label>Nome</label>
+        <input (ngModel)="course.name" name="nome" autocomplete="off" matInput placeholder="Nome" />
+      </form>
+    </div>
+
+    <div class="grid-item">
+      <form class="full-width" appearance="outline">
+        <label>Professor</label>
+        <select class=[formControl]="teachers" multiple>
+          <option *ngFor="let teacher of teacherList" [value]="teacher">{{
+            teacher
+          }}</option>
+        </select>
+      </form>
+    </div>
+
+    <div class="grid-item">
+      <form class="full-width" appearance="outline">
+        <label>Salas</label>
+        <select class=[formControl]="rooms" multiple>
+          <option *ngFor="let room of roomList" [value]="room">{{
+            room
+          }}</option>
+        </select>
+      </form>
+    </div>
+
+    <div class="grid-item">
+      <div class="time-container">
+        <form class="full-width time-input" appearance="outline">
+          <label>Inicio</label>
+          <input (ngModel)="course.time.start" name="de" autocomplete="off" matInput placeholder="Inicio" />
+        </form>
+      </div>
+      <div class="time-container">
+        <form class="full-width time-input" appearance="outline">
+          <label>Fim</label>
+          <input (ngModel)="course.time.end" name="ate" autocomplete="off" matInput placeholder="Fim" />
+        </form>
+      </div>
+    </div>
+  </form>
+  <div class="button-container">
+    <button
+      class="full-width"
+      mat-raised-button
+      color="primary"
+      (click)="handleSave()"
+    >
+      Salvar
+    </button>
+  </div>
+  <div class="button-container">
+    <button
+      class="full-width"
+      mat-raised-button
+      color="warn"
+      (click)="handleCancel()"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>
