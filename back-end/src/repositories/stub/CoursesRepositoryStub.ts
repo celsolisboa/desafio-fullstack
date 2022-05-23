@@ -30,5 +30,7 @@ export class CoursesRepositoryStub implements ICoursesRepository {
         return course;
     }
 
+    async update(course: Course): Promise<void> {}
+
     async delete(id: string): Promise<void> {}
 }
