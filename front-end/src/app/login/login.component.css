@@ -1,5 +1,7 @@
 .container {
     padding: 5vh;
+    background: #673ab7;;
+    height: 90vh;
 }
 
 mat-card {

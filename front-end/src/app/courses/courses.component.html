@@ -1,1 +1,34 @@
-<p>courses list</p>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span>Cursos</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-toolbar>
+<div (window:resize)="onResize($event)" class="container">
+    <mat-grid-list [cols]="breakpoint" rowHeight="2:1" gutterSize="15px">
+        <mat-grid-tile>
+            <div class="course">
+                <div class="header">
+                    <span>Biologia</span>
+                    <a>
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </div>
+                <div class="footer">
+                    <div class="leftInfo">
+                        <span>Prof. Alvares de Azevedo</span>
+                        <span>Sala 502</span>
+                    </div>
+                    <div class="rightInfo">
+                        <span>09:00/12:00</span>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
