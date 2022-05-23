@@ -11,21 +11,19 @@
 </mat-toolbar>
 <div (window:resize)="onResize($event)" class="container">
     <mat-grid-list [cols]="breakpoint" rowHeight="2:1" gutterSize="15px">
-        <mat-grid-tile>
+        <mat-grid-tile *ngFor="let course of courses">
             <div class="course">
                 <div class="header">
-                    <span>Biologia</span>
+                    <span>{{course.name}}</span>
                     <a>
                         <mat-icon>delete</mat-icon>
                     </a>
                 </div>
-                <div class="footer">
-                    <div class="leftInfo">
-                        <span>Prof. Alvares de Azevedo</span>
-                        <span>Sala 502</span>
-                    </div>
-                    <div class="rightInfo">
-                        <span>09:00/12:00</span>
+                <div class="courseInfo">
+                    <span>{{getTeachersString(course.teachers)}}</span>
+                    <div class="classroomsAndTime">
+                        <span>{{getClassroomsString(course.classrooms)}}</span>
+                        <span>{{course.start_time.slice(0,5)}} às {{course.end_time.slice(0,5)}}</span>
                     </div>
                 </div>
             </div>

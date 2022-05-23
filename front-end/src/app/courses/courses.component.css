@@ -27,20 +27,20 @@ mat-grid-tile {
     flex-direction: row;
     justify-content: space-between;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
 }
 
-.footer {
+.courseInfo {
     margin-bottom: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    font-size: 16px;
+    font-size: 13px;
 }
 
-.leftInfo {
+.classroomsAndTime {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -51,12 +51,12 @@ mat-grid-tile {
 
     .header {
         margin-top: 20px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .footer {
+    .courseInfo {
         margin-bottom: 20px;
-        font-size: 18px;
+        font-size: 15px;
     }
 }
 
@@ -69,11 +69,11 @@ mat-grid-tile {
 
     .header {
         margin-top: 20px;
-        font-size: 22px;
+        font-size: 19px;
     }
 
-    .footer {
+    .courseInfo {
         margin-bottom: 20px;
-        font-size: 20px;
+        font-size: 17px;
     }
 }

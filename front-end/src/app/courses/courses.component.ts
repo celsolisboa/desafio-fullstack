@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Course } from '../interfaces/Course';
+import { Teacher } from '../interfaces/Teacher';
+import { Classroom } from '../interfaces/Classroom';
+import { apiBaseUrl } from 'src/environments/environment';
 
 @Component({
     selector: 'app-courses',
@@ -6,10 +11,19 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-    breakpoint: number = 1;
-    constructor() {}
+    breakpoint: number;
+    courses: Course[];
+
+    constructor(private httpClient: HttpClient) {
+        this.courses = [];
+        this.breakpoint = 1;
+    }
 
     ngOnInit(): void {
+        this.httpClient.get<Course[]>(`${apiBaseUrl}/courses`).subscribe({
+            next: (result) => { this.courses = result }
+        })
+
         if (window.innerWidth >= 1400){
             this.breakpoint = 3;
         } else {
@@ -23,5 +37,31 @@ export class CoursesComponent implements OnInit {
         } else {
             this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
         }
+    }
+
+    getTeachersString(teachers: Teacher[]) {
+        let resultString = '';
+
+        for(let i = 0; i < teachers.length; i++) {
+            resultString += 'Prof ' + teachers[i].name;
+
+            if (i != teachers.length - 1)
+                resultString += ' e ';
+        };
+
+        return resultString;
+    }
+
+    getClassroomsString(classrooms: Classroom[]) {
+        let resultString = 'Sala ';
+
+        for(let i = 0; i < classrooms.length; i++) {
+            resultString += + classrooms[i].number;
+
+            if (i != classrooms.length - 1)
+                resultString += ' e ';
+        };
+
+        return resultString;
     }
 }
