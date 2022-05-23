@@ -1,0 +1,50 @@
+mat-card {
+    max-width: 70vw;
+    margin: auto;
+    margin-top: 10vh;
+    text-align: center;
+    height: 60vh;
+}
+
+.header {
+    padding-top: 10vh;
+    text-align: center;
+}
+
+.full-width {
+    width: 60vw;
+}
+
+.emailInput {
+    padding-top: 5vh;
+}
+
+.mat-flat-button {
+    width: 50vw;
+}
+
+@media (min-width: 768px) {
+    mat-card {
+        max-width: 70vh;
+        margin: auto;
+        margin-top: 10vh;
+        text-align: center;
+        max-height: 80vh;
+      }
+
+    .header{
+        text-align: center;
+
+    }
+    .full-width {
+        width: 25vw;
+    }
+
+    .emailInput{
+        padding-top: 5vh;
+    }
+
+    .mat-flat-button {
+        width: 20vw;
+    }
+}

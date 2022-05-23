@@ -1,0 +1,15 @@
+.content-body{
+    min-height: 90vh;
+    padding: 5vh;
+    background: #16bca8;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .content-body{
+        min-height: 90vh;
+        padding: 5vh;
+        background: #16bca8;
+        display: block;
+    }
+}

@@ -34,5 +34,6 @@
   "workspaceLayout": {
     "appsDir": "projects",
     "libsDir": "projects"
-  }
+  },
+  "defaultProject": "front-end"
 }
