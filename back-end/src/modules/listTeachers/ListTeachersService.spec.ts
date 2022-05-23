@@ -1,22 +1,6 @@
 import { ListTeachersService } from "./ListTeachersService";
-import { ITeachersRepository } from "../../repositories/ITeachersRepository";
+import { TeachersRepositoryStub } from "../../repositories/stub/TeachersRepositoryStub";
 import { Teacher } from "../../entities/Teacher";
-
-class TeachersRepositoryStub implements ITeachersRepository {
-    teachersList: Array<Teacher>;
-
-    constructor(expectedData: Array<Teacher>) {
-        this.teachersList = expectedData;
-    }
-
-    async list(): Promise<Teacher[]> {
-        return this.teachersList;
-    }
-
-    async findByIds(ids: string[]): Promise<Teacher[]> {
-        return new Array<Teacher>();
-    }
-}
 
 describe("List Teachers", () => {
     let sut: ListTeachersService;

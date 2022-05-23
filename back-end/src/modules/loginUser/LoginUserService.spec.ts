@@ -1,27 +1,5 @@
 import { LoginUserService } from "./LoginUserService";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { User } from "../../entities/User";
-
-class UsersRepositoryStub implements IUsersRepository {
-    expectedEmail: string;
-    expectedPassword: string;
-
-    constructor() {
-        this.expectedEmail = 'test@test.com';
-        this.expectedPassword = 'test_password';
-    }
-
-    async findByEmail(email: string) {
-        if (email === this.expectedEmail) {
-            return new User({
-                email: this.expectedEmail,
-                password: this.expectedPassword
-            });
-        } else {
-            return null;
-        }
-    }
-}
+import { UsersRepositoryStub } from "../../repositories/stub/UsersRepositoryStub";
 
 describe('Login User', () => {
     let sut: LoginUserService;

@@ -1,22 +1,6 @@
 import { ListClassroomsService } from "./ListClassroomsService";
-import { IClassroomsRepository } from "../../repositories/IClassroomsRepository";
+import { ClassroomsRepositoryStub } from "../../repositories/stub/ClassroomsRepositoryStub";
 import { Classroom } from "../../entities/Classroom";
-
-class ClassroomsRepositoryStub implements IClassroomsRepository {
-    classroomsList: Array<Classroom>;
-
-    constructor(expectedData: Array<Classroom>) {
-        this.classroomsList = expectedData;
-    }
-
-    async list(): Promise<Classroom[]> {
-        return this.classroomsList;
-    }
-
-    async findByIds(ids: string[]): Promise<Classroom[]> {
-        return new Array<Classroom>();
-    }
-}
 
 describe("List Classrooms", () => {
     let sut: ListClassroomsService;
