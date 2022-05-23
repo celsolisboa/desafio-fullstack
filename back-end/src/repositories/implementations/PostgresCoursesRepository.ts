@@ -13,7 +13,7 @@ export class PostgresCoursesRepository implements ICoursesRepository {
         this.coursesRepository = AppDataSource.getRepository(Course);
     }
 
-    async save(data: ICreateCourseDTO) {
+    async save(data: ICreateCourseDTO): Promise<Course>{
         const { name, start_time, end_time, teacher_ids, classroom_ids } = data;
 
         const teachers = await new PostgresTeachersRepository().findByIds(teacher_ids);
@@ -28,5 +28,14 @@ export class PostgresCoursesRepository implements ICoursesRepository {
         });
 
         return await this.coursesRepository.save(course);
+    }
+
+    async list(): Promise<Course[]> {
+        return await this.coursesRepository.find({
+            relations: {
+                teachers: true,
+                classrooms: true
+            }
+        });
     }
 }
