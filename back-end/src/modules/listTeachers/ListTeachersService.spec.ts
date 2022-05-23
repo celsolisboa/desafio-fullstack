@@ -12,6 +12,10 @@ class TeachersRepositoryStub implements ITeachersRepository {
     async list(): Promise<Teacher[]> {
         return this.teachersList;
     }
+
+    async findByIds(ids: string[]): Promise<Teacher[]> {
+        return new Array<Teacher>();
+    }
 }
 
 describe("List Teachers", () => {
