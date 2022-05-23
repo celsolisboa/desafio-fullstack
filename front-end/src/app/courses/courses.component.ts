@@ -21,7 +21,8 @@ export class CoursesComponent implements OnInit {
 
     ngOnInit(): void {
         this.httpClient.get<Course[]>(`${apiBaseUrl}/courses`).subscribe({
-            next: (result) => { this.courses = result }
+            next: (result) => { this.courses = result },
+            error: (result) => { alert(result.error.message) }
         })
 
         if (window.innerWidth >= 1400){
@@ -37,6 +38,13 @@ export class CoursesComponent implements OnInit {
         } else {
             this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
         }
+    }
+
+    deleteCourse(courseId: string) {
+        this.httpClient.delete(`${apiBaseUrl}/courses/${courseId}`).subscribe({
+            next: () => { window.location.reload() },
+            error: (result) => { alert(result.error.message) }
+        });
     }
 
     getTeachersString(teachers: Teacher[]) {

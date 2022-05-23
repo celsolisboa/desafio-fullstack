@@ -15,7 +15,7 @@
             <div class="course">
                 <div class="header">
                     <span>{{course.name}}</span>
-                    <a>
+                    <a (click)="deleteCourse(course.id)">
                         <mat-icon>delete</mat-icon>
                     </a>
                 </div>
