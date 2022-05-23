@@ -26,7 +26,7 @@ export class CoursesDetailsComponent implements OnInit {
   course: Course = {
     id: '',
     name: '',
-    teacher: '',
+    teacher: [],
     room: [],
     time: { start: '', end: '' },
   };

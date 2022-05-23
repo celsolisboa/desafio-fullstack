@@ -7,20 +7,20 @@ import { User } from "../models/user.model";
     providedIn: 'root',
 })
 export class AuthService {
-    userAuthenticated: boolean = false;
+    userAuthenticated: boolean = true;
 
     showMenuEmmiter = new EventEmitter<boolean>()
 
-    constructor(private router: Router, private httpService: HttpService) { }
-    async login(user: User) {
-        await this.httpService.post('/auth/signin', user).
+    constructor(private router: Router, private httpService: HttpService) {}
+     login(user: User) {
+        this.httpService.post('/auth/signin', user).
         subscribe({
             next: (data: any) => {
                 localStorage.setItem('token', data.response);
                 localStorage.setItem('loggedin', 'true');
                 this.userAuthenticated = true;
                 this.showMenuEmmiter.emit(true);
-                this.router.navigate(['/'])
+                this.router.navigate(['/courses'])
             },
             error: (error) => console.log(error)
         })

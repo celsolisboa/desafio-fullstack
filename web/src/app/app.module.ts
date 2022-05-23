@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './navigationBar/navbar.component';
 
 import { AuthService } from 'src/app/controller/services/auth.service';
 import { CoursesComponent } from './courses/courses.component';

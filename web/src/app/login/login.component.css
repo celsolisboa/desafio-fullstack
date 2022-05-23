@@ -5,16 +5,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  background-color:#fafafa;
 }
 
-.tittleLogin{
+.login-title{
   margin-bottom: 50px;
 }
 
-.containerLogin {
+.login-container {
   display: flex;
-  min-width: 36.8rem;
-  min-height: 66rem;
+  min-width: 368px;
+  min-height: 660px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -31,22 +33,21 @@
 }
 
 .buttons-container {
-  gap: 1rem;
+  gap: 10px;
   width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+.button {
+    min-height: 50px;
+  }
 
-.full-width {
-  width: 10rem;
+  .full-width {
+  width: 100%;
 }
 
 .full-height {
   height: 100%;
-}
-
-#button {
-  border-radius:8px;
 }

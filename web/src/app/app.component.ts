@@ -11,7 +11,7 @@ export class AppComponent {
   showMenu = false;
   constructor(private authService: AuthService) {
     this.authService.showMenuEmmiter.subscribe(
-      (showMenu) => (this.showMenu = this.showMenu)
+      (showMenu) => (this.showMenu = showMenu)
     );
     if (localStorage.getItem('loggedin') === 'true') {
       this.authService.showMenuEmmiter.emit(true)

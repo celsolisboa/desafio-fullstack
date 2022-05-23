@@ -1,25 +1,29 @@
 <div class="courses-container">
-    <div class="courses-grid">
-      <div class="course-grid-item" *ngFor="let course of courses">
-        <div class="header-card">
-          <span class="card-text-title" (click)="handleEditCard(course.id)">{{
-            course.name
-          }}</span>
-          <button class="delete-button" mat-mini-fab color="" (click)="handleDeleteCard(course.id)" >
-            <img src = "../../assets/delete.svg" alt="Deletar"/>
-            <!-- <mat-icon>delete</mat-icon> -->
-          </button>
+  <div class="courses-grid">
+    <mat-card class="course-grid-item" *ngFor="let course of courses">
+      <mat-card-title class="header-card">
+        <span class="card-text-title" (click)="handleEditCard(course.id)">{{
+          course.name
+        }}</span>
+        <button
+          class="delete-button"
+          mat-mini-fab
+          color=""
+          (click)="handleDeleteCard(course.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-title>
+      <div class="footer-card">
+        <div class="card-teacher">
+          <span>Prof. {{ composeString(course.teacher) }}</span>
         </div>
-        <div class="footer-card">
-          <div class="card-teacher">
-            <span>Prof. {{ composeString(course.teacher) }}</span>
-          </div>
-  
-          <div class="card-room-time">
-            <span>Sala {{ composeString(course.room) }}</span>
-            <span>{{ course.time.start }} às {{ course.time.end }}</span>
-          </div>
+
+        <div class="card-room-time">
+          <span>Sala {{ composeString(course.room) }}</span>
+          <span>{{ course.time.start }} às {{ course.time.end }}</span>
         </div>
       </div>
-    </div>
+    </mat-card>
   </div>
+</div>

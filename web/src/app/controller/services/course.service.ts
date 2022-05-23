@@ -6,7 +6,7 @@ import { HttpService } from "./http.service";
     providedIn: 'root'
 })
 export class CourseService {
-    constructor(private httpService: HttpService) { }
+    constructor(private httpService: HttpService) {}
     
     create(course: Course) {
         return this.httpService.post('/course', course)

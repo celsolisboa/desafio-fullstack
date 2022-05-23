@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class HttpService {
-    apiURL: string = 'http://localhost:5432'
+     apiURL: string = 'http://localhost:5432' //Configurado para maquina do Wesley
 
     constructor (private http: HttpClient) { }
 

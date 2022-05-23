@@ -9,7 +9,7 @@ import { User } from 'src/app/controller/models/user.model';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: User = { email: '', password: '' };
+  user: User = { email: '', password: ''};
 
   constructor(private authService: AuthService, private router: Router) {
     if (localStorage.getItem('loggedin') === 'true') {

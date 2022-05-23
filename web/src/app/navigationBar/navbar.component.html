@@ -1,0 +1,11 @@
+<mat-toolbar class="navbar-container" color="primary">
+    <div class="navbar-title">
+      <span>{{ this.currentTitle }}</span>
+    </div>
+  
+    <div class="navbar-actions" *ngIf="this.currentTitle !== 'Detalhes do curso'">
+      <button mat-mini-fab (click)="handleAddCourse()">
+        <mat-icon class="mat-icon">add</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
