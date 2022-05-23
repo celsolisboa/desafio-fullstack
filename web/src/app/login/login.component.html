@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="login-container">
+      <h1 class="login-title">Login</h1>
+  
+      <form class="login-form">
+        <form class="full-width" appearance="outline">
+          <p>Email</p>
+          <input
+            (ngModel)="user.email"
+            name="email"
+            autocomplete="off"
+            matInput
+            placeholder="Email"
+          />
+        </form>
+  
+        <form class="full-width" appearance="outline">
+          <p>Senha</p>
+          <input
+            (ngModel)="user.password"
+            name="password"
+            matInput
+            placeholder="Senha"
+            type="password"
+          />
+        </form>
+      </form>
+      <div class="buttons-container">
+        <button
+          class="full-width"
+          mat-raised-button
+          color="primary"
+          (click)="handleSubmit()"
+        >
+          Acessar
+        </button>
+      </div>
+    </div>
+  </div>
