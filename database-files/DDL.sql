@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS "classrooms" (
   "number" VARCHAR(10) NOT NULL
 );
 
-ALTER TABLE "courses_classrooms" ADD FOREIGN KEY ("course_id") REFERENCES "courses" ("id");
+ALTER TABLE "courses_classrooms" ADD FOREIGN KEY ("course_id") REFERENCES "courses" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "courses_classrooms" ADD FOREIGN KEY ("classroom_id") REFERENCES "classrooms" ("id");
+ALTER TABLE "courses_classrooms" ADD FOREIGN KEY ("classroom_id") REFERENCES "classrooms" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "courses_teachers" ADD FOREIGN KEY ("course_id") REFERENCES "courses" ("id");
+ALTER TABLE "courses_teachers" ADD FOREIGN KEY ("course_id") REFERENCES "courses" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "courses_teachers" ADD FOREIGN KEY ("teacher_id") REFERENCES "teachers" ("id");
+ALTER TABLE "courses_teachers" ADD FOREIGN KEY ("teacher_id") REFERENCES "teachers" ("id") ON DELETE CASCADE;
 
 INSERT INTO users ("id", "email", "password")
 VALUES ('0ea33630-b146-4aff-a219-fed903a08ac4', 'admin@admin.com', 'admin_password');
@@ -56,7 +56,7 @@ VALUES
     ('e54ca51a-4318-46b5-a20c-f41f50286cf4', 'Nayara Gonçalves'),
     ('4bdcc285-1b10-44b8-9193-c32a34f9b39e', 'Rubim Alves'),
     ('d805ae7e-7cd9-4375-899f-1e78574d4e42', 'Olívia Castelhano');
-    
+
 INSERT INTO classrooms ("id", "number")
 VALUES
 	('6a3d680d-1496-4f3d-bb2a-a1da716dc299', '101'),
