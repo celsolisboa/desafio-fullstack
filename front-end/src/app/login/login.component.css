@@ -1,3 +1,7 @@
+.container {
+    padding: 5vh;
+}
+
 mat-card {
     max-width: 70vw;
     margin: auto;
@@ -37,7 +41,7 @@ mat-card {
 
     }
     .full-width {
-        width: 25vw;
+        max-width: 25vw;
     }
 
     .emailInput{
