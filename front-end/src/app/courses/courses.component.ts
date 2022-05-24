@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Course } from '../interfaces/Course';
 import { Teacher } from '../interfaces/Teacher';
 import { Classroom } from '../interfaces/Classroom';
@@ -14,7 +15,7 @@ export class CoursesComponent implements OnInit {
     breakpoint: number;
     courses: Course[];
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private router: Router) {
         this.courses = [];
         this.breakpoint = 1;
     }
@@ -71,5 +72,9 @@ export class CoursesComponent implements OnInit {
         };
 
         return resultString;
+    }
+
+    addNewCourse() {
+        this.router.navigateByUrl('courses/form');
     }
 }

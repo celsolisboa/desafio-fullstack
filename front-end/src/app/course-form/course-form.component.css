@@ -1,0 +1,30 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    padding: 2vh;
+}
+
+.formInput {
+    display: flex;
+    justify-content: center;
+}
+
+.full-width {
+    width: 90vw;
+}
+
+.formInput button {
+    width: 70vw
+}
+
+@media (min-width: 768px) {
+    .full-width {
+        width: 50vw;
+    }
+
+    .formInput button {
+        width: 30vw
+    }
+}
