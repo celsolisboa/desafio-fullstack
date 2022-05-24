@@ -7,11 +7,11 @@
     <span class="spacer"></span>
 </mat-toolbar>
 <div (window:resize)="onResize($event)" class="container">
-    <form name="courseForm" (ngSubmit)="create()" [formGroup]="courseForm">
+    <form name="courseForm" (ngSubmit)="save()" [formGroup]="courseForm">
         <div class="formInput">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Nome do Curso</mat-label>
-                <input formControlName="name" matInput placeholder="Insira o nome do curso" required />
+                <input formControlName="name" matInput placeholder="Insira o nome do curso" required [(ngModel)]="course.name"/>
                 <mat-error *ngIf="!courseForm.controls['name'].valid">
                     Necessario um nome
                 </mat-error>
@@ -20,7 +20,7 @@
         <div class="formInput">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Professores</mat-label>
-                <mat-select formControlName="teacher_ids" multiple>
+                <mat-select formControlName="teacher_ids" multiple [(ngModel)]="course.teachers">
                     <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">{{teacher.name}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="!courseForm.controls['teacher_ids'].valid">
@@ -31,7 +31,7 @@
         <div class="formInput">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Salas</mat-label>
-                <mat-select formControlName="classroom_ids" multiple>
+                <mat-select formControlName="classroom_ids" multiple [(ngModel)]="course.classrooms">
                     <mat-option *ngFor="let classroom of classrooms" [value]="classroom.id">{{classroom.number}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="!courseForm.controls['classroom_ids'].valid">
@@ -42,7 +42,7 @@
         <div class="formInput">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Inicio</mat-label>
-                <input formControlName="start_time" matInput placeholder="13:00" required />
+                <input formControlName="start_time" matInput placeholder="13:00" required [(ngModel)]="course.start_time"/>
                 <mat-error *ngIf="!courseForm.controls['start_time'].valid">
                     Necessario hora de inicio
                 </mat-error>
@@ -51,7 +51,7 @@
         <div class="formInput">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Fim</mat-label>
-                <input formControlName="end_time" matInput placeholder="17:00" required />
+                <input formControlName="end_time" matInput placeholder="17:00" required [(ngModel)]="course.end_time"/>
                 <mat-error *ngIf="!courseForm.controls['end_time'].valid">
                     Necessario hora de fim
                 </mat-error>

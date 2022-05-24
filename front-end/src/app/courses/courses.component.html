@@ -12,7 +12,7 @@
 <div (window:resize)="onResize($event)" class="container">
     <mat-grid-list [cols]="breakpoint" rowHeight="2:1" gutterSize="15px">
         <mat-grid-tile *ngFor="let course of courses">
-            <div class="course">
+            <div class="course" (click)="editCourse(course.id)">
                 <div class="header">
                     <span>{{course.name}}</span>
                     <a (click)="deleteCourse(course.id)">

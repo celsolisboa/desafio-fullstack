@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Course } from '../interfaces/Course';
@@ -75,6 +75,10 @@ export class CoursesComponent implements OnInit {
     }
 
     addNewCourse() {
-        this.router.navigateByUrl('courses/form');
+        this.router.navigateByUrl('courses/form/create');
+    }
+
+    editCourse(courseId: string) {
+        this.router.navigateByUrl('courses/form/' + courseId);
     }
 }

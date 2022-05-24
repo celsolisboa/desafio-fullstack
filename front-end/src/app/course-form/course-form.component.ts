@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Course } from '../interfaces/Course';
 import { Teacher } from '../interfaces/Teacher';
 import { Classroom } from '../interfaces/Classroom';
 import { apiBaseUrl } from 'src/environments/environment';
@@ -12,15 +14,17 @@ import { apiBaseUrl } from 'src/environments/environment';
     styleUrls: ['./course-form.component.css']
 })
 export class CourseFormComponent implements OnInit {
+    course: Course;
     courseForm: FormGroup;
     breakpoint: number;
     teachers: Teacher[];
     classrooms: Classroom[];
 
-    constructor(private httpClient: HttpClient, private router: Router) {
+    constructor(private httpClient: HttpClient, private router: Router, private location: Location, private route: ActivatedRoute) {
         this.breakpoint = 1;
         this.teachers = [];
         this.classrooms = [];
+        this.course = {} as Course;
 
         this.courseForm = new FormGroup({
             name: new FormControl('', [Validators.required]),
@@ -39,6 +43,20 @@ export class CourseFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
+
+        if (!this.location.path().includes('create')) {
+            console.log("edit");
+            const courseId: string = this.route.snapshot.paramMap.get('id') || '';
+            console.log('edit');
+            this.httpClient.get<Course>(`${apiBaseUrl}/courses/${courseId}`).subscribe({
+                next: (result) => {
+                    this.course = result
+                    this.course.start_time = this.course.start_time.slice(0, 5)
+                    this.course.end_time = this.course.end_time.slice(0, 5)
+                },
+                error: (result) => { alert(result.error.message) }
+            })
+        }
 
         this.httpClient.get<Teacher[]>(`${apiBaseUrl}/teachers`).subscribe({
             next: (result) => { this.teachers = result },
@@ -59,12 +77,19 @@ export class CourseFormComponent implements OnInit {
         history.back();
     }
 
-    create() {
+    save() {
         if (this.courseForm.valid) {
-            this.httpClient.post(`${apiBaseUrl}/courses`, this.courseForm.value).subscribe({
-                next: () => { this.router.navigateByUrl('courses') },
-                error: (result) => { alert(result.error.message) }
-            })
+            if (this.course.id){
+                this.httpClient.put(`${apiBaseUrl}/courses/${this.course.id}`, this.courseForm.value).subscribe({
+                    next: () => { this.router.navigateByUrl('courses') },
+                    error: (result) => { alert(result.error.message) }
+                })
+            } else {
+                this.httpClient.post(`${apiBaseUrl}/courses`, this.courseForm.value).subscribe({
+                    next: () => { this.router.navigateByUrl('courses') },
+                    error: (result) => { alert(result.error.message) }
+                })
+            }
         }
     }
 }
