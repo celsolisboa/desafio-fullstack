@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/controller/services/auth.service';
-import { User } from 'src/app/controller/models/user.model';
+import { ApiService } from '../controller/services/api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,34 @@ import { User } from 'src/app/controller/models/user.model';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: User = { email: '', password: ''};
+  
 
-  constructor(private authService: AuthService, private router: Router) {
-    if (localStorage.getItem('loggedin') === 'true') {
-      this.router.navigate(['/courses']);
+  constructor(private service: ApiService, private router: Router) { }
+
+  msgErro: any;
+  msgFail: any;
+  loguei = false
+  ngOnInit(): void { }
+
+  userForm = new FormGroup({
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'senha': new FormControl('', [Validators.required])
+  });
+  onSubmit(){
+    if(this.userForm.valid){
+      this.service.login(this.userForm.value).subscrive((res) => {
+        if(res != Object){
+          console.log('Login realizado com sucesso');
+          this.router.navigate(['/cursos'])
+          this.userForm.reset();
+        }
+      },
+      (httpError) => {
+        this.msgFail = 'Email ou senha inválidos'
+      }
+      );
+    } else {
+      this.msgErro = 'Os campos são obrigatórios de serem preenchidos '
     }
   }
-
-  ngOnInit(): void {}
-
-  handleSubmit(): void {
-    this.authService.login(this.user);
-    // this.router.navigate(['/courses']);
-
-  }
-
-  handleRegister() {}
 }

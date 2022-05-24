@@ -1,20 +1,34 @@
-<div class="container">
-  <div class="login-container">
-    <h1 class="login-title">Login</h1>
+<div>
+  <div class="limitador">
+  <div class="conteudo-login">
+    <div class="tamanho-login">
+      <div *ngIf="msgErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ msgErro }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
 
-    <form class="login-form">
-      <mat-form-field class="full-width" appearance="outline">
-        <input [(ngModel)]="user.email" name="email" autocomplete="off" matInput placeholder="Email" />
-      </mat-form-field>
+      <div *ngIf="msgFail" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ msgFail }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+      <form (submit)="onSubmit()">
+        <span class="titulo-login">
+          Login
+        </span>
 
-      <mat-form-field class="full-width" appearance="outline">
-        <input [(ngModel)]="user.password" name="password" matInput placeholder="Senha" type="password" />
-      </mat-form-field>
-    </form>
-    <div class="buttons-container">
-      <button class="full-width" mat-raised-button color="primary"(click)="handleSubmit()" >
-        Acessar
-      </button>
+        <div class="conteudo-input-email" [formGroup]="userForm">
+          <input class="formatacao-input" formControlName="email" value="" type="email" required name="email" minlength="8" maxlength="65" placeholder="exemplo@gmail.com">
+        </div>
+        
+        
+        <div class="conteudo-input-senha" [formGroup]="userForm">
+          <input class="formatacao-input" formControlName="senha" value="" type="password" required minlength="6" maxlength="20" name="senha" placeholder="senha">
+        </div>
+
+        <input type="submit" value="Acessar" class="botao-login">
+      </form>
     </div>
   </div>
+</div>
 </div>
