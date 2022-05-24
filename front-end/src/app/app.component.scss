@@ -1,0 +1,11 @@
+.content-body{
+    min-height: 90vh;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .content-body{
+        min-height: 90vh;
+        display: block;
+    }
+}

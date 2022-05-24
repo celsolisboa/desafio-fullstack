@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span>Cursos</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="addNewCourse()">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-toolbar>
+<div (window:resize)="onResize($event)" class="container">
+    <mat-grid-list [cols]="breakpoint" rowHeight="2:1" gutterSize="15px">
+        <mat-grid-tile *ngFor="let course of courses">
+            <div class="course" (click)="editCourse(course.id)">
+                <div class="header">
+                    <span>{{course.name}}</span>
+                    <a (click)="deleteCourse(course.id)">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </div>
+                <div class="courseInfo">
+                    <span>{{getTeachersString(course.teachers)}}</span>
+                    <div class="classroomsAndTime">
+                        <span>{{getClassroomsString(course.classrooms)}}</span>
+                        <span>{{course.start_time.slice(0,5)}} às {{course.end_time.slice(0,5)}}</span>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
