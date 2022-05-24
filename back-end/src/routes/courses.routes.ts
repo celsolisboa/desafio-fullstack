@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { createCourseController } from "../modules/createCourse/CreateCourseFactory";
 import { listCoursesController } from "../modules/listCourses/ListCoursesFactory";
+import { findCourseByIdController } from "../modules/findCourseById/FindCourseByIdFactory";
 import { editCourseController } from "../modules/editCourse/EditCourseFactory";
 import { deleteCourseController } from "../modules/deleteCourse/DeleteCourseFactory";
 
@@ -12,6 +13,10 @@ coursesRouter.post('/', (request, response) => {
 
 coursesRouter.get('/', (request, response) => {
     return listCoursesController.handle(request, response);
+})
+
+coursesRouter.get('/:id', (request, response) => {
+    return findCourseByIdController.handle(request, response);
 })
 
 coursesRouter.put('/:id', (request, response) => {
