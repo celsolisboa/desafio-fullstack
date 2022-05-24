@@ -7,18 +7,18 @@ import { User } from "../models/user.model";
     providedIn: 'root',
 })
 export class AuthService {
-    userAuthenticated: boolean = true;
+    
 
     showMenuEmmiter = new EventEmitter<boolean>()
 
     constructor(private router: Router, private httpService: HttpService) {}
      login(user: User) {
-        this.httpService.post('/auth/signin', user).
+        this.httpService.get('/auth/signin').
         subscribe({
             next: (data: any) => {
                 localStorage.setItem('token', data.response);
                 localStorage.setItem('loggedin', 'true');
-                this.userAuthenticated = true;
+                
                 this.showMenuEmmiter.emit(true);
                 this.router.navigate(['/courses'])
             },

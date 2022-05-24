@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     if (localStorage.getItem('loggedin') === 'true') {
-      this.router.navigate(['/']);
+      this.router.navigate(['/courses']);
     }
   }
 
@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
 
   handleSubmit(): void {
     this.authService.login(this.user);
+    // this.router.navigate(['/courses']);
+
   }
 
   handleRegister() {}
