@@ -15,28 +15,27 @@
         <form>
             
             <div class="box-esquerda">
-                <input type="text" name="nome_curso" placeholder="Nome do Curso">
-                <select name="sala" id="sala">
+                <input type="text" name="nome_curso" id="nome_curso" placeholder="Nome do Curso" #nome_curso>
+                <select name="sala" id="sala"  (change)="selectChangeHandler($event)"  #sala>
                     <option value="">Salas</option>
-                    <option value="1">Sala 501</option>
-                    <option value="2">Sala 401</option>
+                    <option *ngFor="let sala of salas$ | async" value="{{sala.id}}">{{sala.numero_sala}}</option>
                 </select>
             </div>
 
             <div class="box-direita">
-                <select name="prof" id="prof">
+                
+                <select name="prof" id="prof"   (change)="selectChangeHandlerSala($event)"  #prof>
                     <option value="">Professores</option>
-                    <option value="1">prof 1</option>
-                    <option value="2">prfo 2</option>
+                    <option *ngFor="let professor of professores$ | async" value="{{professor.id}}">{{professor.nome_professor}}</option>
                 </select>
     
               <div class="box-inputs">
-                <input type="text" name="incio" placeholder="Início">
-                <input type="text" name="fim" placeholder="Fim">
+                <input type="text" name="inicio" id="inicio"  placeholder="Início" #inicio>
+                <input type="text" name="fim"  id="fim" placeholder="Fim" #fim>
               </div>
     
             </div>
-            <button type="submit">Salvar</button>
+            <button type="submit"  (click)="criar($event, nome_curso.value, inicio.value, fim.value)">Salvar</button>
         </form>
     </main>
 </body>
