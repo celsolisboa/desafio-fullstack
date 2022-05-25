@@ -26,6 +26,7 @@
             </div><!--box-info-professores  -->
             <div class="box-info-horario">
                 <button (click)="delete(curso.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button><a href="/editar/?id={{curso.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></button>
                 <h5>{{curso.inicio}} às {{curso.fim}}</h5>
             </div><!--box-info-horario-->
         </div><!-- box-curso -->

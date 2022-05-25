@@ -1,0 +1,130 @@
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+header h3 {
+    font-family: Tahoma;
+    font-weight: lighter;
+    font-size: 25px;
+    position: relative;
+}
+
+header button {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+header button span {
+    font-size: 45px;
+}
+
+
+main{
+    width: 100%;
+    max-width: 80%;
+    margin: 2% auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+form{
+   width: 50%;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:  10px;
+}
+
+
+form .box-esquerda,
+form .box-direita {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form input[type=text],
+form select {
+    width: 50%;
+    height: 30px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+form .box-inputs{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+form .box-inputs input[type=text],
+form .box-inputs input[type=text]{
+    width: 24%;
+}
+
+form .box-inputs input[type=text]:nth-child(2){
+    margin-left: 10px;
+}
+
+
+form button{
+    display: block;
+    margin: 0 auto;
+    background-color: #000;
+    color: #FFF;
+    padding:  5px 50px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+@media screen  and (max-width: 768px) {
+    form .box-esquerda,
+    form .box-direita {
+        width: 100%;
+       
+    }
+}
+
+@media screen  and (max-width: 550px) {
+
+    
+form{
+    width: 100%;
+     display: flex;
+    
+ }
+    form .box-esquerda,
+    form .box-direita {
+        width: 100%;
+       
+    }
+}

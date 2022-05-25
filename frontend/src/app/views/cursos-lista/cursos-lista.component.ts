@@ -27,5 +27,4 @@ export class CursosListaComponent implements OnInit {
    this.cursoService.deletarCurso(id).subscribe(success =>  window.location.reload())
   } 
   
-
 }
