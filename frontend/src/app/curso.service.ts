@@ -17,4 +17,10 @@ export class CursoService {
   deletarCurso(id: number){
       return this.httpClient.delete(`api/cursos/${id}`)
   }
+
+
+  listarProfessores(){
+      return this.httpClient.get('api/professores')
+  }
+
 }

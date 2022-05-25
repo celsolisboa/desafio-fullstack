@@ -18,4 +18,8 @@ const Route = use('Route')
 
 Route.resource('user','UserController').apiOnly()
 
+Route.resource('professores','ProfessorController').apiOnly()
+
+Route.resource('salas','SalaController').apiOnly()
+
 Route.resource('cursos','CursoController').apiOnly()

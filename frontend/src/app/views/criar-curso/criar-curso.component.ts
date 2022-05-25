@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-criar-curso',
-  template: `
-    <p>
-      criar-curso works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './criar-curso.component.html',
+  styleUrls: ['./criar-curso.component.css']
 })
 export class CriarCursoComponent implements OnInit {
 
