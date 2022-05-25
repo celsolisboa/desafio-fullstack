@@ -87,7 +87,7 @@ class CursoController {
    */
   async update ({ params, request}) {
     const curso = await Curso.find(params.id)
-    const data = request.only(['nome_curso','inicio','fim','fk_sala','fk_professor'])
+    const data = request.only(['nome_curso','inicio','fim','sala_id','professor_id'])
     curso.merge(data)
     await curso.save()
 
