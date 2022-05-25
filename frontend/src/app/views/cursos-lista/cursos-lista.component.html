@@ -10,82 +10,25 @@
     <header>
         <h3>Cursos</h3>
         <button>
-          <span>+</span>
+         <a href="/login"> 
+             <span>+</span>
+        </a>
         </button>
     </header>
 
-    <main>
+    <main id="main" *ngFor="let curso of cursos$ | async">
         <div class="box-curso">
             <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
+                <h4>{{ curso.nome_curso}}</h4>
+                <h5>{{curso.nome_professor}}</h5>
+                <h5>{{curso.numero_sala}}</h5>
             </div><!--box-info-professores  -->
             <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
+                <button (click)="delete(curso.id)">Deletar</button>
+                <h5>{{curso.inicio}} às {{curso.fim}}</h5>
             </div><!--box-info-horario-->
         </div><!-- box-curso -->
 
-        <div class="box-curso">
-            <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
-            </div><!--box-info-professores  -->
-            <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
-            </div><!--box-info-horario-->
-        </div><!-- box-curso -->
-
-        <div class="box-curso">
-            <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
-            </div><!--box-info-professores  -->
-            <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
-            </div><!--box-info-horario-->
-        </div><!-- box-curso -->
-
-        <div class="box-curso">
-            <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
-            </div><!--box-info-professores  -->
-            <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
-            </div><!--box-info-horario-->
-        </div><!-- box-curso -->
-
-        <div class="box-curso">
-            <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
-            </div><!--box-info-professores  -->
-            <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
-            </div><!--box-info-horario-->
-        </div><!-- box-curso -->
-
-        <div class="box-curso">
-            <div class="box-info-professores">
-                <h4>Biologia</h4>
-                <h5>Prof. Andre Santos</h5>
-                <h5>Sala 402</h5>
-            </div><!--box-info-professores  -->
-            <div class="box-info-horario">
-                <p>Deletar</p>
-                <h5>14:00 às 18:00</h5>
-            </div><!--box-info-horario-->
-        </div><!-- box-curso -->
     </main>
 </body>
 </html>

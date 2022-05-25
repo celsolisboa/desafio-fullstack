@@ -7,6 +7,11 @@ header{
     align-items: center;
 }
 
+a{
+    text-decoration: none;
+    color: #000;
+}
+
 header h3 {
     font-family: Tahoma;
     font-weight: lighter;
@@ -41,11 +46,12 @@ main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 main .box-curso {
     margin: 10px;
-    width: 20%;
+    width: 250px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -71,9 +77,9 @@ main .box-curso .box-info-professores h4,h5,
 }
 
 main .box-curso .box-info-professores h4,
-main .box-curso .box-info-horario p{
+main .box-curso .box-info-horario button{
     margin-bottom: 15px;
 }
-main .box-curso .box-info-horario p{
-    text-align: right;
+main .box-curso .box-info-horario button{
+    cursor: pointer;
 }
