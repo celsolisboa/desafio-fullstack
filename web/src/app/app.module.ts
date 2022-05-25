@@ -19,8 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navigationBar/navbar.component';
 
 import { AuthService } from 'src/app/controller/services/auth.service';
-import { CoursesComponent } from './courses/courses.component';
-import { CoursesDetailsComponent } from './courses-details/courses-details.component';
+import { CoursesComponent } from './curso/curso.component';
+import { CoursesDetailsComponent } from './curso-detalhes/courses-details.component';
 
 @NgModule({
   declarations: [
