@@ -46,7 +46,7 @@ class CursoController {
    * @param {Response} ctx.response
    */
   async store ({ request}) {
-    const data = request.only(['nome_curso','inicio','fim','fk_sala','fk_professor'])
+    const data = request.only(['nome_curso','inicio','fim','sala_id','professor_id'])
     const curso = await Curso.create(data)
     return curso
   }
