@@ -82,4 +82,7 @@ main .box-curso .box-info-horario button{
 }
 main .box-curso .box-info-horario button{
     cursor: pointer;
+    background: transparent;
+    border: 0;
+    text-align: right;
 }

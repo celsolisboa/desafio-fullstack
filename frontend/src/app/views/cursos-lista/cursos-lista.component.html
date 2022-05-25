@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cursos</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                 <h5>{{curso.numero_sala}}</h5>
             </div><!--box-info-professores  -->
             <div class="box-info-horario">
-                <button (click)="delete(curso.id)">Deletar</button>
+                <button (click)="delete(curso.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 <h5>{{curso.inicio}} às {{curso.fim}}</h5>
             </div><!--box-info-horario-->
         </div><!-- box-curso -->

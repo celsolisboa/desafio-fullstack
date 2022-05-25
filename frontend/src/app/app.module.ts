@@ -7,13 +7,15 @@ import { HomeComponent } from './views/home/home.component';
 import { CursosListaComponent } from './views/cursos-lista/cursos-lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CriarCursoComponent } from './views/criar-curso/criar-curso.component';
+import { EditarCursoComponent } from './views/editar-curso/editar-curso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CursosListaComponent,
-    CriarCursoComponent
+    CriarCursoComponent,
+    EditarCursoComponent
   ],
   imports: [
     BrowserModule,
