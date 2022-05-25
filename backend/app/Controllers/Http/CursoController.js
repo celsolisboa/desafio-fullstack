@@ -1,6 +1,5 @@
 'use strict'
 
-const { post } = require('@adonisjs/framework/src/Route/Manager')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
