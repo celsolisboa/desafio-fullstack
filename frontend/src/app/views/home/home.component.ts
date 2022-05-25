@@ -17,16 +17,27 @@ export class HomeComponent implements OnInit {
   }
 
   login(event: any, email: string, senha: string){
-/* 
-   const api = axios.get('api/cursos').
-      then(response => {
-        console.log(response.data)
-      }).catch(e => {
-        console.log(e)
-      })
-
     event.preventDefault()
-    alert(email + senha); */
+    const data = {
+      emailUser: email,
+      senhaUser: senha
+    }
+    const api = axios.post('api/user',{
+      email: email,
+      senha: senha
+    }).
+        then(response => {
+          const result = response.data.message
+           // console.log(response.data.message)
+            if(result === true){
+              window.location.href = '/cursos'
+            }
+        }).catch(e =>{
+          const result = e.response.data.message
+          if(result === false){
+              console.log(result)
+              alert('Usuário ou senha incorretos')
+          }
+        })
   }
-
 }

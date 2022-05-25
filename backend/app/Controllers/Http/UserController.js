@@ -10,11 +10,10 @@ class UserController {
         const {email: email, senha: senha} = request.only(['email','senha'])   
         
         if(userFake.email == email && userFake.senha == senha){
-            return response.status(200).send({message: 'usuário válido'})
+            return response.status(200).send({message: true})
         }else{
-            return response.status(401).send({message: 'Usuário inválido'})
+            return response.status(401).send({message: false})
         }
-
     }
 
 
