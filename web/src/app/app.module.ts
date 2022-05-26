@@ -1,53 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule } from '@angular/material/select';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navigationBar/navbar.component';
+import { CursoComponent } from './curso/curso.component';
+import { NovoCursoComponent } from './curso-novo/novo-curso.component';
+import { ApiService } from './controller/services/api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardsComponent } from './components/cards.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
-import { AuthService } from 'src/app/controller/services/auth.service';
-import { CoursesComponent } from './curso/curso.component';
-import { CoursesDetailsComponent } from './curso-detalhes/courses-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
-    CoursesComponent,
-    CoursesDetailsComponent,
+    CursoComponent,
+    NovoCursoComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatSelectModule,
-    MatGridListModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    FormsModule, 
+    ReactiveFormsModule, 
+    BrowserAnimationsModule, 
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    }),
+    NgMultiSelectDropDownModule.forRoot(),
   ],
-  exports: [],
-  providers: [AuthService],
-  bootstrap: [AppComponent],
+  providers: [ApiService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

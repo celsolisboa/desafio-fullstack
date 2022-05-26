@@ -1,43 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/controller/services/auth.service';
-import { ApiService } from '../controller/services/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/controller/services/api.service';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
 
-  constructor(private service: ApiService, private router: Router) { }
+
+  constructor(private service:ApiService, private router:Router) {}
 
   msgErro: any;
   msgFail: any;
-  loguei = false
-  ngOnInit(): void { }
+  loguei = false;
+
+  ngOnInit(): void {
+
+  }
 
   userForm = new FormGroup({
     'email': new FormControl('', [Validators.required, Validators.email]),
-    'senha': new FormControl('', [Validators.required])
+    'senha': new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
+
+ 
+
   onSubmit(){
+    console.log(this.userForm.valid)
     if(this.userForm.valid){
-      this.service.login(this.userForm.value).subscrive((res) => {
+      this.service.login(this.userForm.value).subscribe((res)=>{
+          
         if(res != Object){
-          console.log('Login realizado com sucesso');
+          console.log('Login realizado');
           this.router.navigate(['/cursos'])
-          this.userForm.reset();
+          this.userForm.reset(); 
+        }         
+        },
+        (httpError) => {
+          this.msgFail = 'Email ou senha inválidos!'
         }
-      },
-      (httpError) => {
-        this.msgFail = 'Email ou senha inválidos'
-      }
-      );
+        );      
+
     } else {
-      this.msgErro = 'Os campos são obrigatórios de serem preenchidos '
+
+      this.msgErro = 'Email e senha obrigatórios!'
+    
     }
   }
+
 }

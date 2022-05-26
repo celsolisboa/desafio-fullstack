@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { AuthService } from "./controller/services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,4 @@ import { AuthService } from "./controller/services/auth.service";
 })
 export class AppComponent {
   tittle = 'Web';
-  showMenu = false;
-  constructor(private authService: AuthService) {
-    this.authService.showMenuEmmiter.subscribe(
-      (showMenu) => (this.showMenu = showMenu)
-    );
-    if (localStorage.getItem('loggedin') === 'true') {
-      this.authService.showMenuEmmiter.emit(true)
-    }
-  }
 }
