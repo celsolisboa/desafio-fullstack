@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { CursoService } from 'src/app/curso.service';
-import { IProfessor } from 'src/app/IProfessor';
-import { ISala } from 'src/app/ISala';
+import { IProfessor } from 'src/app/interface/IProfessor';
+import { ISala } from 'src/app/interface/ISala';
 import axios from 'axios';
 @Component({
   selector: 'app-criar-curso',

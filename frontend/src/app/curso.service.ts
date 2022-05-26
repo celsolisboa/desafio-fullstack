@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Icurso } from './Icursos';
-import { IProfessor } from './IProfessor';
-import { ISala } from './ISala';
-import { ICursoCreate } from './Icurso';
+import { Icurso } from './interface/Icursos';
+import { IProfessor } from './interface/IProfessor';
+import { ISala } from './interface/ISala';
+import { ICursoCreate } from './interface/Icurso';
+import { ICursoEdit } from './interface/ICursoEditar';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,12 @@ export class CursoService {
   listarCursos(){
     return this.httpClient.get<Icurso[]>('api/cursos');
   }
+
+
+  listarCursoPorId(id: number){
+    return this.httpClient.get<ICursoEdit>(`api/cursos/${id}`);
+  }
+
 
 
   deletarCurso(id: number){

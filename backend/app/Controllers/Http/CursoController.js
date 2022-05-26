@@ -60,8 +60,10 @@ class CursoController {
    * @param {View} ctx.view
    */
   async show ({ params}) {
-    const curso = await Curso.find(params.id)
-    return curso
+    //const curso = await Curso.find(params.id).inner
+   const curso = await Database.select('*').from('curso_single').where('id',params.id)
+    
+    return curso[0]
   }
 
   /**
