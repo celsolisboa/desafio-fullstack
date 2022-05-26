@@ -1,34 +1,64 @@
 <div>
   <div class="limitador">
-  <div class="conteudo-login">
-    <div class="tamanho-login">
-      <div *ngIf="msgErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{ msgErro }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-
-      <div *ngIf="msgFail" class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>{{ msgFail }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      
-      <form (submit)="onSubmit()">
-        <span class="titulo-login">
-          Login
-        </span>
-
-        <div class="conteudo-input-email" [formGroup]="userForm">
-          <input class="formatacao-input" formControlName="email" value="" type="email" required name="email" minlength="8" maxlength="65" placeholder="gustavo@exemplo.com">
-        </div>
-        
-        
-        <div class="conteudo-input-senha" [formGroup]="userForm">
-          <input class="formatacao-input" formControlName="senha" value="" type="password" required minlength="6" maxlength="20" name="senha" placeholder="Senha">
+    <div class="conteudo-login">
+      <div class="tamanho-login">
+        <div
+          *ngIf="msgErro"
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{{ msgErro }}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
 
-        <input type="submit" value="Acessar" class="botao-login">
-      </form>
+        <div
+          *ngIf="msgFail"
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{{ msgFail }}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <form (submit)="onSubmit()">
+          <span class="titulo-login"> Login </span>
+
+          <div class="conteudo-input-email" [formGroup]="userForm">
+            <input
+              class="formatacao-input"
+              formControlName="email"
+              value=""
+              type="email"
+              required
+              name="email"
+              placeholder="exemplo@gmail.com"
+            />
+          </div>
+
+          <div class="conteudo-input-senha" [formGroup]="userForm">
+            <input
+              class="formatacao-input"
+              formControlName="senha"
+              value=""
+              type="password"
+              name="senha"
+              placeholder="Senha"
+            />
+          </div>
+
+          <input type="submit" value="Acessar" class="botao-login" />
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>

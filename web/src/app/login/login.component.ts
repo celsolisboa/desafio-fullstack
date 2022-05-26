@@ -12,9 +12,7 @@ import { ApiService } from 'src/app/controller/services/api.service';
 })
 export class LoginComponent implements OnInit {
 
-
   constructor(private service:ApiService, private router:Router) {}
-
   msgErro: any;
   msgFail: any;
   loguei = false;
