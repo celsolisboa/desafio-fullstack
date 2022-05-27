@@ -1,15 +1,19 @@
-.font-size-card-text{
-    font-size: 12px;
-  }
-  
-  .border-black{
-    border: 1px solid black;
-  }
+.header {
+  background-color: #e8590c;
+  text-align: center;
+  font-size: 24px;
+  line-height: 50px;
+}
+.buttonAddSize {
+  float: right;
+  width: 50px;
+  height: 50px;
+}
 
-  .texto-header{
-    font-family: 'Silian Rail';
-    background-color: #E8590C;
-    text-align: center;
-    font-size: 24px;
-    line-height: 50px;
+.font-size-card-text {
+  font-size: 12px;
+}
+
+.p {
+  justify-content: center;
 }
