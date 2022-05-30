@@ -1,0 +1,46 @@
+<div>
+  <div class="limitador">
+    <div class="conteudo-login">
+      <div class="tamanho-login">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+
+        <form (submit)="onSubmit()">
+          <span class="titulo-login"> Login </span>
+
+          <div class="conteudo-input-email" [formGroup]="userForm">
+            <input
+              class="input-format"
+              formControlName="email"
+              value=""
+              type="email"
+              required
+              name="email"
+              placeholder="exemplo@gmail.com"
+            />
+          </div>
+          <div *ngIf="msgFail" role="alert">
+            <strong class="fade-sucesso">{{ msgFail }}</strong>
+          </div>
+
+          <div class="conteudo-input-senha" [formGroup]="userForm">
+            <input
+              class="input-format"
+              formControlName="senha"
+              value=""
+              type="password"
+              name="senha"
+              placeholder="Senha"
+            />
+          </div>
+          <strong class="fade-sucesso">{{ msgErro }}</strong>
+          <input type="submit" value="Acessar" class="botao-login" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

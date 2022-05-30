@@ -1,0 +1,113 @@
+<div>
+  <div
+    *ngIf="msgSucesso"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>{{ msgSucesso }}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div
+    *ngIf="msgErro"
+    class="alert alert-danger alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>{{ msgErro }}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="pb-2">
+    <a href="http://localhost:4200/cursos">
+      <button type="button" class="btn btn-outline-primary botao-voltar">
+        Retornar a lista
+      </button>
+    </a>
+  </div>
+
+  <form>
+    <div class="row align-items-center">
+      <div class="col-md-6 pt-2" [formGroup]="userForm">
+        <span class="input-group-text" id="inputGroup-sizing-default"
+          >Nome do curso</span
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nome"
+          placeholder="Digite um nome para o curso."
+        />
+      </div>
+      <div class="col-md-6 pt-2" [formGroup]="userForm">
+        <label class="input-group-text" for="InputSala">Professores</label>
+        <select class="form-select" id="InputSala" formControlName="professor">
+          <option selected [value]="null">Selecione o professor</option>
+          <option *ngFor="let professor of professores">
+            {{ professor.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <form class="row align-items-center pt-5">
+      <div class="col-6" [formGroup]="userForm">
+        <label class="input-group-text" for="InputSala">Sala</label>
+        <select class="form-select" id="InputSala" formControlName="sala">
+          <option selected [value]="null">Selecione a sala</option>
+          <option *ngFor="let sala of salas">{{ sala.numero }}</option>
+        </select>
+      </div>
+      <div class="col-lg-3 col-md-6 pt-2" [formGroup]="userForm">
+        <label for="InputInicio" class="input-group-text"
+          >Escolha o horário de ínicio</label
+        >
+        <input
+          type="time"
+          id="InputInicio"
+          formControlName="inicio"
+          class="form-control"
+          tabindex="27"
+        />
+      </div>
+      <div class="col-lg-3 col-md-6 pt-2" [formGroup]="userForm">
+        <label for="InputFim" class="input-group-text"
+          >Escolha o horário do fim</label
+        >
+        <input
+          type="time"
+          id="InputFim"
+          formControlName="fim"
+          class="form-control"
+          tabindex="27"
+        />
+      </div>
+    </form>
+
+    <div class="pt-4 p-b-70" *ngIf="!getParamid">
+      <input
+        type="submit"
+        class="botao-criar"
+        (click)="userSubmit()"
+        value="Criar curso"
+      />
+    </div>
+
+    <div class="pt-4 p-b-70" *ngIf="getParamid">
+      <input
+        type="submit"
+        class="botao-criar"
+        (click)="userUpdate()"
+        value="Editar curso"
+      />
+    </div>
+  </form>
+</div>

@@ -1,0 +1,108 @@
+input {
+  outline: none;
+  border: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.limitador {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.conteudo-login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.tamanho-login {
+  width: 390px;
+  border-radius: 10px;
+  position: relative;
+  padding-top: 50;
+  padding-bottom: 90;
+}
+
+.titulo-login {
+  font-size: 30px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 51px;
+  width: 100%;
+  display: block;
+}
+
+.conteudo-input-email {
+  width: 100%;
+  background-color: #e6e6e6;
+  border: 1px solid transparent;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.conteudo-input-senha {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #e6e6e6;
+  border: 1px solid transparent;
+}
+
+.input-format {
+  color: #403866;
+  font-size: 18px;
+  width: 100%;
+  background: transparent;
+  height: 62px;
+  padding: 0 20px 0 38px;
+}
+
+.botao-login {
+  margin-top: 1rem;
+  font-family: "Silian Rail";
+  font-size: 16px;
+  color: white;
+  line-height: 1.2;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 62px;
+  background-color: #e8590c;
+  border-radius: 0px 0px 3px 3px;
+  transition: all 0.4s;
+  border-radius: 10rem;
+}
+
+.botao-login:hover {
+  background-color: #b73705;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-sucesso {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
