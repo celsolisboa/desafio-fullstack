@@ -1,0 +1,88 @@
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+header h3 {
+    font-family: Tahoma;
+    font-weight: lighter;
+    font-size: 25px;
+    position: relative;
+}
+
+header button {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+header button span {
+    font-size: 45px;
+}
+
+
+main{
+    width: 100%;
+    max-width: 80%;
+    margin: 2% auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main .box-curso {
+    margin: 10px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+main .box-curso .box-info-horario,
+main .box-curso .box-info-professores{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main .box-curso .box-info-professores h4{
+    font-size: 20px;
+}
+
+main .box-curso .box-info-professores h4,h5,
+main .box-curso .box-info-horario h5{
+    font-weight: lighter;
+}
+
+main .box-curso .box-info-professores h4,
+main .box-curso .box-info-horario button{
+    margin-bottom: 15px;
+}
+main .box-curso .box-info-horario button{
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    text-align: right;
+}

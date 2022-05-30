@@ -1,0 +1,54 @@
+.form-wrapper{
+    width: 50vw;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 1%;
+}
+
+.form-wrapper h1{
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5%;
+}
+
+.form-wrapper input[type=email],
+.form-wrapper input[type=password]{
+    width: 40%;
+    height: 35px;
+    display: block;
+    padding-left: 5px;
+    margin: 0  auto 2% auto;
+    border:  1px solid #000;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-wrapper button{
+    display: block;
+    margin: 0 auto;
+    background-color: #000;
+    color: #FFF;
+    padding: 5px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+@media screen  and (max-width: 768px ){
+    .form-wrapper input[type=email],
+.form-wrapper input[type=password]{
+   width: 70%;
+}
+}
+
+@media screen  and (max-width: 480px ){
+    .form-wrapper input[type=email],
+.form-wrapper input[type=password]{
+   width: 100%;
+}
+}

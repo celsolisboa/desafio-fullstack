@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cursos</title>
+</head>
+<body>
+    <header>
+        <h3>Cursos</h3>
+        <button>
+         <a href="/registrar"> 
+             <span>+</span>
+        </a>
+        </button>
+    </header>
+
+    <main id="main" *ngFor="let curso of cursos$ | async">
+        <div class="box-curso">
+            <div class="box-info-professores">
+                <h4>{{ curso.nome_curso}}</h4>
+                <h5>{{curso.nome_professor}}</h5>
+                <h5>{{curso.numero_sala}}</h5>
+            </div><!--box-info-professores  -->
+            <div class="box-info-horario">
+                <button (click)="delete(curso.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button><a href="/editar/?id={{curso.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></button>
+                <h5>{{curso.inicio}} às {{curso.fim}}</h5>
+            </div><!--box-info-horario-->
+        </div><!-- box-curso -->
+
+    </main>
+</body>
+</html>

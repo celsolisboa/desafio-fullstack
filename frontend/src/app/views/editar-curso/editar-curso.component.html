@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+</head>
+<body>
+    <header>
+        <h3>Detalhes do Curso</h3>
+    </header>
+
+    <main>
+        <form>
+            
+            <div class="box-esquerda">
+                <input type="text" name="nome_curso" id="nome_curso"  value="{{curso}}"  placeholder="Nome do Curso" #nome_curso/>
+                <select name="sala" id="sala"  (change)="selectChangeHandler($event)"  #sala>
+                    <option value="">Salas</option>
+                    <option selected value="{{salaID}}">{{numeroSala}}</option>
+                    <option *ngFor="let sala of salas$ | async" value="{{sala.id}}">{{sala.numero_sala}}</option>
+                </select>
+            </div>
+
+            <div class="box-direita">
+                
+                <select name="prof" id="prof"   (change)="selectChangeHandlerSala($event)"  #prof>
+                    <option value="">Professores</option>
+                    <option selected value="{{professorID}}">{{nomeProfessor}}</option>
+                <!--     <option selected value="{{professorID}}">{{professorID}}</option> -->
+                    <option *ngFor="let professor of professores$ | async" value="{{professor.id}}">{{professor.nome_professor}}</option>
+                </select>
+    
+              <div class="box-inputs">
+                <input type="text" name="inicio" id="inicio" value="{{inicioCurso}}"  placeholder="Início" #inicio>
+                <input type="text" name="fim"  id="fim" value="{{fimCurso}}" placeholder="Fim" #fim>
+              </div>
+    
+            </div>
+            <button type="submit"  (click)="atualizarCursoPorId($event, idCurso, nome_curso.value, inicio.value, fim.value)">Salvar</button>
+        </form>
+    </main>
+</body>
+</html>
