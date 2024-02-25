@@ -37,7 +37,7 @@ const CreateCourse = () => {
             end
         });
         try {
-            const body = { curso: course, professor: teacher.map(option => option.label).join(','), sala: room.map(option => option.label)[0], horainicio: start, horatermino: end };
+            const body = { curso: course, professor: teacher.map(option => option.label).join(' e '), sala: room.map(option => option.label).join(' e '), horainicio: start, horatermino: end };
             const response = await fetch('http://localhost:4000/detalhes', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
