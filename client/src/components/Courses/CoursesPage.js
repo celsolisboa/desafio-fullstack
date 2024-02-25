@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './CoursesPageStyle.css';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const CursosPage = () => {
     const [courses, setCourses] = useState([]);
@@ -36,14 +37,16 @@ const CursosPage = () => {
         <div>
             <div id='title_course'>
                 <h2>Cursos</h2>
-                <FaPlus size={40} style={{ marginRight: '10px', cursor: 'pointer' }} />
+                <Link to='/detalhes'>
+                    <FaPlus size={40} style={{ marginRight: '10px', cursor: 'pointer', color: 'black' }} />
+                </Link>
             </div>
             <div id='container_courses'>
                 {courses.map((course) => (
                     <div key={course.id} id='box_courses'>
                         <div id='course_name'>
                             <h3>{course.curso}</h3>
-                            <FaRegTrashCan style={{ cursor: 'pointer' }} onClick={() => deleteCourse(course.id)} />
+                            <FaRegTrashCan size={30} style={{ cursor: 'pointer' }} onClick={() => deleteCourse(course.id)} />
                         </div>
                         <div id='teacher'>
                             <p>{course.professor}</p>

@@ -8,9 +8,8 @@
 }
 
 #title_course h2 {
-    /* margin: 0; */
-    flex-grow: 1; /* Allow the text to expand and take up available space */
-    text-align: center; /* Center the text horizontally */
+    flex-grow: 1;
+    text-align: center;
     margin-left: 20px;
     font-size: 34px;
     font-weight: 400;
