@@ -32,6 +32,22 @@ app.post('/detalhes', async (req, res) => {
     }
 });
 
+// update a course
+app.put('/detalhes/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { curso, professor, sala, horainicio, horatermino } = req.body;
+        const updateCourse = await pool.query(
+            'UPDATE grade_academica SET curso = $1, professor = $2, sala = $3, horainicio = $4, horatermino = $5 WHERE id = $6',
+            [curso, professor, sala, horainicio, horatermino, id]
+        );
+        res.json('Curso atualizado com sucesso!');
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+
 app.listen(4000, () => {
     console.log('Server is running on port 4000');
 });
