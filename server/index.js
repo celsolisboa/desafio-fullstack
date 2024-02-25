@@ -47,6 +47,17 @@ app.put('/detalhes/:id', async (req, res) => {
     }
 });
 
+// delete a course
+app.delete('/cursos/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteCourse = await pool.query('DELETE FROM grade_academica WHERE id = $1', [id]);
+        res.json('Curso deletado com sucesso!');
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 
 app.listen(4000, () => {
     console.log('Server is running on port 4000');
