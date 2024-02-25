@@ -1,0 +1,63 @@
+#title_course {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DDDDDD;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+#title_course h2 {
+    /* margin: 0; */
+    flex-grow: 1; /* Allow the text to expand and take up available space */
+    text-align: center; /* Center the text horizontally */
+    margin-left: 20px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+#course_name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#room_hour_div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#hours {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#teacher {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#container_courses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#box_courses {
+    border: 3px solid black;
+    border-radius: 6px;
+    width: calc(50% - 40px); /* Initially set width to occupy 50% of the container */
+    margin-bottom: 20px; /* Add some margin between boxes */
+    padding: 10px;
+}
+
+@media (max-width: 800px) {
+    #box_courses {
+        width: calc(100% - 40px); /* On screens less than 800px wide, set width to 100% */
+    }
+}
