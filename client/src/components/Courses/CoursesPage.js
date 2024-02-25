@@ -17,6 +17,17 @@ const CursosPage = () => {
         }
     };
 
+    const deleteCourse = async (id) => {
+        try {
+            await fetch(`http://localhost:4000/cursos/${id}`, {
+                method: 'DELETE',
+            });
+            setCourses(courses.filter((course) => course.id !== id));
+        } catch (error) {
+            console.error('Erro ao deletar curso:', error);
+        }
+    }
+
     useEffect(() => {
         getCourses();
     }, []);
@@ -32,7 +43,7 @@ const CursosPage = () => {
                     <div key={course.id} id='box_courses'>
                         <div id='course_name'>
                             <h3>{course.curso}</h3>
-                            <FaRegTrashCan style={{ cursor: 'pointer' }} />
+                            <FaRegTrashCan style={{ cursor: 'pointer' }} onClick={() => deleteCourse(course.id)} />
                         </div>
                         <div id='teacher'>
                             <p>{course.professor}</p>
