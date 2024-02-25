@@ -37,7 +37,7 @@ const CursosPage = () => {
         <div>
             <div id='title_course'>
                 <h2>Cursos</h2>
-                <Link to='/detalhes'>
+                <Link to='/cadastrar_curso'>
                     <FaPlus size={40} style={{ marginRight: '10px', cursor: 'pointer', color: 'black' }} />
                 </Link>
             </div>

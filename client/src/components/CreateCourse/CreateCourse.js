@@ -37,7 +37,7 @@ const CreateCourse = () => {
                 sala: room.map(option => option.label).join(' e '),
                 horainicio: start, horatermino: end
             };
-            const response = await fetch('http://localhost:4000/criar_curso', {
+            const response = await fetch('http://localhost:4000/cadastrar_curso', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
