@@ -19,7 +19,7 @@ app.get('/cursos', async (req, res) => {
 });
 
 // create a course
-app.post('/detalhes', async (req, res) => {
+app.post('/criar_curso', async (req, res) => {
     try {
         const { curso, professor, sala, horainicio, horatermino } = req.body;
         const newCourse = await pool.query(
@@ -33,7 +33,7 @@ app.post('/detalhes', async (req, res) => {
 });
 
 // update a course
-app.put('/detalhes/:id', async (req, res) => {
+app.put('/atualizar_curso/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { curso, professor, sala, horainicio, horatermino } = req.body;
