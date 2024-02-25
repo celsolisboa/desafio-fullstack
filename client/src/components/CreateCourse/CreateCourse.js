@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MultiSelect } from "react-multi-select-component";
 import './CreateCourseStyle.css';
 import { FaArrowLeft } from "react-icons/fa6";
+import InputMask from 'react-input-mask';
 
 const teacherOptions = [
     { label: 'Prof. Álvares de Azevedo', value: 'Prof. Álvares de Azevedo' },
@@ -26,28 +27,32 @@ const CreateCourse = () => {
     const [room, setRoom] = useState([]);
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const createCourse = async (e) => {
         e.preventDefault()
-        console.log('Dados do curso:', {
-            course,
-            teacher: teacher.map(option => option.label).join(','),
-            room: room.map(option => option.label)[0],
-            start,
-            end
-        });
         try {
             const body = {
                 curso: course, professor: teacher.map(option => option.label).join(' e '),
                 sala: room.map(option => option.label).join(' e '),
                 horainicio: start, horatermino: end
             };
-            const response = await fetch('http://localhost:4000/detalhes', {
+            const response = await fetch('http://localhost:4000/criar_curso', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
             })
             console.log(response);
+            setSuccessMessage('Curso cadastrado com sucesso!');
+            setCourse('');
+            setTeacher([]);
+            setRoom([]);
+            setStart('');
+            setEnd('');
+            // Limpar a mensagem de sucesso após 3 segundos
+            setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000);
         } catch (error) {
             console.error('Erro ao criar curso:', error);
         };
@@ -96,26 +101,31 @@ const CreateCourse = () => {
                     </div>
                     <div id='time_container'>
                         <div className="start">
-                            <input
-                                type="time"
-                                id="horaInicio"
+                            <InputMask
+                                id='horaInicio'
+                                mask="99:99"
+                                maskChar="_"
                                 value={start}
                                 onChange={(e) => setStart(e.target.value)}
+                                placeholder="Início"
                                 required
                             />
                         </div>
                         <div className="end">
-                            <input
-                                type="time"
-                                id="horaTermino"
+                            <InputMask
+                                id='horaTermino'
+                                mask="99:99"
+                                maskChar="_"
                                 value={end}
                                 onChange={(e) => setEnd(e.target.value)}
+                                placeholder="Fim"
                                 required
                             />
                         </div>
                     </div>
                 </div>
                 <button id='save-btn' type="submit" >Salvar</button>
+                {successMessage && <p>{successMessage}</p>}
             </form>
         </div>
     );
