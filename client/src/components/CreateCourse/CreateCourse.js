@@ -64,7 +64,7 @@ const CreateCourse = () => {
                 <Link to='/cursos'>
                     <FaArrowLeft size={40} style={{ marginLeft: '10px', cursor: 'pointer', color: 'black' }} />
                 </Link>
-                <h2>Cadastro de Curso</h2>
+                <h2>Detalhe do Curso</h2>
             </div>
             <form onSubmit={createCourse}>
                 <div id='container_1'>
