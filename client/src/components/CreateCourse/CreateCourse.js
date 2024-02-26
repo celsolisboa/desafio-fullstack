@@ -31,6 +31,14 @@ const CreateCourse = () => {
 
     const createCourse = async (e) => {
         e.preventDefault()
+        const isTeacherSelected = teacher.length > 0;
+        const isRoomSelected = room.length > 0;
+
+        if (!isTeacherSelected || !isRoomSelected) {
+            alert('Por favor, selecione pelo menos um professor e uma sala.');
+            return;
+        }
+
         try {
             const body = {
                 curso: course, professor: teacher.map(option => option.label).join(' e '),
