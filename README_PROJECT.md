@@ -14,7 +14,9 @@ O projeto tem como objetivo facilitar a administração dos cursos oferecidos po
 ## Funcionalidades principais
 
 **Login de usuário:**
-O acesso a plataforma somente é feito através de email e senha.
+O acesso a plataforma somente é feito através de email e senha Conforme abaixo:
+**Email:** test@example.com
+**Senha:** senha123
 
 **Cadastro de Cursos:**
 Permite o cadastro de novos cursos, incluindo informações como nome do curso, professores associados, salas e horários disponíveis
