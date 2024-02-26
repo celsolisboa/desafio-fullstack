@@ -28,16 +28,24 @@ const CreateCourse = () => {
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const createCourse = async (e) => {
         e.preventDefault()
+        // Verificar se pelo menos um professor foi selecionado
         const isTeacherSelected = teacher.length > 0;
+
+        // Verificar se pelo menos uma sala foi selecionada
         const isRoomSelected = room.length > 0;
 
+        // Se não houver professores ou salas selecionadas, exibir mensagem e impedir o envio dos dados
         if (!isTeacherSelected || !isRoomSelected) {
-            alert('Por favor, selecione pelo menos um professor e uma sala.');
+            setErrorMessage('Por favor, selecione pelo menos um professor e uma sala.');
             return;
         }
+
+        // Caso contrário, limpar a mensagem de erro e continuar com o envio dos dados
+        setErrorMessage('');
 
         try {
             const body = {
@@ -133,6 +141,7 @@ const CreateCourse = () => {
                     </div>
                 </div>
                 <button id='save-btn' type="submit" >Salvar</button>
+                {errorMessage && <p>{errorMessage}</p>}
                 {successMessage && <p>{successMessage}</p>}
             </form>
         </div>
