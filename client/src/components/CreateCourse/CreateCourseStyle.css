@@ -1,0 +1,108 @@
+.rmsc .gray {
+    color: black;
+}
+
+.rmsc .dropdown-heading {
+    width: 300px;
+}
+
+#disciplina {
+    width: 291px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-right: 20px;
+ }
+
+ #container_1, #container_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#horaInicio, #horaTermino {
+    width: 128px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#time_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+#save-btn {
+    margin-top: 20px;
+    width: 300px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.room_div {
+    margin-right: 20px;
+}
+
+#title_create_course {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DDDDDD;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+#title_create_course h2{
+    flex-grow: 1; /* Allow the text to expand and take up available space */
+    text-align: center; /* Center the text horizontally */
+    margin-left: 20px;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    #container_1, #container_2 {
+        flex-direction: column;
+    }
+
+    #disciplina {
+        margin-right: 0; /* Remove margin */
+        margin-bottom: 20px;
+    }
+
+    .room_div {
+        margin-right: 0;
+    }
+
+    #start, #end {
+        width: calc(100% - 10px); /* Adjust width to fit two inputs side by side */
+    }
+
+    #time_container {
+        margin-top: 20px;
+        flex-direction: row;
+        align-items: flex-start; /* Align start and end inputs to the left */
+    }
+
+    #save-btn {
+        min-width: 200px; /* Add a minimum width to keep the button size consistent */
+        margin-right: 0; /* Remove margin */
+    }
+}
